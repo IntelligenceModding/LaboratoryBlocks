@@ -1,0 +1,15 @@
+{
+    "ctm":{
+        "ctm_version": 1,
+        "type":"CTM",
+        "textures":[
+            "laboratoryblocks:block/oak_laboratory_floor-ctm"
+        ],
+        "extra": {
+            "connect_to": [
+                { "block": "laboratoryblocks:oak_laboratory_floor" },
+                { "block": "laboratoryblocks:enlighted_oak_laboratory_floor" }
+            ]
+        }
+    }
+}
