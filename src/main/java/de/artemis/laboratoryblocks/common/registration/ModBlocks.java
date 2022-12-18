@@ -49,10 +49,10 @@ public class ModBlocks {
     }
 
     public static final RegistryObject<LaboratoryBlock> LABORATORY_BLOCK = registerWithTab("laboratory_block",
-            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).requiresCorrectToolForDrops().sound(ModSoundType.LABORATORY_BLOCK)));
 
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LABORATORY_BLOCK = registerWithTab("enlighted_laboratory_block",
-            () -> new LaboratoryBlock(ModBlocks.LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.METAL).lightLevel((p_187433_) -> 5)));
+            () -> new LaboratoryBlock(ModBlocks.LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).requiresCorrectToolForDrops().sound(ModSoundType.LABORATORY_BLOCK).lightLevel((p_187433_) -> 5)));
 
     public static final RegistryObject<LaboratoryBlock> OAK_LABORATORY_FLOOR = registerWithTab("oak_laboratory_floor",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_OAK_LABORATORY_FLOOR, BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.WOOD)));

@@ -1,0 +1,32 @@
+{
+  "laboratory_block_break": {
+    "sounds": [
+      "laboratoryblocks:laboratory_block_break"
+    ],
+    "subtitle": "Laboratory Block Break"
+  },
+  "laboratory_block_fall": {
+    "sounds": [
+      "laboratoryblocks:laboratory_block_fall"
+    ],
+    "subtitle": "Laboratory Block Fall"
+  },
+  "laboratory_block_hit": {
+    "sounds": [
+      "laboratoryblocks:laboratory_block_hit"
+    ],
+    "subtitle": "Laboratory Block Hit"
+  },
+  "laboratory_block_place": {
+    "sounds": [
+      "laboratoryblocks:laboratory_block_place"
+    ],
+    "subtitle": "Laboratory Block Place"
+  },
+  "laboratory_block_step": {
+    "sounds": [
+      "laboratoryblocks:laboratory_block_step"
+    ],
+    "subtitle": "Laboratory Block Step"
+  }
+}
