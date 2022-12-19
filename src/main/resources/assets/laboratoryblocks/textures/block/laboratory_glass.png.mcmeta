@@ -8,8 +8,7 @@
         ],
         "extra": {
             "connect_to": [
-                { "block": "laboratoryblocks:laboratory_glass" },
-                { "block": "laboratoryblocks:enlighted_laboratory_glass" }
+                { "block": "laboratoryblocks:laboratory_glass" }
             ]
         }
     }
