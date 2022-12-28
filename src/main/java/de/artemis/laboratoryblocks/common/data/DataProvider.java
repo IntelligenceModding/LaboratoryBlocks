@@ -9,7 +9,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = LaboratoryBlocks.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = LaboratoryBlocks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataProvider {
 
     @SubscribeEvent
@@ -24,6 +24,7 @@ public class DataProvider {
         generator.addProvider(true, new RecipesProvider(generator));
         generator.addProvider(true, new SoundEventProvider(generator, existingFileHelper));
         generator.addProvider(true, new TagsProvider.BlockTagsProvider(generator, existingFileHelper));
+
     }
 
     public static String getRegistryName(Item item) {

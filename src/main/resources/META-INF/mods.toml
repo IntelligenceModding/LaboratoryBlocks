@@ -4,10 +4,10 @@ license = "All Rights Reserved"
 [[mods]]
 modId = "laboratoryblocks"
 version = "${file.jarVersion}"
-displayName = "LaboratoryBlocks"
+displayName = "Artemis' Laboratory Blocks"
 authors="Artemis"
 description = '''
-This mod adds futuristic and clean laboratory blocks
+This mod adds futuristic and clean looking laboratory blocks
 '''
 [[dependencies.laboratoryblocks]]
     modId = "forge"

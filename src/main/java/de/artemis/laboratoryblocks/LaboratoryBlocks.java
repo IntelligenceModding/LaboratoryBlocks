@@ -7,13 +7,9 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -21,13 +17,13 @@ import org.slf4j.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 
-@Mod(LaboratoryBlocks.MODID)
+@Mod(LaboratoryBlocks.MOD_ID)
 public class LaboratoryBlocks {
 
-    public static final String MODID = "laboratoryblocks";
+    public static final String MOD_ID = "laboratoryblocks";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public static final CreativeModeTab INVENTORY_TAB = new CreativeModeTab(MODID) {
+    public static final CreativeModeTab INVENTORY_TAB = new CreativeModeTab(MOD_ID) {
         @Override
         public @NotNull ItemStack makeIcon() {
             return new ItemStack(ModBlocks.LABORATORY_BLOCK.get());

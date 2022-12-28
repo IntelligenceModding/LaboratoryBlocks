@@ -2,14 +2,11 @@ package de.artemis.laboratoryblocks.common.data;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
-import de.artemis.laboratoryblocks.common.registration.ModSoundEvents;
-import de.artemis.laboratoryblocks.common.registration.ModSoundType;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.MossBlock;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,7 +18,7 @@ public class TagsProvider {
 
         @SuppressWarnings("deprecation")
         protected BlockTagsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-            super(generator, Registry.BLOCK, LaboratoryBlocks.MODID, existingFileHelper);
+            super(generator, Registry.BLOCK, LaboratoryBlocks.MOD_ID, existingFileHelper);
             this.generator = generator;
         }
 

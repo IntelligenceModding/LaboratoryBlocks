@@ -3,7 +3,6 @@ package de.artemis.laboratoryblocks.common.registration;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.common.util.ForgeSoundType;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModSoundEvents {
@@ -12,7 +11,7 @@ public class ModSoundEvents {
     }
 
     private static RegistryObject<SoundEvent> register(String resourceLocation) {
-        return Registration.SOUND_EVENTS.register(resourceLocation,  () -> new SoundEvent(new ResourceLocation(LaboratoryBlocks.MODID, resourceLocation)));
+        return Registration.SOUND_EVENTS.register(resourceLocation,  () -> new SoundEvent(new ResourceLocation(LaboratoryBlocks.MOD_ID, resourceLocation)));
     }
 
     public static final RegistryObject<SoundEvent> LABORATORY_BLOCK_BREAK = register("laboratory_block_break");

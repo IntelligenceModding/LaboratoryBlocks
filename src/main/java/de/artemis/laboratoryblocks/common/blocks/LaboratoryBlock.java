@@ -1,5 +1,6 @@
 package de.artemis.laboratoryblocks.common.blocks;
 
+import de.artemis.laboratoryblocks.common.registration.ModParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -30,6 +31,29 @@ public class LaboratoryBlock extends Block {
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
+        RandomSource randomsource = level.getRandom();
+
+        if (level.isClientSide) {
+            if (itemStackInHand.is(Items.GLOWSTONE_DUST) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("enlighted")) {
+                level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY(), blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY(), blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY() + 1.0F, blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY() + 1.0F, blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY(), blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY(), blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY() + 1.0F, blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY() + 1.0F, blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+            } else if (itemStackInHand.is(Tags.Items.TOOLS_PICKAXES) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("enlighted")) {
+                level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY(), blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY(), blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY() + 1.0F, blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY() + 1.0F, blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY(), blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY(), blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY() + 1.0F, blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+                level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY() + 1.0F, blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
+            }
+        }
 
         if (itemStackInHand.is(Items.GLOWSTONE_DUST) || itemStackInHand.is(Tags.Items.TOOLS_PICKAXES)) {
             if (itemStackInHand.is(Items.GLOWSTONE_DUST) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("enlighted")) {
