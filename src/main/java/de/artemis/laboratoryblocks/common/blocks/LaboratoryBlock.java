@@ -70,6 +70,7 @@ public class LaboratoryBlock extends Block {
                         itemEntity.setDefaultPickUpDelay();
                         level.addFreshEntity(itemEntity);
                     }
+
                     itemStackInHand.hurt(1, RandomSource.create(), null);
                 }
                 level.setBlock(blockPos, block.get().defaultBlockState(), 3);
@@ -77,7 +78,6 @@ public class LaboratoryBlock extends Block {
                 return InteractionResult.SUCCESS;
             }
         }
-
         return InteractionResult.FAIL;
     }
 }

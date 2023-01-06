@@ -2,23 +2,11 @@
   "values": [
     "laboratoryblocks:laboratory_block",
     "laboratoryblocks:enlighted_laboratory_block",
-    "laboratoryblocks:oak_laboratory_floor",
-    "laboratoryblocks:enlighted_oak_laboratory_floor",
-    "laboratoryblocks:spruce_laboratory_floor",
-    "laboratoryblocks:enlighted_spruce_laboratory_floor",
-    "laboratoryblocks:birch_laboratory_floor",
-    "laboratoryblocks:enlighted_birch_laboratory_floor",
-    "laboratoryblocks:dark_oak_laboratory_floor",
-    "laboratoryblocks:enlighted_dark_oak_laboratory_floor",
-    "laboratoryblocks:acacia_laboratory_floor",
-    "laboratoryblocks:enlighted_acacia_laboratory_floor",
-    "laboratoryblocks:jungle_laboratory_floor",
-    "laboratoryblocks:enlighted_jungle_laboratory_floor",
-    "laboratoryblocks:mangrove_laboratory_floor",
-    "laboratoryblocks:enlighted_mangrove_laboratory_floor",
-    "laboratoryblocks:crimson_laboratory_floor",
-    "laboratoryblocks:enlighted_crimson_laboratory_floor",
-    "laboratoryblocks:warped_laboratory_floor",
-    "laboratoryblocks:enlighted_warped_laboratory_floor"
+    "laboratoryblocks:laboratory_tiles",
+    "laboratoryblocks:enlighted_laboratory_tiles",
+    "laboratoryblocks:gray_laboratory_tiles",
+    "laboratoryblocks:enlighted_gray_laboratory_tiles",
+    "laboratoryblocks:mixed_laboratory_tiles",
+    "laboratoryblocks:enlighted_mixed_laboratory_tiles"
   ]
 }

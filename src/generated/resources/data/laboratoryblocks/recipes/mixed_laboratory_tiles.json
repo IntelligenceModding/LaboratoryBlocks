@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:gray_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_tiles"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "laboratoryblocks:mixed_laboratory_tiles"
+  }
+}

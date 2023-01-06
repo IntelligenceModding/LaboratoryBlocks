@@ -1,12 +1,12 @@
 package de.artemis.laboratoryblocks.common.data;
 
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
+import de.artemis.laboratoryblocks.common.registration.ModItems;
+import de.artemis.laboratoryblocks.common.registration.ModTags;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
@@ -20,8 +20,20 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
 
     @Override
     protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
+        ShapelessRecipeBuilder.shapeless(ModItems.STARCH.get(), 8).requires(Ingredient.of(ModTags.Item.STARCH_INGREDIENT), 4).unlockedBy("has_sugar", has(Items.SUGAR)).unlockedBy("has_sugar_cane", has(Items.SUGAR_CANE)).unlockedBy("has_beetroot", has(Items.BEETROOT)).unlockedBy("has_wheat", has(Items.WHEAT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModItems.COMPRESSED_STARCH.get(), 1).define('A', ModItems.STARCH.get()).pattern("AA").pattern("AA").unlockedBy("has_starch", has(ModItems.STARCH.get())).save(consumer);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.COMPRESSED_STARCH.get()), ModItems.PLA_SHEETS.get().asItem(), 0.35F, 200).unlockedBy("has_compressed_starch", has(ModItems.COMPRESSED_STARCH.get())).save(consumer);
+
         ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_BLOCK.get(), 8).define('A', Blocks.STONE).define('B', Items.QUARTZ).pattern("AAA").pattern("ABA").pattern("AAA").unlockedBy("has_stone", has(Blocks.STONE)).unlockedBy("has_quartz", has(Items.QUARTZ)).save(consumer);
         ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get(), 1).requires(ModBlocks.LABORATORY_BLOCK.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_TILES.get(), 8).define('A', ModBlocks.LABORATORY_BLOCK.get()).pattern("AA").pattern("AA").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_LABORATORY_TILES.get(), 1).requires(ModBlocks.LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_laboratory_tiles", has(ModBlocks.LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.GRAY_LABORATORY_TILES.get(), 8).define('A', ModBlocks.LABORATORY_TILES.get()).define('B', Items.GRAY_DYE).pattern("AAA").pattern("ABA").pattern("AAA").unlockedBy("has_laboratory_tiles", has(ModBlocks.LABORATORY_TILES.get())).unlockedBy("has_gray_dye", has(Items.GRAY_DYE)).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_GRAY_LABORATORY_TILES.get(), 1).requires(ModBlocks.GRAY_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_gray_laboratory_tiles", has(ModBlocks.GRAY_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.MIXED_LABORATORY_TILES.get(), 2).requires(ModBlocks.GRAY_LABORATORY_TILES.get()).requires(ModBlocks.LABORATORY_TILES.get()).unlockedBy("has_gray_laboratory_tiles", has(ModBlocks.GRAY_LABORATORY_TILES.get())).unlockedBy("has_laboratory_tiles", has(ModBlocks.LABORATORY_TILES.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_MIXED_LABORATORY_TILES.get(), 1).requires(ModBlocks.MIXED_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_mixed_laboratory_tiles", has(ModBlocks.MIXED_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+
         ShapedRecipeBuilder.shaped(ModBlocks.OAK_LABORATORY_FLOOR.get(), 8).define('A', ModBlocks.LABORATORY_BLOCK.get()).define('B', Blocks.OAK_PLANKS).pattern("AAA").pattern("ABA").pattern("AAA").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).unlockedBy("has_oak_planks", has(Blocks.OAK_PLANKS)).save(consumer);
         ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_OAK_LABORATORY_FLOOR.get(), 1).requires(ModBlocks.OAK_LABORATORY_FLOOR.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_oak_laboratory_floor", has(ModBlocks.OAK_LABORATORY_FLOOR.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
         ShapedRecipeBuilder.shaped(ModBlocks.SPRUCE_LABORATORY_FLOOR.get(), 8).define('A', ModBlocks.LABORATORY_BLOCK.get()).define('B', Blocks.SPRUCE_PLANKS).pattern("AAA").pattern("ABA").pattern("AAA").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).unlockedBy("has_spruce_planks", has(Blocks.SPRUCE_PLANKS)).save(consumer);
@@ -40,6 +52,25 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
         ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get(), 1).requires(ModBlocks.OAK_LABORATORY_FLOOR.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_crimson_laboratory_floor", has(ModBlocks.CRIMSON_LABORATORY_FLOOR.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
         ShapedRecipeBuilder.shaped(ModBlocks.WARPED_LABORATORY_FLOOR.get(), 8).define('A', ModBlocks.LABORATORY_BLOCK.get()).define('B', Blocks.WARPED_PLANKS).pattern("AAA").pattern("ABA").pattern("AAA").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).unlockedBy("has_warped_planks", has(Blocks.WARPED_PLANKS)).save(consumer);
         ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_WARPED_LABORATORY_FLOOR.get(), 1).requires(ModBlocks.WARPED_LABORATORY_FLOOR.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_warped_laboratory_floor", has(ModBlocks.WARPED_LABORATORY_FLOOR.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.OAK_LABORATORY_TILES.get(), 8).define('A', ModBlocks.OAK_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_oak_laboratory_floor", has(ModBlocks.OAK_LABORATORY_FLOOR.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_OAK_LABORATORY_TILES.get(), 1).requires(ModBlocks.OAK_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_oak_laboratory_tiles", has(ModBlocks.OAK_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.SPRUCE_LABORATORY_TILES.get(), 8).define('A', ModBlocks.SPRUCE_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_spruce_laboratory_floor", has(ModBlocks.SPRUCE_LABORATORY_FLOOR.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_SPRUCE_LABORATORY_TILES.get(), 1).requires(ModBlocks.SPRUCE_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_spruce_laboratory_tiles", has(ModBlocks.SPRUCE_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.BIRCH_LABORATORY_TILES.get(), 8).define('A', ModBlocks.BIRCH_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_birch_laboratory_floor", has(ModBlocks.BIRCH_LABORATORY_FLOOR.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_BIRCH_LABORATORY_TILES.get(), 1).requires(ModBlocks.BIRCH_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_birch_laboratory_tiles", has(ModBlocks.BIRCH_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.DARK_OAK_LABORATORY_TILES.get(), 8).define('A', ModBlocks.DARK_OAK_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_oak_laboratory_floor", has(ModBlocks.DARK_OAK_LABORATORY_FLOOR.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_DARK_OAK_LABORATORY_TILES.get(), 1).requires(ModBlocks.DARK_OAK_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_dark_oak_laboratory_tiles", has(ModBlocks.DARK_OAK_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.ACACIA_LABORATORY_TILES.get(), 8).define('A', ModBlocks.ACACIA_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_acacia_laboratory_floor", has(ModBlocks.ACACIA_LABORATORY_FLOOR.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_TILES.get(), 1).requires(ModBlocks.ACACIA_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_acacia_laboratory_tiles", has(ModBlocks.ACACIA_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.JUNGLE_LABORATORY_TILES.get(), 8).define('A', ModBlocks.JUNGLE_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_jungle_laboratory_floor", has(ModBlocks.JUNGLE_LABORATORY_FLOOR.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_TILES.get(), 1).requires(ModBlocks.JUNGLE_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_jungle_laboratory_tiles", has(ModBlocks.JUNGLE_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.MANGROVE_LABORATORY_TILES.get(), 8).define('A', ModBlocks.MANGROVE_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_mangrove_laboratory_floor", has(ModBlocks.MANGROVE_LABORATORY_FLOOR.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_TILES.get(), 1).requires(ModBlocks.MANGROVE_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_mangrove_laboratory_tiles", has(ModBlocks.MANGROVE_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.CRIMSON_LABORATORY_TILES.get(), 8).define('A', ModBlocks.CRIMSON_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_crimson_laboratory_floor", has(ModBlocks.CRIMSON_LABORATORY_FLOOR.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get(), 1).requires(ModBlocks.CRIMSON_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_crimson_laboratory_tiles", has(ModBlocks.CRIMSON_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.WARPED_LABORATORY_TILES.get(), 8).define('A', ModBlocks.WARPED_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_warped_laboratory_floor", has(ModBlocks.WARPED_LABORATORY_FLOOR.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get(), 1).requires(ModBlocks.WARPED_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_warped_laboratory_tiles", has(ModBlocks.WARPED_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
 
     }
 }

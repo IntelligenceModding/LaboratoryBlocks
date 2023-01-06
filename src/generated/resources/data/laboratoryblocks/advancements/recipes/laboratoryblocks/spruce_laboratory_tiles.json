@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_spruce_laboratory_floor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:spruce_laboratory_floor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "laboratoryblocks:spruce_laboratory_tiles"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_spruce_laboratory_floor",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:spruce_laboratory_tiles"
+    ]
+  }
+}

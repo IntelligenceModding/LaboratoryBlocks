@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "laboratoryblocks:block/enlighted_mangrove_laboratory_tiles"
+  }
+}

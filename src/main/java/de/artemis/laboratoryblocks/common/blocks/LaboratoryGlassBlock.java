@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.Tags;
-import org.apache.logging.log4j.message.ExitMessage;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -78,7 +77,6 @@ public class LaboratoryGlassBlock extends GlassBlock {
                 return InteractionResult.SUCCESS;
             }
         }
-
         return InteractionResult.FAIL;
     }
 }

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "laboratoryblocks:block/oak_laboratory_tiles"
+    }
+  }
+}

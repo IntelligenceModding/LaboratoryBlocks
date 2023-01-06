@@ -24,6 +24,7 @@ public class DataProvider {
         generator.addProvider(true, new RecipesProvider(generator));
         generator.addProvider(true, new SoundEventProvider(generator, existingFileHelper));
         generator.addProvider(true, new TagsProvider.BlockTagsProvider(generator, existingFileHelper));
+        generator.addProvider(true, new TagsProvider.ItemTagsProvider(generator, existingFileHelper));
 
     }
 

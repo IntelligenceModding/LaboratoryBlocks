@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "laboratoryblocks:starch_ingredient"
+    },
+    {
+      "tag": "laboratoryblocks:starch_ingredient"
+    },
+    {
+      "tag": "laboratoryblocks:starch_ingredient"
+    },
+    {
+      "tag": "laboratoryblocks:starch_ingredient"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:starch"
+  }
+}
