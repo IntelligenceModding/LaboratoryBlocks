@@ -17,6 +17,15 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.STARCH.get(), "Starch");
         add(ModItems.COMPRESSED_STARCH.get(), "Compressed Starch");
         add(ModItems.PLA_SHEETS.get(), "PLA Sheets");
+        add(ModBlocks.PLA_BLOCK.get(), "PLA Block");
+        add(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), "Enlighted PLA Block");
+        add(ModBlocks.PLA_TILES.get(), "PLA Tiles");
+        add(ModBlocks.ENLIGHTED_PLA_TILES.get(), "Enlighted PLA Tiles");
+
+        add(ModBlocks.PLA_FLOORING.get(), "PLA Flooring");
+        add(ModBlocks.ENLIGHTED_PLA_FLOORING.get(), "Enlighted PLA Flooring");
+        add(ModBlocks.TILED_PLA_FLOORING.get(), "Tiled PLA Flooring");
+        add(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING.get(), "Enlighted Tiled PLA Flooring");
 
         add(ModBlocks.LABORATORY_BLOCK.get(), "Laboratory Block");
         add(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get(), "Enlighted Laboratory Block");

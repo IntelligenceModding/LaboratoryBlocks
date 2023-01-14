@@ -2,6 +2,7 @@ package de.artemis.laboratoryblocks.common.registration;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.blocks.LaboratoryBlock;
+import de.artemis.laboratoryblocks.common.blocks.LaboratoryCarpetBlock;
 import de.artemis.laboratoryblocks.common.blocks.LaboratoryGlassBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
@@ -45,6 +46,30 @@ public class ModBlocks {
 
     public static void register() {
     }
+
+    public static final RegistryObject<LaboratoryBlock> PLA_BLOCK = registerWithTab("pla_block",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_PLA_BLOCK, BlockBehaviour.Properties.of(Material.STONE).strength(0.5F, 0.5F).sound(SoundType.SCAFFOLDING)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_PLA_BLOCK = registerWithTab("enlighted_pla_block",
+            () -> new LaboratoryBlock(ModBlocks.PLA_BLOCK, BlockBehaviour.Properties.of(Material.STONE).strength(0.5F, 0.5F).sound(SoundType.SCAFFOLDING).lightLevel((p_187433_) -> 5)));
+
+    public static final RegistryObject<LaboratoryBlock> PLA_TILES = registerWithTab("pla_tiles",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_PLA_TILES, BlockBehaviour.Properties.of(Material.STONE).strength(0.5F, 0.5F).sound(SoundType.SCAFFOLDING)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_PLA_TILES = registerWithTab("enlighted_pla_tiles",
+            () -> new LaboratoryBlock(ModBlocks.PLA_TILES, BlockBehaviour.Properties.of(Material.STONE).strength(0.5F, 0.5F).sound(SoundType.SCAFFOLDING).lightLevel((p_187433_) -> 5)));
+
+    public static final RegistryObject<LaboratoryCarpetBlock> PLA_FLOORING = registerWithTab("pla_flooring",
+            () -> new LaboratoryCarpetBlock(ModBlocks.ENLIGHTED_PLA_FLOORING, BlockBehaviour.Properties.of(Material.CLOTH_DECORATION).strength(0.1F).sound(SoundType.SCAFFOLDING)));
+
+    public static final RegistryObject<LaboratoryCarpetBlock> ENLIGHTED_PLA_FLOORING = registerWithTab("enlighted_pla_flooring",
+            () -> new LaboratoryCarpetBlock(ModBlocks.PLA_FLOORING, BlockBehaviour.Properties.of(Material.CLOTH_DECORATION).strength(0.1F).sound(SoundType.SCAFFOLDING).lightLevel((p_187433_) -> 5)));
+
+    public static final RegistryObject<LaboratoryCarpetBlock> TILED_PLA_FLOORING = registerWithTab("tiled_pla_flooring",
+            () -> new LaboratoryCarpetBlock(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING, BlockBehaviour.Properties.of(Material.CLOTH_DECORATION).strength(0.1F).sound(SoundType.SCAFFOLDING)));
+
+    public static final RegistryObject<LaboratoryCarpetBlock> ENLIGHTED_TILED_PLA_FLOORING = registerWithTab("enlighted_tiled_pla_flooring",
+            () -> new LaboratoryCarpetBlock(ModBlocks.TILED_PLA_FLOORING, BlockBehaviour.Properties.of(Material.CLOTH_DECORATION).strength(0.1F).sound(SoundType.SCAFFOLDING).lightLevel((p_187433_) -> 5)));
 
     public static final RegistryObject<LaboratoryBlock> LABORATORY_BLOCK = registerWithTab("laboratory_block",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));

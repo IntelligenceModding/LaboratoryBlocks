@@ -1,0 +1,15 @@
+{
+    "ctm":{
+        "ctm_version": 1,
+        "type":"CTM",
+        "textures":[
+            "laboratoryblocks:block/pla_block-ctm"
+        ],
+        "extra": {
+            "connect_to": [
+                { "block": "laboratoryblocks:pla_block" },
+                { "block": "laboratoryblocks:enlighted_pla_block" }
+            ]
+        }
+    }
+}

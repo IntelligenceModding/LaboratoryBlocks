@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "laboratoryblocks:block/enlighted_pla_block"
+  }
+}

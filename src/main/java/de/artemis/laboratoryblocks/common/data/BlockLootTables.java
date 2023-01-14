@@ -13,8 +13,19 @@ public class BlockLootTables extends BlockLoot {
 
     @Override
     protected void addTables() {
+        dropSelf(ModBlocks.PLA_BLOCK.get());
+        dropSelf(ModBlocks.ENLIGHTED_PLA_BLOCK.get());
+        dropSelf(ModBlocks.PLA_TILES.get());
+        dropSelf(ModBlocks.ENLIGHTED_PLA_TILES.get());
+
+        dropSelf(ModBlocks.PLA_FLOORING.get());
+        dropSelf(ModBlocks.ENLIGHTED_PLA_FLOORING.get());
+        dropSelf(ModBlocks.TILED_PLA_FLOORING.get());
+        dropSelf(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING.get());
+
         dropSelf(ModBlocks.LABORATORY_BLOCK.get());
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get());
+
         dropSelf(ModBlocks.LABORATORY_TILES.get());
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_TILES.get());
         dropSelf(ModBlocks.GRAY_LABORATORY_TILES.get());

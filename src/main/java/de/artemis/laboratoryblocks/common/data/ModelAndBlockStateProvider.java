@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.PipeBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -71,6 +72,16 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         simpleBlockWithRenderType(ModBlocks.LABORATORY_GLASS.get(), "cutout");
         enlightedBlockWithRenderType(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass"), "cutout");
 
+        simpleBlock(ModBlocks.PLA_BLOCK.get());
+        enlightedBlock(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
+        simpleBlock(ModBlocks.PLA_TILES.get());
+        enlightedBlock(ModBlocks.ENLIGHTED_PLA_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_tiles"));
+
+        carpetBlock(ModBlocks.PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_flooring"));
+        carpetBlock(ModBlocks.ENLIGHTED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_flooring"));
+        carpetBlock(ModBlocks.TILED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/tiled_pla_flooring"));
+        carpetBlock(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/tiled_pla_flooring"));
+
     }
 
     public void enlightedBlock(Block block, ResourceLocation texture) {
@@ -91,4 +102,8 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
                 .texture("all", texture).renderType(renderType));
     }
 
+    public void carpetBlock(Block block, ResourceLocation texture) {
+        ModelFile block_model = models().withExistingParent(DataProvider.getRegistryName(block.asItem()), "block/carpet").texture("wool", texture);
+        getVariantBuilder(block).partialState().setModels(ConfiguredModel.builder().modelFile(block_model).build());
+    }
 }
