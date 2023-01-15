@@ -5,9 +5,12 @@ license = "All Rights Reserved"
 modId = "laboratoryblocks"
 version = "${file.jarVersion}"
 displayName = "Artemis' Laboratory Blocks"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/artemis-laboratory-blocks"
+logoFile = "artemis_laboratory_blocks-logo.png"
+logoBlur = true
 authors="Artemis"
 description = '''
-This mod adds futuristic and clean looking laboratory blocks
+Get ready to upgrade your builds! This mod adds modern and futuristic looking laboratory blocks. Plus, it's compatible with CTM (ConnectedTexturesMod) for even better visuals.
 '''
 [[dependencies.laboratoryblocks]]
     modId = "forge"
@@ -21,3 +24,9 @@ This mod adds futuristic and clean looking laboratory blocks
     versionRange = "[1.18,1.19)"
     ordering = "NONE"
     side = "BOTH"
+[[dependencies.laboratoryblocks]]
+    modId = "ctm"
+    mandatory = false
+    versionRange = "[1.1.5+5,)"
+    ordering = "NONE"
+    side = "CLIENT"
