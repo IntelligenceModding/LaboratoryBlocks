@@ -48,8 +48,6 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_FLOOR.get(), "Enlighted Jungle Laboratory Floor");
         add(ModBlocks.ACACIA_LABORATORY_FLOOR.get(), "Acacia Laboratory Floor");
         add(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_FLOOR.get(), "Enlighted Acacia Laboratory Floor");
-        add(ModBlocks.MANGROVE_LABORATORY_FLOOR.get(), "Mangrove Laboratory Floor");
-        add(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_FLOOR.get(), "Enlighted Mangrove Laboratory Floor");
         add(ModBlocks.CRIMSON_LABORATORY_FLOOR.get(), "Crimson Laboratory Floor");
         add(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get(), "Enlighted Crimson Laboratory Floor");
         add(ModBlocks.WARPED_LABORATORY_FLOOR.get(), "Warped Laboratory Floor");
@@ -67,8 +65,6 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_TILES.get(), "Enlighted Jungle Laboratory Tiles");
         add(ModBlocks.ACACIA_LABORATORY_TILES.get(), "Acacia Laboratory Tiles");
         add(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_TILES.get(), "Enlighted Acacia Laboratory Tiles");
-        add(ModBlocks.MANGROVE_LABORATORY_TILES.get(), "Mangrove Laboratory Tiles");
-        add(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_TILES.get(), "Enlighted Mangrove Laboratory Tiles");
         add(ModBlocks.CRIMSON_LABORATORY_TILES.get(), "Crimson Laboratory Tiles");
         add(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get(), "Enlighted Crimson Laboratory Tiles");
         add(ModBlocks.WARPED_LABORATORY_TILES.get(), "Warped Laboratory Tiles");

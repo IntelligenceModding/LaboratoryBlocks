@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[43,)"
+loaderVersion = "[40,)"
 license = "All Rights Reserved"
 [[mods]]
 modId = "laboratoryblocks"
@@ -12,12 +12,12 @@ This mod adds futuristic and clean looking laboratory blocks
 [[dependencies.laboratoryblocks]]
     modId = "forge"
     mandatory = true
-    versionRange = "[43,)"
+    versionRange = "[40,)"
     ordering = "NONE"
     side = "BOTH"
 [[dependencies.laboratoryblocks]]
     modId = "minecraft"
     mandatory = true
-    versionRange = "[1.19.2,1.20)"
+    versionRange = "[1.18,1.19)"
     ordering = "NONE"
     side = "BOTH"

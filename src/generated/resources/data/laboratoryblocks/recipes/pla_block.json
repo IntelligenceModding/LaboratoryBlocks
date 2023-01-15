@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
   "key": {
     "A": {
       "item": "laboratoryblocks:pla_sheets"
     }
   },
-  "pattern": [
-    "AA",
-    "AA"
-  ],
   "result": {
     "item": "laboratoryblocks:pla_block"
   }

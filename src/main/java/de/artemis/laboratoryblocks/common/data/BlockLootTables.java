@@ -45,8 +45,6 @@ public class BlockLootTables extends BlockLoot {
         dropSelf(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_FLOOR.get());
         dropSelf(ModBlocks.JUNGLE_LABORATORY_FLOOR.get());
         dropSelf(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_FLOOR.get());
-        dropSelf(ModBlocks.MANGROVE_LABORATORY_FLOOR.get());
-        dropSelf(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_FLOOR.get());
         dropSelf(ModBlocks.CRIMSON_LABORATORY_FLOOR.get());
         dropSelf(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get());
         dropSelf(ModBlocks.WARPED_LABORATORY_FLOOR.get());
@@ -64,8 +62,6 @@ public class BlockLootTables extends BlockLoot {
         dropSelf(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_TILES.get());
         dropSelf(ModBlocks.JUNGLE_LABORATORY_TILES.get());
         dropSelf(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_TILES.get());
-        dropSelf(ModBlocks.MANGROVE_LABORATORY_TILES.get());
-        dropSelf(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_TILES.get());
         dropSelf(ModBlocks.CRIMSON_LABORATORY_TILES.get());
         dropSelf(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get());
         dropSelf(ModBlocks.WARPED_LABORATORY_TILES.get());

@@ -51,8 +51,6 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_FLOOR.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_jungle_laboratory_floor"));
         simpleBlock(ModBlocks.ACACIA_LABORATORY_FLOOR.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_FLOOR.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_acacia_laboratory_floor"));
-        simpleBlock(ModBlocks.MANGROVE_LABORATORY_FLOOR.get());
-        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_FLOOR.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_mangrove_laboratory_floor"));
         simpleBlock(ModBlocks.CRIMSON_LABORATORY_FLOOR.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_crimson_laboratory_floor"));
         simpleBlock(ModBlocks.WARPED_LABORATORY_FLOOR.get());
@@ -70,8 +68,6 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_jungle_laboratory_tiles"));
         simpleBlock(ModBlocks.ACACIA_LABORATORY_TILES.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_acacia_laboratory_tiles"));
-        simpleBlock(ModBlocks.MANGROVE_LABORATORY_TILES.get());
-        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_mangrove_laboratory_tiles"));
         simpleBlock(ModBlocks.CRIMSON_LABORATORY_TILES.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_crimson_laboratory_tiles"));
         simpleBlock(ModBlocks.WARPED_LABORATORY_TILES.get());

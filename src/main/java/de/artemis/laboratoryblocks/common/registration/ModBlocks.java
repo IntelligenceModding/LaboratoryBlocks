@@ -131,12 +131,6 @@ public class ModBlocks {
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_ACACIA_LABORATORY_FLOOR = registerWithTab("enlighted_acacia_laboratory_floor",
             () -> new LaboratoryBlock(ModBlocks.ACACIA_LABORATORY_FLOOR, BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel((p_187433_) -> 5)));
 
-    public static final RegistryObject<LaboratoryBlock> MANGROVE_LABORATORY_FLOOR = registerWithTab("mangrove_laboratory_floor",
-            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_FLOOR, BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F, 3.0F).sound(SoundType.WOOD)));
-
-    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_MANGROVE_LABORATORY_FLOOR = registerWithTab("enlighted_mangrove_laboratory_floor",
-            () -> new LaboratoryBlock(ModBlocks.MANGROVE_LABORATORY_FLOOR, BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel((p_187433_) -> 5)));
-
     public static final RegistryObject<LaboratoryBlock> CRIMSON_LABORATORY_FLOOR = registerWithTab("crimson_laboratory_floor",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR, BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F, 3.0F).sound(SoundType.WOOD)));
 
@@ -190,12 +184,6 @@ public class ModBlocks {
 
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_ACACIA_LABORATORY_TILES = registerWithTab("enlighted_acacia_laboratory_tiles",
             () -> new LaboratoryBlock(ModBlocks.ACACIA_LABORATORY_TILES, BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel((p_187433_) -> 5)));
-
-    public static final RegistryObject<LaboratoryBlock> MANGROVE_LABORATORY_TILES = registerWithTab("mangrove_laboratory_tiles",
-            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_TILES, BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F, 3.0F).sound(SoundType.WOOD)));
-
-    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_MANGROVE_LABORATORY_TILES = registerWithTab("enlighted_mangrove_laboratory_tiles",
-            () -> new LaboratoryBlock(ModBlocks.MANGROVE_LABORATORY_TILES, BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel((p_187433_) -> 5)));
 
     public static final RegistryObject<LaboratoryBlock> CRIMSON_LABORATORY_TILES = registerWithTab("crimson_laboratory_tiles",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES, BlockBehaviour.Properties.of(Material.WOOD).strength(2.5F, 3.0F).sound(SoundType.WOOD)));

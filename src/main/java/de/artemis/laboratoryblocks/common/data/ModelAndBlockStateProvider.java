@@ -43,8 +43,6 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         enlightedBlock(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_floor"));
         simpleBlock(ModBlocks.ACACIA_LABORATORY_FLOOR.get());
         enlightedBlock(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_floor"));
-        simpleBlock(ModBlocks.MANGROVE_LABORATORY_FLOOR.get());
-        enlightedBlock(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_floor"));
         simpleBlock(ModBlocks.CRIMSON_LABORATORY_FLOOR.get());
         enlightedBlock(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor"));
         simpleBlock(ModBlocks.WARPED_LABORATORY_FLOOR.get());
@@ -62,15 +60,13 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         enlightedBlock(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_tiles"));
         simpleBlock(ModBlocks.ACACIA_LABORATORY_TILES.get());
         enlightedBlock(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_tiles"));
-        simpleBlock(ModBlocks.MANGROVE_LABORATORY_TILES.get());
-        enlightedBlock(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_tiles"));
         simpleBlock(ModBlocks.CRIMSON_LABORATORY_TILES.get());
         enlightedBlock(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles"));
         simpleBlock(ModBlocks.WARPED_LABORATORY_TILES.get());
         enlightedBlock(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles"));
 
-        simpleBlockWithRenderType(ModBlocks.LABORATORY_GLASS.get(), "cutout");
-        enlightedBlockWithRenderType(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass"), "cutout");
+        simpleBlock(ModBlocks.LABORATORY_GLASS.get());
+        enlightedBlock(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass"));
 
         simpleBlock(ModBlocks.PLA_BLOCK.get());
         enlightedBlock(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
@@ -89,17 +85,12 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
                 .texture("all", texture));
     }
 
-    public void simpleBlockWithRenderType(Block block, String renderType) {
-        simpleBlock(block, cubeAllWithRenderType(block, renderType));
+    public void simpleBlock(Block block) {
+        simpleBlock(block, cubeAllWithRenderType(block));
     }
 
-    public ModelFile cubeAllWithRenderType(Block block, String renderType) {
-        return models().cubeAll(ForgeRegistries.BLOCKS.getKey(block).toString(), blockTexture(block)).renderType(renderType);
-    }
-
-    public void enlightedBlockWithRenderType(Block block, ResourceLocation texture, String renderType) {
-        simpleBlock(block, models().withExistingParent(ForgeRegistries.BLOCKS.getKey(block).toString(), new ResourceLocation("block/cube_all"))
-                .texture("all", texture).renderType(renderType));
+    public ModelFile cubeAllWithRenderType(Block block) {
+        return models().cubeAll(ForgeRegistries.BLOCKS.getKey(block).toString(), blockTexture(block));
     }
 
     public void carpetBlock(Block block, ResourceLocation texture) {

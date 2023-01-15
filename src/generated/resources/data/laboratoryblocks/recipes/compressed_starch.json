@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
   "key": {
     "A": {
       "item": "laboratoryblocks:starch"
     }
   },
-  "pattern": [
-    "AA",
-    "AA"
-  ],
   "result": {
     "item": "laboratoryblocks:compressed_starch"
   }

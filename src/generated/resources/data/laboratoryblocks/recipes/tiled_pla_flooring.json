@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA"
+  ],
   "key": {
     "A": {
       "item": "laboratoryblocks:pla_tiles"
     }
   },
-  "pattern": [
-    "AA"
-  ],
   "result": {
-    "count": 3,
-    "item": "laboratoryblocks:tiled_pla_flooring"
+    "item": "laboratoryblocks:tiled_pla_flooring",
+    "count": 3
   }
 }

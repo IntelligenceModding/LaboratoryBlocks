@@ -1,19 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:starch"
+    ]
+  },
   "criteria": {
-    "has_beetroot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:beetroot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_sugar": {
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -22,10 +16,10 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
     "has_sugar_cane": {
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -34,16 +28,22 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
-    "has_the_recipe": {
+    "has_beetroot": {
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
-        "recipe": "laboratoryblocks:starch"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+        "items": [
+          {
+            "items": [
+              "minecraft:beetroot"
+            ]
+          }
+        ]
+      }
     },
     "has_wheat": {
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -52,8 +52,13 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:starch"
+      }
     }
   },
   "requirements": [
@@ -64,10 +69,5 @@
       "has_wheat",
       "has_the_recipe"
     ]
-  ],
-  "rewards": {
-    "recipes": [
-      "laboratoryblocks:starch"
-    ]
-  }
+  ]
 }
