@@ -1,28 +1,40 @@
 buildscript {
     repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
+        maven {
+            name = "Minecraft Forge maven"
+            url = "https://maven.minecraftforge.net"
+        }
+        maven {
+            name = "Parchment maven"
+            url = "https://maven.parchmentmc.org"
+        }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.parchmentmc:librarian:1.+'
     }
 }
 
 plugins {
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id "maven-publish"
 }
 
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
-group = 'de.artemis'
+group = 'de.artemis.laboratoryblocks'
 version = "${mod_version}"
 
-java {
-    archivesBaseName = 'laboratoryblocks'
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+wrapper {
+    gradleVersion = '7.5.1'
+    distributionType = Wrapper.DistributionType.ALL
 }
 
 minecraft {
-    mappings channel: 'official', version: "${mc_version}"
+    mappings channel: "${mappings_channel}", version: "${mappings_version}"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -85,24 +97,23 @@ minecraft {
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceSets {
+    main.resources {
+        srcDir 'src/generated/resources'
+    }
+    testMod {}
+}
 
 repositories {
     maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
-    flatDir {
-        dirs 'lib'
+        name = "Blamejared maven botania patchouli"
+        url = 'https://maven.blamejared.com'
     }
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-43.2.0"
-    implementation fg.deobf("curse.maven:jei-${jei_version}")
-    implementation fg.deobf("team.chisel.ctm:ctm-dev:${ctm_version}")
+    minecraft "net.minecraftforge:forge:${mc_version}-43.2.2"
+    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 }
 
 jar {
