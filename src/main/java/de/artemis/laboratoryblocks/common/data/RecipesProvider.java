@@ -82,5 +82,8 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
         ShapedRecipeBuilder.shaped(ModBlocks.WARPED_LABORATORY_TILES.get(), 8).define('A', ModBlocks.WARPED_LABORATORY_FLOOR.get()).pattern("AA").pattern("AA").unlockedBy("has_warped_laboratory_floor", has(ModBlocks.WARPED_LABORATORY_FLOOR.get())).save(consumer);
         ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get(), 1).requires(ModBlocks.WARPED_LABORATORY_TILES.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_warped_laboratory_tiles", has(ModBlocks.WARPED_LABORATORY_TILES.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
 
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_GLASS.get(), 8).define('A', Blocks.GLASS).define('B', ModBlocks.LABORATORY_BLOCK.get()).pattern("AAA").pattern("ABA").pattern("AAA").unlockedBy("has_glass", has(Blocks.GLASS)).unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), 1).requires(ModBlocks.LABORATORY_GLASS.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_laboratory_glass", has(ModBlocks.LABORATORY_GLASS.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+
     }
 }
