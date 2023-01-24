@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:enlighted_laboratory_vent"
+    ]
+  },
+  "criteria": {
+    "has_laboratory_vent": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:laboratory_vent"
+            ]
+          }
+        ]
+      }
+    },
+    "has_glowstone_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glowstone_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:enlighted_laboratory_vent"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_laboratory_vent",
+      "has_glowstone_dust",
+      "has_the_recipe"
+    ]
+  ]
+}

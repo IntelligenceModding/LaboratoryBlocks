@@ -1,0 +1,15 @@
+{
+    "ctm":{
+        "ctm_version": 1,
+        "type":"CTM",
+        "textures":[
+            "laboratoryblocks:block/laboratory_vent-ctm"
+        ],
+        "extra": {
+            "connect_to": [
+                { "block": "laboratoryblocks:laboratory_vent" },
+                { "block": "laboratoryblocks:enlighted_laboratory_vent" }
+            ]
+        }
+    }
+}

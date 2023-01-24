@@ -47,6 +47,12 @@ public class ModBlocks {
     public static void register() {
     }
 
+    public static final RegistryObject<LaboratoryBlock> LABORATORY_VENT = registerWithTab("laboratory_vent",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_VENT, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LABORATORY_VENT = registerWithTab("enlighted_laboratory_vent",
+            () -> new LaboratoryBlock(ModBlocks.LABORATORY_VENT, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
     public static final RegistryObject<LaboratoryBlock> PLA_BLOCK = registerWithTab("pla_block",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_PLA_BLOCK, BlockBehaviour.Properties.of(Material.STONE).strength(0.5F, 0.5F).sound(SoundType.SCAFFOLDING)));
 

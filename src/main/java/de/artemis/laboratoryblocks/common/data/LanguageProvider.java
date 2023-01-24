@@ -21,12 +21,10 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), "Enlighted PLA Block");
         add(ModBlocks.PLA_TILES.get(), "PLA Tiles");
         add(ModBlocks.ENLIGHTED_PLA_TILES.get(), "Enlighted PLA Tiles");
-
         add(ModBlocks.PLA_FLOORING.get(), "PLA Flooring");
         add(ModBlocks.ENLIGHTED_PLA_FLOORING.get(), "Enlighted PLA Flooring");
         add(ModBlocks.TILED_PLA_FLOORING.get(), "Tiled PLA Flooring");
         add(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING.get(), "Enlighted Tiled PLA Flooring");
-
         add(ModBlocks.LABORATORY_BLOCK.get(), "Laboratory Block");
         add(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get(), "Enlighted Laboratory Block");
         add(ModBlocks.LABORATORY_TILES.get(), "Laboratory Tiles");
@@ -35,7 +33,6 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_GRAY_LABORATORY_TILES.get(), "Enlighted Gray Laboratory Tiles");
         add(ModBlocks.MIXED_LABORATORY_TILES.get(), "Mixed Laboratory Tiles");
         add(ModBlocks.ENLIGHTED_MIXED_LABORATORY_TILES.get(), "Enlighted Mixed Laboratory Tiles");
-
         add(ModBlocks.OAK_LABORATORY_FLOOR.get(), "Oak Laboratory Floor");
         add(ModBlocks.ENLIGHTED_OAK_LABORATORY_FLOOR.get(), "Enlighted Oak Laboratory Floor");
         add(ModBlocks.SPRUCE_LABORATORY_FLOOR.get(), "Spruce Laboratory Floor");
@@ -52,7 +49,6 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get(), "Enlighted Crimson Laboratory Floor");
         add(ModBlocks.WARPED_LABORATORY_FLOOR.get(), "Warped Laboratory Floor");
         add(ModBlocks.ENLIGHTED_WARPED_LABORATORY_FLOOR.get(), "Enlighted Warped Laboratory Floor");
-
         add(ModBlocks.OAK_LABORATORY_TILES.get(), "Oak Laboratory Tiles");
         add(ModBlocks.ENLIGHTED_OAK_LABORATORY_TILES.get(), "Enlighted Oak Laboratory Tiles");
         add(ModBlocks.SPRUCE_LABORATORY_TILES.get(), "Spruce Laboratory Tiles");
@@ -69,8 +65,9 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get(), "Enlighted Crimson Laboratory Tiles");
         add(ModBlocks.WARPED_LABORATORY_TILES.get(), "Warped Laboratory Tiles");
         add(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get(), "Enlighted Warped Laboratory Tiles");
-
         add(ModBlocks.LABORATORY_GLASS.get(), "Laboratory Glass");
         add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), "Enlighted Laboratory Glass");
+        add(ModBlocks.LABORATORY_VENT.get(), "Laboratory Vent");
+        add(ModBlocks.ENLIGHTED_LABORATORY_VENT.get(), "Enlighted Laboratory Vent");
     }
 }

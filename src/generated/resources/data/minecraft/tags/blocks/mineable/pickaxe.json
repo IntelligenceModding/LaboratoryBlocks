@@ -8,6 +8,8 @@
     "laboratoryblocks:gray_laboratory_tiles",
     "laboratoryblocks:enlighted_gray_laboratory_tiles",
     "laboratoryblocks:mixed_laboratory_tiles",
-    "laboratoryblocks:enlighted_mixed_laboratory_tiles"
+    "laboratoryblocks:enlighted_mixed_laboratory_tiles",
+    "laboratoryblocks:laboratory_vent",
+    "laboratoryblocks:enlighted_laboratory_vent"
   ]
 }

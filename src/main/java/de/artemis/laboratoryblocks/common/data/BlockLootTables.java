@@ -17,22 +17,18 @@ public class BlockLootTables extends BlockLoot {
         dropSelf(ModBlocks.ENLIGHTED_PLA_BLOCK.get());
         dropSelf(ModBlocks.PLA_TILES.get());
         dropSelf(ModBlocks.ENLIGHTED_PLA_TILES.get());
-
         dropSelf(ModBlocks.PLA_FLOORING.get());
         dropSelf(ModBlocks.ENLIGHTED_PLA_FLOORING.get());
         dropSelf(ModBlocks.TILED_PLA_FLOORING.get());
         dropSelf(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING.get());
-
         dropSelf(ModBlocks.LABORATORY_BLOCK.get());
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get());
-
         dropSelf(ModBlocks.LABORATORY_TILES.get());
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_TILES.get());
         dropSelf(ModBlocks.GRAY_LABORATORY_TILES.get());
         dropSelf(ModBlocks.ENLIGHTED_GRAY_LABORATORY_TILES.get());
         dropSelf(ModBlocks.MIXED_LABORATORY_TILES.get());
         dropSelf(ModBlocks.ENLIGHTED_MIXED_LABORATORY_TILES.get());
-
         dropSelf(ModBlocks.OAK_LABORATORY_FLOOR.get());
         dropSelf(ModBlocks.ENLIGHTED_OAK_LABORATORY_FLOOR.get());
         dropSelf(ModBlocks.SPRUCE_LABORATORY_FLOOR.get());
@@ -49,7 +45,6 @@ public class BlockLootTables extends BlockLoot {
         dropSelf(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get());
         dropSelf(ModBlocks.WARPED_LABORATORY_FLOOR.get());
         dropSelf(ModBlocks.ENLIGHTED_WARPED_LABORATORY_FLOOR.get());
-
         dropSelf(ModBlocks.OAK_LABORATORY_TILES.get());
         dropSelf(ModBlocks.ENLIGHTED_OAK_LABORATORY_TILES.get());
         dropSelf(ModBlocks.SPRUCE_LABORATORY_TILES.get());
@@ -66,6 +61,8 @@ public class BlockLootTables extends BlockLoot {
         dropSelf(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get());
         dropSelf(ModBlocks.WARPED_LABORATORY_TILES.get());
         dropSelf(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get());
+        dropSelf(ModBlocks.LABORATORY_VENT.get());
+        dropSelf(ModBlocks.ENLIGHTED_LABORATORY_VENT.get());
 
         dropWhenSilkTouch(ModBlocks.LABORATORY_GLASS.get());
         add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), (p_124233_) -> {
