@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "laboratoryblocks:block/laboratory_vent_top",
+    "side": "laboratoryblocks:block/laboratory_vent"
+  }
+}

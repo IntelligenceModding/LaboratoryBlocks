@@ -105,6 +105,10 @@ sourceSets {
 }
 
 repositories {
+    flatDir {
+        dirs 'lib'
+    }
+
     maven {
         name = "Blamejared maven botania patchouli"
         url = 'https://maven.blamejared.com'
@@ -114,6 +118,7 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-43.2.2"
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    implementation fg.deobf("team.chisel.ctm:ctm-dev:${ctm_version}")
 }
 
 jar {
