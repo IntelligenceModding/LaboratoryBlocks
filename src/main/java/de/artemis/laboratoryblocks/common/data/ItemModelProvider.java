@@ -73,6 +73,18 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
 
         simpleBlock(ModBlocks.LABORATORY_VENT.get());
         cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LABORATORY_VENT.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_vent"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
+        simpleBlock(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
+        cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_blue_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
+        simpleBlock(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
+        cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_blue_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
+        simpleBlock(ModBlocks.LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get());
+        cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_red_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
+        simpleBlock(ModBlocks.RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get());
+        cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_red_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
+        simpleBlock(ModBlocks.LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get());
+        cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
+        simpleBlock(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get());
+        cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
 
         carpet(ForgeRegistries.BLOCKS.getKey(ModBlocks.PLA_FLOORING.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
         carpet(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_PLA_FLOORING.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_pla_block"));

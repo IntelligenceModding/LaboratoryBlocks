@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    "B": {
+      "item": "minecraft:red_wool"
+    },
+    "C": {
+      "item": "minecraft:black_wool"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BCB",
+    "AAA"
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:right-faced_red_signaling_laboratory_block"
+  }
+}

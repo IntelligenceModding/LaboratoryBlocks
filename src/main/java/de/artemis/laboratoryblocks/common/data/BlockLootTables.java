@@ -67,6 +67,18 @@ public class BlockLootTables extends BlockLoot {
         dropSelf(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get());
         dropSelf(ModBlocks.LABORATORY_VENT.get());
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_VENT.get());
+        dropSelf(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.ENLIGHTED_RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.ENLIGHTED_LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.ENLIGHTED_RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get());
 
         dropWhenSilkTouch(ModBlocks.LABORATORY_GLASS.get());
         add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), (p_124233_) -> {

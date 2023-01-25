@@ -47,6 +47,42 @@ public class ModBlocks {
     public static void register() {
     }
 
+    public static final RegistryObject<LaboratoryBlock> LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK = registerWithTab("left-faced_blue_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK = registerWithTab("enlighted_left-faced_blue_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
+    public static final RegistryObject<LaboratoryBlock> RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK = registerWithTab("right-faced_blue_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK = registerWithTab("enlighted_right-faced_blue_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
+    public static final RegistryObject<LaboratoryBlock> LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK = registerWithTab("left-faced_red_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK = registerWithTab("enlighted_left-faced_red_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
+    public static final RegistryObject<LaboratoryBlock> RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK = registerWithTab("right-faced_red_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK = registerWithTab("enlighted_right-faced_red_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
+    public static final RegistryObject<LaboratoryBlock> LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK = registerWithTab("left-faced_green_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK = registerWithTab("enlighted_left-faced_green_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
+    public static final RegistryObject<LaboratoryBlock> RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK = registerWithTab("right-faced_green_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK = registerWithTab("enlighted_right-faced_green_signaling_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
     public static final RegistryObject<LaboratoryBlock> LABORATORY_VENT = registerWithTab("laboratory_vent",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_VENT, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
 

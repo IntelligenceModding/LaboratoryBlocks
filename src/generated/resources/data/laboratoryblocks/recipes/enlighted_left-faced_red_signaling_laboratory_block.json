@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:left-faced_red_signaling_laboratory_block"
+    },
+    {
+      "item": "minecraft:glowstone_dust"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:enlighted_left-faced_red_signaling_laboratory_block"
+  }
+}
