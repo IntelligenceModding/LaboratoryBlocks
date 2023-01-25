@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:left-faced_green_signaling_laboratory_block"
+    ]
+  },
+  "criteria": {
+    "has_left-faced_green_signaling_laboratory_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:left-faced_green_signaling_laboratory_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:left-faced_green_signaling_laboratory_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_left-faced_green_signaling_laboratory_block",
+      "has_the_recipe"
+    ]
+  ]
+}

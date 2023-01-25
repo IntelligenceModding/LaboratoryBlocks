@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:enlighted_right-faced_red_signaling_laboratory_block"
+    ]
+  },
+  "criteria": {
+    "has_right-faced_red_signaling_laboratory_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:right-faced_red_signaling_laboratory_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_glowstone_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glowstone_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:enlighted_right-faced_red_signaling_laboratory_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_right-faced_red_signaling_laboratory_block",
+      "has_glowstone_dust",
+      "has_the_recipe"
+    ]
+  ]
+}

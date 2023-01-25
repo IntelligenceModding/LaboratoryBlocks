@@ -77,5 +77,9 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), "Enlighted Left-Faced Green Signaling Laboratory Block");
         add(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), "Right-Faced Green Signaling Laboratory Block");
         add(ModBlocks.ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), "Enlighted Right-Faced Green Signaling Laboratory Block");
+        add(ModBlocks.LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get(), "Left-Faced Red Signaling Laboratory Block");
+        add(ModBlocks.ENLIGHTED_LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get(), "Enlighted Left-Faced Red Signaling Laboratory Block");
+        add(ModBlocks.RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get(), "Right-Faced Red Signaling Laboratory Block");
+        add(ModBlocks.ENLIGHTED_RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get(), "Enlighted Right-Faced Red Signaling Laboratory Block");
     }
 }

@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:right-faced_blue_signaling_laboratory_block"
+    ]
+  },
+  "criteria": {
+    "has_laboratory_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:laboratory_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_wool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:wool"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:right-faced_blue_signaling_laboratory_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_laboratory_block",
+      "has_wool",
+      "has_the_recipe"
+    ]
+  ]
+}
