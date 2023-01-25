@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "laboratoryblocks:block/enlighted_left-faced_green_signaling_laboratory_block",
+    "end": "laboratoryblocks:block/enlighted_laboratory_block"
+  }
+}
