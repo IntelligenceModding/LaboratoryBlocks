@@ -22,6 +22,8 @@
     "laboratoryblocks:left-faced_green_signaling_laboratory_block",
     "laboratoryblocks:enlighted_left-faced_green_signaling_laboratory_block",
     "laboratoryblocks:right-faced_green_signaling_laboratory_block",
-    "laboratoryblocks:enlighted_right-faced_green_signaling_laboratory_block"
+    "laboratoryblocks:enlighted_right-faced_green_signaling_laboratory_block",
+    "laboratoryblocks:laboratory_fan",
+    "laboratoryblocks:enlighted_laboratory_fan"
   ]
 }

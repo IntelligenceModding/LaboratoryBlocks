@@ -64,6 +64,8 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         Block(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
         simpleBlock(ModBlocks.PLA_TILES.get());
         Block(ModBlocks.ENLIGHTED_PLA_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_tiles"));
+        simpleBlock(ModBlocks.LABORATORY_FAN.get());
+        Block(ModBlocks.ENLIGHTED_LABORATORY_FAN.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_fan"));
 
         ventBlock(ModBlocks.LABORATORY_VENT.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_top"));
         ventBlock(ModBlocks.ENLIGHTED_LABORATORY_VENT.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_top"));
