@@ -47,6 +47,12 @@ public class ModBlocks {
     public static void register() {
     }
 
+    public static final RegistryObject<LaboratoryBlock> LABORATORY_FAN = registerWithTab("laboratory_fan",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_FAN, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LABORATORY_FAN = registerWithTab("enlighted_laboratory_fan",
+            () -> new LaboratoryBlock(ModBlocks.LABORATORY_FAN, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
     public static final RegistryObject<LaboratoryBlock> LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK = registerWithTab("left-faced_blue_signaling_laboratory_block",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
 

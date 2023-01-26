@@ -102,6 +102,8 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
         ShapelessRecipeBuilder.shapeless(ModBlocks.LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), 1).requires(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get()).unlockedBy("has_left-faced_green_signaling_laboratory_block", has(ModBlocks.LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())).save(consumer);
         ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), 1).requires(ModBlocks.LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_left-faced_green_signaling_laboratory_block", has(ModBlocks.LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
 
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_FAN.get(), 1).define('A', ModBlocks.LABORATORY_BLOCK.get()).define('B', Items.IRON_NUGGET).pattern("ABA").pattern("BBB").pattern("ABA").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET)).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_LABORATORY_FAN.get(), 1).requires(ModBlocks.LABORATORY_FAN.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_laboratory_fan", has(ModBlocks.LABORATORY_FAN.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
 
     }
 }
