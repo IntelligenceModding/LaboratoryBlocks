@@ -20,6 +20,8 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         simpleItem(ModItems.STARCH.get());
         simpleItem(ModItems.COMPRESSED_STARCH.get());
         simpleItem(ModItems.PLA_SHEETS.get());
+        simpleItem(ModItems.IRON_SCREW.get());
+
         simpleBlock(ModBlocks.PLA_BLOCK.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_PLA_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_pla_block"));
         simpleBlock(ModBlocks.PLA_TILES.get());
@@ -66,6 +68,10 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_warped_laboratory_tiles"));
         simpleBlock(ModBlocks.LABORATORY_GLASS.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_glass"));
+        simpleBlock(ModBlocks.LABORATORY_FAN.get());
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LABORATORY_FAN.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_fan"));
+        simpleBlock(ModBlocks.SCREWED_LABORATORY_BLOCK.get());
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_screwed_laboratory_block"));
 
         simpleBlock(ModBlocks.LABORATORY_VENT.get());
         cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LABORATORY_VENT.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_vent"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
@@ -81,8 +87,6 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
         simpleBlock(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get());
         cubeColumn(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"));
-        simpleBlock(ModBlocks.LABORATORY_FAN.get());
-        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LABORATORY_FAN.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_fan"));
 
         carpet(ForgeRegistries.BLOCKS.getKey(ModBlocks.PLA_FLOORING.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
         carpet(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_PLA_FLOORING.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_pla_block"));

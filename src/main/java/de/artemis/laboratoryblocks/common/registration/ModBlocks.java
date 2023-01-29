@@ -125,6 +125,12 @@ public class ModBlocks {
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LABORATORY_BLOCK = registerWithTab("enlighted_laboratory_block",
             () -> new LaboratoryBlock(ModBlocks.LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
 
+    public static final RegistryObject<LaboratoryBlock> SCREWED_LABORATORY_BLOCK = registerWithTab("screwed_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_SCREWED_LABORATORY_BLOCK = registerWithTab("enlighted_screwed_laboratory_block",
+            () -> new LaboratoryBlock(ModBlocks.SCREWED_LABORATORY_BLOCK, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
     public static final RegistryObject<LaboratoryBlock> LABORATORY_TILES = registerWithTab("laboratory_tiles",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_TILES, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
 

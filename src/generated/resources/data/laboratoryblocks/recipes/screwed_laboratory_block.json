@@ -1,22 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ABA",
-    "BCB",
-    "ABA"
+    "B B",
+    " A ",
+    "B B"
   ],
   "key": {
     "A": {
       "item": "laboratoryblocks:laboratory_block"
     },
     "B": {
-      "item": "minecraft:iron_nugget"
-    },
-    "C": {
       "item": "laboratoryblocks:iron_screw"
     }
   },
   "result": {
-    "item": "laboratoryblocks:laboratory_fan"
+    "item": "laboratoryblocks:screwed_laboratory_block",
+    "count": 2
   }
 }
