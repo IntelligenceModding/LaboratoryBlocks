@@ -17,6 +17,8 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.STARCH.get(), "Starch");
         add(ModItems.COMPRESSED_STARCH.get(), "Compressed Starch");
         add(ModItems.PLA_SHEETS.get(), "PLA Sheets");
+        add(ModItems.IRON_SCREW.get(), "Iron Screw");
+
         add(ModBlocks.PLA_BLOCK.get(), "PLA Block");
         add(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), "Enlighted PLA Block");
         add(ModBlocks.PLA_TILES.get(), "PLA Tiles");
@@ -87,5 +89,7 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get(), "Enlighted Right-Faced Red Signaling Laboratory Block");
         add(ModBlocks.LABORATORY_FAN.get(), "Laboratory Fan");
         add(ModBlocks.ENLIGHTED_LABORATORY_FAN.get(), "Enlighted Laboratory Fan");
+        add(ModBlocks.SCREWED_LABORATORY_BLOCK.get(), "Screwed Laboratory Fan");
+        add(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get(), "Enlighted Screwed Laboratory Fan");
     }
 }

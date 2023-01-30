@@ -1,18 +1,6 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_nugget": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:iron_nugget"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_iron_screw": {
       "conditions": {
         "items": [
@@ -39,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:laboratory_fan"
+        "recipe": "laboratoryblocks:screwed_laboratory_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -47,14 +35,13 @@
   "requirements": [
     [
       "has_laboratory_block",
-      "has_iron_nugget",
       "has_iron_screw",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "laboratoryblocks:laboratory_fan"
+      "laboratoryblocks:screwed_laboratory_block"
     ]
   }
 }

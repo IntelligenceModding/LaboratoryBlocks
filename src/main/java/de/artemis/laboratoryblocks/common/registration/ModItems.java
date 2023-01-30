@@ -18,4 +18,6 @@ public class ModItems {
     public static final RegistryObject<Item> PLA_SHEETS = Registration.ITEMS.register("pla_sheets",
             () -> new Item(new Item.Properties().tab(LaboratoryBlocks.INVENTORY_TAB)));
 
+    public static final RegistryObject<Item> IRON_SCREW = Registration.ITEMS.register("iron_screw",
+            () -> new Item(new Item.Properties().tab(LaboratoryBlocks.INVENTORY_TAB)));
 }

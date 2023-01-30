@@ -1,0 +1,15 @@
+{
+    "ctm":{
+        "ctm_version": 1,
+        "type":"CTM",
+        "textures":[
+            "laboratoryblocks:block/screwed_laboratory_block-ctm"
+        ],
+        "extra": {
+            "connect_to": [
+                { "block": "laboratoryblocks:screwed_laboratory_block" },
+                { "block": "laboratoryblocks:enlighted_screwed_laboratory_block" }
+            ]
+        }
+    }
+}

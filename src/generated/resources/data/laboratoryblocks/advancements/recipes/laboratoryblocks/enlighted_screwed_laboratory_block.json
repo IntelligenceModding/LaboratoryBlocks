@@ -1,36 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_nugget": {
+    "has_glowstone_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:iron_nugget"
+              "minecraft:glowstone_dust"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_iron_screw": {
+    "has_screwed_laboratory_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "laboratoryblocks:iron_screw"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_laboratory_block": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "laboratoryblocks:laboratory_block"
+              "laboratoryblocks:screwed_laboratory_block"
             ]
           }
         ]
@@ -39,22 +27,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:laboratory_fan"
+        "recipe": "laboratoryblocks:enlighted_screwed_laboratory_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_laboratory_block",
-      "has_iron_nugget",
-      "has_iron_screw",
+      "has_screwed_laboratory_block",
+      "has_glowstone_dust",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "laboratoryblocks:laboratory_fan"
+      "laboratoryblocks:enlighted_screwed_laboratory_block"
     ]
   }
 }

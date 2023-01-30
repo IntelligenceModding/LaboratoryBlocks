@@ -5,18 +5,16 @@
       "item": "laboratoryblocks:laboratory_block"
     },
     "B": {
-      "item": "minecraft:iron_nugget"
-    },
-    "C": {
       "item": "laboratoryblocks:iron_screw"
     }
   },
   "pattern": [
-    "ABA",
-    "BCB",
-    "ABA"
+    "B B",
+    " A ",
+    "B B"
   ],
   "result": {
-    "item": "laboratoryblocks:laboratory_fan"
+    "count": 2,
+    "item": "laboratoryblocks:screwed_laboratory_block"
   }
 }
