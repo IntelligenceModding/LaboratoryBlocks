@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:gray_laboratory_pillar"
+    ]
+  },
+  "criteria": {
+    "has_laboratory_pillar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:laboratory_pillar"
+            ]
+          }
+        ]
+      }
+    },
+    "has_gray_dye": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:gray_dye"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:gray_laboratory_pillar"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_laboratory_pillar",
+      "has_gray_dye",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A",
+    "A"
+  ],
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:laboratory_block"
+    }
+  },
+  "result": {
+    "item": "laboratoryblocks:laboratory_pillar",
+    "count": 2
+  }
+}

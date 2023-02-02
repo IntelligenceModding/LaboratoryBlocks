@@ -1,0 +1,15 @@
+{
+    "ctm":{
+        "ctm_version": 1,
+        "type":"CTM",
+        "textures":[
+            "laboratoryblocks:block/gray_laboratory_pillar-ctm"
+        ],
+        "extra": {
+            "connect_to": [
+                { "block": "laboratoryblocks:gray_laboratory_pillar" },
+                { "block": "laboratoryblocks:enlighted_gray_laboratory_pillar" }
+            ]
+        }
+    }
+}

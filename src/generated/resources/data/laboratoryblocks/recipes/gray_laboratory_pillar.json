@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:laboratory_pillar"
+    },
+    "B": {
+      "item": "minecraft:gray_dye"
+    }
+  },
+  "result": {
+    "item": "laboratoryblocks:gray_laboratory_pillar",
+    "count": 8
+  }
+}

@@ -19,58 +19,60 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         simpleBlock(ModBlocks.LABORATORY_BLOCK.get());
-        Block(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_block"));
+        block(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_block"));
         simpleBlock(ModBlocks.LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_tiles"));
         simpleBlock(ModBlocks.GRAY_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_GRAY_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_GRAY_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_tiles"));
         simpleBlock(ModBlocks.MIXED_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_MIXED_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mixed_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_MIXED_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mixed_laboratory_tiles"));
         simpleBlock(ModBlocks.OAK_LABORATORY_FLOOR.get());
-        Block(ModBlocks.ENLIGHTED_OAK_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_floor"));
+        block(ModBlocks.ENLIGHTED_OAK_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_floor"));
         simpleBlock(ModBlocks.SPRUCE_LABORATORY_FLOOR.get());
-        Block(ModBlocks.ENLIGHTED_SPRUCE_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_floor"));
+        block(ModBlocks.ENLIGHTED_SPRUCE_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_floor"));
         simpleBlock(ModBlocks.BIRCH_LABORATORY_FLOOR.get());
-        Block(ModBlocks.ENLIGHTED_BIRCH_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_floor"));
+        block(ModBlocks.ENLIGHTED_BIRCH_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_floor"));
         simpleBlock(ModBlocks.DARK_OAK_LABORATORY_FLOOR.get());
-        Block(ModBlocks.ENLIGHTED_DARK_OAK_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_floor"));
+        block(ModBlocks.ENLIGHTED_DARK_OAK_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_floor"));
         simpleBlock(ModBlocks.JUNGLE_LABORATORY_FLOOR.get());
-        Block(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_floor"));
+        block(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_floor"));
         simpleBlock(ModBlocks.ACACIA_LABORATORY_FLOOR.get());
-        Block(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_floor"));
+        block(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_floor"));
         simpleBlock(ModBlocks.CRIMSON_LABORATORY_FLOOR.get());
-        Block(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor"));
+        block(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor"));
         simpleBlock(ModBlocks.WARPED_LABORATORY_FLOOR.get());
-        Block(ModBlocks.ENLIGHTED_WARPED_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_floor"));
+        block(ModBlocks.ENLIGHTED_WARPED_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_floor"));
         simpleBlock(ModBlocks.OAK_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_OAK_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_OAK_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_tiles"));
         simpleBlock(ModBlocks.SPRUCE_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_SPRUCE_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_SPRUCE_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_tiles"));
         simpleBlock(ModBlocks.BIRCH_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_BIRCH_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_BIRCH_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_tiles"));
         simpleBlock(ModBlocks.DARK_OAK_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_DARK_OAK_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_DARK_OAK_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_tiles"));
         simpleBlock(ModBlocks.JUNGLE_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_tiles"));
         simpleBlock(ModBlocks.ACACIA_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_tiles"));
         simpleBlock(ModBlocks.CRIMSON_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles"));
         simpleBlock(ModBlocks.WARPED_LABORATORY_TILES.get());
-        Block(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles"));
+        block(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles"));
         simpleBlock(ModBlocks.LABORATORY_GLASS.get());
-        Block(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass"));
+        simpleBlock(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get());
         simpleBlock(ModBlocks.PLA_BLOCK.get());
-        Block(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
+        block(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
         simpleBlock(ModBlocks.PLA_TILES.get());
-        Block(ModBlocks.ENLIGHTED_PLA_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_tiles"));
+        block(ModBlocks.ENLIGHTED_PLA_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_tiles"));
         simpleBlock(ModBlocks.LABORATORY_FAN.get());
-        Block(ModBlocks.ENLIGHTED_LABORATORY_FAN.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_fan"));
+        block(ModBlocks.ENLIGHTED_LABORATORY_FAN.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_fan"));
         simpleBlock(ModBlocks.SCREWED_LABORATORY_BLOCK.get());
-        Block(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block"));
+        block(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block"));
 
         ventBlock(ModBlocks.LABORATORY_VENT.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_top"));
         ventBlock(ModBlocks.ENLIGHTED_LABORATORY_VENT.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_top"));
+        ventBlock(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen_top"));
+        ventBlock(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen_top"));
         ventBlock(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block_top"));
         ventBlock(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block_top"));
         ventBlock(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block_top"));
@@ -83,6 +85,10 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         ventBlock(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block_top"));
         ventBlock(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block_top"));
         ventBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block_top"));
+        ventBlock(ModBlocks.LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar_top"));
+        ventBlock(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar_top"));
+        ventBlock(ModBlocks.GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
+        ventBlock(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
 
         carpetBlock(ModBlocks.PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_flooring"));
         carpetBlock(ModBlocks.ENLIGHTED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_flooring"));
@@ -91,7 +97,7 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
 
     }
 
-    public void Block(Block block, ResourceLocation texture) {
+    public void block(Block block, ResourceLocation texture) {
         simpleBlock(block, models().withExistingParent(ForgeRegistries.BLOCKS.getKey(block).toString(), new ResourceLocation("block/cube_all"))
                 .texture("all", texture));
     }

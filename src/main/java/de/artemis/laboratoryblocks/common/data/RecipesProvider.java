@@ -11,6 +11,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
+import org.lwjgl.system.CallbackI;
 
 import java.util.function.Consumer;
 
@@ -24,7 +25,15 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
         ShapelessRecipeBuilder.shapeless(ModItems.STARCH.get(), 8).requires(Ingredient.of(ModTags.Item.STARCH_INGREDIENT), 4).unlockedBy("has_sugar", has(Items.SUGAR)).unlockedBy("has_sugar_cane", has(Items.SUGAR_CANE)).unlockedBy("has_beetroot", has(Items.BEETROOT)).unlockedBy("has_wheat", has(Items.WHEAT)).save(consumer);
         ShapedRecipeBuilder.shaped(ModItems.COMPRESSED_STARCH.get(), 1).define('A', ModItems.STARCH.get()).pattern("AA").pattern("AA").unlockedBy("has_starch", has(ModItems.STARCH.get())).save(consumer);
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.COMPRESSED_STARCH.get()), ModItems.PLA_SHEETS.get().asItem(), 0.35F, 200).unlockedBy("has_compressed_starch", has(ModItems.COMPRESSED_STARCH.get())).save(consumer);
-        ShapedRecipeBuilder.shaped(ModItems.IRON_SCREW.get(), 8).define('A', Items.IRON_NUGGET).define('B', Items.IRON_INGOT).pattern("ABA").pattern(" A ").unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET)).unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModItems.IRON_SCREW.get(), 16).define('A', Items.IRON_NUGGET).define('B', Items.IRON_INGOT).pattern("ABA").pattern(" A ").unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET)).unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4).define('A', ModBlocks.LABORATORY_BLOCK.get()).define('B', ModItems.IRON_SCREW.get()).define('C', ModItems.PLA_SHEETS.get()).pattern("BAB").pattern("ACA").pattern("BAB").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).unlockedBy("has_iron_screw", has(ModItems.IRON_SCREW.get())).unlockedBy("has_pla_sheets", has(ModItems.PLA_SHEETS.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get(), 1).requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_clear_laboratory_screen", has(ModBlocks.CLEAR_LABORATORY_SCREEN.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_PILLAR.get(), 2).define('A', ModBlocks.LABORATORY_BLOCK.get()).pattern("A").pattern("A").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get(), 1).requires(ModBlocks.LABORATORY_PILLAR.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_laboratory_pillar", has(ModBlocks.LABORATORY_PILLAR.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
+        ShapedRecipeBuilder.shaped(ModBlocks.GRAY_LABORATORY_PILLAR.get(), 8).define('A', ModBlocks.LABORATORY_PILLAR.get()).define('B', Items.GRAY_DYE).pattern("AAA").pattern("ABA").pattern("AAA").unlockedBy("has_laboratory_pillar", has(ModBlocks.LABORATORY_PILLAR.get())).unlockedBy("has_gray_dye", has(Items.GRAY_DYE)).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get(), 1).requires(ModBlocks.GRAY_LABORATORY_PILLAR.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_gray_laboratory_pillar", has(ModBlocks.GRAY_LABORATORY_PILLAR.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.PLA_BLOCK.get(), 1).define('A', ModItems.PLA_SHEETS.get()).pattern("AA").pattern("AA").unlockedBy("has_pla_sheets", has(ModItems.PLA_SHEETS.get())).save(consumer);
         ShapelessRecipeBuilder.shapeless(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), 1).requires(ModBlocks.PLA_BLOCK.get()).requires(Items.GLOWSTONE_DUST).unlockedBy("has_pla_block", has(ModBlocks.PLA_BLOCK.get())).unlockedBy("has_glowstone_dust", has(Items.GLOWSTONE_DUST)).save(consumer);

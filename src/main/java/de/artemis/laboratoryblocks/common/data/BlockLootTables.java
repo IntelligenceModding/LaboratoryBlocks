@@ -79,6 +79,12 @@ public class BlockLootTables extends BlockLoot {
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_FAN.get());
         dropSelf(ModBlocks.SCREWED_LABORATORY_BLOCK.get());
         dropSelf(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get());
+        dropSelf(ModBlocks.CLEAR_LABORATORY_SCREEN.get());
+        dropSelf(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get());
+        dropSelf(ModBlocks.LABORATORY_PILLAR.get());
+        dropSelf(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get());
+        dropSelf(ModBlocks.GRAY_LABORATORY_PILLAR.get());
+        dropSelf(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get());
 
         dropWhenSilkTouch(ModBlocks.LABORATORY_GLASS.get());
         add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), (p_124233_) -> {

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BAB",
+    "ACA",
+    "BAB"
+  ],
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    "B": {
+      "item": "laboratoryblocks:iron_screw"
+    },
+    "C": {
+      "item": "laboratoryblocks:pla_sheets"
+    }
+  },
+  "result": {
+    "item": "laboratoryblocks:clear_laboratory_screen",
+    "count": 4
+  }
+}

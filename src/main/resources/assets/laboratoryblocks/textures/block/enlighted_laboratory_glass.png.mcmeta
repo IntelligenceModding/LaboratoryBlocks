@@ -4,11 +4,11 @@
         "type":"CTM",
         "layer": "CUTOUT",
         "textures":[
-            "laboratoryblocks:block/laboratory_glass-ctm"
+            "laboratoryblocks:block/enlighted_laboratory_glass-ctm"
         ],
         "extra": {
             "connect_to": [
-                { "block": "laboratoryblocks:laboratory_glass" }
+                { "block": "laboratoryblocks:enlighted_laboratory_glass" }
             ]
         }
     }
