@@ -91,5 +91,11 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_LABORATORY_FAN.get(), "Enlighted Laboratory Fan");
         add(ModBlocks.SCREWED_LABORATORY_BLOCK.get(), "Screwed Laboratory Fan");
         add(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get(), "Enlighted Screwed Laboratory Fan");
+        add(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), "Clear Laboratory Screen");
+        add(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get(), "Enlighted Clear Laboratory Screen");
+        add(ModBlocks.LABORATORY_PILLAR.get(), "Laboratory Pillar");
+        add(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get(), "Enlighted Laboratory Pillar");
+        add(ModBlocks.GRAY_LABORATORY_PILLAR.get(), "Gray Laboratory Pillar");
+        add(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get(), "Enlighted Gray Laboratory Pillar");
     }
 }

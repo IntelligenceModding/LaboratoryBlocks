@@ -25,6 +25,12 @@
     "laboratoryblocks:laboratory_fan",
     "laboratoryblocks:enlighted_laboratory_fan",
     "laboratoryblocks:screwed_laboratory_block",
-    "laboratoryblocks:enlighted_screwed_laboratory_block"
+    "laboratoryblocks:enlighted_screwed_laboratory_block",
+    "laboratoryblocks:clear_laboratory_screen",
+    "laboratoryblocks:enlighted_clear_laboratory_screen",
+    "laboratoryblocks:laboratory_pillar",
+    "laboratoryblocks:enlighted_laboratory_pillar",
+    "laboratoryblocks:gray_laboratory_pillar",
+    "laboratoryblocks:enlighted_gray_laboratory_pillar"
   ]
 }

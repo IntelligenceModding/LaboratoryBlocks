@@ -70,7 +70,7 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         block(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block"));
 
         simpleBlockWithRenderType(ModBlocks.LABORATORY_GLASS.get(), "cutout");
-        blockWithRenderType(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass"), "cutout");
+        simpleBlockWithRenderType(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), "cutout");
 
         simpleBlock(ModBlocks.PLA_BLOCK.get());
         block(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
@@ -91,6 +91,12 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         ventBlock(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block_top"));
         ventBlock(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block_top"));
         ventBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block_top"));
+        ventBlock(ModBlocks.LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar_top"));
+        ventBlock(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar_top"));
+        ventBlock(ModBlocks.GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
+        ventBlock(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
+        ventBlock(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen_top"));
+        ventBlock(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen_top"));
 
         carpetBlock(ModBlocks.PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_flooring"));
         carpetBlock(ModBlocks.ENLIGHTED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_flooring"));

@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_all",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "laboratoryblocks:block/laboratory_glass"
+    "all": "laboratoryblocks:block/enlighted_laboratory_glass"
   }
 }

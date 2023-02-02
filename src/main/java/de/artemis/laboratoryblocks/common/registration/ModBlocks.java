@@ -47,6 +47,24 @@ public class ModBlocks {
     public static void register() {
     }
 
+    public static final RegistryObject<LaboratoryBlock> LABORATORY_PILLAR = registerWithTab("laboratory_pillar",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_PILLAR, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LABORATORY_PILLAR = registerWithTab("enlighted_laboratory_pillar",
+            () -> new LaboratoryBlock(ModBlocks.LABORATORY_PILLAR, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
+    public static final RegistryObject<LaboratoryBlock> GRAY_LABORATORY_PILLAR = registerWithTab("gray_laboratory_pillar",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_GRAY_LABORATORY_PILLAR = registerWithTab("enlighted_gray_laboratory_pillar",
+            () -> new LaboratoryBlock(ModBlocks.GRAY_LABORATORY_PILLAR, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
+    public static final RegistryObject<LaboratoryBlock> CLEAR_LABORATORY_SCREEN = registerWithTab("clear_laboratory_screen",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN, BlockBehaviour.Properties.of(Material.METAL).strength(1.25F, 1.5F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_CLEAR_LABORATORY_SCREEN = registerWithTab("enlighted_clear_laboratory_screen",
+            () -> new LaboratoryBlock(ModBlocks.CLEAR_LABORATORY_SCREEN, BlockBehaviour.Properties.of(Material.METAL).strength(1.25F, 1.5F).sound(SoundType.METAL).lightLevel((p_187433_) -> 10)));
+
     public static final RegistryObject<LaboratoryBlock> LABORATORY_FAN = registerWithTab("laboratory_fan",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_FAN, BlockBehaviour.Properties.of(Material.METAL).strength(2.5F, 3.0F).sound(SoundType.METAL)));
 
