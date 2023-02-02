@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "laboratoryblocks:block/enlighted_laboratory_pillar"
+    "side": "laboratoryblocks:block/enlighted_laboratory_pillar",
+    "end": "laboratoryblocks:block/enlighted_laboratory_pillar_top"
   }
 }
