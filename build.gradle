@@ -14,7 +14,7 @@ plugins {
 
 
 group = 'de.artemis'
-version = "${mod_version}"
+version = "${mc_version}-${mod_version}-ctm-required"
 
 java {
     archivesBaseName = 'laboratoryblocks'
