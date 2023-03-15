@@ -4,11 +4,12 @@ import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.client.particle.custom.ApplyingGlowstoneParticle;
 import de.artemis.laboratoryblocks.client.particle.custom.RemovingGlowstoneParticle;
 import de.artemis.laboratoryblocks.common.registration.ModParticles;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = LaboratoryBlocks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = LaboratoryBlocks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModEvents {
 
     @SubscribeEvent

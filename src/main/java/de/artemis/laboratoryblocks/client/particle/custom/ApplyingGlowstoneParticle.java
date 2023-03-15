@@ -37,12 +37,12 @@ public class ApplyingGlowstoneParticle extends TextureSheetParticle {
         this.alpha = (-(1 / (float) lifetime) * age + 1);
     }
 
+    @NotNull
     @Override
-    public @NotNull ParticleRenderType getRenderType() {
+    public ParticleRenderType getRenderType() {
         return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public static class Provider implements net.minecraft.client.particle.ParticleProvider<SimpleParticleType> {
         private final SpriteSet spriteSet;
 
