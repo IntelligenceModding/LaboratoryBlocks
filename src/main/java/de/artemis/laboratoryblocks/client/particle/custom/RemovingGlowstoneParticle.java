@@ -6,8 +6,6 @@ import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 public class RemovingGlowstoneParticle extends TextureSheetParticle {
@@ -42,7 +40,6 @@ public class RemovingGlowstoneParticle extends TextureSheetParticle {
         return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public static class Provider implements net.minecraft.client.particle.ParticleProvider<SimpleParticleType> {
         private final SpriteSet spriteSet;
 

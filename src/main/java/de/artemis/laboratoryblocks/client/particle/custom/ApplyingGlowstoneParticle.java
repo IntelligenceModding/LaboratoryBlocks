@@ -42,7 +42,6 @@ public class ApplyingGlowstoneParticle extends TextureSheetParticle {
         return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
     }
 
-    @OnlyIn(Dist.CLIENT)
     public static class Provider implements net.minecraft.client.particle.ParticleProvider<SimpleParticleType> {
         private final SpriteSet spriteSet;
 
