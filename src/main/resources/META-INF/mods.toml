@@ -24,3 +24,9 @@ Get ready to upgrade your builds! This mod adds modern and futuristic looking la
     versionRange = "[1.20.1,1.21)"
     ordering = "NONE"
     side = "BOTH"
+[[dependencies.laboratoryblocks]]
+    modId="fusion"
+    mandatory=true
+    versionRange="[1.0.3,)"
+    ordering="NONE"
+    side="CLIENT"
