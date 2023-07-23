@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "A": {
       "item": "laboratoryblocks:dark_oak_laboratory_floor"
@@ -12,5 +13,6 @@
   "result": {
     "count": 8,
     "item": "laboratoryblocks:dark_oak_laboratory_tiles"
-  }
+  },
+  "show_notification": true
 }

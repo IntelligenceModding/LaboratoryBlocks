@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "A": {
       "item": "laboratoryblocks:laboratory_block"
@@ -19,5 +20,6 @@
   "result": {
     "count": 8,
     "item": "laboratoryblocks:right-faced_green_signaling_laboratory_block"
-  }
+  },
+  "show_notification": true
 }

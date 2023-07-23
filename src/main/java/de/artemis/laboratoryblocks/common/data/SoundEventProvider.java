@@ -2,14 +2,15 @@ package de.artemis.laboratoryblocks.common.data;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinition;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
 
 public class SoundEventProvider extends SoundDefinitionsProvider {
-    protected SoundEventProvider(DataGenerator generator,  ExistingFileHelper helper) {
-        super(generator, LaboratoryBlocks.MOD_ID, helper);
+    protected SoundEventProvider(PackOutput packOutput, ExistingFileHelper helper) {
+        super(packOutput, LaboratoryBlocks.MOD_ID, helper);
     }
 
     @Override

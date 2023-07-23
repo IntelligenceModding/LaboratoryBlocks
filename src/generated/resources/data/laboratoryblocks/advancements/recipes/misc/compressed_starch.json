@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_starch": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:starch"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "laboratoryblocks:compressed_starch"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_starch",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:compressed_starch"
+    ]
+  },
+  "sends_telemetry_event": false
+}

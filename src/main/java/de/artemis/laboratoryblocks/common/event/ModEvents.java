@@ -14,7 +14,7 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void registerParticleProvidersEvent(final RegisterParticleProvidersEvent event) {
-        event.register(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), ApplyingGlowstoneParticle.Provider::new);
-        event.register(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), RemovingGlowstoneParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), ApplyingGlowstoneParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), RemovingGlowstoneParticle.Provider::new);
     }
 }

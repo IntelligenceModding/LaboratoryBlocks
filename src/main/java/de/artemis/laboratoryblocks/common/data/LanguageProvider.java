@@ -4,10 +4,11 @@ import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 
 public class LanguageProvider extends net.minecraftforge.common.data.LanguageProvider {
-    public LanguageProvider(DataGenerator gen, String locale) {
-        super(gen, LaboratoryBlocks.MOD_ID, locale);
+    public LanguageProvider(PackOutput packOutput, String locale) {
+        super(packOutput, LaboratoryBlocks.MOD_ID, locale);
     }
 
     @Override

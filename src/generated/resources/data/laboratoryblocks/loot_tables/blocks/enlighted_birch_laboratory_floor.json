@@ -16,5 +16,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "laboratoryblocks:blocks/enlighted_birch_laboratory_floor"
 }

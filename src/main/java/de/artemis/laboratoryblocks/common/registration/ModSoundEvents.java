@@ -11,7 +11,7 @@ public class ModSoundEvents {
     }
 
     private static RegistryObject<SoundEvent> register(String resourceLocation) {
-        return Registration.SOUND_EVENTS.register(resourceLocation,  () -> new SoundEvent(new ResourceLocation(LaboratoryBlocks.MOD_ID, resourceLocation)));
+        return Registration.SOUND_EVENTS.register(resourceLocation,  () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(LaboratoryBlocks.MOD_ID, resourceLocation)));
     }
 
     public static final RegistryObject<SoundEvent> LABORATORY_BLOCK_BREAK = register("laboratory_block_break");

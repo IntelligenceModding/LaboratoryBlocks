@@ -3,7 +3,7 @@ package de.artemis.laboratoryblocks.common.data;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModItems;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -11,8 +11,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemModelProvider extends net.minecraftforge.client.model.generators.ItemModelProvider {
-    public ItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, LaboratoryBlocks.MOD_ID, existingFileHelper);
+    public ItemModelProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+        super(packOutput, LaboratoryBlocks.MOD_ID, existingFileHelper);
     }
 
     @Override

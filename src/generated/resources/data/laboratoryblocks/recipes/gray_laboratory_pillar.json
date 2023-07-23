@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "A": {
       "item": "laboratoryblocks:laboratory_pillar"
@@ -16,5 +17,6 @@
   "result": {
     "count": 8,
     "item": "laboratoryblocks:gray_laboratory_pillar"
-  }
+  },
+  "show_notification": true
 }

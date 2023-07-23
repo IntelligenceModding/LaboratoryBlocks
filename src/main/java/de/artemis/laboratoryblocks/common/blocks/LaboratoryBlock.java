@@ -4,6 +4,7 @@ import de.artemis.laboratoryblocks.common.registration.ModParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -43,7 +44,7 @@ public class LaboratoryBlock extends Block {
                 level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY(), blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
                 level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY() + 1.0F, blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
                 level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY() + 1.0F, blockPos.getZ() + 1.0F, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
-            } else if (itemStackInHand.is(Tags.Items.TOOLS_PICKAXES) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("enlighted")) {
+            } else if (itemStackInHand.is(ItemTags.PICKAXES) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("enlighted")) {
                 level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX(), blockPos.getY(), blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
                 level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY(), blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
                 level.addParticle(ModParticles.REMOVING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1.0F, blockPos.getY() + 1.0F, blockPos.getZ(), randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D, randomsource.nextGaussian() * 0.025D);
@@ -55,7 +56,7 @@ public class LaboratoryBlock extends Block {
             }
         }
 
-        if (itemStackInHand.is(Items.GLOWSTONE_DUST) || itemStackInHand.is(Tags.Items.TOOLS_PICKAXES)) {
+        if (itemStackInHand.is(Items.GLOWSTONE_DUST) || itemStackInHand.is(ItemTags.PICKAXES)) {
             if (itemStackInHand.is(Items.GLOWSTONE_DUST) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("enlighted")) {
                 if (!player.isCreative()) {
                     itemStackInHand.shrink(1);
@@ -63,7 +64,7 @@ public class LaboratoryBlock extends Block {
                 level.setBlock(blockPos, block.get().defaultBlockState(), 3);
                 level.playSound(player, blockPos, SoundEvents.RESPAWN_ANCHOR_CHARGE, SoundSource.BLOCKS, 1.0F, 1.0F);
                 return InteractionResult.SUCCESS;
-            } else if (itemStackInHand.is(Tags.Items.TOOLS_PICKAXES) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("enlighted")) {
+            } else if (itemStackInHand.is(ItemTags.PICKAXES) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("enlighted")) {
                 if (!player.isCreative()) {
                     if (!player.getInventory().add(new ItemStack(Items.GLOWSTONE_DUST))) {
                         ItemEntity itemEntity = new ItemEntity(level, blockPos.getX() + 0.5F, blockPos.getY() + 1.0F, blockPos.getZ() + 0.5F, new ItemStack(Items.GLOWSTONE_DUST));

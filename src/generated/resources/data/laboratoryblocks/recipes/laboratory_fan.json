@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "A": {
       "item": "laboratoryblocks:laboratory_block"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "laboratoryblocks:laboratory_fan"
-  }
+  },
+  "show_notification": true
 }

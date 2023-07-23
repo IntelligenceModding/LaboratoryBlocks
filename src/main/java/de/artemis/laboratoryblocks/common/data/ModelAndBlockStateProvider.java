@@ -3,6 +3,7 @@ package de.artemis.laboratoryblocks.common.data;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -12,8 +13,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModelAndBlockStateProvider extends BlockStateProvider {
-    public ModelAndBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, LaboratoryBlocks.MOD_ID, exFileHelper);
+    public ModelAndBlockStateProvider(PackOutput packOutput, ExistingFileHelper exFileHelper) {
+        super(packOutput, LaboratoryBlocks.MOD_ID, exFileHelper);
     }
 
     @Override

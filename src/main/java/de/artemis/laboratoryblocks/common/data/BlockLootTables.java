@@ -2,17 +2,24 @@ package de.artemis.laboratoryblocks.common.data;
 
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
 import de.artemis.laboratoryblocks.common.registration.Registration;
-import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
-public class BlockLootTables extends BlockLoot {
+import java.util.Set;
+
+public class BlockLootTables extends BlockLootSubProvider {
+
+    protected BlockLootTables() {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+    }
 
     @Override
-    protected void addTables() {
+    protected void generate() {
         dropSelf(ModBlocks.PLA_BLOCK.get());
         dropSelf(ModBlocks.ENLIGHTED_PLA_BLOCK.get());
         dropSelf(ModBlocks.PLA_TILES.get());

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "A": {
       "item": "laboratoryblocks:starch"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "laboratoryblocks:compressed_starch"
-  }
+  },
+  "show_notification": true
 }

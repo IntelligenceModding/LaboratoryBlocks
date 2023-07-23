@@ -24,7 +24,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 group = 'de.artemis.laboratoryblocks'
-version = "${mc_version}-${mod_version}-ctm-required"
+version = "${mc_version}-${mod_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -124,12 +124,8 @@ repositories {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-43.2.2"
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
-
-    // CTM does not have a maven repository, at least I couldn't find one
-    // So we uploaded an artifact to our own maven repository
-    implementation fg.deobf("team.chisel.ctm:CTM:${ctm_version}")
 }
 
 jar {

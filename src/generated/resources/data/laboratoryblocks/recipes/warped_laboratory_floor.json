@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "A": {
       "item": "laboratoryblocks:laboratory_block"
@@ -16,5 +17,6 @@
   "result": {
     "count": 8,
     "item": "laboratoryblocks:warped_laboratory_floor"
-  }
+  },
+  "show_notification": true
 }
