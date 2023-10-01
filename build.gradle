@@ -114,12 +114,12 @@ repositories {
         url = 'https://maven.blamejared.com'
     }
     maven {
-        name = "Intelligence Space repository"
-        url = "https://maven.pkg.jetbrains.space/intelligence/p/advancedperipherals/ap-repository"
-        credentials {
-            username = spaceUsername
-            password = spacePassword
-        }
+        name = "Create maven"
+        url = "https://maven.tterrag.com/"
+    }
+    maven {
+        name = "Intelligence repository"
+        url = "https://mvn.intelligence-modding.de/Minecraft"
     }
 }
 
