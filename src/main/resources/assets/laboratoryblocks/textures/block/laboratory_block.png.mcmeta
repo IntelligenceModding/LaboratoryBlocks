@@ -1,15 +1,6 @@
 {
-    "ctm":{
-        "ctm_version": 1,
-        "type":"CTM",
-        "textures":[
-            "laboratoryblocks:block/laboratory_block-ctm"
-        ],
-        "extra": {
-            "connect_to": [
-                { "block": "laboratoryblocks:laboratory_block" },
-                { "block": "laboratoryblocks:enlighted_laboratory_block" }
-            ]
-        }
-    }
+   "fusion": {
+      "type": "connecting",
+      "layout": "simple"
+   }
 }

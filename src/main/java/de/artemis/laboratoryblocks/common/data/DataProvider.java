@@ -29,7 +29,7 @@ public class DataProvider {
         generator.addProvider(true, new SoundEventProvider(generator.getPackOutput(), existingFileHelper));
         generator.addProvider(true, new TagsProvider.BlockTagsProvider(generator.getPackOutput(), future, existingFileHelper));
         generator.addProvider(true, new TagsProvider.ItemTagsProvider(generator.getPackOutput(), future, existingFileHelper));
-
+        generator.addProvider(true, new FusionModelProvider(generator.getPackOutput()));
     }
 
     public static String getRegistryName(Item item) {
