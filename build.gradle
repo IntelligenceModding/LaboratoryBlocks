@@ -24,7 +24,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 group = 'de.artemis.laboratoryblocks'
-version = "${mc_version}-${mod_version}-fusion-required"
+version = "${mc_version}-${mod_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
