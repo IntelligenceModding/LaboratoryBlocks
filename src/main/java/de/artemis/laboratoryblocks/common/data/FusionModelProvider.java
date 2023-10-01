@@ -15,6 +15,7 @@ public class FusionModelProvider extends com.supermartijn642.fusion.api.provider
 
     @Override
     protected void generate() {
+        /*
         var modelData = ConnectingModelDataBuilder.builder()
                 .parent(new ResourceLocation("minecraft", "block/cube_all"))
                 .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_block"))
@@ -22,5 +23,7 @@ public class FusionModelProvider extends com.supermartijn642.fusion.api.provider
                 .build();
         var modelInstance = ModelInstance.of(DefaultModelTypes.CONNECTING, modelData);
         this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_block"), modelInstance);
+
+         */
     }
 }

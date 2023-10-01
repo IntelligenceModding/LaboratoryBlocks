@@ -1,13 +1,5 @@
 {
-  "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
-  "ambientocclusion": false,
-  "connections": [
-    {
-      "type": "fusion:is_same_block"
-    }
-  ],
-  "loader": "fusion:model",
   "textures": {
     "all": "laboratoryblocks:block/laboratory_block"
   }
