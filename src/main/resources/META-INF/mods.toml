@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
-license = "All Rights Reserved"
+license = "Apache 2.0"
 [[mods]]
 modId = "laboratoryblocks"
 version = "${file.jarVersion}"
@@ -12,18 +12,21 @@ authors="Artemis"
 description = '''
 Get ready to upgrade your builds! This mod adds modern and futuristic looking laboratory blocks. Plus, it's compatible with CTM (ConnectedTexturesMod) for even better visuals.
 '''
+
 [[dependencies.laboratoryblocks]]
     modId = "forge"
     mandatory = true
     versionRange = "[47,)"
     ordering = "NONE"
     side = "BOTH"
+
 [[dependencies.laboratoryblocks]]
     modId = "minecraft"
     mandatory = true
     versionRange = "[1.20.1,1.21)"
     ordering = "NONE"
     side = "BOTH"
+
 [[dependencies.laboratoryblocks]]
     modId="fusion"
     mandatory=true

@@ -32,6 +32,6 @@ public class Registration {
         ModItems.register();
         ModSoundEvents.register();
         ModParticles.register();
-        ModCreativeModTabs.register();
+        ModCreativeModeTabs.register();
     }
 }
