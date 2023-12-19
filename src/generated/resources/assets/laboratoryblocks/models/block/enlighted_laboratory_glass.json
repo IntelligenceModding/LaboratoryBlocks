@@ -1,21 +1,14 @@
 {
   "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
-  "ambientocclusion": false,
-  "connections": [
-    {
-      "type": "fusion:or",
-      "predicates": [
-        {
-          "type": "fusion:is_same_block"
-        },
-        {
-          "type": "fusion:match_block",
-          "block": "laboratoryblocks:laboratory_glass"
-        }
-      ]
-    }
-  ],
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:is_same_block"
+      }
+    ]
+  },
   "loader": "fusion:model",
   "textures": {
     "all": "laboratoryblocks:block/laboratory_glass-fusion"

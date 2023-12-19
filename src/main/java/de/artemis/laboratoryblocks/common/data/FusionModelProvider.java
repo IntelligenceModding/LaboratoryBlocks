@@ -110,7 +110,7 @@ public class FusionModelProvider extends com.supermartijn642.fusion.api.provider
         var modelDataLaboratoryGlass = ConnectingModelDataBuilder.builder()
                 .parent(new ResourceLocation("minecraft", "block/cube_all"))
                 .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass-fusion"))
-                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get())))
+                .connection(DefaultConnectionPredicates.isSameBlock())
                 .build();
         var modelInstanceLaboratoryGlass = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLaboratoryGlass);
         this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass"), modelInstanceLaboratoryGlass);
@@ -118,7 +118,7 @@ public class FusionModelProvider extends com.supermartijn642.fusion.api.provider
         var modelDataEnlightedLaboratoryGlass = ConnectingModelDataBuilder.builder()
                 .parent(new ResourceLocation("minecraft", "block/cube_all"))
                 .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass-fusion"))
-                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_GLASS.get())))
+                .connection(DefaultConnectionPredicates.isSameBlock())
                 .build();
         var modelInstanceEnlightedLaboratoryGlass = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLaboratoryGlass);
         this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_glass"), modelInstanceEnlightedLaboratoryGlass);

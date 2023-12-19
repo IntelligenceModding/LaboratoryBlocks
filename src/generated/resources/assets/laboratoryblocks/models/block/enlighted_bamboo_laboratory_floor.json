@@ -1,21 +1,23 @@
 {
   "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
-  "ambientocclusion": false,
-  "connections": [
-    {
-      "type": "fusion:or",
-      "predicates": [
-        {
-          "type": "fusion:is_same_block"
-        },
-        {
-          "type": "fusion:match_block",
-          "block": "laboratoryblocks:bamboo_laboratory_floor"
-        }
-      ]
-    }
-  ],
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:or",
+        "predicates": [
+          {
+            "type": "fusion:is_same_block"
+          },
+          {
+            "type": "fusion:match_block",
+            "block": "laboratoryblocks:bamboo_laboratory_floor"
+          }
+        ]
+      }
+    ]
+  },
   "loader": "fusion:model",
   "textures": {
     "all": "laboratoryblocks:block/bamboo_laboratory_floor-fusion"
