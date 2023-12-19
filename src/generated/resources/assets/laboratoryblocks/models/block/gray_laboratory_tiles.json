@@ -1,6 +1,23 @@
 {
+  "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
+  "ambientocclusion": false,
+  "connections": [
+    {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:is_same_block"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "laboratoryblocks:enlighted_gray_laboratory_tiles"
+        }
+      ]
+    }
+  ],
+  "loader": "fusion:model",
   "textures": {
-    "all": "laboratoryblocks:block/gray_laboratory_tiles"
+    "all": "laboratoryblocks:block/gray_laboratory_tiles-fusion"
   }
 }

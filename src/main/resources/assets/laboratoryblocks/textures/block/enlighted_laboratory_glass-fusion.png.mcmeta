@@ -1,15 +1,7 @@
 {
-    "ctm":{
-        "ctm_version": 1,
-        "type":"CTM",
-        "layer": "CUTOUT",
-        "textures":[
-            "laboratoryblocks:block/enlighted_laboratory_glass-ctm"
-        ],
-        "extra": {
-            "connect_to": [
-                { "block": "laboratoryblocks:enlighted_laboratory_glass" }
-            ]
-        }
+    "fusion": {
+        "type": "connecting",
+        "layout": "full",
+        "render_type": "cutout"
     }
 }

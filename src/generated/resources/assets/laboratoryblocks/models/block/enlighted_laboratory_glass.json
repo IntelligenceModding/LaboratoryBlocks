@@ -1,7 +1,23 @@
 {
+  "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
-  "render_type": "minecraft:cutout",
+  "ambientocclusion": false,
+  "connections": [
+    {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:is_same_block"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "laboratoryblocks:laboratory_glass"
+        }
+      ]
+    }
+  ],
+  "loader": "fusion:model",
   "textures": {
-    "all": "laboratoryblocks:block/enlighted_laboratory_glass"
+    "all": "laboratoryblocks:block/laboratory_glass-fusion"
   }
 }

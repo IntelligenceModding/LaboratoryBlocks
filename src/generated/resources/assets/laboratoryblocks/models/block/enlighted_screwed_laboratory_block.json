@@ -1,6 +1,23 @@
 {
+  "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
+  "ambientocclusion": false,
+  "connections": [
+    {
+      "type": "fusion:or",
+      "predicates": [
+        {
+          "type": "fusion:is_same_block"
+        },
+        {
+          "type": "fusion:match_block",
+          "block": "laboratoryblocks:screwed_laboratory_block"
+        }
+      ]
+    }
+  ],
+  "loader": "fusion:model",
   "textures": {
-    "all": "laboratoryblocks:block/screwed_laboratory_block"
+    "all": "laboratoryblocks:block/screwed_laboratory_block-fusion"
   }
 }
