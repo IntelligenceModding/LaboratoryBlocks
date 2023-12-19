@@ -72,6 +72,14 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get(), "Enlighted Crimson Laboratory Tiles");
         add(ModBlocks.WARPED_LABORATORY_TILES.get(), "Warped Laboratory Tiles");
         add(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get(), "Enlighted Warped Laboratory Tiles");
+        add(ModBlocks.CHERRY_LABORATORY_FLOOR.get(), "Cherry Laboratory Floor");
+        add(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_FLOOR.get(), "Enlighted Cherry Laboratory Floor");
+        add(ModBlocks.CHERRY_LABORATORY_TILES.get(), "Cherry Laboratory Tiles");
+        add(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_TILES.get(), "Enlighted Cherry Laboratory Tiles");
+        add(ModBlocks.BAMBOO_LABORATORY_TILES.get(), "Bamboo Laboratory Tiles");
+        add(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_TILES.get(), "Enlighted Bamboo Laboratory Tiles");
+        add(ModBlocks.BAMBOO_LABORATORY_FLOOR.get(), "Bamboo Laboratory Floor");
+        add(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_FLOOR.get(), "Enlighted Bamboo Laboratory Floor");
         add(ModBlocks.LABORATORY_GLASS.get(), "Laboratory Glass");
         add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), "Enlighted Laboratory Glass");
         add(ModBlocks.LABORATORY_VENT.get(), "Laboratory Vent");

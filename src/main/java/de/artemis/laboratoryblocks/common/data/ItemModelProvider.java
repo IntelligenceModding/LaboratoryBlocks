@@ -66,6 +66,14 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_acacia_laboratory_tiles"));
         simpleBlock(ModBlocks.MANGROVE_LABORATORY_TILES.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_mangrove_laboratory_tiles"));
+        simpleBlock(ModBlocks.CHERRY_LABORATORY_TILES.get());
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_cherry_laboratory_tiles"));
+        simpleBlock(ModBlocks.CHERRY_LABORATORY_FLOOR.get());
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_FLOOR.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_cherry_laboratory_floor"));
+        simpleBlock(ModBlocks.BAMBOO_LABORATORY_TILES.get());
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_bamboo_laboratory_tiles"));
+        simpleBlock(ModBlocks.BAMBOO_LABORATORY_FLOOR.get());
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_FLOOR.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_bamboo_laboratory_floor"));
         simpleBlock(ModBlocks.CRIMSON_LABORATORY_TILES.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_crimson_laboratory_tiles"));
         simpleBlock(ModBlocks.WARPED_LABORATORY_TILES.get());

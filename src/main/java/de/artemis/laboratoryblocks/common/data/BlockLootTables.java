@@ -96,6 +96,14 @@ public class BlockLootTables extends BlockLootSubProvider {
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get());
         dropSelf(ModBlocks.GRAY_LABORATORY_PILLAR.get());
         dropSelf(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get());
+        dropSelf(ModBlocks.CHERRY_LABORATORY_FLOOR.get());
+        dropSelf(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_FLOOR.get());
+        dropSelf(ModBlocks.CHERRY_LABORATORY_TILES.get());
+        dropSelf(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_TILES.get());
+        dropSelf(ModBlocks.BAMBOO_LABORATORY_FLOOR.get());
+        dropSelf(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_FLOOR.get());
+        dropSelf(ModBlocks.BAMBOO_LABORATORY_TILES.get());
+        dropSelf(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_TILES.get());
 
         dropWhenSilkTouch(ModBlocks.LABORATORY_GLASS.get());
         add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), (p_124233_) -> {

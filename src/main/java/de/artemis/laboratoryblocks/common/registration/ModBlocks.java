@@ -199,6 +199,18 @@ public class ModBlocks {
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_MANGROVE_LABORATORY_FLOOR = register("enlighted_mangrove_laboratory_floor",
             () -> new LaboratoryBlock(ModBlocks.MANGROVE_LABORATORY_FLOOR, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel((p_187433_) -> 14)));
 
+    public static final RegistryObject<LaboratoryBlock> CHERRY_LABORATORY_FLOOR = register("cherry_laboratory_floor",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_FLOOR, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_CHERRY_LABORATORY_FLOOR = register("enlighted_cherry_laboratory_floor",
+            () -> new LaboratoryBlock(ModBlocks.CHERRY_LABORATORY_FLOOR, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel((p_187433_) -> 14)));
+
+    public static final RegistryObject<LaboratoryBlock> BAMBOO_LABORATORY_FLOOR = register("bamboo_laboratory_floor",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_FLOOR, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_BAMBOO_LABORATORY_FLOOR = register("enlighted_bamboo_laboratory_floor",
+            () -> new LaboratoryBlock(ModBlocks.BAMBOO_LABORATORY_FLOOR, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel((p_187433_) -> 14)));
+
     public static final RegistryObject<LaboratoryBlock> CRIMSON_LABORATORY_FLOOR = register("crimson_laboratory_floor",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD)));
 
@@ -258,6 +270,18 @@ public class ModBlocks {
 
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_MANGROVE_LABORATORY_TILES = register("enlighted_mangrove_laboratory_tiles",
             () -> new LaboratoryBlock(ModBlocks.MANGROVE_LABORATORY_TILES, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel((p_187433_) -> 14)));
+
+    public static final RegistryObject<LaboratoryBlock> CHERRY_LABORATORY_TILES = register("cherry_laboratory_tiles",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_TILES, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_CHERRY_LABORATORY_TILES = register("enlighted_cherry_laboratory_tiles",
+            () -> new LaboratoryBlock(ModBlocks.CHERRY_LABORATORY_TILES, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel((p_187433_) -> 14)));
+
+    public static final RegistryObject<LaboratoryBlock> BAMBOO_LABORATORY_TILES = register("bamboo_laboratory_tiles",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_TILES, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_BAMBOO_LABORATORY_TILES = register("enlighted_bamboo_laboratory_tiles",
+            () -> new LaboratoryBlock(ModBlocks.BAMBOO_LABORATORY_TILES, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel((p_187433_) -> 14)));
 
     public static final RegistryObject<LaboratoryBlock> CRIMSON_LABORATORY_TILES = register("crimson_laboratory_tiles",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES, BlockBehaviour.Properties.of().ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD)));

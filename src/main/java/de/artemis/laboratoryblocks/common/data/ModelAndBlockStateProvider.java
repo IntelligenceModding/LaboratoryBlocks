@@ -46,7 +46,10 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         block(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor"));
         simpleBlock(ModBlocks.WARPED_LABORATORY_FLOOR.get());
         block(ModBlocks.ENLIGHTED_WARPED_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_floor"));
-
+        simpleBlock(ModBlocks.CHERRY_LABORATORY_FLOOR.get());
+        block(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_floor"));
+        simpleBlock(ModBlocks.BAMBOO_LABORATORY_FLOOR.get());
+        block(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_FLOOR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_floor"));
         simpleBlock(ModBlocks.OAK_LABORATORY_TILES.get());
         block(ModBlocks.ENLIGHTED_OAK_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_tiles"));
         simpleBlock(ModBlocks.SPRUCE_LABORATORY_TILES.get());
@@ -65,6 +68,11 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         block(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles"));
         simpleBlock(ModBlocks.WARPED_LABORATORY_TILES.get());
         block(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles"));
+        simpleBlock(ModBlocks.CHERRY_LABORATORY_TILES.get());
+        block(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_tiles"));
+        simpleBlock(ModBlocks.BAMBOO_LABORATORY_TILES.get());
+        block(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_tiles"));
+
         simpleBlock(ModBlocks.LABORATORY_FAN.get());
         block(ModBlocks.ENLIGHTED_LABORATORY_FAN.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_fan"));
         simpleBlock(ModBlocks.SCREWED_LABORATORY_BLOCK.get());

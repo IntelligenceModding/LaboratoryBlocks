@@ -35,6 +35,14 @@
     "laboratoryblocks:crimson_laboratory_tiles",
     "laboratoryblocks:enlighted_crimson_laboratory_tiles",
     "laboratoryblocks:warped_laboratory_tiles",
-    "laboratoryblocks:enlighted_warped_laboratory_tiles"
+    "laboratoryblocks:enlighted_warped_laboratory_tiles",
+    "laboratoryblocks:cherry_laboratory_floor",
+    "laboratoryblocks:enlighted_cherry_laboratory_floor",
+    "laboratoryblocks:cherry_laboratory_tiles",
+    "laboratoryblocks:enlighted_cherry_laboratory_tiles",
+    "laboratoryblocks:bamboo_laboratory_floor",
+    "laboratoryblocks:enlighted_bamboo_laboratory_floor",
+    "laboratoryblocks:bamboo_laboratory_tiles",
+    "laboratoryblocks:enlighted_bamboo_laboratory_tiles"
   ]
 }
