@@ -35,6 +35,150 @@ public class FusionModelProvider extends com.supermartijn642.fusion.api.provider
 
 
 
+        var modelDataLaboratoryVent = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_VENT.get())))
+                .build();
+        var modelInstanceLaboratoryVent = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLaboratoryVent);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent"), modelInstanceLaboratoryVent);
+
+        var modelDataEnlightedLaboratoryVent = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_VENT.get())))
+                .build();
+        var modelInstanceEnlightedLaboratoryVent = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLaboratoryVent);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_vent"), modelInstanceEnlightedLaboratoryVent);
+
+
+
+        var modelDataClearLaboratoryScreen = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get())))
+                .build();
+        var modelInstanceClearLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataClearLaboratoryScreen);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen"), modelInstanceClearLaboratoryScreen);
+
+        var modelDataEnlightedClearLaboratoryScreen = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.CLEAR_LABORATORY_SCREEN.get())))
+                .build();
+        var modelInstanceEnlightedClearLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedClearLaboratoryScreen);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_clear_laboratory_screen"), modelInstanceEnlightedClearLaboratoryScreen);
+
+
+
+        var modelDataLeftFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceLeftFacedBlueSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLeftFacedBlueSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block"), modelInstanceLeftFacedBlueSignalingLaboratoryBlock);
+
+        var modelDataEnlightedLeftFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceEnlightedLeftFacedBlueSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLeftFacedBlueSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_blue_signaling_laboratory_block"), modelInstanceEnlightedLeftFacedBlueSignalingLaboratoryBlock);
+
+
+
+        var modelDataLeftFacedGreenSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceLeftFacedGreenSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLeftFacedGreenSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block"), modelInstanceLeftFacedGreenSignalingLaboratoryBlock);
+
+        var modelDataEnlightedLeftFacedGreenSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceEnlightedLeftFacedGreenSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLeftFacedGreenSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_green_signaling_laboratory_block"), modelInstanceEnlightedLeftFacedGreenSignalingLaboratoryBlock);
+
+
+
+        var modelDataLeftFacedRedSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_red_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceLeftFacedRedSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLeftFacedRedSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_red_signaling_laboratory_block"), modelInstanceLeftFacedRedSignalingLaboratoryBlock);
+
+        var modelDataEnlightedLeftFacedRedSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_red_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceEnlightedLeftFacedRedSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLeftFacedRedSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_red_signaling_laboratory_block"), modelInstanceEnlightedLeftFacedRedSignalingLaboratoryBlock);
+
+
+
+        var modelDataRightFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceRightFacedBlueSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataRightFacedBlueSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block"), modelInstanceRightFacedBlueSignalingLaboratoryBlock);
+
+        var modelDataEnlightedRightFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceEnlightedRightFacedBlueSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedRightFacedBlueSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_blue_signaling_laboratory_block"), modelInstanceEnlightedRightFacedBlueSignalingLaboratoryBlock);
+
+
+
+        var modelDataRightFacedGreenSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceRightFacedGreenSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataRightFacedGreenSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block"), modelInstanceRightFacedGreenSignalingLaboratoryBlock);
+
+        var modelDataEnlightedRightFacedGreenSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceEnlightedRightFacedGreenSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedRightFacedGreenSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_green_signaling_laboratory_block"), modelInstanceEnlightedRightFacedGreenSignalingLaboratoryBlock);
+
+
+
+        var modelDataRightFacedRedSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_red_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceRightFacedRedSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataRightFacedRedSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_red_signaling_laboratory_block"), modelInstanceRightFacedRedSignalingLaboratoryBlock);
+
+        var modelDataEnlightedRightFacedRedSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_red_signaling_laboratory_block-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceEnlightedRightFacedRedSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedRightFacedRedSignalingLaboratoryBlock);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_red_signaling_laboratory_block"), modelInstanceEnlightedRightFacedRedSignalingLaboratoryBlock);
+
+
+
         var modelDataScrewedLaboratoryBlock = ConnectingModelDataBuilder.builder()
                 .parent(new ResourceLocation("minecraft", "block/cube_all"))
                 .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block-fusion"))

@@ -1,7 +1,25 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube_all",
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:or",
+        "predicates": [
+          {
+            "type": "fusion:is_same_block"
+          },
+          {
+            "type": "fusion:match_block",
+            "block": "laboratoryblocks:laboratory_vent"
+          }
+        ]
+      }
+    ]
+  },
+  "loader": "fusion:model",
   "textures": {
-    "end": "laboratoryblocks:block/laboratory_vent_top",
-    "side": "laboratoryblocks:block/laboratory_vent"
+    "all": "laboratoryblocks:block/laboratory_vent-fusion"
   }
 }

@@ -1,7 +1,25 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube_all",
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:or",
+        "predicates": [
+          {
+            "type": "fusion:is_same_block"
+          },
+          {
+            "type": "fusion:match_block",
+            "block": "laboratoryblocks:enlighted_right-faced_green_signaling_laboratory_block"
+          }
+        ]
+      }
+    ]
+  },
+  "loader": "fusion:model",
   "textures": {
-    "end": "laboratoryblocks:block/right-faced_green_signaling_laboratory_block_top",
-    "side": "laboratoryblocks:block/right-faced_green_signaling_laboratory_block"
+    "all": "laboratoryblocks:block/right-faced_green_signaling_laboratory_block-fusion"
   }
 }
