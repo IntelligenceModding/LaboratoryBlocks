@@ -2,7 +2,6 @@ package de.artemis.laboratoryblocks.common.data;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -107,10 +106,10 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         ventBlock(ModBlocks.GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
         ventBlock(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
 
-        carpetBlock(ModBlocks.PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_flooring"));
-        carpetBlock(ModBlocks.ENLIGHTED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_flooring"));
-        carpetBlock(ModBlocks.TILED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/tiled_pla_flooring"));
-        carpetBlock(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/tiled_pla_flooring"));
+        carpetBlock(ModBlocks.PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
+        carpetBlock(ModBlocks.ENLIGHTED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
+        carpetBlock(ModBlocks.TILED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_tiles"));
+        carpetBlock(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_tiles"));
 
     }
 
