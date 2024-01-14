@@ -1,5 +1,7 @@
 {
   "values": [
+    "laboratoryblocks:laboratory_fan_redstone_controlled",
+    "laboratoryblocks:enlighted_laboratory_fan_redstone_controlled",
     "laboratoryblocks:laboratory_block",
     "laboratoryblocks:enlighted_laboratory_block",
     "laboratoryblocks:laboratory_tiles",

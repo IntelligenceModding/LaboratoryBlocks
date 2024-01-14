@@ -6,20 +6,18 @@ import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
-public class RemovingGlowstoneParticle extends TextureSheetParticle {
-    protected RemovingGlowstoneParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, double xd, double yd, double zd) {
+public class ApplyingRedstoneParticle extends TextureSheetParticle {
+    protected ApplyingRedstoneParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, double xd, double yd, double zd) {
         super(level, xCoord, yCoord, zCoord, xd, yd, zd);
 
         this.friction = 0.8F;
         this.xd = xd;
         this.yd = yd;
         this.zd = zd;
-        this.quadSize *= 0.85F;
-        this.lifetime = 20;
+        this.quadSize *= 1F;
+        this.lifetime = 16;
         this.setSpriteFromAge(spriteSet);
 
         this.rCol = 1f;
@@ -33,8 +31,8 @@ public class RemovingGlowstoneParticle extends TextureSheetParticle {
         fadeOut();
     }
 
-    private  void fadeOut() {
-        this.alpha = (-(1/(float)lifetime) * age + 1);
+    private void fadeOut() {
+        this.alpha = (-(1 / (float) lifetime) * age + 1);
     }
 
     @NotNull
@@ -51,7 +49,10 @@ public class RemovingGlowstoneParticle extends TextureSheetParticle {
         }
 
         public Particle createParticle(@NotNull SimpleParticleType particleType, @NotNull ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
-            return new RemovingGlowstoneParticle(level, x, y, z, this.spriteSet, dx, dy, dz);
+            ApplyingRedstoneParticle applyingRedstoneParticle = new ApplyingRedstoneParticle(level, x, y, z, this.spriteSet, dx, dy, dz);
+            applyingRedstoneParticle.setColor(0.67F, 0.06F, 0.004F);
+
+            return applyingRedstoneParticle;
         }
     }
 }

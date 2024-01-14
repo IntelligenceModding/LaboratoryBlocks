@@ -10,8 +10,11 @@ public class ModParticles {
     public static final RegistryObject<SimpleParticleType> APPLYING_GLOWSTONE_PARTICLE =
             PARTICLE_TYPES.register("applying_glowstone_particle", () -> new SimpleParticleType(true));
 
-    public static final RegistryObject<SimpleParticleType> REMOVING_GLOWSTONE_PARTICLE =
-            PARTICLE_TYPES.register("removing_glowstone_particle", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> APPLYING_REDSTONE_PARTICLE =
+            PARTICLE_TYPES.register("applying_redstone_particle", () -> new SimpleParticleType(true));
+
+    public static final RegistryObject<SimpleParticleType> REMOVING_MODIFIER_PARTICLE =
+            PARTICLE_TYPES.register("removing_modifier_particle", () -> new SimpleParticleType(true));
 
     public static void register() {
     }

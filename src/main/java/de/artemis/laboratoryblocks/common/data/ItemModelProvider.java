@@ -21,6 +21,9 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         simpleItem(ModItems.COMPRESSED_STARCH.get());
         simpleItem(ModItems.PLA_SHEETS.get());
         simpleItem(ModItems.IRON_SCREW.get());
+        simpleItem(ModItems.GLOWSTONE_PARTICLES.get());
+        simpleItem(ModItems.REDSTONE_PARTICLES.get());
+        simpleItem(ModItems.CONFIGURATION_TOOL.get());
 
         simpleBlock(ModBlocks.PLA_BLOCK.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_PLA_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_pla_block"));
@@ -82,6 +85,8 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_glass_inventory"));
         simpleBlock(ModBlocks.LABORATORY_FAN.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LABORATORY_FAN.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_fan"));
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_fan_redstone_controlled"));
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LABORATORY_FAN_REDSTONE_CONTROLLED.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_fan_redstone_controlled"));
         simpleBlock(ModBlocks.SCREWED_LABORATORY_BLOCK.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_screwed_laboratory_block"));
         simpleBlock(ModBlocks.LABORATORY_VENT.get());

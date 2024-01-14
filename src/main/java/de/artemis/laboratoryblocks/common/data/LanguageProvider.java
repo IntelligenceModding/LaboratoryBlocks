@@ -14,11 +14,17 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
     @Override
     protected void addTranslations() {
         add("itemGroup.laboratoryblocks", "Artemis' Laboratory Blocks");
+        add("keybind.laboratoryblocks.category", "Artemis' Laboratory Blocks");
+
+        add("keybind.laboratoryblocks.alternative_configuration_tool_action", "Alternative Configuration Tool Action");
 
         add(ModItems.STARCH.get(), "Starch");
         add(ModItems.COMPRESSED_STARCH.get(), "Compressed Starch");
         add(ModItems.PLA_SHEETS.get(), "PLA Sheets");
         add(ModItems.IRON_SCREW.get(), "Iron Screw");
+        add(ModItems.GLOWSTONE_PARTICLES.get(), "Glowstone Particles");
+        add(ModItems.REDSTONE_PARTICLES.get(), "Redstone Particles");
+        add(ModItems.CONFIGURATION_TOOL.get(), "Configuration Tool");
 
         add(ModBlocks.PLA_BLOCK.get(), "PLA Block");
         add(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), "Enlighted PLA Block");
@@ -98,13 +104,15 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get(), "Enlighted Right-Faced Red Signaling Laboratory Block");
         add(ModBlocks.LABORATORY_FAN.get(), "Laboratory Fan");
         add(ModBlocks.ENLIGHTED_LABORATORY_FAN.get(), "Enlighted Laboratory Fan");
-        add(ModBlocks.SCREWED_LABORATORY_BLOCK.get(), "Screwed Laboratory Fan");
-        add(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get(), "Enlighted Screwed Laboratory Fan");
+        add(ModBlocks.SCREWED_LABORATORY_BLOCK.get(), "Screwed Laboratory Block");
+        add(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get(), "Enlighted Screwed Laboratory Block");
         add(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), "Clear Laboratory Screen");
         add(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get(), "Enlighted Clear Laboratory Screen");
         add(ModBlocks.LABORATORY_PILLAR.get(), "Laboratory Pillar");
         add(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get(), "Enlighted Laboratory Pillar");
         add(ModBlocks.GRAY_LABORATORY_PILLAR.get(), "Gray Laboratory Pillar");
         add(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get(), "Enlighted Gray Laboratory Pillar");
+        add(ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get(), "Laboratory Fan (Redstone Controlled)");
+        add(ModBlocks.ENLIGHTED_LABORATORY_FAN_REDSTONE_CONTROLLED.get(), "Enlighted Laboratory Fan (Redstone Controlled)");
     }
 }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:enlighted_laboratory_fan"
+    },
+    {
+      "item": "laboratoryblocks:redstone_particles"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:enlighted_laboratory_fan_redstone_controlled"
+  }
+}

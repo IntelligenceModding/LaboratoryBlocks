@@ -3,6 +3,7 @@ package de.artemis.laboratoryblocks.common.registration;
 import de.artemis.laboratoryblocks.common.blocks.LaboratoryBlock;
 import de.artemis.laboratoryblocks.common.blocks.LaboratoryCarpetBlock;
 import de.artemis.laboratoryblocks.common.blocks.LaboratoryGlassBlock;
+import de.artemis.laboratoryblocks.common.blocks.RedstoneControlledLaboratoryBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
@@ -55,11 +56,17 @@ public class ModBlocks {
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_CLEAR_LABORATORY_SCREEN = register("enlighted_clear_laboratory_screen",
             () -> new LaboratoryBlock(ModBlocks.CLEAR_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(SoundType.METAL).lightLevel((p_187433_) -> 14)));
 
-    public static final RegistryObject<LaboratoryBlock> LABORATORY_FAN = register("laboratory_fan",
-            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_FAN, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL)));
+    public static final RegistryObject<RedstoneControlledLaboratoryBlock> LABORATORY_FAN = register("laboratory_fan",
+            () -> new RedstoneControlledLaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_FAN, ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL)));
 
-    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LABORATORY_FAN = register("enlighted_laboratory_fan",
-            () -> new LaboratoryBlock(ModBlocks.LABORATORY_FAN, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 14)));
+    public static final RegistryObject<RedstoneControlledLaboratoryBlock> ENLIGHTED_LABORATORY_FAN = register("enlighted_laboratory_fan",
+            () -> new RedstoneControlledLaboratoryBlock(ModBlocks.LABORATORY_FAN, ModBlocks.ENLIGHTED_LABORATORY_FAN_REDSTONE_CONTROLLED, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 14)));
+
+    public static final RegistryObject<RedstoneControlledLaboratoryBlock> LABORATORY_FAN_REDSTONE_CONTROLLED = register("laboratory_fan_redstone_controlled",
+            () -> new RedstoneControlledLaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_FAN_REDSTONE_CONTROLLED, ModBlocks.LABORATORY_FAN, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<RedstoneControlledLaboratoryBlock> ENLIGHTED_LABORATORY_FAN_REDSTONE_CONTROLLED = register("enlighted_laboratory_fan_redstone_controlled",
+            () -> new RedstoneControlledLaboratoryBlock(ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED, ModBlocks.ENLIGHTED_LABORATORY_FAN, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 14)));
 
     public static final RegistryObject<LaboratoryBlock> LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK = register("left-faced_blue_signaling_laboratory_block",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL)));
@@ -104,28 +111,28 @@ public class ModBlocks {
             () -> new LaboratoryBlock(ModBlocks.LABORATORY_VENT, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 14)));
 
     public static final RegistryObject<LaboratoryBlock> PLA_BLOCK = register("pla_block",
-            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_PLA_BLOCK, BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(SoundType.SCAFFOLDING)));
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_PLA_BLOCK, BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(SoundType.BONE_BLOCK)));
 
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_PLA_BLOCK = register("enlighted_pla_block",
-            () -> new LaboratoryBlock(ModBlocks.PLA_BLOCK, BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(SoundType.SCAFFOLDING).lightLevel((p_187433_) -> 14)));
+            () -> new LaboratoryBlock(ModBlocks.PLA_BLOCK, BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(SoundType.BONE_BLOCK).lightLevel((p_187433_) -> 14)));
 
     public static final RegistryObject<LaboratoryBlock> PLA_TILES = register("pla_tiles",
-            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_PLA_TILES, BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(SoundType.SCAFFOLDING)));
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_PLA_TILES, BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(SoundType.BONE_BLOCK)));
 
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_PLA_TILES = register("enlighted_pla_tiles",
-            () -> new LaboratoryBlock(ModBlocks.PLA_TILES, BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(SoundType.SCAFFOLDING).lightLevel((p_187433_) -> 14)));
+            () -> new LaboratoryBlock(ModBlocks.PLA_TILES, BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(SoundType.BONE_BLOCK).lightLevel((p_187433_) -> 14)));
 
     public static final RegistryObject<LaboratoryCarpetBlock> PLA_FLOORING = register("pla_flooring",
-            () -> new LaboratoryCarpetBlock(ModBlocks.ENLIGHTED_PLA_FLOORING, BlockBehaviour.Properties.of().ignitedByLava().strength(0.1F).sound(SoundType.SCAFFOLDING)));
+            () -> new LaboratoryCarpetBlock(ModBlocks.ENLIGHTED_PLA_FLOORING, BlockBehaviour.Properties.of().ignitedByLava().strength(0.1F).sound(SoundType.BONE_BLOCK)));
 
     public static final RegistryObject<LaboratoryCarpetBlock> ENLIGHTED_PLA_FLOORING = register("enlighted_pla_flooring",
-            () -> new LaboratoryCarpetBlock(ModBlocks.PLA_FLOORING, BlockBehaviour.Properties.of().ignitedByLava().strength(0.1F).sound(SoundType.SCAFFOLDING).lightLevel((p_187433_) -> 14)));
+            () -> new LaboratoryCarpetBlock(ModBlocks.PLA_FLOORING, BlockBehaviour.Properties.of().ignitedByLava().strength(0.1F).sound(SoundType.BONE_BLOCK).lightLevel((p_187433_) -> 14)));
 
     public static final RegistryObject<LaboratoryCarpetBlock> TILED_PLA_FLOORING = register("tiled_pla_flooring",
-            () -> new LaboratoryCarpetBlock(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING, BlockBehaviour.Properties.of().ignitedByLava().strength(0.1F).sound(SoundType.SCAFFOLDING)));
+            () -> new LaboratoryCarpetBlock(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING, BlockBehaviour.Properties.of().ignitedByLava().strength(0.1F).sound(SoundType.BONE_BLOCK)));
 
     public static final RegistryObject<LaboratoryCarpetBlock> ENLIGHTED_TILED_PLA_FLOORING = register("enlighted_tiled_pla_flooring",
-            () -> new LaboratoryCarpetBlock(ModBlocks.TILED_PLA_FLOORING, BlockBehaviour.Properties.of().ignitedByLava().strength(0.1F).sound(SoundType.SCAFFOLDING).lightLevel((p_187433_) -> 14)));
+            () -> new LaboratoryCarpetBlock(ModBlocks.TILED_PLA_FLOORING, BlockBehaviour.Properties.of().ignitedByLava().strength(0.1F).sound(SoundType.BONE_BLOCK).lightLevel((p_187433_) -> 14)));
 
     public static final RegistryObject<LaboratoryBlock> LABORATORY_BLOCK = register("laboratory_block",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_BLOCK, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL)));

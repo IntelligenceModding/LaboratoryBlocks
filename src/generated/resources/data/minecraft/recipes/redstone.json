@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:redstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:redstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:redstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:redstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:redstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:redstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:redstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:redstone_particles"
+    }
+  ],
+  "result": {
+    "item": "minecraft:redstone"
+  }
+}

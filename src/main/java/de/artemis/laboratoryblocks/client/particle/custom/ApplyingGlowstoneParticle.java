@@ -12,12 +12,12 @@ public class ApplyingGlowstoneParticle extends TextureSheetParticle {
     protected ApplyingGlowstoneParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, double xd, double yd, double zd) {
         super(level, xCoord, yCoord, zCoord, xd, yd, zd);
 
-        this.friction = 0.8F;
+        this.friction = 0F;
         this.xd = xd;
         this.yd = yd;
         this.zd = zd;
-        this.quadSize *= 0.85F;
-        this.lifetime = 20;
+        this.quadSize *= 1;
+        this.lifetime = 16;
         this.setSpriteFromAge(spriteSet);
 
         this.rCol = 1f;

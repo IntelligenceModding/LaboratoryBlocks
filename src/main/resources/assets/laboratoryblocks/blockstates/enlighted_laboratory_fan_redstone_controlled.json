@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "laboratoryblocks:block/laboratory_fan_unpowered"
+    },
+    "powered=true": {
+      "model": "laboratoryblocks:block/laboratory_fan_powered"
+    }
+  }
+}

@@ -101,10 +101,10 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.PLA_TILES.get());
         block(ModBlocks.ENLIGHTED_PLA_TILES.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_tiles"));
 
-        ventBlock(ModBlocks.LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar_top"));
-        ventBlock(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar_top"));
-        ventBlock(ModBlocks.GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
-        ventBlock(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
+        pillarBlock(ModBlocks.LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar_top"));
+        pillarBlock(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_pillar_top"));
+        pillarBlock(ModBlocks.GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
+        pillarBlock(ModBlocks.ENLIGHTED_GRAY_LABORATORY_PILLAR.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar"), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_pillar_top"));
 
         carpetBlock(ModBlocks.PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
         carpetBlock(ModBlocks.ENLIGHTED_PLA_FLOORING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_block"));
@@ -131,7 +131,7 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
                 .texture("all", texture).renderType(renderType));
     }
 
-    public void ventBlock(Block block, ResourceLocation texture_side, ResourceLocation texture_top) {
+    public void pillarBlock(Block block, ResourceLocation texture_side, ResourceLocation texture_top) {
         ModelFile block_model = models().withExistingParent(DataProvider.getRegistryName(block.asItem()), "block/cube_column").texture("side", texture_side).texture("end", texture_top);
         getVariantBuilder(block).partialState().setModels(ConfiguredModel.builder().modelFile(block_model).build());
     }

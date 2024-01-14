@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_glowstone_dust": {
+    "has_glowstone_particles": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:glowstone_dust"
+              "laboratoryblocks:glowstone_particles"
             ]
           }
         ]
@@ -35,7 +35,7 @@
   "requirements": [
     [
       "has_mixed_laboratory_tiles",
-      "has_glowstone_dust",
+      "has_glowstone_particles",
       "has_the_recipe"
     ]
   ],
