@@ -15,6 +15,8 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add("itemGroup.laboratoryblocks", "Artemis' Laboratory Blocks");
         add("keybind.laboratoryblocks.category", "Artemis' Laboratory Blocks");
 
+        add("tooltip.laboratoryblocks.configuration_tool", "Right Click to remove Glowstone Particles and %s Right Click to remove Redstone Particles");
+
         add("keybind.laboratoryblocks.alternative_configuration_tool_action", "Alternative Configuration Tool Action");
 
         add(ModItems.STARCH.get(), "Starch");
@@ -89,6 +91,8 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), "Enlighted Laboratory Glass");
         add(ModBlocks.LABORATORY_VENT.get(), "Laboratory Vent");
         add(ModBlocks.ENLIGHTED_LABORATORY_VENT.get(), "Enlighted Laboratory Vent");
+        add(ModBlocks.LABORATORY_VENT_CONNECTING.get(), "Laboratory Vent (Connecting)");
+        add(ModBlocks.ENLIGHTED_LABORATORY_VENT_CONNECTING.get(), "Enlighted Laboratory Vent (Connecting)");
         add(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get(), "Left-Faced Blue Signaling Laboratory Block");
         add(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get(), "Enlighted Left-Faced Blue Signaling Laboratory Block");
         add(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get(), "Right-Faced Blue Signaling Laboratory Block");

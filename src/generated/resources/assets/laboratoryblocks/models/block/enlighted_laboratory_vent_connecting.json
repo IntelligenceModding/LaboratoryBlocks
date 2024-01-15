@@ -1,0 +1,43 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube_all",
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:or",
+        "predicates": [
+          {
+            "type": "fusion:or",
+            "predicates": [
+              {
+                "type": "fusion:or",
+                "predicates": [
+                  {
+                    "type": "fusion:is_same_block"
+                  },
+                  {
+                    "type": "fusion:match_block",
+                    "block": "laboratoryblocks:laboratory_vent_connecting"
+                  }
+                ]
+              },
+              {
+                "type": "fusion:match_block",
+                "block": "laboratoryblocks:laboratory_block"
+              }
+            ]
+          },
+          {
+            "type": "fusion:match_block",
+            "block": "laboratoryblocks:enlighted_laboratory_block"
+          }
+        ]
+      }
+    ]
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "all": "laboratoryblocks:block/laboratory_vent_connecting-fusion"
+  }
+}

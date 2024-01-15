@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_glowstone_particles": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:glowstone_particles"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_laboratory_vent_connecting": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:laboratory_vent_connecting"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:enlighted_laboratory_vent_connecting_from_laboratory_vent_connecting_and_glowstone_particles"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_laboratory_vent_connecting",
+      "has_glowstone_particles",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:enlighted_laboratory_vent_connecting_from_laboratory_vent_connecting_and_glowstone_particles"
+    ]
+  },
+  "sends_telemetry_event": false
+}

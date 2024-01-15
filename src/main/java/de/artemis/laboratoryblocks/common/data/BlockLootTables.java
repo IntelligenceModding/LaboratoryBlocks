@@ -74,6 +74,8 @@ public class BlockLootTables extends BlockLootSubProvider {
         dropSelf(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get());
         dropSelf(ModBlocks.LABORATORY_VENT.get());
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_VENT.get());
+        dropSelf(ModBlocks.LABORATORY_VENT_CONNECTING.get());
+        dropSelf(ModBlocks.ENLIGHTED_LABORATORY_VENT_CONNECTING.get());
         dropSelf(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
         dropSelf(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
         dropSelf(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());

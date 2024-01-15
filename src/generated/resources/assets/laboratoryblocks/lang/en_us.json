@@ -36,6 +36,7 @@
   "block.laboratoryblocks.enlighted_laboratory_pillar": "Enlighted Laboratory Pillar",
   "block.laboratoryblocks.enlighted_laboratory_tiles": "Enlighted Laboratory Tiles",
   "block.laboratoryblocks.enlighted_laboratory_vent": "Enlighted Laboratory Vent",
+  "block.laboratoryblocks.enlighted_laboratory_vent_connecting": "Enlighted Laboratory Vent (Connecting)",
   "block.laboratoryblocks.enlighted_left-faced_blue_signaling_laboratory_block": "Enlighted Left-Faced Blue Signaling Laboratory Block",
   "block.laboratoryblocks.enlighted_left-faced_green_signaling_laboratory_block": "Enlighted Left-Faced Green Signaling Laboratory Block",
   "block.laboratoryblocks.enlighted_left-faced_red_signaling_laboratory_block": "Enlighted Left-Faced Red Signaling Laboratory Block",
@@ -67,6 +68,7 @@
   "block.laboratoryblocks.laboratory_pillar": "Laboratory Pillar",
   "block.laboratoryblocks.laboratory_tiles": "Laboratory Tiles",
   "block.laboratoryblocks.laboratory_vent": "Laboratory Vent",
+  "block.laboratoryblocks.laboratory_vent_connecting": "Laboratory Vent (Connecting)",
   "block.laboratoryblocks.left-faced_blue_signaling_laboratory_block": "Left-Faced Blue Signaling Laboratory Block",
   "block.laboratoryblocks.left-faced_green_signaling_laboratory_block": "Left-Faced Green Signaling Laboratory Block",
   "block.laboratoryblocks.left-faced_red_signaling_laboratory_block": "Left-Faced Red Signaling Laboratory Block",
@@ -96,5 +98,6 @@
   "item.laboratoryblocks.starch": "Starch",
   "itemGroup.laboratoryblocks": "Artemis' Laboratory Blocks",
   "keybind.laboratoryblocks.alternative_configuration_tool_action": "Alternative Configuration Tool Action",
-  "keybind.laboratoryblocks.category": "Artemis' Laboratory Blocks"
+  "keybind.laboratoryblocks.category": "Artemis' Laboratory Blocks",
+  "tooltip.laboratoryblocks.configuration_tool": "Right Click to remove Glowstone Particles and %s Right Click to remove Redstone Particles"
 }

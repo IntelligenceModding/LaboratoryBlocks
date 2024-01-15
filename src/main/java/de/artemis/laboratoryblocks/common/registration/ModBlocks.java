@@ -110,6 +110,12 @@ public class ModBlocks {
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LABORATORY_VENT = register("enlighted_laboratory_vent",
             () -> new LaboratoryBlock(ModBlocks.LABORATORY_VENT, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 14)));
 
+    public static final RegistryObject<LaboratoryBlock> LABORATORY_VENT_CONNECTING = register("laboratory_vent_connecting",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_VENT_CONNECTING, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_LABORATORY_VENT_CONNECTING = register("enlighted_laboratory_vent_connecting",
+            () -> new LaboratoryBlock(ModBlocks.LABORATORY_VENT_CONNECTING, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(SoundType.METAL).lightLevel((p_187433_) -> 14)));
+
     public static final RegistryObject<LaboratoryBlock> PLA_BLOCK = register("pla_block",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_PLA_BLOCK, BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(SoundType.BONE_BLOCK)));
 

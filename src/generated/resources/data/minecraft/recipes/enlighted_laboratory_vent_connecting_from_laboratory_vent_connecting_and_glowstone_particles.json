@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:laboratory_vent_connecting"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:enlighted_laboratory_vent_connecting"
+  }
+}

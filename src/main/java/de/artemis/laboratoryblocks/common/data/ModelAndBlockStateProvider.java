@@ -77,9 +77,14 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         block(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block"));
         simpleBlock(ModBlocks.LABORATORY_VENT.get());
         block(ModBlocks.ENLIGHTED_LABORATORY_VENT.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent"));
+
+
+        simpleBlock(ModBlocks.LABORATORY_VENT_CONNECTING.get());
+        block(ModBlocks.ENLIGHTED_LABORATORY_VENT_CONNECTING.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting"));
+
+
         simpleBlock(ModBlocks.CLEAR_LABORATORY_SCREEN.get());
         block(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen"));
-
         simpleBlock(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
         block(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block"));
         simpleBlock(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());

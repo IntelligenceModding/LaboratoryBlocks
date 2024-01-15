@@ -53,6 +53,24 @@ public class FusionModelProvider extends com.supermartijn642.fusion.api.provider
 
 
 
+        var modelDataLaboratoryVentConnecting = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_VENT_CONNECTING.get())).or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_BLOCK.get())).or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceLaboratoryVentConnecting = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLaboratoryVentConnecting);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting"), modelInstanceLaboratoryVentConnecting);
+
+        var modelDataEnlightedLaboratoryVentConnecting = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_VENT_CONNECTING.get())).or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_BLOCK.get())).or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get())))
+                .build();
+        var modelInstanceEnlightedLaboratoryVentConnecting = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLaboratoryVentConnecting);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_vent_connecting"), modelInstanceEnlightedLaboratoryVentConnecting);
+
+
+
         var modelDataClearLaboratoryScreen = ConnectingModelDataBuilder.builder()
                 .parent(new ResourceLocation("minecraft", "block/cube_all"))
                 .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen-fusion"))
