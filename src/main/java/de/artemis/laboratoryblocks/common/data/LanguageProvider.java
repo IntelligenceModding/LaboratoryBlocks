@@ -3,7 +3,6 @@ package de.artemis.laboratoryblocks.common.data;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModItems;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 
 public class LanguageProvider extends net.minecraftforge.common.data.LanguageProvider {

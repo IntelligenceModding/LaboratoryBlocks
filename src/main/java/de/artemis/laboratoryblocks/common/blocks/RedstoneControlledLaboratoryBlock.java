@@ -60,10 +60,10 @@ public class RedstoneControlledLaboratoryBlock extends Block {
         }
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
-        RandomSource randomsource = level.getRandom();
 
         if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) || itemStackInHand.is(ModItems.REDSTONE_PARTICLES.get())) {
 

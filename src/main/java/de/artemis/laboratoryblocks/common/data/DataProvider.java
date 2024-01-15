@@ -32,18 +32,22 @@ public class DataProvider {
         generator.addProvider(true, new FusionModelProvider(generator.getPackOutput()));
     }
 
+    @SuppressWarnings("deprecation")
     public static String getRegistryName(Item item) {
         return item.builtInRegistryHolder().key().location().toString();
     }
 
+    @SuppressWarnings("deprecation")
     public static String getRegistryName(Block block) {
         return block.builtInRegistryHolder().key().location().toString();
     }
 
+    @SuppressWarnings("deprecation")
     public static String getRawRegistryName(Item item) {
         return item.builtInRegistryHolder().key().location().getPath().toString();
     }
 
+    @SuppressWarnings("deprecation")
     public static String getRawRegistryName(Block block) {
         return block.builtInRegistryHolder().key().location().getPath().toString();
     }

@@ -3,7 +3,6 @@ package de.artemis.laboratoryblocks.common.data;
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
 import de.artemis.laboratoryblocks.common.registration.ModItems;
 import de.artemis.laboratoryblocks.common.registration.ModTags;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;

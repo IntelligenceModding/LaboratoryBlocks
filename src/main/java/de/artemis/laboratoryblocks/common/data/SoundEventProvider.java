@@ -1,7 +1,6 @@
 package de.artemis.laboratoryblocks.common.data;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;

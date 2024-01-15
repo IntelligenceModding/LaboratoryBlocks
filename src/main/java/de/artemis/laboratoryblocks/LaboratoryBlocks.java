@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 public class LaboratoryBlocks {
 
     public static final String MOD_ID = "laboratoryblocks";
-    private static final Logger LOGGER = LogUtils.getLogger();
 
     public LaboratoryBlocks() {
         MinecraftForge.EVENT_BUS.register(this);

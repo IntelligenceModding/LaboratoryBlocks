@@ -1,10 +1,10 @@
 package de.artemis.laboratoryblocks.common.data;
 
 import de.artemis.laboratoryblocks.common.registration.ModBlocks;
+import de.artemis.laboratoryblocks.common.registration.ModItems;
 import de.artemis.laboratoryblocks.common.registration.Registration;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.RegistryObject;
@@ -109,7 +109,7 @@ public class BlockLootTables extends BlockLootSubProvider {
 
         dropWhenSilkTouch(ModBlocks.LABORATORY_GLASS.get());
         add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), (p_124233_) -> {
-            return createSingleItemTableWithSilkTouch(p_124233_, Items.GLOWSTONE_DUST, ConstantValue.exactly(1.0F));
+            return createSingleItemTableWithSilkTouch(p_124233_, ModItems.GLOWSTONE_PARTICLES.get(), ConstantValue.exactly(1.0F));
         });
     }
 
