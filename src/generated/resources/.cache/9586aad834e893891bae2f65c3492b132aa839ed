@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-09T22:57:15.1523825	Fusion Model Provider: Artemis' Laboratory Blocks
+// 1.20.1	2025-10-06T22:03:57.4200975	Fusion Model Provider: Artemis' Laboratory Blocks
 c892d61e092b2d5101faa826d3415751bd00286c assets/laboratoryblocks/models/block/acacia_laboratory_floor.json
 6cee35ad689a6df3b3dcae37ae54bc3f501cfa9a assets/laboratoryblocks/models/block/acacia_laboratory_tiles.json
 253e60b21d16062a9c1186d3af474c0e2a4f2f34 assets/laboratoryblocks/models/block/bamboo_laboratory_floor.json
@@ -50,6 +50,7 @@ f27bb80d6d3e982f1a6267761535aadf5e2741b2 assets/laboratoryblocks/models/block/en
 2b546de24ef9d1bee5f8dec8e8d778171f3da83a assets/laboratoryblocks/models/block/enlighted_spruce_laboratory_tiles.json
 5a36ff9eca8ef8830c19c8f80dfc4becc900edc2 assets/laboratoryblocks/models/block/enlighted_warped_laboratory_floor.json
 befb47dd82c7d9d44346e56ad30788a4264af289 assets/laboratoryblocks/models/block/enlighted_warped_laboratory_tiles.json
+7879339879a4436e7498f49043c72313fdfb113a assets/laboratoryblocks/models/block/enlighted_wave_laboratory_screen.json
 7ff323e7fdce7b289e0e82638dfacd3f622a24f8 assets/laboratoryblocks/models/block/gray_laboratory_tiles.json
 0c453c256a34cbe66f94361fcc793e8a12400875 assets/laboratoryblocks/models/block/jungle_laboratory_floor.json
 9e14335051377461ed73cc75c6ddcb61c1169b12 assets/laboratoryblocks/models/block/jungle_laboratory_tiles.json
@@ -75,3 +76,4 @@ f892db9258fcbe745f914f46beecc9d959684cb8 assets/laboratoryblocks/models/block/oa
 5caf8e63b9e51ee8cc840e9a3996a8918e7d39e1 assets/laboratoryblocks/models/block/spruce_laboratory_tiles.json
 4dc86aef36637b31b80ec356640a6343d5649b98 assets/laboratoryblocks/models/block/warped_laboratory_floor.json
 b0e8e72d012b8f6545f14cd1b625d27a91e13424 assets/laboratoryblocks/models/block/warped_laboratory_tiles.json
+47d45020061d2c1dfd8bfba8809d29bdcea60b3d assets/laboratoryblocks/models/block/wave_laboratory_screen.json

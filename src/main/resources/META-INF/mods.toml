@@ -30,6 +30,6 @@ Get ready to upgrade your builds! This mod adds modern and futuristic looking la
 [[dependencies.laboratoryblocks]]
     modId="fusion"
     mandatory=true
-    versionRange="[1.0.3,)"
+    versionRange="[1.2.11,)"
     ordering="NONE"
     side="CLIENT"

@@ -1,5 +1,16 @@
 buildscript {
     repositories {
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "Modrinth"
+                    url = "https://api.modrinth.com/maven"
+                }
+            }
+            filter {
+                includeGroup "maven.modrinth"
+            }
+        }
         maven {
             name = "Minecraft Forge maven"
             url = "https://maven.minecraftforge.net"
@@ -10,6 +21,7 @@ buildscript {
         }
         mavenCentral()
     }
+
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.parchmentmc:librarian:1.+'

@@ -95,6 +95,8 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LABORATORY_VENT_CONNECTING.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_vent"));
         simpleBlock(ModBlocks.CLEAR_LABORATORY_SCREEN.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_clear_laboratory_screen"));
+        simpleBlock(ModBlocks.WAVE_LABORATORY_SCREEN.get());
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_wave_laboratory_screen"));
 
         simpleBlock(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_blue_signaling_laboratory_block"));

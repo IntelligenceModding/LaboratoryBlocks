@@ -96,6 +96,8 @@ public class BlockLootTables extends BlockLootSubProvider {
         dropSelf(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get());
         dropSelf(ModBlocks.CLEAR_LABORATORY_SCREEN.get());
         dropSelf(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get());
+        dropSelf(ModBlocks.WAVE_LABORATORY_SCREEN.get());
+        dropSelf(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get());
         dropSelf(ModBlocks.LABORATORY_PILLAR.get());
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get());
         dropSelf(ModBlocks.GRAY_LABORATORY_PILLAR.get());
@@ -223,6 +225,8 @@ public class BlockLootTables extends BlockLootSubProvider {
         registeredBlocks.add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get());
         registeredBlocks.add(ModBlocks.LABORATORY_BOOKSHELF.get());
         registeredBlocks.add(ModBlocks.ENLIGHTED_LABORATORY_BOOKSHELF.get());
+        registeredBlocks.add(ModBlocks.WAVE_LABORATORY_SCREEN.get());
+        registeredBlocks.add(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get());
 
         return registeredBlocks;
     }

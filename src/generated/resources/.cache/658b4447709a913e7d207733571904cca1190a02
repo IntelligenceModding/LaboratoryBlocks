@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-09T22:57:15.1583883	Item Models: laboratoryblocks
+// 1.20.1	2025-10-06T22:03:57.4287869	Item Models: laboratoryblocks
 bb88927e989045825ec5999d461f89910a4fe1ea assets/laboratoryblocks/models/item/acacia_laboratory_floor.json
 cc46c7a5c5b3dbe0c96a6251edaa430082d719ce assets/laboratoryblocks/models/item/acacia_laboratory_tiles.json
 31029a270977c2abc029e734d87b0628f977a600 assets/laboratoryblocks/models/item/bamboo_laboratory_floor.json
@@ -60,6 +60,7 @@ e60b84886647708b517a7db643f5aeafe11f9647 assets/laboratoryblocks/models/item/enl
 dd8822110e3fe281f14bf4249ed1ba0e365dd31d assets/laboratoryblocks/models/item/enlighted_tiled_pla_flooring.json
 59cefb649171bc499a7a77aff46f4397bcc5e5df assets/laboratoryblocks/models/item/enlighted_warped_laboratory_floor.json
 14a85ab9f80a71302f9adc539872b73f39026f05 assets/laboratoryblocks/models/item/enlighted_warped_laboratory_tiles.json
+6869848d23aaceb47581712e8898fca2b0ca0b15 assets/laboratoryblocks/models/item/enlighted_wave_laboratory_screen.json
 ed4a0d93d6627897984ea6df4ecdc5e5ed09960a assets/laboratoryblocks/models/item/glowstone_particles.json
 683518945971ac42ae52e3074189592d5313d85b assets/laboratoryblocks/models/item/gray_laboratory_pillar.json
 513d2f75a779a951995666da45601c78386e6953 assets/laboratoryblocks/models/item/gray_laboratory_tiles.json
@@ -98,3 +99,4 @@ a0bcf47f30d1b3affbf18bdd08e58bda15a58bee assets/laboratoryblocks/models/item/rig
 d5207bf55d4caf603a98acaf3025ea4b5aa3a322 assets/laboratoryblocks/models/item/tiled_pla_flooring.json
 f2041da991a1a592aac0b6886a69312b38ae44a8 assets/laboratoryblocks/models/item/warped_laboratory_floor.json
 593317b6115418bd8e7173b4be3e5a0f57ec9f9d assets/laboratoryblocks/models/item/warped_laboratory_tiles.json
+aab1dda1184b80090b20cfc2c935fe740ae1806b assets/laboratoryblocks/models/item/wave_laboratory_screen.json

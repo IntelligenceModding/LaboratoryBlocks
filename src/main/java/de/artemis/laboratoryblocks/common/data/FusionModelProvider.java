@@ -109,6 +109,24 @@ public class FusionModelProvider extends com.supermartijn642.fusion.api.provider
 
 
 
+        var modelDataWaveLaboratoryScreen = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get())))
+                .build();
+        var modelInstanceWaveLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataWaveLaboratoryScreen);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen"), modelInstanceWaveLaboratoryScreen);
+
+        var modelDataEnlightedWaveLaboratoryScreen = ConnectingModelDataBuilder.builder()
+                .parent(new ResourceLocation("minecraft", "block/cube_all"))
+                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.WAVE_LABORATORY_SCREEN.get())))
+                .build();
+        var modelInstanceEnlightedWaveLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedWaveLaboratoryScreen);
+        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_wave_laboratory_screen"), modelInstanceEnlightedWaveLaboratoryScreen);
+
+
+
         var modelDataLeftFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
                 .parent(new ResourceLocation("minecraft", "block/cube_all"))
                 .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block-fusion"))

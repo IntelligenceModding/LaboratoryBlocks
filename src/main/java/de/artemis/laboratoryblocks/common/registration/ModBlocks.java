@@ -47,11 +47,26 @@ public class ModBlocks {
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_GRAY_LABORATORY_PILLAR = register("enlighted_gray_laboratory_pillar",
             () -> new LaboratoryBlock(ModBlocks.GRAY_LABORATORY_PILLAR, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(ModSoundType.LABORATORY_BLOCK).lightLevel((p_187433_) -> 14)));
 
+
+
+
+
     public static final RegistryObject<LaboratoryBlock> CLEAR_LABORATORY_SCREEN = register("clear_laboratory_screen",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(ModSoundType.LABORATORY_BLOCK)));
 
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_CLEAR_LABORATORY_SCREEN = register("enlighted_clear_laboratory_screen",
             () -> new LaboratoryBlock(ModBlocks.CLEAR_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(ModSoundType.LABORATORY_BLOCK).lightLevel((p_187433_) -> 14)));
+
+
+
+    public static final RegistryObject<LaboratoryBlock> WAVE_LABORATORY_SCREEN = register("wave_laboratory_screen",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(ModSoundType.LABORATORY_BLOCK)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_WAVE_LABORATORY_SCREEN = register("enlighted_wave_laboratory_screen",
+            () -> new LaboratoryBlock(ModBlocks.WAVE_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(ModSoundType.LABORATORY_BLOCK).lightLevel((p_187433_) -> 14)));
+
+
+
 
     public static final RegistryObject<RedstoneControlledLaboratoryBlock> LABORATORY_FAN = register("laboratory_fan",
             () -> new RedstoneControlledLaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_FAN, ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(ModSoundType.LABORATORY_BLOCK)));
