@@ -150,5 +150,7 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WARN_SIGN.get(), 3).define('A', ModItems.IRON_SCREW.get()).define('B', Items.BLACK_DYE).define('C', Items.YELLOW_DYE).pattern(" A ").pattern(" B ").pattern("BCB").unlockedBy("has_iron_screw", has(ModItems.IRON_SCREW.get())).unlockedBy("has_yellow_dye", has(Items.YELLOW_DYE)).unlockedBy("has_black_dye", has(Items.BLACK_DYE)).save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_DOOR.get(), 3).define('A', ModBlocks.LABORATORY_BLOCK.get()).pattern("AA ").pattern("AA ").pattern("AA ").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).save(consumer);
+
     }
 }

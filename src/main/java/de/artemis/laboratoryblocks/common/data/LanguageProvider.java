@@ -32,6 +32,8 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
 
         add(ModBlocks.WARN_SIGN.get(), "Warn Sign");
 
+        add(ModBlocks.LABORATORY_DOOR.get(), "Laboratory Door");
+
         add(ModBlocks.PLA_BLOCK.get(), "PLA Block");
         add(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), "Enlighted PLA Block");
         add(ModBlocks.PLA_TILES.get(), "PLA Tiles");

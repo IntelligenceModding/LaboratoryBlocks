@@ -25,7 +25,7 @@ public class BlockLootTablesProvider extends LootTableProvider {
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, @NotNull ValidationContext validationtracker) {
-        map.forEach((id, table) -> table.validate(validationtracker));
+    protected void validate(Map<ResourceLocation, LootTable> map, @NotNull ValidationContext validationTracker) {
+        map.forEach((id, table) -> table.validate(validationTracker));
     }
 }

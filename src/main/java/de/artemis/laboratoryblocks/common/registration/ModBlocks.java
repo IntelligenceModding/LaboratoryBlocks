@@ -9,6 +9,9 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
@@ -33,6 +36,10 @@ public class ModBlocks {
 
     public static void register() {
     }
+
+    public static final RegistryObject<DoorBlock> LABORATORY_DOOR = register("laboratory_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
+
 
     public static final RegistryObject<LaboratorySignBlock> WARN_SIGN = register("warn_sign",
             () -> new LaboratorySignBlock(BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(ModSoundType.LABORATORY_BLOCK)));

@@ -10,6 +10,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 
 public class FusionModelProvider extends com.supermartijn642.fusion.api.provider.FusionModelProvider {
+    @SuppressWarnings("deprecation")
     public FusionModelProvider(PackOutput output) {
         super(LaboratoryBlocks.MOD_ID, output);
     }
@@ -18,684 +19,684 @@ public class FusionModelProvider extends com.supermartijn642.fusion.api.provider
     protected void generate() {
 
         var modelDataLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_block"), modelInstanceLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_block"), modelInstanceLaboratoryBlock);
 
         var modelDataEnlightedLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceEnlightedLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"), modelInstanceEnlightedLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_block"), modelInstanceEnlightedLaboratoryBlock);
 
 
 
         var modelDataLaboratoryVent = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_vent-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_VENT.get())))
                 .build();
         var modelInstanceLaboratoryVent = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLaboratoryVent);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent"), modelInstanceLaboratoryVent);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_vent"), modelInstanceLaboratoryVent);
 
         var modelDataEnlightedLaboratoryVent = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_vent-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_VENT.get())))
                 .build();
         var modelInstanceEnlightedLaboratoryVent = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLaboratoryVent);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_vent"), modelInstanceEnlightedLaboratoryVent);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_vent"), modelInstanceEnlightedLaboratoryVent);
 
 
 
         var modelDataLaboratoryVentConnecting = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_VENT_CONNECTING.get())).or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_BLOCK.get())).or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceLaboratoryVentConnecting = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLaboratoryVentConnecting);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting"), modelInstanceLaboratoryVentConnecting);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting"), modelInstanceLaboratoryVentConnecting);
 
         var modelDataEnlightedLaboratoryVentConnecting = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_vent_connecting-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_VENT_CONNECTING.get())).or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_BLOCK.get())).or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceEnlightedLaboratoryVentConnecting = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLaboratoryVentConnecting);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_vent_connecting"), modelInstanceEnlightedLaboratoryVentConnecting);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_vent_connecting"), modelInstanceEnlightedLaboratoryVentConnecting);
 
 
 
         var modelDataLaboratoryBookshelf = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_column"))
-                .texture("side", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf-fusion"))
-                .texture("end", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf_top-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_column"))
+                .texture("side", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf-fusion"))
+                .texture("end", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf_top-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_BOOKSHELF.get())))
                 .build();
         var modelInstanceLaboratoryBookshelf = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLaboratoryBookshelf);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf"), modelInstanceLaboratoryBookshelf);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf"), modelInstanceLaboratoryBookshelf);
 
         var modelDataEnlightedLaboratoryBookshelf = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_column"))
-                .texture("side", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf-fusion"))
-                .texture("end", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf_top-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_column"))
+                .texture("side", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf-fusion"))
+                .texture("end", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_bookshelf_top-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_BOOKSHELF.get())))
                 .build();
         var modelInstanceEnlightedLaboratoryBookshelf = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLaboratoryBookshelf);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_bookshelf"), modelInstanceEnlightedLaboratoryBookshelf);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_bookshelf"), modelInstanceEnlightedLaboratoryBookshelf);
 
 
 
         var modelDataClearLaboratoryScreen = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get())))
                 .build();
         var modelInstanceClearLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataClearLaboratoryScreen);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen"), modelInstanceClearLaboratoryScreen);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen"), modelInstanceClearLaboratoryScreen);
 
         var modelDataEnlightedClearLaboratoryScreen = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.CLEAR_LABORATORY_SCREEN.get())))
                 .build();
         var modelInstanceEnlightedClearLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedClearLaboratoryScreen);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_clear_laboratory_screen"), modelInstanceEnlightedClearLaboratoryScreen);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_clear_laboratory_screen"), modelInstanceEnlightedClearLaboratoryScreen);
 
 
 
         var modelDataWaveLaboratoryScreen = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get())))
                 .build();
         var modelInstanceWaveLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataWaveLaboratoryScreen);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen"), modelInstanceWaveLaboratoryScreen);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen"), modelInstanceWaveLaboratoryScreen);
 
         var modelDataEnlightedWaveLaboratoryScreen = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.WAVE_LABORATORY_SCREEN.get())))
                 .build();
         var modelInstanceEnlightedWaveLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedWaveLaboratoryScreen);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_wave_laboratory_screen"), modelInstanceEnlightedWaveLaboratoryScreen);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_wave_laboratory_screen"), modelInstanceEnlightedWaveLaboratoryScreen);
 
 
 
         var modelDataLeftFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceLeftFacedBlueSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLeftFacedBlueSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block"), modelInstanceLeftFacedBlueSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block"), modelInstanceLeftFacedBlueSignalingLaboratoryBlock);
 
         var modelDataEnlightedLeftFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceEnlightedLeftFacedBlueSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLeftFacedBlueSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_blue_signaling_laboratory_block"), modelInstanceEnlightedLeftFacedBlueSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_blue_signaling_laboratory_block"), modelInstanceEnlightedLeftFacedBlueSignalingLaboratoryBlock);
 
 
 
         var modelDataLeftFacedGreenSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceLeftFacedGreenSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLeftFacedGreenSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block"), modelInstanceLeftFacedGreenSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block"), modelInstanceLeftFacedGreenSignalingLaboratoryBlock);
 
         var modelDataEnlightedLeftFacedGreenSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_green_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LEFT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceEnlightedLeftFacedGreenSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLeftFacedGreenSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_green_signaling_laboratory_block"), modelInstanceEnlightedLeftFacedGreenSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_green_signaling_laboratory_block"), modelInstanceEnlightedLeftFacedGreenSignalingLaboratoryBlock);
 
 
 
         var modelDataLeftFacedRedSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_red_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_red_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceLeftFacedRedSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLeftFacedRedSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_red_signaling_laboratory_block"), modelInstanceLeftFacedRedSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_red_signaling_laboratory_block"), modelInstanceLeftFacedRedSignalingLaboratoryBlock);
 
         var modelDataEnlightedLeftFacedRedSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/left-faced_red_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_red_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LEFT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceEnlightedLeftFacedRedSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLeftFacedRedSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_red_signaling_laboratory_block"), modelInstanceEnlightedLeftFacedRedSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_red_signaling_laboratory_block"), modelInstanceEnlightedLeftFacedRedSignalingLaboratoryBlock);
 
 
 
         var modelDataRightFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceRightFacedBlueSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataRightFacedBlueSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block"), modelInstanceRightFacedBlueSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block"), modelInstanceRightFacedBlueSignalingLaboratoryBlock);
 
         var modelDataEnlightedRightFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/right-faced_blue_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceEnlightedRightFacedBlueSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedRightFacedBlueSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_blue_signaling_laboratory_block"), modelInstanceEnlightedRightFacedBlueSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_blue_signaling_laboratory_block"), modelInstanceEnlightedRightFacedBlueSignalingLaboratoryBlock);
 
 
 
         var modelDataRightFacedGreenSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceRightFacedGreenSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataRightFacedGreenSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block"), modelInstanceRightFacedGreenSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block"), modelInstanceRightFacedGreenSignalingLaboratoryBlock);
 
         var modelDataEnlightedRightFacedGreenSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/right-faced_green_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.RIGHT_FACED_GREEN_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceEnlightedRightFacedGreenSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedRightFacedGreenSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_green_signaling_laboratory_block"), modelInstanceEnlightedRightFacedGreenSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_green_signaling_laboratory_block"), modelInstanceEnlightedRightFacedGreenSignalingLaboratoryBlock);
 
 
 
         var modelDataRightFacedRedSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_red_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/right-faced_red_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceRightFacedRedSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataRightFacedRedSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_red_signaling_laboratory_block"), modelInstanceRightFacedRedSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/right-faced_red_signaling_laboratory_block"), modelInstanceRightFacedRedSignalingLaboratoryBlock);
 
         var modelDataEnlightedRightFacedRedSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/right-faced_red_signaling_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/right-faced_red_signaling_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.RIGHT_FACED_RED_SIGNALING_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceEnlightedRightFacedRedSignalingLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedRightFacedRedSignalingLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_red_signaling_laboratory_block"), modelInstanceEnlightedRightFacedRedSignalingLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_right-faced_red_signaling_laboratory_block"), modelInstanceEnlightedRightFacedRedSignalingLaboratoryBlock);
 
 
 
         var modelDataScrewedLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_SCREWED_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceScrewedLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataScrewedLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block"), modelInstanceScrewedLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block"), modelInstanceScrewedLaboratoryBlock);
 
         var modelDataEnlightedScrewedLaboratoryBlock = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/screwed_laboratory_block-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.SCREWED_LABORATORY_BLOCK.get())))
                 .build();
         var modelInstanceEnlightedScrewedLaboratoryBlock = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedScrewedLaboratoryBlock);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_screwed_laboratory_block"), modelInstanceEnlightedScrewedLaboratoryBlock);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_screwed_laboratory_block"), modelInstanceEnlightedScrewedLaboratoryBlock);
 
 
 
         var modelDataLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_tiles"), modelInstanceLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_tiles"), modelInstanceLaboratoryTiles);
 
         var modelDataEnlightedLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_tiles"), modelInstanceEnlightedLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_tiles"), modelInstanceEnlightedLaboratoryTiles);
 
 
 
         var modelDataGrayLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_GRAY_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceGrayLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataGrayLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_tiles"), modelInstanceGrayLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_tiles"), modelInstanceGrayLaboratoryTiles);
 
         var modelDataEnlightedGrayLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/gray_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.GRAY_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedGrayLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedGrayLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_gray_laboratory_tiles"), modelInstanceEnlightedGrayLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_gray_laboratory_tiles"), modelInstanceEnlightedGrayLaboratoryTiles);
 
 
 
         var modelDataMixedLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mixed_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/mixed_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_MIXED_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceMixedLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataMixedLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mixed_laboratory_tiles"), modelInstanceMixedLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/mixed_laboratory_tiles"), modelInstanceMixedLaboratoryTiles);
 
         var modelDataEnlightedMixedLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mixed_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/mixed_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.MIXED_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedMixedLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedMixedLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_mixed_laboratory_tiles"), modelInstanceEnlightedMixedLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_mixed_laboratory_tiles"), modelInstanceEnlightedMixedLaboratoryTiles);
 
 
 
         var modelDataLaboratoryGlass = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_glass-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock())
                 .build();
         var modelInstanceLaboratoryGlass = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataLaboratoryGlass);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass"), modelInstanceLaboratoryGlass);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_glass"), modelInstanceLaboratoryGlass);
 
         var modelDataEnlightedLaboratoryGlass = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/laboratory_glass-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/laboratory_glass-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock())
                 .build();
         var modelInstanceEnlightedLaboratoryGlass = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedLaboratoryGlass);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_glass"), modelInstanceEnlightedLaboratoryGlass);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_laboratory_glass"), modelInstanceEnlightedLaboratoryGlass);
 
 
 
         var modelDataOakLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_OAK_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceOakLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataOakLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_floor"), modelInstanceOakLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_floor"), modelInstanceOakLaboratoryFloor);
 
         var modelDataEnlightedOakLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.OAK_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedOakLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedOakLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_oak_laboratory_floor"), modelInstanceEnlightedOakLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_oak_laboratory_floor"), modelInstanceEnlightedOakLaboratoryFloor);
 
         var modelDataOakLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_OAK_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceOakLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataOakLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_tiles"), modelInstanceOakLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_tiles"), modelInstanceOakLaboratoryTiles);
 
         var modelDataEnlightedOakLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/oak_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.OAK_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedOakLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedOakLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_oak_laboratory_tiles"), modelInstanceEnlightedOakLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_oak_laboratory_tiles"), modelInstanceEnlightedOakLaboratoryTiles);
 
 
 
         var modelDataSpruceLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_SPRUCE_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceSpruceLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataSpruceLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_floor"), modelInstanceSpruceLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_floor"), modelInstanceSpruceLaboratoryFloor);
 
         var modelDataEnlightedSpruceLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.SPRUCE_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedSpruceLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedSpruceLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_spruce_laboratory_floor"), modelInstanceEnlightedSpruceLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_spruce_laboratory_floor"), modelInstanceEnlightedSpruceLaboratoryFloor);
 
         var modelDataSpruceLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_SPRUCE_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceSpruceLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataSpruceLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_tiles"), modelInstanceSpruceLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_tiles"), modelInstanceSpruceLaboratoryTiles);
 
         var modelDataEnlightedSpruceLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/spruce_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.SPRUCE_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedSpruceLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedSpruceLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_spruce_laboratory_tiles"), modelInstanceEnlightedSpruceLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_spruce_laboratory_tiles"), modelInstanceEnlightedSpruceLaboratoryTiles);
 
 
 
         var modelDataBirchLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_BIRCH_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceBirchLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataBirchLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_floor"), modelInstanceBirchLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_floor"), modelInstanceBirchLaboratoryFloor);
 
         var modelDataEnlightedBirchLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.BIRCH_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedBirchLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedBirchLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_birch_laboratory_floor"), modelInstanceEnlightedBirchLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_birch_laboratory_floor"), modelInstanceEnlightedBirchLaboratoryFloor);
 
         var modelDataBirchLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_BIRCH_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceBirchLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataBirchLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_tiles"), modelInstanceBirchLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_tiles"), modelInstanceBirchLaboratoryTiles);
 
         var modelDataEnlightedBirchLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/birch_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.BIRCH_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedBirchLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedBirchLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_birch_laboratory_tiles"), modelInstanceEnlightedBirchLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_birch_laboratory_tiles"), modelInstanceEnlightedBirchLaboratoryTiles);
 
 
 
         var modelDataDarkOakLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_DARK_OAK_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceDarkOakLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataDarkOakLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_floor"), modelInstanceDarkOakLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_floor"), modelInstanceDarkOakLaboratoryFloor);
 
         var modelDataEnlightedDarkOakLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.DARK_OAK_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedDarkOakLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedDarkOakLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_dark_oak_laboratory_floor"), modelInstanceEnlightedDarkOakLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_dark_oak_laboratory_floor"), modelInstanceEnlightedDarkOakLaboratoryFloor);
 
         var modelDataDarkOakLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_DARK_OAK_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceDarkOakLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataDarkOakLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_tiles"), modelInstanceDarkOakLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_tiles"), modelInstanceDarkOakLaboratoryTiles);
 
         var modelDataEnlightedDarkOakLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/dark_oak_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.DARK_OAK_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedDarkOakLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedDarkOakLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_dark_oak_laboratory_tiles"), modelInstanceEnlightedDarkOakLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_dark_oak_laboratory_tiles"), modelInstanceEnlightedDarkOakLaboratoryTiles);
 
 
 
         var modelDataAcaciaLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceAcaciaLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataAcaciaLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_floor"), modelInstanceAcaciaLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_floor"), modelInstanceAcaciaLaboratoryFloor);
 
         var modelDataEnlightedAcaciaLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ACACIA_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedAcaciaLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedAcaciaLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_acacia_laboratory_floor"), modelInstanceEnlightedAcaciaLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_acacia_laboratory_floor"), modelInstanceEnlightedAcaciaLaboratoryFloor);
 
         var modelDataAcaciaLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_ACACIA_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceAcaciaLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataAcaciaLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_tiles"), modelInstanceAcaciaLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_tiles"), modelInstanceAcaciaLaboratoryTiles);
 
         var modelDataEnlightedAcaciaLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/acacia_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ACACIA_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedAcaciaLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedAcaciaLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_acacia_laboratory_tiles"), modelInstanceEnlightedAcaciaLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_acacia_laboratory_tiles"), modelInstanceEnlightedAcaciaLaboratoryTiles);
 
 
 
         var modelDataJungleLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceJungleLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataJungleLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_floor"), modelInstanceJungleLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_floor"), modelInstanceJungleLaboratoryFloor);
 
         var modelDataEnlightedJungleLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.JUNGLE_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedJungleLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedJungleLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_jungle_laboratory_floor"), modelInstanceEnlightedJungleLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_jungle_laboratory_floor"), modelInstanceEnlightedJungleLaboratoryFloor);
 
         var modelDataJungleLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_JUNGLE_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceJungleLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataJungleLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_tiles"), modelInstanceJungleLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_tiles"), modelInstanceJungleLaboratoryTiles);
 
         var modelDataEnlightedJungleLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/jungle_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.JUNGLE_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedJungleLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedJungleLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_jungle_laboratory_tiles"), modelInstanceEnlightedJungleLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_jungle_laboratory_tiles"), modelInstanceEnlightedJungleLaboratoryTiles);
 
 
 
         var modelDataMangroveLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceMangroveLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataMangroveLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_floor"), modelInstanceMangroveLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_floor"), modelInstanceMangroveLaboratoryFloor);
 
         var modelDataEnlightedMangroveLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.MANGROVE_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedMangroveLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedMangroveLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_mangrove_laboratory_floor"), modelInstanceEnlightedMangroveLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_mangrove_laboratory_floor"), modelInstanceEnlightedMangroveLaboratoryFloor);
 
         var modelDataMangroveLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_MANGROVE_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceMangroveLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataMangroveLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_tiles"), modelInstanceMangroveLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_tiles"), modelInstanceMangroveLaboratoryTiles);
 
         var modelDataEnlightedMangroveLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/mangrove_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.MANGROVE_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedMangroveLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedMangroveLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_mangrove_laboratory_tiles"), modelInstanceEnlightedMangroveLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_mangrove_laboratory_tiles"), modelInstanceEnlightedMangroveLaboratoryTiles);
 
 
 
         var modelDataCrimsonLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceCrimsonLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataCrimsonLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor"), modelInstanceCrimsonLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor"), modelInstanceCrimsonLaboratoryFloor);
 
         var modelDataEnlightedCrimsonLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.CRIMSON_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedCrimsonLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedCrimsonLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_crimson_laboratory_floor"), modelInstanceEnlightedCrimsonLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_crimson_laboratory_floor"), modelInstanceEnlightedCrimsonLaboratoryFloor);
 
         var modelDataCrimsonLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_CRIMSON_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceCrimsonLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataCrimsonLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles"), modelInstanceCrimsonLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles"), modelInstanceCrimsonLaboratoryTiles);
 
         var modelDataEnlightedCrimsonLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/crimson_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.CRIMSON_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedCrimsonLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedCrimsonLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_crimson_laboratory_tiles"), modelInstanceEnlightedCrimsonLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_crimson_laboratory_tiles"), modelInstanceEnlightedCrimsonLaboratoryTiles);
 
 
 
         var modelDataWarpedLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_WARPED_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceWarpedLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataWarpedLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_floor"), modelInstanceWarpedLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_floor"), modelInstanceWarpedLaboratoryFloor);
 
         var modelDataEnlightedWarpedLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.WARPED_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedWarpedLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedWarpedLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_warped_laboratory_floor"), modelInstanceEnlightedWarpedLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_warped_laboratory_floor"), modelInstanceEnlightedWarpedLaboratoryFloor);
 
         var modelDataWarpedLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_WARPED_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceWarpedLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataWarpedLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles"), modelInstanceWarpedLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles"), modelInstanceWarpedLaboratoryTiles);
 
         var modelDataEnlightedWarpedLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/warped_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.WARPED_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedWarpedLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedWarpedLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_warped_laboratory_tiles"), modelInstanceEnlightedWarpedLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_warped_laboratory_tiles"), modelInstanceEnlightedWarpedLaboratoryTiles);
 
 
 
         var modelDataCherryLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceCherryLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataCherryLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_floor"), modelInstanceCherryLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_floor"), modelInstanceCherryLaboratoryFloor);
 
         var modelDataEnlightedCherryLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.CHERRY_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedCherryLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedCherryLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_cherry_laboratory_floor"), modelInstanceEnlightedCherryLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_cherry_laboratory_floor"), modelInstanceEnlightedCherryLaboratoryFloor);
 
         var modelDataCherryLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_CHERRY_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceCherryLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataCherryLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_tiles"), modelInstanceCherryLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_tiles"), modelInstanceCherryLaboratoryTiles);
 
         var modelDataEnlightedCherryLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/cherry_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.CHERRY_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedCherryLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedCherryLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_cherry_laboratory_tiles"), modelInstanceEnlightedCherryLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_cherry_laboratory_tiles"), modelInstanceEnlightedCherryLaboratoryTiles);
 
 
 
         var modelDataBambooLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceBambooLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataBambooLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_floor"), modelInstanceBambooLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_floor"), modelInstanceBambooLaboratoryFloor);
 
         var modelDataEnlightedBambooLaboratoryFloor = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_floor-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_floor-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.BAMBOO_LABORATORY_FLOOR.get())))
                 .build();
         var modelInstanceEnlightedBambooLaboratoryFloor = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedBambooLaboratoryFloor);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_bamboo_laboratory_floor"), modelInstanceEnlightedBambooLaboratoryFloor);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_bamboo_laboratory_floor"), modelInstanceEnlightedBambooLaboratoryFloor);
 
         var modelDataBambooLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_BAMBOO_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceBambooLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataBambooLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_tiles"), modelInstanceBambooLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_tiles"), modelInstanceBambooLaboratoryTiles);
 
         var modelDataEnlightedBambooLaboratoryTiles = ConnectingModelDataBuilder.builder()
-                .parent(new ResourceLocation("minecraft", "block/cube_all"))
-                .texture("all", new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_tiles-fusion"))
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/bamboo_laboratory_tiles-fusion"))
                 .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.BAMBOO_LABORATORY_TILES.get())))
                 .build();
         var modelInstanceEnlightedBambooLaboratoryTiles = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedBambooLaboratoryTiles);
-        this.addModel(new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_bamboo_laboratory_tiles"), modelInstanceEnlightedBambooLaboratoryTiles);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_bamboo_laboratory_tiles"), modelInstanceEnlightedBambooLaboratoryTiles);
 
     }
 }

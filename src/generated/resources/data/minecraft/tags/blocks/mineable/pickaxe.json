@@ -1,5 +1,6 @@
 {
   "values": [
+    "laboratoryblocks:laboratory_door",
     "laboratoryblocks:enlighted_laboratory_vent_connecting",
     "laboratoryblocks:laboratory_vent_connecting",
     "laboratoryblocks:laboratory_fan_redstone_controlled",
