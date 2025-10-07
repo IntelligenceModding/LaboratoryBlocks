@@ -40,12 +40,20 @@ public class ModBlocks {
     public static final RegistryObject<DoorBlock> LABORATORY_DOOR = register("laboratory_door",
             () -> new DoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
 
-
     public static final RegistryObject<DoorBlock> MESH_LABORATORY_DOOR = register("mesh_laboratory_door",
             () -> new DoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
 
     public static final RegistryObject<DoorBlock> GLASS_LABORATORY_DOOR = register("glass_laboratory_door",
             () -> new DoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
+
+    public static final RegistryObject<TrapDoorBlock> LABORATORY_TRAPDOOR = register("laboratory_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
+
+    public static final RegistryObject<TrapDoorBlock> MESH_LABORATORY_TRAPDOOR = register("mesh_laboratory_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
+
+    public static final RegistryObject<TrapDoorBlock> GLASS_LABORATORY_TRAPDOOR = register("glass_laboratory_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
 
 
 

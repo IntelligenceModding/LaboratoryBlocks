@@ -36,6 +36,10 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.MESH_LABORATORY_DOOR.get(), "Mesh Laboratory Door");
         add(ModBlocks.GLASS_LABORATORY_DOOR.get(), "Glass Laboratory Door");
 
+        add(ModBlocks.LABORATORY_TRAPDOOR.get(), "Laboratory Trapdoor");
+        add(ModBlocks.MESH_LABORATORY_TRAPDOOR.get(), "Mesh Laboratory Trapdoor");
+        add(ModBlocks.GLASS_LABORATORY_TRAPDOOR.get(), "Glass Laboratory Trapdoor");
+
         add(ModBlocks.PLA_BLOCK.get(), "PLA Block");
         add(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), "Enlighted PLA Block");
         add(ModBlocks.PLA_TILES.get(), "PLA Tiles");

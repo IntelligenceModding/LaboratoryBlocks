@@ -1,5 +1,6 @@
-// 1.20.1	2025-10-07T23:30:12.2391529	Block tags
+// 1.20.1	2025-10-08T01:03:43.5272988	Block tags
 ed2e081b4625e6452a41952f65638561eec42aa4 data/minecraft/tags/blocks/doors.json
 f21974f84055bb49768b83efad1e6b907f60ede3 data/minecraft/tags/blocks/enchantment_power_provider.json
 f2b017a5219760ee54cbc09f61a3c76ca456b52d data/minecraft/tags/blocks/mineable/axe.json
-c5ca20327307b6139a29b6818e97947f852b65aa data/minecraft/tags/blocks/mineable/pickaxe.json
+4e3fd6c36dfe4a94355c822fd3373d1cd2c1caf8 data/minecraft/tags/blocks/mineable/pickaxe.json
+f5ade977c82493b683d0ed700abbfee36569381a data/minecraft/tags/blocks/trapdoors.json
