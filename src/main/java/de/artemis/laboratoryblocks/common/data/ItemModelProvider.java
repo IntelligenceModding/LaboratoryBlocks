@@ -123,6 +123,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         carpet(ForgeRegistries.BLOCKS.getKey(ModBlocks.TILED_PLA_FLOORING.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/pla_tiles"));
         carpet(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_TILED_PLA_FLOORING.get()).toString(), new ResourceLocation(LaboratoryBlocks.MOD_ID, "block/enlighted_pla_tiles"));
 
+        simpleBlock(ModBlocks.WARN_SIGN.get());
     }
 
     private void simpleItem(Item item) {

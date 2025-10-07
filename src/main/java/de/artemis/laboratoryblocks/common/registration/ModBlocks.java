@@ -6,8 +6,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.RegistryObject;
@@ -34,6 +33,13 @@ public class ModBlocks {
 
     public static void register() {
     }
+
+    public static final RegistryObject<LaboratorySignBlock> WARN_SIGN = register("warn_sign",
+            () -> new LaboratorySignBlock(BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(ModSoundType.LABORATORY_BLOCK)));
+
+
+
+
 
     public static final RegistryObject<LaboratoryBlock> LABORATORY_PILLAR = register("laboratory_pillar",
             () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_LABORATORY_PILLAR, BlockBehaviour.Properties.of().strength(2.5F, 3.0F).sound(ModSoundType.LABORATORY_BLOCK)));

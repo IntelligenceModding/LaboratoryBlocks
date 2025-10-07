@@ -148,5 +148,7 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get(), 1).requires(ModBlocks.LABORATORY_FAN.get()).requires(ModItems.REDSTONE_PARTICLES.get()).unlockedBy("has_laboratory_fan", has(ModBlocks.LABORATORY_FAN.get())).unlockedBy("has_redstone_particles", has(ModItems.REDSTONE_PARTICLES.get())).save(consumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENLIGHTED_LABORATORY_FAN_REDSTONE_CONTROLLED.get(), 1).requires(ModBlocks.ENLIGHTED_LABORATORY_FAN.get()).requires(ModItems.REDSTONE_PARTICLES.get()).unlockedBy("has_enlighted_laboratory_fan", has(ModBlocks.ENLIGHTED_LABORATORY_FAN.get())).unlockedBy("has_redstone_particles", has(ModItems.REDSTONE_PARTICLES.get())).save(consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WARN_SIGN.get(), 3).define('A', ModItems.IRON_SCREW.get()).define('B', Items.BLACK_DYE).define('C', Items.YELLOW_DYE).pattern(" A ").pattern(" B ").pattern("BCB").unlockedBy("has_iron_screw", has(ModItems.IRON_SCREW.get())).unlockedBy("has_yellow_dye", has(Items.YELLOW_DYE)).unlockedBy("has_black_dye", has(Items.BLACK_DYE)).save(consumer);
+
     }
 }

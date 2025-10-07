@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "laboratoryblocks:block/warn_sign",
+      "x": 90,
+      "y": 0
+    },
+    "facing=south": {
+      "model": "laboratoryblocks:block/warn_sign",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "laboratoryblocks:block/warn_sign",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "laboratoryblocks:block/warn_sign",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

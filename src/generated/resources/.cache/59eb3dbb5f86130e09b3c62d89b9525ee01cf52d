@@ -1,4 +1,4 @@
-// 1.20.1	2025-10-06T22:03:57.4227533	Loot Tables
+// 1.20.1	2025-10-07T17:21:26.8958597	Loot Tables
 e0384af235d78fd317f0c97c1ded83fd25286eb7 data/laboratoryblocks/loot_tables/blocks/acacia_laboratory_floor.json
 d6310d32c81c7256e0d2d447985cd8e3014bc40e data/laboratoryblocks/loot_tables/blocks/acacia_laboratory_tiles.json
 d490be1fec81b56bc8cd1c19361a97b6c874688a data/laboratoryblocks/loot_tables/blocks/bamboo_laboratory_floor.json
@@ -90,6 +90,7 @@ cc90f86ad88b0a14a310436720c6fb823014081a data/laboratoryblocks/loot_tables/block
 947de71d3e086de284e369390185b7d6eccb2b74 data/laboratoryblocks/loot_tables/blocks/spruce_laboratory_floor.json
 9844ca8e48d4a417f4758bf947d2f119daa339f6 data/laboratoryblocks/loot_tables/blocks/spruce_laboratory_tiles.json
 377dc7eec4772d5a8e57b0170499eed3c7904008 data/laboratoryblocks/loot_tables/blocks/tiled_pla_flooring.json
+a62411c232631617ab600fbeb58bb52db8a08a0d data/laboratoryblocks/loot_tables/blocks/warn_sign.json
 f53efa06a717755e9967fe7e0eec1d336143571f data/laboratoryblocks/loot_tables/blocks/warped_laboratory_floor.json
 51de9bb3bbe0700416e675c11f0ca09c3bfe7b31 data/laboratoryblocks/loot_tables/blocks/warped_laboratory_tiles.json
 6fe2f7f2af7b9c87fe94c6722a3c55bdeee1d034 data/laboratoryblocks/loot_tables/blocks/wave_laboratory_screen.json

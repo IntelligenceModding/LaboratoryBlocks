@@ -30,6 +30,8 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.REDSTONE_PARTICLES.get(), "Redstone Particles");
         add(ModItems.CONFIGURATION_TOOL.get(), "Configuration Tool");
 
+        add(ModBlocks.WARN_SIGN.get(), "Warn Sign");
+
         add(ModBlocks.PLA_BLOCK.get(), "PLA Block");
         add(ModBlocks.ENLIGHTED_PLA_BLOCK.get(), "Enlighted PLA Block");
         add(ModBlocks.PLA_TILES.get(), "PLA Tiles");
