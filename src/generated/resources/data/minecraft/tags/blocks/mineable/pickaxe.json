@@ -1,5 +1,7 @@
 {
   "values": [
+    "laboratoryblocks:glass_laboratory_door",
+    "laboratoryblocks:mesh_laboratory_door",
     "laboratoryblocks:laboratory_door",
     "laboratoryblocks:enlighted_laboratory_vent_connecting",
     "laboratoryblocks:laboratory_vent_connecting",

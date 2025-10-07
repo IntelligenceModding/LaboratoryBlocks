@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "laboratoryblocks:item/mesh_laboratory_door"
+  }
+}

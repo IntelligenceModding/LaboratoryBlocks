@@ -41,6 +41,16 @@ public class ModBlocks {
             () -> new DoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
 
 
+    public static final RegistryObject<DoorBlock> MESH_LABORATORY_DOOR = register("mesh_laboratory_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
+
+    public static final RegistryObject<DoorBlock> GLASS_LABORATORY_DOOR = register("glass_laboratory_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.of().strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY), ModBlockSetTypes.LABORATORY));
+
+
+
+
+
     public static final RegistryObject<LaboratorySignBlock> WARN_SIGN = register("warn_sign",
             () -> new LaboratorySignBlock(BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(ModSoundType.LABORATORY_BLOCK)));
 

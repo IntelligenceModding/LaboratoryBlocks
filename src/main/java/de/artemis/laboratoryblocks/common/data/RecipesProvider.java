@@ -151,6 +151,8 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WARN_SIGN.get(), 3).define('A', ModItems.IRON_SCREW.get()).define('B', Items.BLACK_DYE).define('C', Items.YELLOW_DYE).pattern(" A ").pattern(" B ").pattern("BCB").unlockedBy("has_iron_screw", has(ModItems.IRON_SCREW.get())).unlockedBy("has_yellow_dye", has(Items.YELLOW_DYE)).unlockedBy("has_black_dye", has(Items.BLACK_DYE)).save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_DOOR.get(), 3).define('A', ModBlocks.LABORATORY_BLOCK.get()).pattern("AA ").pattern("AA ").pattern("AA ").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MESH_LABORATORY_DOOR.get(), 3).define('A', ModBlocks.LABORATORY_BLOCK.get()).define('B', Blocks.IRON_BARS).pattern("AA ").pattern("BB ").pattern("AA ").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).unlockedBy("has_iron_bars", has(Blocks.IRON_BARS)).save(consumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_LABORATORY_DOOR.get(), 3).define('A', ModBlocks.LABORATORY_BLOCK.get()).define('B', Blocks.GLASS_PANE).pattern("AA ").pattern("BB ").pattern("AA ").unlockedBy("has_laboratory_block", has(ModBlocks.LABORATORY_BLOCK.get())).unlockedBy("has_glass_pane", has(Blocks.GLASS_PANE)).save(consumer);
 
     }
 }
