@@ -58,6 +58,12 @@ public class ModBlocks {
 
 
 
+    @SuppressWarnings("deprecation")
+    public static final RegistryObject<LadderBlock> LABORATORY_LADDER = register("laboratory_ladder",
+            () -> new LadderBlock(BlockBehaviour.Properties.of().forceSolidOff().strength(0.4F).sound(SoundType.CHAIN).noOcclusion().pushReaction(PushReaction.DESTROY)));
+
+
+
 
     public static final RegistryObject<LaboratorySignBlock> WARN_SIGN = register("warn_sign",
             () -> new LaboratorySignBlock(BlockBehaviour.Properties.of().strength(0.5F, 0.5F).sound(ModSoundType.LABORATORY_BLOCK)));
