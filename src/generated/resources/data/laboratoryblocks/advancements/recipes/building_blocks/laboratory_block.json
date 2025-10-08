@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_stone",
-      "has_quartz",
-      "has_the_recipe"
+      "has_quartz"
     ]
   ],
   "rewards": {

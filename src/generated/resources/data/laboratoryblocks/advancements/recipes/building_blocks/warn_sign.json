@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_iron_screw",
       "has_yellow_dye",
-      "has_black_dye",
-      "has_the_recipe"
+      "has_black_dye"
     ]
   ],
   "rewards": {

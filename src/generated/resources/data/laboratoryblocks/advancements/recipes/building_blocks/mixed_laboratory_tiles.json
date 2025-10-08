@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_gray_laboratory_tiles",
-      "has_laboratory_tiles",
-      "has_the_recipe"
+      "has_laboratory_tiles"
     ]
   ],
   "rewards": {

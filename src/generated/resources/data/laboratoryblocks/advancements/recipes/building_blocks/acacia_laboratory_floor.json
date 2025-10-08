@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_laboratory_block",
-      "has_acacia_planks",
-      "has_the_recipe"
+      "has_acacia_planks"
     ]
   ],
   "rewards": {

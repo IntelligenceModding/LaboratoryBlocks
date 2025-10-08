@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_mixed_laboratory_tiles",
-      "has_glowstone_particles",
-      "has_the_recipe"
+      "has_glowstone_particles"
     ]
   ],
   "rewards": {

@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_laboratory_block",
-      "has_book",
-      "has_the_recipe"
+      "has_book"
     ]
   ],
   "rewards": {

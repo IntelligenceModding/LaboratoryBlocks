@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_sugar",
       "has_sugar_cane",
       "has_beetroot",
-      "has_wheat",
-      "has_the_recipe"
+      "has_wheat"
     ]
   ],
   "rewards": {

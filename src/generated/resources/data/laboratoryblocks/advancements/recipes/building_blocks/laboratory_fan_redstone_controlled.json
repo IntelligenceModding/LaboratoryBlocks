@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_laboratory_fan",
-      "has_redstone_particles",
-      "has_the_recipe"
+      "has_redstone_particles"
     ]
   ],
   "rewards": {

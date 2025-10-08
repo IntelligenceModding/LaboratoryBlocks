@@ -1,9 +1,9 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[48,)"
 license = "GPL-2.0"
 [[mods]]
 modId = "laboratoryblocks"
-version = "${file.jarVersion}"
+version = "${version}"
 displayName = "Artemis' Laboratory Blocks"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/artemis-laboratory-blocks"
 logoFile = "artemis_laboratory_blocks-logo.png"
@@ -16,7 +16,7 @@ Get ready to upgrade your builds! This mod adds modern and futuristic looking la
 [[dependencies.laboratoryblocks]]
     modId = "forge"
     mandatory = true
-    versionRange = "[47,)"
+    versionRange = "[48,)"
     ordering = "NONE"
     side = "BOTH"
 

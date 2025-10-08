@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_laboratory_block",
-      "has_iron_screw",
-      "has_the_recipe"
+      "has_iron_screw"
     ]
   ],
   "rewards": {

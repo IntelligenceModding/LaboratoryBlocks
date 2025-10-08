@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_cherry_laboratory_floor",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cherry_laboratory_floor"
     ]
   ],
   "rewards": {

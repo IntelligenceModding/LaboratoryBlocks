@@ -47,7 +47,6 @@ public class ChiseledLaboratoryBookShelfBlock extends ChiseledBookShelfBlock {
         this.block = block;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
 

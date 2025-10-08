@@ -20,7 +20,7 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
     }
 
     @Override
-    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(@NotNull RecipeOutput consumer) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CONFIGURATION_TOOL.get(), 1).define('A', Items.IRON_INGOT).define('B', Items.ORANGE_WOOL).define('C', ModItems.IRON_SCREW.get()).define('D', Items.IRON_NUGGET).pattern("  C").pattern("DB ").pattern("AD ").unlockedBy("has_iron_ingot", has(Items.IRON_INGOT)).unlockedBy("has_orange_wool", has(Items.ORANGE_WOOL)).unlockedBy("has_iron_screw", has(ModItems.IRON_SCREW.get())).unlockedBy("has_iron_nugget", has(Items.IRON_NUGGET)).save(consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STARCH.get(), 1).requires(Ingredient.of(ModTags.Item.STARCH_INGREDIENT), 4).unlockedBy("has_sugar", has(Items.SUGAR)).unlockedBy("has_sugar_cane", has(Items.SUGAR_CANE)).unlockedBy("has_beetroot", has(Items.BEETROOT)).unlockedBy("has_wheat", has(Items.WHEAT)).save(consumer);

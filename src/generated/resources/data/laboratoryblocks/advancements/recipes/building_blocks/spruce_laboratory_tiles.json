@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_spruce_laboratory_floor",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_spruce_laboratory_floor"
     ]
   ],
   "rewards": {

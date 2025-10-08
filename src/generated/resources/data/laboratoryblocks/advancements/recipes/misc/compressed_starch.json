@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_starch",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_starch"
     ]
   ],
   "rewards": {
