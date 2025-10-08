@@ -97,6 +97,10 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get()).toString(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_clear_laboratory_screen"));
         simpleBlock(ModBlocks.WAVE_LABORATORY_SCREEN.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get()).toString(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_wave_laboratory_screen"));
+        simpleBlock(ModBlocks.TEXT_LABORATORY_SCREEN.get());
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_TEXT_LABORATORY_SCREEN.get()).toString(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_text_laboratory_screen"));
+        simpleBlock(ModBlocks.QUANTUM_LABORATORY_SCREEN.get());
+        cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_QUANTUM_LABORATORY_SCREEN.get()).toString(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_quantum_laboratory_screen"));
 
         simpleBlock(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
         cubeAll(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get()).toString(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_left-faced_blue_signaling_laboratory_block"));

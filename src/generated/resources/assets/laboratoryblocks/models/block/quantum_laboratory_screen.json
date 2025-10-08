@@ -1,0 +1,25 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube_all",
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:or",
+        "predicates": [
+          {
+            "type": "fusion:is_same_block"
+          },
+          {
+            "type": "fusion:match_block",
+            "block": "laboratoryblocks:enlighted_quantum_laboratory_screen"
+          }
+        ]
+      }
+    ]
+  },
+  "loader": "fusion:model",
+  "textures": {
+    "all": "laboratoryblocks:block/quantum_laboratory_screen-fusion"
+  }
+}

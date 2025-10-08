@@ -83,6 +83,10 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         block(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/clear_laboratory_screen"));
         simpleBlock(ModBlocks.WAVE_LABORATORY_SCREEN.get());
         block(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/wave_laboratory_screen"));
+        simpleBlock(ModBlocks.TEXT_LABORATORY_SCREEN.get());
+        block(ModBlocks.ENLIGHTED_TEXT_LABORATORY_SCREEN.get(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/text_laboratory_screen"));
+        simpleBlock(ModBlocks.QUANTUM_LABORATORY_SCREEN.get());
+        block(ModBlocks.ENLIGHTED_QUANTUM_LABORATORY_SCREEN.get(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/quantum_laboratory_screen"));
         simpleBlock(ModBlocks.LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());
         block(ModBlocks.ENLIGHTED_LEFT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get(), ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block"));
         simpleBlock(ModBlocks.RIGHT_FACED_BLUE_SIGNALING_LABORATORY_BLOCK.get());

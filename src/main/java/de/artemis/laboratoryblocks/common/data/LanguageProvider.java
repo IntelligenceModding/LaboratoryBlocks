@@ -128,6 +128,10 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get(), "Enlighted Clear Laboratory Screen");
         add(ModBlocks.WAVE_LABORATORY_SCREEN.get(), "Wave Laboratory Screen");
         add(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get(), "Enlighted Wave Laboratory Screen");
+        add(ModBlocks.TEXT_LABORATORY_SCREEN.get(), "Text Laboratory Screen");
+        add(ModBlocks.ENLIGHTED_TEXT_LABORATORY_SCREEN.get(), "Enlighted Text Laboratory Screen");
+        add(ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), "Quantum Laboratory Screen");
+        add(ModBlocks.ENLIGHTED_QUANTUM_LABORATORY_SCREEN.get(), "Enlighted Quantum Laboratory Screen");
         add(ModBlocks.LABORATORY_PILLAR.get(), "Laboratory Pillar");
         add(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get(), "Enlighted Laboratory Pillar");
         add(ModBlocks.GRAY_LABORATORY_PILLAR.get(), "Gray Laboratory Pillar");

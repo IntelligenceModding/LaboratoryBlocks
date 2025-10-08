@@ -98,6 +98,10 @@ public class BlockLootTables extends BlockLootSubProvider {
         dropSelf(ModBlocks.ENLIGHTED_CLEAR_LABORATORY_SCREEN.get());
         dropSelf(ModBlocks.WAVE_LABORATORY_SCREEN.get());
         dropSelf(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get());
+        dropSelf(ModBlocks.TEXT_LABORATORY_SCREEN.get());
+        dropSelf(ModBlocks.ENLIGHTED_TEXT_LABORATORY_SCREEN.get());
+        dropSelf(ModBlocks.QUANTUM_LABORATORY_SCREEN.get());
+        dropSelf(ModBlocks.ENLIGHTED_QUANTUM_LABORATORY_SCREEN.get());
         dropSelf(ModBlocks.LABORATORY_PILLAR.get());
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_PILLAR.get());
         dropSelf(ModBlocks.GRAY_LABORATORY_PILLAR.get());
@@ -229,6 +233,10 @@ public class BlockLootTables extends BlockLootSubProvider {
         registeredBlocks.add(ModBlocks.WAVE_LABORATORY_SCREEN.get());
         registeredBlocks.add(ModBlocks.ENLIGHTED_WAVE_LABORATORY_SCREEN.get());
         registeredBlocks.add(ModBlocks.WARN_SIGN.get());
+        registeredBlocks.add(ModBlocks.TEXT_LABORATORY_SCREEN.get());
+        registeredBlocks.add(ModBlocks.ENLIGHTED_TEXT_LABORATORY_SCREEN.get());
+        registeredBlocks.add(ModBlocks.QUANTUM_LABORATORY_SCREEN.get());
+        registeredBlocks.add(ModBlocks.ENLIGHTED_QUANTUM_LABORATORY_SCREEN.get());
 
         return registeredBlocks;
     }

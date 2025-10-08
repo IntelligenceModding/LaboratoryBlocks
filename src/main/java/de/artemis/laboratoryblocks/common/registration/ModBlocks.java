@@ -102,6 +102,18 @@ public class ModBlocks {
     public static final RegistryObject<LaboratoryBlock> ENLIGHTED_WAVE_LABORATORY_SCREEN = register("enlighted_wave_laboratory_screen",
             () -> new LaboratoryBlock(ModBlocks.WAVE_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(ModSoundType.LABORATORY_BLOCK).lightLevel((p_187433_) -> 14)));
 
+    public static final RegistryObject<LaboratoryBlock> TEXT_LABORATORY_SCREEN = register("text_laboratory_screen",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_TEXT_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(ModSoundType.LABORATORY_BLOCK)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_TEXT_LABORATORY_SCREEN = register("enlighted_text_laboratory_screen",
+            () -> new LaboratoryBlock(ModBlocks.TEXT_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(ModSoundType.LABORATORY_BLOCK).lightLevel((p_187433_) -> 14)));
+
+    public static final RegistryObject<LaboratoryBlock> QUANTUM_LABORATORY_SCREEN = register("quantum_laboratory_screen",
+            () -> new LaboratoryBlock(ModBlocks.ENLIGHTED_QUANTUM_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(ModSoundType.LABORATORY_BLOCK)));
+
+    public static final RegistryObject<LaboratoryBlock> ENLIGHTED_QUANTUM_LABORATORY_SCREEN = register("enlighted_quantum_laboratory_screen",
+            () -> new LaboratoryBlock(ModBlocks.QUANTUM_LABORATORY_SCREEN, BlockBehaviour.Properties.of().strength(1.25F, 1.5F).sound(ModSoundType.LABORATORY_BLOCK).lightLevel((p_187433_) -> 14)));
+
 
 
 

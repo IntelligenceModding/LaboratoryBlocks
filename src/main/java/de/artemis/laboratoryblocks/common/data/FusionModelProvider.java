@@ -128,6 +128,42 @@ public class FusionModelProvider extends com.supermartijn642.fusion.api.provider
 
 
 
+        var modelDataTextLaboratoryScreen = ConnectingModelDataBuilder.builder()
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/text_laboratory_screen-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_TEXT_LABORATORY_SCREEN.get())))
+                .build();
+        var modelInstanceTextLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataTextLaboratoryScreen);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/text_laboratory_screen"), modelInstanceTextLaboratoryScreen);
+
+        var modelDataEnlightedTextLaboratoryScreen = ConnectingModelDataBuilder.builder()
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/text_laboratory_screen-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.TEXT_LABORATORY_SCREEN.get())))
+                .build();
+        var modelInstanceEnlightedTextLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedTextLaboratoryScreen);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_text_laboratory_screen"), modelInstanceEnlightedTextLaboratoryScreen);
+
+
+
+        var modelDataQuantumLaboratoryScreen = ConnectingModelDataBuilder.builder()
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/quantum_laboratory_screen-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.ENLIGHTED_QUANTUM_LABORATORY_SCREEN.get())))
+                .build();
+        var modelInstanceQuantumLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataQuantumLaboratoryScreen);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/quantum_laboratory_screen"), modelInstanceQuantumLaboratoryScreen);
+
+        var modelDataEnlightedQuantumLaboratoryScreen = ConnectingModelDataBuilder.builder()
+                .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
+                .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/quantum_laboratory_screen-fusion"))
+                .connection(DefaultConnectionPredicates.isSameBlock().or(DefaultConnectionPredicates.matchBlock(ModBlocks.QUANTUM_LABORATORY_SCREEN.get())))
+                .build();
+        var modelInstanceEnlightedQuantumLaboratoryScreen = ModelInstance.of(DefaultModelTypes.CONNECTING, modelDataEnlightedQuantumLaboratoryScreen);
+        this.addModel(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/enlighted_quantum_laboratory_screen"), modelInstanceEnlightedQuantumLaboratoryScreen);
+
+
+
         var modelDataLeftFacedBlueSignalingLaboratoryBlock = ConnectingModelDataBuilder.builder()
                 .parent(ResourceLocation.fromNamespaceAndPath("minecraft", "block/cube_all"))
                 .texture("all", ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/left-faced_blue_signaling_laboratory_block-fusion"))
