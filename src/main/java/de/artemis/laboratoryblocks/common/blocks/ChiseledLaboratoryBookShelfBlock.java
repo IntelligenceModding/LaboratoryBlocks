@@ -32,11 +32,11 @@ import java.util.function.Supplier;
 
 public class ChiseledLaboratoryBookShelfBlock extends ChiseledBookShelfBlock {
 
-    private final Supplier<ChiseledLaboratoryBookShelfBlock> block;
+    //private final Supplier<ChiseledLaboratoryBookShelfBlock> block;
 
     public ChiseledLaboratoryBookShelfBlock(Supplier<ChiseledLaboratoryBookShelfBlock> block, Properties properties) {
         super(properties);
-        this.block = block;
+        //this.block = block;
     }
 
     @Override

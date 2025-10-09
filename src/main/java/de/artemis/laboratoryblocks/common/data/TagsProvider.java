@@ -45,7 +45,7 @@ public class TagsProvider {
         @NotNull
         @Override
         protected Path getPath(ResourceLocation location) {
-            return this.packOutput.getOutputFolder().resolve("data/" + location.getNamespace() + "/tags/blocks/" + location.getPath() + ".json");
+            return this.packOutput.getOutputFolder().resolve("data/" + location.getNamespace() + "/tags/block/" + location.getPath() + ".json");
         }
 
         @NotNull
@@ -75,7 +75,7 @@ public class TagsProvider {
         @NotNull
         @Override
         protected Path getPath(ResourceLocation location) {
-            return this.packOutput.getOutputFolder().resolve("data/" + location.getNamespace() + "/tags/items/" + location.getPath() + ".json");
+            return this.packOutput.getOutputFolder().resolve("data/" + location.getNamespace() + "/tags/item/" + location.getPath() + ".json");
         }
 
         @NotNull
