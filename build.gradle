@@ -26,10 +26,10 @@ plugins {
 group = 'de.artemis.laboratoryblocks'
 version = "${mc_version}-${mod_version}-fusion"
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 wrapper {
-    gradleVersion = '8.4'
+    gradleVersion = '8.14'
     distributionType = Wrapper.DistributionType.ALL
 }
 

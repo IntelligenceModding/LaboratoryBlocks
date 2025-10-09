@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[48,)"
+loaderVersion = "[52,)"
 license = "GPL-2.0"
 [[mods]]
 modId = "laboratoryblocks"
@@ -16,14 +16,14 @@ Get ready to upgrade your builds! This mod adds modern and futuristic looking la
 [[dependencies.laboratoryblocks]]
     modId = "forge"
     mandatory = true
-    versionRange = "[48,)"
+    versionRange = "[52,)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.laboratoryblocks]]
     modId = "minecraft"
     mandatory = true
-    versionRange = "[1.20.1,1.21)"
+    versionRange = "[1.21,1.22)"
     ordering = "NONE"
     side = "BOTH"
 
