@@ -27,14 +27,17 @@ public class DataProvider {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(BlockLootTablesProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
+        generator.addProvider(true, new LanguageProvider(generator.getPackOutput(), "en_us"));
+        generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(), List.of(new LootTableProvider.SubProviderEntry(BlockLootTablesProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
         generator.addProvider(event.includeServer(), new RecipesProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeClient(), new ModelAndBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ItemModelProvider(packOutput, existingFileHelper));
+
         generator.addProvider(true, new TagsProvider.BlockTagsProvider(generator.getPackOutput(), lookupProvider, existingFileHelper));
         generator.addProvider(true, new TagsProvider.ItemTagsProvider(generator.getPackOutput(), lookupProvider, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ModelAndBlockStateProvider(packOutput, existingFileHelper));
+
         generator.addProvider(true, new FusionModelProvider(generator.getPackOutput()));
+
     }
 
     @SuppressWarnings("deprecation")

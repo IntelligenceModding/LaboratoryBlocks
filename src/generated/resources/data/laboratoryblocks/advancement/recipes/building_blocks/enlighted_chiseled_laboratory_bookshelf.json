@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chiseled_laboratory_bookshelf": {
+      "conditions": {
+        "items": [
+          {
+            "items": "laboratoryblocks:chiseled_laboratory_bookshelf"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_glowstone_particles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "laboratoryblocks:glowstone_particles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "laboratoryblocks:enlighted_chiseled_laboratory_bookshelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chiseled_laboratory_bookshelf",
+      "has_glowstone_particles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:enlighted_chiseled_laboratory_bookshelf"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_laboratory_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "laboratoryblocks:laboratory_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "laboratoryblocks:chiseled_laboratory_bookshelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_laboratory_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:chiseled_laboratory_bookshelf"
+    ]
+  }
+}

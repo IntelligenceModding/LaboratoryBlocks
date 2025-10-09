@@ -116,10 +116,10 @@ public class BlockLootTablesProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.ENLIGHTED_LABORATORY_FAN_REDSTONE_CONTROLLED.get());
         dropSelf(ModBlocks.WARN_SIGN.get());
 
-        //dropWhenSilkTouch(ModBlocks.LABORATORY_GLASS.get());
-        //dd(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), (p_124233_) -> {
-        //    return createSingleItemTableWithSilkTouch(p_124233_, ModItems.GLOWSTONE_PARTICLES.get(), ConstantValue.exactly(1.0F));
-        //});
+        dropWhenSilkTouch(ModBlocks.LABORATORY_GLASS.get());
+        add(ModBlocks.ENLIGHTED_LABORATORY_GLASS.get(), (p_124233_) -> {
+            return createSingleItemTableWithSilkTouch(p_124233_, ModItems.GLOWSTONE_PARTICLES.get(), ConstantValue.exactly(1.0F));
+        });
         dropWhenSilkTouch(ModBlocks.LABORATORY_BOOKSHELF.get());
         add(ModBlocks.LABORATORY_BOOKSHELF.get(), (p_124233_) -> {
             return createSingleItemTableWithSilkTouch(p_124233_, Items.BOOK, ConstantValue.exactly(3.0F));
@@ -128,10 +128,6 @@ public class BlockLootTablesProvider extends BlockLootSubProvider {
         add(ModBlocks.ENLIGHTED_LABORATORY_BOOKSHELF.get(), (p_124233_) -> {
             return createSingleItemTableWithSilkTouch(p_124233_, Items.BOOK, ConstantValue.exactly(3.0F));
         });
-
-        this.add(ModBlocks.LABORATORY_GLASS.get(),
-                block -> createSingleItemTableWithSilkTouch(ModBlocks.LABORATORY_GLASS.get(), ModItems.GLOWSTONE_PARTICLES.get(), ConstantValue.exactly(1.0F)));
-
     }
 
     @Override

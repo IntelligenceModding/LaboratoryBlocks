@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:enlighted_laboratory_vent_connecting"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "laboratoryblocks:enlighted_laboratory_vent_connecting"
+  }
+}

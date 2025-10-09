@@ -29,7 +29,7 @@ version = "${mc_version}-${mod_version}-fusion"
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 wrapper {
-    gradleVersion = '8.14'
+    gradleVersion = '8.14.3'
     distributionType = Wrapper.DistributionType.ALL
 }
 
@@ -113,9 +113,6 @@ sourceSets {
 }
 
 repositories { //Correct one
-    flatDir {
-        dirs 'lib'
-    }
 
     maven {
         name = "Blamejared maven botania patchouli"
@@ -183,4 +180,10 @@ tasks.withType(ProcessResources).configureEach {
     filesMatching(['META-INF/mods.toml']) {
         expand replaceProperties
     }
+}
+
+sourceSets.each {
+    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
 }
