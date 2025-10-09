@@ -150,7 +150,7 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
 
     // Fusion
-    implementation fg.deobf("maven.modrinth:fusion-connected-textures:${fusion_version}")
+    implementation "maven.modrinth:fusion-connected-textures:${fusion_version}-forge-mc1.21"
 }
 
 jar {
@@ -175,8 +175,8 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.withType(ProcessResources).configureEach {
     var replaceProperties = [
-            version                   : version,
-]
+            version: version,
+    ]
 
     inputs.properties replaceProperties
 

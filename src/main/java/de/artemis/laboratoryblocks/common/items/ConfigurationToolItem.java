@@ -8,9 +8,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -20,13 +18,30 @@ public class ConfigurationToolItem extends Item {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+    public void appendHoverText(@NotNull ItemStack itemStack, Item.@NotNull TooltipContext context, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
         if (KeyBindingUtil.isKeyPressed(ModKeyBindings.SHOW_INFORMATION)) {
-            tooltip.add(Component.translatable("tooltip.laboratoryblocks.configuration_tool", Component.literal(ModKeyBindings.REMOVE_GLOWSTONE_CONFIGURATION_TOOL_ACTION.getKey().getDisplayName().getString()).withStyle(Style.EMPTY.withColor(0x549CFC)), Component.literal(ModKeyBindings.REMOVE_REDSTONE_CONFIGURATION_TOOL_ACTION.getKey().getDisplayName().getString()).withStyle(Style.EMPTY.withColor(0x549CFC))).withStyle(ChatFormatting.GRAY));
+            tooltip.add(
+                    Component.translatable(
+                            "tooltip.laboratoryblocks.configuration_tool",
+                            Component.literal(ModKeyBindings.REMOVE_GLOWSTONE_CONFIGURATION_TOOL_ACTION.getKey()
+                                            .getDisplayName().getString())
+                                    .withStyle(Style.EMPTY.withColor(0x549CFC)),
+                            Component.literal(ModKeyBindings.REMOVE_REDSTONE_CONFIGURATION_TOOL_ACTION.getKey()
+                                            .getDisplayName().getString())
+                                    .withStyle(Style.EMPTY.withColor(0x549CFC))
+                    ).withStyle(ChatFormatting.GRAY)
+            );
         } else {
-            tooltip.add(Component.translatable("tooltip.laboratoryblocks.configuration_tool_preview", Component.literal(ModKeyBindings.REMOVE_GLOWSTONE_CONFIGURATION_TOOL_ACTION.getKey().getDisplayName().getString()).withStyle(Style.EMPTY.withColor(0x549CFC))).withStyle(ChatFormatting.GRAY));
+            tooltip.add(
+                    Component.translatable(
+                            "tooltip.laboratoryblocks.configuration_tool_preview",
+                            Component.literal(ModKeyBindings.REMOVE_GLOWSTONE_CONFIGURATION_TOOL_ACTION.getKey()
+                                            .getDisplayName().getString())
+                                    .withStyle(Style.EMPTY.withColor(0x549CFC))
+                    ).withStyle(ChatFormatting.GRAY)
+            );
         }
 
-        super.appendHoverText(itemStack, level, tooltip, flag);
+        super.appendHoverText(itemStack, context, tooltip, flag);
     }
 }

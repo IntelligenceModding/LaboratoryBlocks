@@ -1,7 +1,6 @@
 package de.artemis.laboratoryblocks.common.registration;
 
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 
 public class ModBlockSetTypes {
@@ -12,7 +11,7 @@ public class ModBlockSetTypes {
             true,
             true,
             BlockSetType.PressurePlateSensitivity.EVERYTHING,
-            ModSoundType.LABORATORY_BLOCK,
+            ModSoundTypes.LABORATORY_BLOCK,
             SoundEvents.IRON_DOOR_CLOSE,
             SoundEvents.IRON_DOOR_OPEN,
             SoundEvents.IRON_TRAPDOOR_CLOSE,

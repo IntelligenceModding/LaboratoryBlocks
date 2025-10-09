@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -31,8 +32,7 @@ public class LaboratoryBlock extends Block {
     }
 
     @SuppressWarnings("deprecation")
-    @Override
-    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack itemStack, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
 
         if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
@@ -60,7 +60,7 @@ public class LaboratoryBlock extends Block {
                     level.addParticle(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), blockPos.getX() + 1, blockPos.getY() + 1, blockPos.getZ() + i, 0, 0, 0);
                 }
 
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             }
 
             // Removing Glowstone
@@ -72,7 +72,8 @@ public class LaboratoryBlock extends Block {
                         level.addFreshEntity(itemEntity);
                     }
 
-                    itemStackInHand.hurt(1, RandomSource.create(), null);
+                    itemStackInHand.hurtAndBreak(1, player, itemStackInHand.getEquipmentSlot());
+
                 }
                 level.setBlock(blockPos, block.get().defaultBlockState(), 3);
                 level.playSound(player, blockPos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -93,9 +94,9 @@ public class LaboratoryBlock extends Block {
                     level.addParticle(ModParticles.REMOVING_MODIFIER_PARTICLE.get(), blockPos.getX() + 1, blockPos.getY() + 1, blockPos.getZ() + i, 0, 0, 0);
                 }
 
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.SUCCESS;
             }
         }
-        return InteractionResult.FAIL;
+        return ItemInteractionResult.FAIL;
     }
 }

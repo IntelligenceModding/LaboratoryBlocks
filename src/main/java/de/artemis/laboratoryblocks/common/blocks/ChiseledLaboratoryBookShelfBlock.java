@@ -1,10 +1,6 @@
 package de.artemis.laboratoryblocks.common.blocks;
 
 import de.artemis.laboratoryblocks.common.blockentities.ChiseledLaboratoryBookShelfBlockEntity;
-import de.artemis.laboratoryblocks.common.registration.ModItems;
-import de.artemis.laboratoryblocks.common.registration.ModKeyBindings;
-import de.artemis.laboratoryblocks.common.registration.ModParticles;
-import de.artemis.laboratoryblocks.common.util.KeyBindingUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
@@ -12,11 +8,9 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -24,10 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.ChiseledBookShelfBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.ChiseledBookShelfBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
@@ -36,6 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.Supplier;
 
 public class ChiseledLaboratoryBookShelfBlock extends ChiseledBookShelfBlock {
@@ -48,29 +40,21 @@ public class ChiseledLaboratoryBookShelfBlock extends ChiseledBookShelfBlock {
     }
 
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
-
-        //Vanilla Begin
-
-        BlockEntity blockEntity = level.getBlockEntity(blockPos);
-        if (blockEntity instanceof ChiseledLaboratoryBookShelfBlockEntity bookShelfBlockEntity) {
-
-            Optional optional = getRelativeHitCoordinatesForBlockFace(blockHitResult, (Direction) blockState.getValue(HorizontalDirectionalBlock.FACING));
-            if (optional.isEmpty()) {
-                return InteractionResult.PASS;
+    protected @NotNull ItemInteractionResult useItemOn(
+            @NotNull ItemStack itemStack, @NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult
+    ) {
+        if (level.getBlockEntity(blockPos) instanceof ChiseledLaboratoryBookShelfBlockEntity chiseledbookshelfblockentity) {
+            if (!itemStack.is(ItemTags.BOOKSHELF_BOOKS)) {
+                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
             } else {
-                int hitSlot = getHitSlot((Vec2) optional.get());
-                if ((Boolean) blockState.getValue((Property) SLOT_OCCUPIED_PROPERTIES.get(hitSlot))) {
-                    removeBook(level, blockPos, player, bookShelfBlockEntity, hitSlot);
-                    return InteractionResult.sidedSuccess(level.isClientSide);
+                OptionalInt optionalint = this.getHitSlot(blockHitResult, blockState);
+                if (optionalint.isEmpty()) {
+                    return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+                } else if (blockState.getValue(SLOT_OCCUPIED_PROPERTIES.get(optionalint.getAsInt()))) {
+                    return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
                 } else {
-                    ItemStack itemInHand = player.getItemInHand(interactionHand);
-                    if (itemInHand.is(ItemTags.BOOKSHELF_BOOKS)) {
-                        addBook(level, blockPos, player, bookShelfBlockEntity, itemInHand, hitSlot);
-                        return InteractionResult.sidedSuccess(level.isClientSide);
-                    } else {
-                        return InteractionResult.CONSUME;
-                    }
+                    addBook(level, blockPos, player, chiseledbookshelfblockentity, itemStack, optionalint.getAsInt());
+                    return ItemInteractionResult.sidedSuccess(level.isClientSide);
                 }
             }
         }
@@ -140,7 +124,9 @@ public class ChiseledLaboratoryBookShelfBlock extends ChiseledBookShelfBlock {
                 return InteractionResult.SUCCESS;
             }
         }*/
-        return InteractionResult.FAIL;
+        else {
+            return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+        }
     }
 
     private static Optional<Vec2> getRelativeHitCoordinatesForBlockFace(BlockHitResult blockHitResult, Direction direction) {
@@ -179,10 +165,12 @@ public class ChiseledLaboratoryBookShelfBlock extends ChiseledBookShelfBlock {
         }
     }
 
-    private static int getHitSlot(Vec2 pHitPos) {
-        int $$1 = pHitPos.y >= 0.5F ? 0 : 1;
-        int $$2 = getSection(pHitPos.x);
-        return $$2 + $$1 * 3;
+    private OptionalInt getHitSlot(BlockHitResult pHitReselt, BlockState pState) {
+        return getRelativeHitCoordinatesForBlockFace(pHitReselt, pState.getValue(HorizontalDirectionalBlock.FACING)).map(p_327255_ -> {
+            int i = p_327255_.y >= 0.5F ? 0 : 1;
+            int j = getSection(p_327255_.x);
+            return OptionalInt.of(j + i * 3);
+        }).orElseGet(OptionalInt::empty);
     }
 
     private static int getSection(float pX) {

@@ -11,11 +11,11 @@ public class ModTags {
         public static final TagKey<net.minecraft.world.item.Item> STARCH_INGREDIENT = tag("starch_ingredient");
 
         private static TagKey<net.minecraft.world.item.Item> tag(String name) {
-            return ItemTags.create(new ResourceLocation(LaboratoryBlocks.MOD_ID, name));
+            return ItemTags.create(ResourceLocation.tryBuild(LaboratoryBlocks.MOD_ID, name));
         }
 
         private static TagKey<net.minecraft.world.item.Item> forgeTag(String name) {
-            return ItemTags.create(new ResourceLocation("forge", name));
+            return ItemTags.create(ResourceLocation.tryBuild("forge", name));
         }
     }
 }

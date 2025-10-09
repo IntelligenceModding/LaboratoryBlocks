@@ -4,155 +4,184 @@ import com.mojang.logging.LogUtils;
 import de.artemis.laboratoryblocks.common.blocks.ChiseledLaboratoryBookShelfBlock;
 import de.artemis.laboratoryblocks.common.registration.ModBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 import java.util.Objects;
 import java.util.function.Predicate;
 
 public class ChiseledLaboratoryBookShelfBlockEntity extends BlockEntity implements Container {
-    public static final int MAX_BOOKS_IN_STORAGE = 6;
+    public static final int MAX_BOOKS_IN_STORAGE = 6; //Container Size
     private static final Logger LOGGER = LogUtils.getLogger();
     private final NonNullList<ItemStack> items;
     private int lastInteractedSlot;
-    private LazyOptional<?> itemHandler;
 
     public ChiseledLaboratoryBookShelfBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.CHISELED_LABORATORY_BOOKSHELF_BLOCK_ENTITY.get(), blockPos, blockState);
         this.items = NonNullList.withSize(6, ItemStack.EMPTY);
         this.lastInteractedSlot = -1;
-        this.itemHandler = LazyOptional.of(this::createUnSidedHandler);
     }
 
-    private void updateState(int slot) {
-        if (slot >= 0 && slot < 6) {
-            this.lastInteractedSlot = slot;
+    private net.minecraftforge.common.util.LazyOptional<?> itemHandler = net.minecraftforge.common.util.LazyOptional.of(this::createUnSidedHandler);
+
+    protected net.minecraftforge.items.IItemHandler createUnSidedHandler() {
+        return new net.minecraftforge.items.wrapper.InvWrapper(this);
+    }
+
+    private void updateState(int pSlot) {
+        if (pSlot >= 0 && pSlot < 6) {
+            this.lastInteractedSlot = pSlot;
             BlockState blockstate = this.getBlockState();
 
-            for(int i = 0; i < ChiseledLaboratoryBookShelfBlock.SLOT_OCCUPIED_PROPERTIES.size(); ++i) {
+            for (int i = 0; i < ChiseledLaboratoryBookShelfBlock.SLOT_OCCUPIED_PROPERTIES.size(); i++) {
                 boolean flag = !this.getItem(i).isEmpty();
-                BooleanProperty booleanproperty = (BooleanProperty)ChiseledLaboratoryBookShelfBlock.SLOT_OCCUPIED_PROPERTIES.get(i);
-                blockstate = (BlockState)blockstate.setValue(booleanproperty, flag);
+                BooleanProperty booleanproperty = ChiseledLaboratoryBookShelfBlock.SLOT_OCCUPIED_PROPERTIES.get(i);
+                blockstate = blockstate.setValue(booleanproperty, Boolean.valueOf(flag));
             }
 
-            ((Level)Objects.requireNonNull(this.level)).setBlock(this.worldPosition, blockstate, 3);
+            Objects.requireNonNull(this.level).setBlock(this.worldPosition, blockstate, 3);
+            this.level.gameEvent(GameEvent.BLOCK_CHANGE, this.worldPosition, GameEvent.Context.of(blockstate));
         } else {
-            LOGGER.error("Expected slot 0-5, got {}", slot);
+            LOGGER.error("Expected slot 0-5, got {}", pSlot);
         }
-
     }
 
-    public void load(CompoundTag pTag) {
+    @Override
+    protected void loadAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        super.loadAdditional(tag, registries);
         this.items.clear();
-        ContainerHelper.loadAllItems(pTag, this.items);
-        this.lastInteractedSlot = pTag.getInt("last_interacted_slot");
+        ContainerHelper.loadAllItems(tag, this.items, registries);
+        this.lastInteractedSlot = tag.getInt("last_interacted_slot");
     }
 
-    protected void saveAdditional(CompoundTag pTag) {
-        ContainerHelper.saveAllItems(pTag, this.items, true);
-        pTag.putInt("last_interacted_slot", this.lastInteractedSlot);
+    @Override
+    protected void saveAdditional(@NotNull CompoundTag tag, HolderLookup.@NotNull Provider registries) {
+        super.saveAdditional(tag, registries);
+        ContainerHelper.saveAllItems(tag, this.items, true, registries);
+        tag.putInt("last_interacted_slot", this.lastInteractedSlot);
     }
 
     public int count() {
         return (int)this.items.stream().filter(Predicate.not(ItemStack::isEmpty)).count();
     }
 
+    @Override
     public void clearContent() {
         this.items.clear();
     }
 
+    @Override
     public int getContainerSize() {
-        return 6;
+        return MAX_BOOKS_IN_STORAGE;
     }
 
+    @Override
     public boolean isEmpty() {
         return this.items.stream().allMatch(ItemStack::isEmpty);
     }
 
-    public ItemStack getItem(int pSlot) {
-        return (ItemStack)this.items.get(pSlot);
+    @Override
+    public @NotNull ItemStack getItem(int slot) {
+        return this.items.get(slot);
     }
 
-    public ItemStack removeItem(int pSlot, int pAmount) {
-        ItemStack itemstack = (ItemStack)Objects.requireNonNullElse((ItemStack)this.items.get(pSlot), ItemStack.EMPTY);
-        this.items.set(pSlot, ItemStack.EMPTY);
+    @Override
+    public @NotNull ItemStack removeItem(int slot, int amount) {
+        ItemStack itemstack = Objects.requireNonNullElse(this.items.get(slot), ItemStack.EMPTY);
+        this.items.set(slot, ItemStack.EMPTY);
         if (!itemstack.isEmpty()) {
-            this.updateState(pSlot);
+            this.updateState(slot);
         }
 
         return itemstack;
     }
 
-    public ItemStack removeItemNoUpdate(int pSlot) {
-        return this.removeItem(pSlot, 1);
+    @Override
+    public @NotNull ItemStack removeItemNoUpdate(int slot) {
+        return this.removeItem(slot, 1);
     }
 
+    @Override
     public void setItem(int pSlot, ItemStack pStack) {
         if (pStack.is(ItemTags.BOOKSHELF_BOOKS)) {
             this.items.set(pSlot, pStack);
             this.updateState(pSlot);
+        } else if (pStack.isEmpty()) {
+            this.removeItem(pSlot, 1);
         }
-
     }
 
-    public boolean canTakeItem(Container pTarget, int pIndex, ItemStack pStack) {
-        return pTarget.hasAnyMatching((p_281577_) -> {
-            if (p_281577_.isEmpty()) {
-                return true;
-            } else {
-                return ItemStack.isSameItemSameTags(pStack, p_281577_) && p_281577_.getCount() + pStack.getCount() <= Math.min(p_281577_.getMaxStackSize(), pTarget.getMaxStackSize());
-            }
-        });
+    @Override
+    public boolean canTakeItem(Container container, int slot, @NotNull ItemStack itemStack) {
+        return container.hasAnyMatching(
+                p_327306_ -> p_327306_.isEmpty()
+                        ? true
+                        : ItemStack.isSameItemSameComponents(itemStack, p_327306_) && p_327306_.getCount() + itemStack.getCount() <= container.getMaxStackSize(p_327306_)
+        );
     }
 
+    @Override
     public int getMaxStackSize() {
         return 1;
     }
 
-    public boolean stillValid(Player pPlayer) {
-        return Container.stillValidBlockEntity(this, pPlayer);
+    @Override
+    public boolean stillValid(@NotNull Player player) {
+        return Container.stillValidBlockEntity(this, player);
     }
 
-    public boolean canPlaceItem(int pIndex, ItemStack pStack) {
-        return pStack.is(ItemTags.BOOKSHELF_BOOKS) && this.getItem(pIndex).isEmpty();
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack itemStack) {
+        return itemStack.is(ItemTags.BOOKSHELF_BOOKS) && this.getItem(slot).isEmpty() && itemStack.getCount() == this.getMaxStackSize();
     }
 
     public int getLastInteractedSlot() {
         return this.lastInteractedSlot;
     }
 
-    protected IItemHandler createUnSidedHandler() {
-        return new InvWrapper(this);
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.@NotNull Builder components) {
+        super.collectImplicitComponents(components);
+        components.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(this.items));
     }
 
-    public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
-        return !this.remove && cap == ForgeCapabilities.ITEM_HANDLER ? this.itemHandler.cast() : super.getCapability(cap, side);
+    @SuppressWarnings("deprecation")
+    @Override
+    public void removeComponentsFromTag(CompoundTag pTag) {
+        pTag.remove("Items");
     }
 
+    @Override
+    public <T> net.minecraftforge.common.util.@NotNull LazyOptional<T> getCapability(net.minecraftforge.common.capabilities.@NotNull Capability<T> capability, @org.jetbrains.annotations.Nullable net.minecraft.core.Direction side) {
+        if (capability == net.minecraftforge.common.capabilities.ForgeCapabilities.ITEM_HANDLER && !this.remove)
+            return itemHandler.cast();
+        return super.getCapability(capability, side);
+    }
+
+    @Override
     public void invalidateCaps() {
         super.invalidateCaps();
-        this.itemHandler.invalidate();
+        itemHandler.invalidate();
     }
 
+    @Override
     public void reviveCaps() {
         super.reviveCaps();
-        this.itemHandler = LazyOptional.of(this::createUnSidedHandler);
+        itemHandler = net.minecraftforge.common.util.LazyOptional.of(this::createUnSidedHandler);
     }
 }

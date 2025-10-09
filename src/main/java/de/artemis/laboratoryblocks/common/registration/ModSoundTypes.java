@@ -2,7 +2,7 @@ package de.artemis.laboratoryblocks.common.registration;
 
 import net.minecraftforge.common.util.ForgeSoundType;
 
-public class ModSoundType {
+public class ModSoundTypes {
 
     public static final ForgeSoundType LABORATORY_BLOCK = new ForgeSoundType(1.0F, 1.0F,
             ModSoundEvents.LABORATORY_BLOCK_BREAK,
