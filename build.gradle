@@ -36,6 +36,8 @@ wrapper {
 minecraft {
     mappings channel: "${mappings_channel}", version: "${mappings_version}"
 
+    reobf = false
+
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
@@ -109,7 +111,17 @@ sourceSets {
     main.resources {
         srcDir 'src/generated/resources'
     }
-    testMod {}
+}
+
+sourceSets {
+    test {
+        java.srcDirs = []
+        resources.srcDirs = []
+    }
+}
+
+tasks.withType(Test).configureEach {
+    enabled = false
 }
 
 repositories { //Correct one

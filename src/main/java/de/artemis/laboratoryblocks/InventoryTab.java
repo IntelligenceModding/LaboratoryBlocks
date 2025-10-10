@@ -19,7 +19,7 @@ public class InventoryTab {
             Arrays.stream(inventoryTabItems).forEach(out::accept);
 
         });
-        builder.icon(() -> ModBlocks.LABORATORY_BLOCK.get().asItem().getDefaultInstance());
+        builder.icon(() -> ModBlocks.QUANTUM_LABORATORY_SCREEN.get().asItem().getDefaultInstance());
         builder.withSearchBar();
         builder.title(Component.translatable("itemGroup.laboratoryblocks"));
     }
