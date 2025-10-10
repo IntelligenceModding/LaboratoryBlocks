@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-10T02:28:47.4904134	Recipes
+// 1.21.1	2025-10-10T02:51:30.0132031	Recipes
 4dfe63a8176fd392ad0f0647c7ba1ed8204c7907 data/laboratoryblocks/advancement/recipes/building_blocks/acacia_laboratory_floor.json
 82e70b1fb1ac6e62b11e927493713bbfc6cc33e5 data/laboratoryblocks/advancement/recipes/building_blocks/acacia_laboratory_tiles.json
 87eecb03bdb370dfa7982f9789ca495d7d9d894c data/laboratoryblocks/advancement/recipes/building_blocks/bamboo_laboratory_floor.json
@@ -210,7 +210,7 @@ b80aa89e9c3e971403bde78574cc3a406ceda95e data/laboratoryblocks/recipe/mesh_labor
 1dc19fb7bf92595705eba22e83a2ade3e5cfa62c data/laboratoryblocks/recipe/mixed_laboratory_tiles.json
 968c96affbef057ffab120688970757ccc97d5b1 data/laboratoryblocks/recipe/oak_laboratory_floor.json
 31412691d6df0441d5b83d69554a8e070ebc02d0 data/laboratoryblocks/recipe/oak_laboratory_tiles.json
-c53e5c0a4310c55ef9da24816b56331202a448ab data/laboratoryblocks/recipe/pla_block.json
+b1867aa401252d8d93ad16d47e569ade2c85c2bc data/laboratoryblocks/recipe/pla_block.json
 ea0e467ff0334a0a67525e1a71f79783b17e3dd3 data/laboratoryblocks/recipe/pla_flooring.json
 538ff99be5f944cae117f2e9cd18123420b25af5 data/laboratoryblocks/recipe/pla_sheets.json
 f02e7486fec5da4aba95c0d734e260c0fb340358 data/laboratoryblocks/recipe/pla_tiles.json
