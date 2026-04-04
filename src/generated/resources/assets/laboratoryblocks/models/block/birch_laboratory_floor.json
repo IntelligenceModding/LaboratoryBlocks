@@ -5,16 +5,11 @@
     "type": "fusion:or",
     "predicates": [
       {
-        "type": "fusion:or",
-        "predicates": [
-          {
-            "type": "fusion:is_same_block"
-          },
-          {
-            "type": "fusion:match_block",
-            "block": "laboratoryblocks:enlighted_birch_laboratory_floor"
-          }
-        ]
+        "type": "fusion:is_same_block"
+      },
+      {
+        "type": "fusion:match_block",
+        "block": "laboratoryblocks:glowing_birch_laboratory_floor"
       }
     ]
   },

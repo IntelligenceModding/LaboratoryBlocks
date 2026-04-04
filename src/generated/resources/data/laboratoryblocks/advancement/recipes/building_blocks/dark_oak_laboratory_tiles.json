@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_oak_laboratory_floor": {
+    "has_dark_oak_laboratory_floor": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_oak_laboratory_floor"
+      "has_dark_oak_laboratory_floor"
     ]
   ],
   "rewards": {

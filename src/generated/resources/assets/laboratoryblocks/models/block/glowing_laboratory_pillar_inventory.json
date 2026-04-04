@@ -1,0 +1,8 @@
+{
+  "parent": "laboratoryblocks:block/glowing_column_inventory_overlay",
+  "textures": {
+    "base_end": "laboratoryblocks:block/laboratory_pillar_top",
+    "base_side": "laboratoryblocks:block/laboratory_pillar",
+    "overlay": "laboratoryblocks:block/glowing_block_inventory_overlay"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "laboratoryblocks:item/laboratory_door"
+  }
+}

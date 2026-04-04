@@ -1,7 +1,0 @@
-// 1.21.1	2025-10-10T02:28:47.4862713	Block tags
-cf63be0df8a5a06df1c7721ff06247fcc3004cb7 data/minecraft/tags/block/climbable.json
-ed2e081b4625e6452a41952f65638561eec42aa4 data/minecraft/tags/block/doors.json
-f21974f84055bb49768b83efad1e6b907f60ede3 data/minecraft/tags/block/enchantment_power_provider.json
-f2b017a5219760ee54cbc09f61a3c76ca456b52d data/minecraft/tags/block/mineable/axe.json
-4be8b875b420585e701c413eafbe98f5b0afcbe5 data/minecraft/tags/block/mineable/pickaxe.json
-f5ade977c82493b683d0ed700abbfee36569381a data/minecraft/tags/block/trapdoors.json

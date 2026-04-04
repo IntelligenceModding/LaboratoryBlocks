@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:warped_laboratory_tiles",
+    "laboratoryblocks:glowstone_particles"
+  ],
+  "result": {
+    "count": 1,
+    "id": "laboratoryblocks:glowing_warped_laboratory_tiles"
+  }
+}

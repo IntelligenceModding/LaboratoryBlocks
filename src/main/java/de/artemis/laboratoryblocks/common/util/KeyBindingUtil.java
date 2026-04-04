@@ -3,7 +3,7 @@ package de.artemis.laboratoryblocks.common.util;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.client.settings.KeyModifier;
+import net.neoforged.neoforge.client.settings.KeyModifier;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyBindingUtil {
@@ -22,15 +22,15 @@ public class KeyBindingUtil {
         InputConstants.Key key = keyBinding.getKey();
         int keyCode = key.getValue();
         if (keyCode != InputConstants.UNKNOWN.getValue()) {
-            long windowHandle = Minecraft.getInstance().getWindow().getWindow();
+            var window = Minecraft.getInstance().getWindow();
 
             try {
                 if (key.getType() == InputConstants.Type.KEYSYM) {
-                    return InputConstants.isKeyDown(windowHandle, keyCode);
+                    return InputConstants.isKeyDown(window, keyCode);
                 }
 
                 if (key.getType() == InputConstants.Type.MOUSE) {
-                    return GLFW.glfwGetMouseButton(windowHandle, keyCode) == 1;
+                    return GLFW.glfwGetMouseButton(window.handle(), keyCode) == 1;
                 }
             } catch (Exception ignored) {
             }

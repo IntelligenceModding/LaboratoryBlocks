@@ -1,16 +1,6 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_quartz": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:quartz"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_stone": {
       "conditions": {
         "items": [
@@ -31,8 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_stone",
-      "has_quartz"
+      "has_stone"
     ]
   ],
   "rewards": {

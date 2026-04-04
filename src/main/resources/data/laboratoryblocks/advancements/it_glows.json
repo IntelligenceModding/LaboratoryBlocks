@@ -1,10 +1,10 @@
 {
   "display": {
     "icon": {
-      "item": "laboratoryblocks:enlighted_laboratory_glass"
+      "item": "laboratoryblocks:glowing_laboratory_glass"
     },
     "title": "It glows?",
-    "description": "Place your first enlighted block of Laboratory Glass",
+    "description": "Place your first glowing block of Laboratory Glass",
     "background": "laboratoryblocks:textures/misc/advancements_background.png",
     "frame": "goal",
     "announce_to_chat": true,
@@ -18,7 +18,7 @@
         "location": [
           {
             "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:enlighted_laboratory_glass",
+            "block": "laboratoryblocks:glowing_laboratory_glass",
             "properties": {}
           }
         ]

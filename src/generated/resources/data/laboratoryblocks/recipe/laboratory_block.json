@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": {
-      "item": "minecraft:stone"
-    },
-    "B": {
-      "item": "minecraft:quartz"
-    }
+    "A": "minecraft:stone",
+    "B": "minecraft:quartz"
   },
   "pattern": [
     "AAA",

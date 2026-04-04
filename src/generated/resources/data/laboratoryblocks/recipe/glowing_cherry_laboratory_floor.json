@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:cherry_laboratory_floor",
+    "laboratoryblocks:glowstone_particles"
+  ],
+  "result": {
+    "count": 1,
+    "id": "laboratoryblocks:glowing_cherry_laboratory_floor"
+  }
+}

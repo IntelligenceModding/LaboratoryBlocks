@@ -1,10 +1,10 @@
 {
   "display": {
     "icon": {
-      "item": "laboratoryblocks:right-faced_red_signaling_laboratory_block"
+    "item": "laboratoryblocks:right_indicating_red_laboratory_block"
     },
     "title": "Show me the way",
-    "description": "Place your first Right Facing Red Signaling Laboratory block",
+    "description": "Place your first Right Indicating Red Laboratory Block",
     "background": "laboratoryblocks:textures/misc/advancements_background.png",
     "frame": "task",
     "announce_to_chat": true,
@@ -18,7 +18,7 @@
         "location": [
           {
             "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:right-faced_red_signaling_laboratory_block",
+        "block": "laboratoryblocks:right_indicating_red_laboratory_block",
             "properties": {}
           }
         ]

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "laboratoryblocks:block/reinforced_laboratory_block"
+    }
+  }
+}

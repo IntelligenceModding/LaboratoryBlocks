@@ -2,15 +2,15 @@ package de.artemis.laboratoryblocks.client.particle.custom;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.particle.ParticleRenderType;
+import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.NotNull;
 
-public class RemovingModifierParticle extends TextureSheetParticle {
-    protected RemovingModifierParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, double xd, double yd, double zd) {
-        super(level, xCoord, yCoord, zCoord, xd, yd, zd);
+public class RemovingModifierParticle extends SingleQuadParticle {
+    protected RemovingModifierParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, RandomSource random, double xd, double yd, double zd) {
+        super(level, xCoord, yCoord, zCoord, xd, yd, zd, spriteSet.get(random));
 
         this.friction = 0.8F;
         this.xd = xd;
@@ -37,8 +37,8 @@ public class RemovingModifierParticle extends TextureSheetParticle {
 
     @NotNull
     @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+    protected Layer getLayer() {
+        return Layer.TRANSLUCENT;
     }
 
     public static class Provider implements net.minecraft.client.particle.ParticleProvider<SimpleParticleType> {
@@ -48,8 +48,8 @@ public class RemovingModifierParticle extends TextureSheetParticle {
             this.spriteSet = spriteSet;
         }
 
-        public Particle createParticle(@NotNull SimpleParticleType particleType, @NotNull ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
-            return new RemovingModifierParticle(level, x, y, z, this.spriteSet, dx, dy, dz);
+        public Particle createParticle(@NotNull SimpleParticleType particleType, @NotNull ClientLevel level, double x, double y, double z, double dx, double dy, double dz, RandomSource random) {
+            return new RemovingModifierParticle(level, x, y, z, this.spriteSet, random, dx, dy, dz);
         }
     }
 }

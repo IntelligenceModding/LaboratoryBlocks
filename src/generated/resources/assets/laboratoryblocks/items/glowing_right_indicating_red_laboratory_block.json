@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "laboratoryblocks:block/glowing_right_indicating_red_laboratory_block_inventory"
+  }
+}

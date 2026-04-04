@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "laboratoryblocks:block/laboratory_fan"
+    }
+  }
+}

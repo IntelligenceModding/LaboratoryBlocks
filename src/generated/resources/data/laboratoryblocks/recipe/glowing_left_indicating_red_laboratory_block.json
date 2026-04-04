@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:left_indicating_red_laboratory_block",
+    "laboratoryblocks:glowstone_particles"
+  ],
+  "result": {
+    "count": 1,
+    "id": "laboratoryblocks:glowing_left_indicating_red_laboratory_block"
+  }
+}

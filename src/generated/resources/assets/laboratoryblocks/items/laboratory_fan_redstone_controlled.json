@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "laboratoryblocks:block/laboratory_fan_redstone_controlled_inventory"
+  }
+}

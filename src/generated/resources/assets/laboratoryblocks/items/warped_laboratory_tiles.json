@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "laboratoryblocks:block/warped_laboratory_tiles_inventory"
+  }
+}

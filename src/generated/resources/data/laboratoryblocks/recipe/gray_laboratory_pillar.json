@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": {
-      "item": "laboratoryblocks:laboratory_pillar"
-    },
-    "B": {
-      "item": "minecraft:gray_dye"
-    }
+    "A": "laboratoryblocks:laboratory_pillar",
+    "B": "minecraft:gray_dye"
   },
   "pattern": [
     "AAA",

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_orientable_trapdoor_bottom",
-  "render_type": "cutout",
-  "textures": {
-    "texture": "laboratoryblocks:block/mesh_laboratory_trapdoor"
-  }
-}
