@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "laboratoryblocks:block/clear_laboratory_screen"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
-import de.artemis.laboratoryblocks.common.block.ModBlocks;
-import de.artemis.laboratoryblocks.common.item.ModItems;
+import de.artemis.laboratoryblocks.common.registry.ModBlocks;
+import de.artemis.laboratoryblocks.common.registry.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -176,6 +176,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.REDSTONE_PARTICLES.get()), has(ModItems.REDSTONE_PARTICLES.get()))
                 .save(output);
 
+        addScreenRecipes();
         addDoorAndTrapdoorRecipes();
 
         addIndicatingRecipes(
@@ -225,6 +226,41 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(base)
                 .requires(ModItems.GLOWSTONE_PARTICLES.get())
                 .unlockedBy(getHasName(base), has(base))
+                .save(output);
+    }
+
+    private void addScreenRecipes() {
+        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+                .pattern("BAB")
+                .pattern("ACA")
+                .pattern("BAB")
+                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('B', ModItems.IRON_SCREW.get())
+                .define('C', ModBlocks.LABORATORY_GLASS.get())
+                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(ModItems.IRON_SCREW.get()), has(ModItems.IRON_SCREW.get()))
+                .unlockedBy(getHasName(ModBlocks.LABORATORY_GLASS.get()), has(ModBlocks.LABORATORY_GLASS.get()))
+                .save(output);
+
+        shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAVE_LABORATORY_SCREEN.get(), 4)
+                .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+                .requires(Items.CYAN_DYE)
+                .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
+                .unlockedBy(getHasName(Items.CYAN_DYE), has(Items.CYAN_DYE))
+                .save(output);
+
+        shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEXT_LABORATORY_SCREEN.get(), 4)
+                .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+                .requires(Items.LIME_DYE)
+                .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
+                .unlockedBy(getHasName(Items.LIME_DYE), has(Items.LIME_DYE))
+                .save(output);
+
+        shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), 4)
+                .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+                .requires(Items.PURPLE_DYE)
+                .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
+                .unlockedBy(getHasName(Items.PURPLE_DYE), has(Items.PURPLE_DYE))
                 .save(output);
     }
 

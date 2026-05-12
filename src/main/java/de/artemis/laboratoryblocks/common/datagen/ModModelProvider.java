@@ -2,7 +2,7 @@ package de.artemis.laboratoryblocks.common.datagen;
 
 import com.google.gson.JsonObject;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import de.artemis.laboratoryblocks.common.item.ModItems;
+import de.artemis.laboratoryblocks.common.registry.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
@@ -37,7 +37,7 @@ public class ModModelProvider extends ModelProvider {
     }
 
     @Override
-    protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
+    protected void registerModels(@NonNull BlockModelGenerators blockModels, @NonNull ItemModelGenerators itemModels) {
         registerFlatItemModels(itemModels);
         ModDatagenEntries.ALL_PAIRS.forEach(pair -> registerCubePair(blockModels, pair));
         ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> registerPillarPair(blockModels, pair));
@@ -46,7 +46,7 @@ public class ModModelProvider extends ModelProvider {
     }
 
     @Override
-    public CompletableFuture<?> run(CachedOutput output) {
+    public @NonNull CompletableFuture<?> run(@NonNull CachedOutput output) {
         return super.run(output).thenCompose(ignored -> writeCustomModels(output));
     }
 
@@ -299,6 +299,7 @@ public class ModModelProvider extends ModelProvider {
         return LaboratoryBlocks.MOD_ID + ":" + path;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected @NonNull Stream<? extends Holder<Block>> getKnownBlocks() {
         Stream<Holder<Block>> pairBlocks = ModDatagenEntries.ALL_PAIRS.stream()
@@ -312,6 +313,7 @@ public class ModModelProvider extends ModelProvider {
         return Stream.of(pairBlocks, pillarBlocks, doors, trapdoors).flatMap(stream -> stream);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected @NonNull Stream<? extends Holder<Item>> getKnownItems() {
         return Stream.of(

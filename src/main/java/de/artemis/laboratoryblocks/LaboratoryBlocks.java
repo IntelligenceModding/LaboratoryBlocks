@@ -1,9 +1,10 @@
 package de.artemis.laboratoryblocks;
 
-import de.artemis.laboratoryblocks.common.block.ModBlocks;
-import de.artemis.laboratoryblocks.common.item.ModItems;
-import de.artemis.laboratoryblocks.common.particle.ModParticles;
-import de.artemis.laboratoryblocks.common.util.ModSoundEvents;
+import de.artemis.laboratoryblocks.common.registry.ModBlocks;
+import de.artemis.laboratoryblocks.common.registry.ModCreativeModeTabs;
+import de.artemis.laboratoryblocks.common.registry.ModItems;
+import de.artemis.laboratoryblocks.common.registry.ModParticles;
+import de.artemis.laboratoryblocks.common.registry.ModSoundEvents;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 

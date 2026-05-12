@@ -1,6 +1,6 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
-import de.artemis.laboratoryblocks.common.block.ModBlocks;
+import de.artemis.laboratoryblocks.common.registry.ModBlocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import java.util.List;
 import java.util.stream.Stream;
 
+@SuppressWarnings("unused")
 public final class ModDatagenEntries {
     public static final List<GeneratedBlockPair> CORE_PAIRS = List.of(
             pair(ModBlocks.LABORATORY_BLOCK, ModBlocks.GLOWING_LABORATORY_BLOCK, "laboratory_block"),
@@ -17,6 +18,10 @@ public final class ModDatagenEntries {
             pair(ModBlocks.LABORATORY_TILES, ModBlocks.GLOWING_LABORATORY_TILES, "laboratory_tiles"),
             pair(ModBlocks.GRAY_LABORATORY_TILES, ModBlocks.GLOWING_GRAY_LABORATORY_TILES, "gray_laboratory_tiles"),
             pair(ModBlocks.MIXED_LABORATORY_TILES, ModBlocks.GLOWING_MIXED_LABORATORY_TILES, "mixed_laboratory_tiles"),
+            pair(ModBlocks.CLEAR_LABORATORY_SCREEN, ModBlocks.GLOWING_CLEAR_LABORATORY_SCREEN, "clear_laboratory_screen"),
+            pair(ModBlocks.WAVE_LABORATORY_SCREEN, ModBlocks.GLOWING_WAVE_LABORATORY_SCREEN, "wave_laboratory_screen"),
+            pair(ModBlocks.TEXT_LABORATORY_SCREEN, ModBlocks.GLOWING_TEXT_LABORATORY_SCREEN, "text_laboratory_screen"),
+            pair(ModBlocks.QUANTUM_LABORATORY_SCREEN, ModBlocks.GLOWING_QUANTUM_LABORATORY_SCREEN, "quantum_laboratory_screen"),
             pair(ModBlocks.LEFT_INDICATING_BLUE_LABORATORY_BLOCK, ModBlocks.GLOWING_LEFT_INDICATING_BLUE_LABORATORY_BLOCK, "left_indicating_blue_laboratory_block"),
             pair(ModBlocks.RIGHT_INDICATING_BLUE_LABORATORY_BLOCK, ModBlocks.GLOWING_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK, "right_indicating_blue_laboratory_block"),
             pair(ModBlocks.LEFT_INDICATING_RED_LABORATORY_BLOCK, ModBlocks.GLOWING_LEFT_INDICATING_RED_LABORATORY_BLOCK, "left_indicating_red_laboratory_block"),

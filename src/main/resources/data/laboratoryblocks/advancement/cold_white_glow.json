@@ -1,0 +1,100 @@
+{
+  "display": {
+    "icon": {
+      "id": "laboratoryblocks:glowing_laboratory_glass"
+    },
+    "title": "Cold White Glow",
+    "description": "Install any glowing laboratory surface",
+    "frame": "goal",
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "laboratoryblocks:transparent_barrier",
+  "criteria": {
+    "placed_glowing_laboratory_block": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_laboratory_block",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_laboratory_glass": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_laboratory_glass",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_laboratory_tiles": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_laboratory_tiles",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_laboratory_pillar": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_laboratory_pillar",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_clear_laboratory_screen": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_clear_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_laboratory_vent": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_laboratory_vent",
+            "properties": {}
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "placed_glowing_laboratory_block",
+      "placed_glowing_laboratory_glass",
+      "placed_glowing_laboratory_tiles",
+      "placed_glowing_laboratory_pillar",
+      "placed_glowing_clear_laboratory_screen",
+      "placed_glowing_laboratory_vent"
+    ]
+  ],
+  "rewards": {
+    "experience": 125
+  }
+}

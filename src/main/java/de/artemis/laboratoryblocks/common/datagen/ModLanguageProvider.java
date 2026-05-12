@@ -1,7 +1,7 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import de.artemis.laboratoryblocks.common.item.ModItems;
+import de.artemis.laboratoryblocks.common.registry.ModItems;
 import net.minecraft.data.PackOutput;
 
 import java.util.Set;

@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "laboratoryblocks:laboratory_block"
+    },
+    "title": "Laboratory Blocks",
+    "description": "Build sterile structure, lighting, airflow, and displays",
+    "background": "laboratoryblocks:misc/advancements_background.png",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "entered_world": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

@@ -1,9 +1,9 @@
 package de.artemis.laboratoryblocks.common.block;
 
-import de.artemis.laboratoryblocks.common.item.ModItems;
+import de.artemis.laboratoryblocks.common.registry.ModItems;
 import de.artemis.laboratoryblocks.client.ModKeyBindings;
-import de.artemis.laboratoryblocks.common.particle.ModParticles;
-import de.artemis.laboratoryblocks.common.util.ModSoundEvents;
+import de.artemis.laboratoryblocks.common.registry.ModParticles;
+import de.artemis.laboratoryblocks.common.registry.ModSoundEvents;
 import de.artemis.laboratoryblocks.common.util.KeyBindingUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -98,5 +98,3 @@ public class LaboratoryBlock extends Block {
         return InteractionResult.FAIL;
     }
 }
-
-

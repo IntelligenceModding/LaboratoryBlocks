@@ -18,6 +18,7 @@ public class ConfigurationToolItem extends Item {
         super(properties);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void appendHoverText(@NotNull ItemStack itemStack, Item.@NotNull TooltipContext context, @NotNull TooltipDisplay tooltipDisplay, @NotNull Consumer<Component> tooltipAdder, @NotNull TooltipFlag flag) {
         if (KeyBindingUtil.isKeyPressed(ModKeyBindings.SHOW_INFORMATION)) {
@@ -46,4 +47,3 @@ public class ConfigurationToolItem extends Item {
         super.appendHoverText(itemStack, context, tooltipDisplay, tooltipAdder, flag);
     }
 }
-

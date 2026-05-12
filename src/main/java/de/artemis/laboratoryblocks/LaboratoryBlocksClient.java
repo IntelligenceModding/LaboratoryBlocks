@@ -1,10 +1,10 @@
 package de.artemis.laboratoryblocks;
 
 import de.artemis.laboratoryblocks.client.ModKeyBindings;
-import de.artemis.laboratoryblocks.client.particle.custom.ApplyingGlowstoneParticle;
-import de.artemis.laboratoryblocks.client.particle.custom.ApplyingRedstoneParticle;
-import de.artemis.laboratoryblocks.client.particle.custom.RemovingModifierParticle;
-import de.artemis.laboratoryblocks.common.particle.ModParticles;
+import de.artemis.laboratoryblocks.common.particle.ApplyingGlowstoneParticle;
+import de.artemis.laboratoryblocks.common.particle.ApplyingRedstoneParticle;
+import de.artemis.laboratoryblocks.common.particle.RemovingModifierParticle;
+import de.artemis.laboratoryblocks.common.registry.ModParticles;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

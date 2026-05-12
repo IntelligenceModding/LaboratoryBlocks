@@ -1,9 +1,9 @@
 package de.artemis.laboratoryblocks.common.block;
 
-import de.artemis.laboratoryblocks.common.item.ModItems;
+import de.artemis.laboratoryblocks.common.registry.ModItems;
 import de.artemis.laboratoryblocks.client.ModKeyBindings;
-import de.artemis.laboratoryblocks.common.particle.ModParticles;
-import de.artemis.laboratoryblocks.common.util.ModSoundEvents;
+import de.artemis.laboratoryblocks.common.registry.ModParticles;
+import de.artemis.laboratoryblocks.common.registry.ModSoundEvents;
 import de.artemis.laboratoryblocks.common.util.KeyBindingUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -39,7 +39,6 @@ public class RedstoneControlledLaboratoryBlock extends Block {
         this.registerDefaultState(this.defaultBlockState().setValue(POWERED, false).setValue(INVERTED, false));
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void neighborChanged(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Block block, Orientation orientation, boolean isMoving) {
         boolean inverted = blockState.getValue(INVERTED);
@@ -61,7 +60,6 @@ public class RedstoneControlledLaboratoryBlock extends Block {
         }
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void tick(BlockState blockState, @NotNull ServerLevel serverLevel, @NotNull BlockPos blockPos, @NotNull RandomSource randomSource) {
         boolean inverted = blockState.getValue(INVERTED);
@@ -251,5 +249,3 @@ public class RedstoneControlledLaboratoryBlock extends Block {
         builder.add(POWERED).add(INVERTED);
     }
 }
-
-

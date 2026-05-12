@@ -8,6 +8,7 @@ import net.neoforged.neoforge.client.settings.KeyConflictContext;
 import net.neoforged.neoforge.client.settings.KeyModifier;
 import org.lwjgl.glfw.GLFW;
 
+@SuppressWarnings("deprecation")
 public class ModKeyBindings {
     private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "category"));
 

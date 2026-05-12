@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "laboratoryblocks:block/glowing_text_laboratory_screen"
+    }
+  }
+}
