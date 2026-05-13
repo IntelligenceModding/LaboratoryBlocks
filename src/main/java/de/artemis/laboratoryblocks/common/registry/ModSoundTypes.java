@@ -1,4 +1,4 @@
-﻿package de.artemis.laboratoryblocks.common.registry;
+package de.artemis.laboratoryblocks.common.registry;
 
 import net.neoforged.neoforge.common.util.DeferredSoundType;
 

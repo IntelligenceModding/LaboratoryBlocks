@@ -1,4 +1,4 @@
-﻿package de.artemis.laboratoryblocks.common.registry;
+package de.artemis.laboratoryblocks.common.registry;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.resources.Identifier;

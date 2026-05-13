@@ -1,4 +1,4 @@
-﻿package de.artemis.laboratoryblocks.common.registry;
+package de.artemis.laboratoryblocks.common.registry;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
