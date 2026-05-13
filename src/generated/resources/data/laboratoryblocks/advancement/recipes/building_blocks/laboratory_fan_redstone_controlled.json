@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_redstone_particles": {
+    "has_redstone": {
       "conditions": {
         "items": [
           {
-            "items": "laboratoryblocks:redstone_particles"
+            "items": "minecraft:redstone"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_laboratory_fan",
-      "has_redstone_particles"
+      "has_redstone"
     ]
   ],
   "rewards": {

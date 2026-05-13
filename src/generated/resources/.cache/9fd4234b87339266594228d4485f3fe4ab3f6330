@@ -1,4 +1,4 @@
-// 1.21.11	2026-05-13T00:18:40.8241328	Model Definitions - laboratoryblocks
+// 1.21.11	2026-05-13T23:53:44.7610927	Model Definitions - laboratoryblocks
 4608b891d42661e2eabce738c6c554475bb19d3f assets/laboratoryblocks/blockstates/acacia_laboratory_floor.json
 0ff572a25b3d4fa368b87ba016f04b79593205be assets/laboratoryblocks/blockstates/acacia_laboratory_tiles.json
 b123ac106b1a7120053c1980872682b149681b4d assets/laboratoryblocks/blockstates/bamboo_laboratory_floor.json
@@ -184,7 +184,6 @@ e1f0005854f7a8090cf640d303601b0d39703304 assets/laboratoryblocks/items/mixed_lab
 b1d3f36cf517f14c57161a5a2ba98a75f47553aa assets/laboratoryblocks/items/pale_oak_laboratory_floor.json
 e2830d6be93ccc245fa95d7bb1a43b3027589667 assets/laboratoryblocks/items/pale_oak_laboratory_tiles.json
 51576f526540a2e9492b126d3c2500f0d972f614 assets/laboratoryblocks/items/quantum_laboratory_screen.json
-474cd444d556c427381925f69e52d2f19d477f69 assets/laboratoryblocks/items/redstone_particles.json
 80c98a3d78129946ca35c7b5815f3c40fd96e33b assets/laboratoryblocks/items/reinforced_laboratory_block.json
 830a01fd48b3574ba0d97d437693cc44bc11a240 assets/laboratoryblocks/items/right_indicating_blue_laboratory_block.json
 3006e68d5a8ebd93f61cdcbcec0de3c6931b2e85 assets/laboratoryblocks/items/right_indicating_green_laboratory_block.json
@@ -331,4 +330,3 @@ ed4a0d93d6627897984ea6df4ecdc5e5ed09960a assets/laboratoryblocks/models/item/glo
 fd44d56738d6efb1465ed23012300605185bbbf0 assets/laboratoryblocks/models/item/iron_screw.json
 bbcf1848b6aff32ebae58ae17736e3d87b3d8d0e assets/laboratoryblocks/models/item/laboratory_door.json
 f712d9c7ee02e103f33b3eb5df5aef8a4a85c147 assets/laboratoryblocks/models/item/mesh_laboratory_door.json
-3cceeb278e45c13363c2aebe7d3844e39feecdc6 assets/laboratoryblocks/models/item/redstone_particles.json

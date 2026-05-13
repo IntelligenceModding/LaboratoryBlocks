@@ -20,12 +20,10 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder()
                     .icon(() -> ModBlocks.QUANTUM_LABORATORY_SCREEN.get().asItem().getDefaultInstance())
                     .title(Component.translatable("itemGroup.laboratoryblocks"))
-                    .withSearchBar()
                     .displayItems((itemDisplayParameters, output) -> Arrays.stream(new Item[]{
                             ModItems.CONFIGURATION_TOOL.get(),
                             ModItems.IRON_SCREW.get(),
                             ModItems.GLOWSTONE_PARTICLES.get(),
-                            ModItems.REDSTONE_PARTICLES.get(),
                             ModBlocks.LABORATORY_BLOCK.get().asItem(),
                             ModBlocks.GLOWING_LABORATORY_BLOCK.get().asItem(),
                             ModBlocks.REINFORCED_LABORATORY_BLOCK.get().asItem(),

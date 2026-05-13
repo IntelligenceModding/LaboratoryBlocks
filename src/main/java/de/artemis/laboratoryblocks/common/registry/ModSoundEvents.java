@@ -17,7 +17,7 @@ public class ModSoundEvents {
     }
 
     private static DeferredHolder<SoundEvent, SoundEvent> register(String resourceLocation) {
-        return SOUND_EVENTS.register(resourceLocation, () -> SoundEvent.createVariableRangeEvent(Identifier.tryBuild(LaboratoryBlocks.MOD_ID, resourceLocation)));
+        return SOUND_EVENTS.register(resourceLocation, () -> SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, resourceLocation)));
     }
 
     public static final DeferredHolder<SoundEvent, SoundEvent> LABORATORY_BLOCK_BREAK = register("laboratory_block_break");
@@ -26,5 +26,4 @@ public class ModSoundEvents {
     public static final DeferredHolder<SoundEvent, SoundEvent> LABORATORY_BLOCK_PLACE = register("laboratory_block_place");
     public static final DeferredHolder<SoundEvent, SoundEvent> LABORATORY_BLOCK_STEP = register("laboratory_block_step");
     public static final DeferredHolder<SoundEvent, SoundEvent> CONFIGURATION_TOOL_USE = register("configuration_tool_use");
-
 }

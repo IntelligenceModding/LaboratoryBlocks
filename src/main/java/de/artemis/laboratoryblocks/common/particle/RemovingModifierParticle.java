@@ -10,30 +10,40 @@ import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
 
 public class RemovingModifierParticle extends SingleQuadParticle {
+    private final float baseQuadSize;
+
     protected RemovingModifierParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, RandomSource random, double xd, double yd, double zd) {
         super(level, xCoord, yCoord, zCoord, xd, yd, zd, spriteSet.get(random));
 
-        this.friction = 0.8F;
+        this.friction = 0.92F;
+        this.hasPhysics = false;
         this.xd = xd;
         this.yd = yd;
         this.zd = zd;
-        this.quadSize *= 1F;
-        this.lifetime = 16;
+        this.quadSize *= 1.52F + random.nextFloat() * 0.44F;
+        this.baseQuadSize = this.quadSize;
+        this.lifetime = 8 + random.nextInt(4);
         this.setSpriteFromAge(spriteSet);
+        this.alpha = 0.72F;
 
-        this.rCol = 1f;
-        this.gCol = 1f;
-        this.bCol = 1f;
+        this.rCol = 0.92F;
+        this.gCol = 0.92F;
+        this.bCol = 0.96F;
     }
 
     @Override
     public void tick() {
         super.tick();
-        fadeOut();
+        if (!this.removed) {
+            fadeOut();
+        }
     }
 
-    private  void fadeOut() {
-        this.alpha = (-(1/(float)lifetime) * age + 1);
+    private void fadeOut() {
+        float progress = this.age / (float) this.lifetime;
+        float remaining = 1.0F - progress;
+        this.alpha = 0.72F * remaining * remaining;
+        this.quadSize = this.baseQuadSize * (0.95F + remaining * 0.08F);
     }
 
     @NotNull

@@ -28,9 +28,6 @@ public class ModItems {
     public static final DeferredItem<Item> GLOWSTONE_PARTICLES = register("glowstone_particles",
             Item::new, UnaryOperator.identity());
 
-    public static final DeferredItem<Item> REDSTONE_PARTICLES = register("redstone_particles",
-            Item::new, UnaryOperator.identity());
-
     public static final DeferredItem<ConfigurationToolItem> CONFIGURATION_TOOL = register("configuration_tool",
             ConfigurationToolItem::new, properties -> properties.durability(640).rarity(Rarity.UNCOMMON));
 }

@@ -25,7 +25,9 @@ public class ModFusionModelProvider implements DataProvider {
     @Override
     public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
         List<CompletableFuture<?>> futures = new ArrayList<>();
-        ModDatagenEntries.ALL_PAIRS.forEach(pair -> {
+        ModDatagenEntries.ALL_PAIRS.stream()
+                .filter(pair -> !isAnimatedScreen(pair))
+                .forEach(pair -> {
             futures.add(saveConnectingModel(output, pair.baseModelName(), pair.glowingModelName(), pair.fusionTexturePath(), isGlass(pair)));
             futures.add(saveConnectingModel(output, pair.glowingModelName(), pair.baseModelName(), pair.fusionTexturePath(), isGlass(pair)));
         });
@@ -71,6 +73,14 @@ public class ModFusionModelProvider implements DataProvider {
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
         return "laboratory_glass".equals(pair.texturePath());
+    }
+
+    private static boolean isAnimatedScreen(ModDatagenEntries.GeneratedBlockPair pair) {
+        return java.util.stream.Stream.of(
+                "wave_laboratory_screen",
+                "text_laboratory_screen",
+                "quantum_laboratory_screen"
+        ).anyMatch(pair.texturePath()::equals);
     }
 
     private static Identifier id(String path) {

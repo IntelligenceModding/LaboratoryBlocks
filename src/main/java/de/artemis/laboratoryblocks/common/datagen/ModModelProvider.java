@@ -53,7 +53,6 @@ public class ModModelProvider extends ModelProvider {
     private void registerFlatItemModels(ItemModelGenerators itemModels) {
         itemModels.generateFlatItem(ModItems.IRON_SCREW.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.GLOWSTONE_PARTICLES.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(ModItems.REDSTONE_PARTICLES.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.CONFIGURATION_TOOL.get(), ModelTemplates.FLAT_ITEM);
     }
 
@@ -319,7 +318,6 @@ public class ModModelProvider extends ModelProvider {
         return Stream.of(
                 ModItems.IRON_SCREW.get().builtInRegistryHolder(),
                 ModItems.GLOWSTONE_PARTICLES.get().builtInRegistryHolder(),
-                ModItems.REDSTONE_PARTICLES.get().builtInRegistryHolder(),
                 ModItems.CONFIGURATION_TOOL.get().builtInRegistryHolder()
         );
     }

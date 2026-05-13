@@ -3,7 +3,7 @@
   "category": "building",
   "ingredients": [
     "laboratoryblocks:laboratory_fan",
-    "laboratoryblocks:redstone_particles"
+    "minecraft:redstone"
   ],
   "result": {
     "count": 1,

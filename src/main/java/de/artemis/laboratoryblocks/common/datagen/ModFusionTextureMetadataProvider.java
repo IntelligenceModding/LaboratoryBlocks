@@ -32,7 +32,7 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
     }
 
     private CompletableFuture<?> saveTextureMetadata(CachedOutput output, ModDatagenEntries.GeneratedBlockPair pair) {
-        if (isScreen(pair)) {
+        if (isAnimatedScreen(pair)) {
             return CompletableFuture.completedFuture(null);
         }
 
@@ -46,9 +46,8 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
         return DataProvider.saveStable(output, json, textures.file(texture(pair.fusionTexturePath()), "png.mcmeta"));
     }
 
-    private static boolean isScreen(ModDatagenEntries.GeneratedBlockPair pair) {
+    private static boolean isAnimatedScreen(ModDatagenEntries.GeneratedBlockPair pair) {
         return java.util.stream.Stream.of(
-                "clear_laboratory_screen",
                 "wave_laboratory_screen",
                 "text_laboratory_screen",
                 "quantum_laboratory_screen"

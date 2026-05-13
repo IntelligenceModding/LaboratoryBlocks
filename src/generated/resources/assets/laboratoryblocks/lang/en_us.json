@@ -98,12 +98,6 @@
   "item.laboratoryblocks.configuration_tool": "Configuration Tool",
   "item.laboratoryblocks.glowstone_particles": "Glowstone Particles",
   "item.laboratoryblocks.iron_screw": "Iron Screw",
-  "item.laboratoryblocks.redstone_particles": "Redstone Particles",
   "itemGroup.laboratoryblocks": "Artemis' Laboratory Blocks",
-  "keybind.laboratoryblocks.category": "Artemis' Laboratory Blocks",
-  "keybind.laboratoryblocks.remove_glowstone_configuration_tool_action": "Remove Glowstone with Configuration Tool",
-  "keybind.laboratoryblocks.remove_redstone_configuration_tool_action": "Remove Redstone with Configuration Tool",
-  "keybind.laboratoryblocks.show_information": "Show information",
-  "tooltip.laboratoryblocks.configuration_tool": "Press %s to remove Glowstone Particles and %s Right Click to remove Redstone Particles.",
-  "tooltip.laboratoryblocks.configuration_tool_preview": "Hold %s for details."
+  "tooltip.laboratoryblocks.configuration_tool.remove_glowstone": "Right-click glowing blocks to remove Glowstone Particles."
 }

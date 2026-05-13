@@ -119,19 +119,19 @@ public class ModBlocks {
             properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
 
     public static final DeferredBlock<RedstoneControlledLaboratoryBlock> LABORATORY_FAN = register("laboratory_fan",
-            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.GLOWING_LABORATORY_FAN, ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED, properties),
+            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.GLOWING_LABORATORY_FAN, properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
 
     public static final DeferredBlock<RedstoneControlledLaboratoryBlock> GLOWING_LABORATORY_FAN = register("glowing_laboratory_fan",
-            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.LABORATORY_FAN, ModBlocks.GLOWING_LABORATORY_FAN_REDSTONE_CONTROLLED, properties),
+            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.LABORATORY_FAN, properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
 
     public static final DeferredBlock<RedstoneControlledLaboratoryBlock> LABORATORY_FAN_REDSTONE_CONTROLLED = register("laboratory_fan_redstone_controlled",
-            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.GLOWING_LABORATORY_FAN_REDSTONE_CONTROLLED, ModBlocks.LABORATORY_FAN, properties),
+            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.GLOWING_LABORATORY_FAN_REDSTONE_CONTROLLED, properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
 
     public static final DeferredBlock<RedstoneControlledLaboratoryBlock> GLOWING_LABORATORY_FAN_REDSTONE_CONTROLLED = register("glowing_laboratory_fan_redstone_controlled",
-            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED, ModBlocks.GLOWING_LABORATORY_FAN, properties),
+            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED, properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> LEFT_INDICATING_BLUE_LABORATORY_BLOCK = register("left_indicating_blue_laboratory_block",
@@ -433,5 +433,4 @@ public class ModBlocks {
             properties -> properties.strength(0.3F).sound(SoundType.GLASS).noOcclusion()
                     .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
                     .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(state -> 14));
-
 }

@@ -10,16 +10,21 @@ import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
 
 public class ApplyingGlowstoneParticle extends SingleQuadParticle {
+    private final float baseQuadSize;
+
     protected ApplyingGlowstoneParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, RandomSource random, double xd, double yd, double zd) {
         super(level, xCoord, yCoord, zCoord, xd, yd, zd, spriteSet.get(random));
 
-        this.friction = 0F;
+        this.friction = 0.90F;
+        this.hasPhysics = false;
         this.xd = xd;
         this.yd = yd;
         this.zd = zd;
-        this.quadSize *= 1;
-        this.lifetime = 16;
+        this.quadSize *= 1.80F + random.nextFloat() * 0.56F;
+        this.baseQuadSize = this.quadSize;
+        this.lifetime = 10 + random.nextInt(5);
         this.setSpriteFromAge(spriteSet);
+        this.alpha = 0.90F;
 
         this.rCol = 1f;
         this.gCol = 1f;
@@ -29,11 +34,16 @@ public class ApplyingGlowstoneParticle extends SingleQuadParticle {
     @Override
     public void tick() {
         super.tick();
-        fadeOut();
+        if (!this.removed) {
+            fadeOut();
+        }
     }
 
     private void fadeOut() {
-        this.alpha = (-(1 / (float) lifetime) * age + 1);
+        float progress = this.age / (float) this.lifetime;
+        float remaining = 1.0F - progress;
+        this.alpha = 0.90F * remaining * remaining;
+        this.quadSize = this.baseQuadSize * (0.88F + remaining * 0.22F);
     }
 
     @NotNull

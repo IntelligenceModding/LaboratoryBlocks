@@ -70,16 +70,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.GLOWSTONE_PARTICLES.get()), has(ModItems.GLOWSTONE_PARTICLES.get()))
                 .save(output, modLoc("glowstone_dust_from_glowstone_particles"));
 
-        shapeless(RecipeCategory.MISC, ModItems.REDSTONE_PARTICLES.get(), 8)
-                .requires(Items.REDSTONE)
-                .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
-                .save(output);
-
-        shapeless(RecipeCategory.MISC, Items.REDSTONE)
-                .requires(ModItems.REDSTONE_PARTICLES.get(), 8)
-                .unlockedBy(getHasName(ModItems.REDSTONE_PARTICLES.get()), has(ModItems.REDSTONE_PARTICLES.get()))
-                .save(output, modLoc("redstone_from_redstone_particles"));
-
         shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_BLOCK.get(), 8)
                 .pattern("AAA")
                 .pattern("ABA")
@@ -171,9 +161,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
         shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get())
                 .requires(ModBlocks.LABORATORY_FAN.get())
-                .requires(ModItems.REDSTONE_PARTICLES.get())
+                .requires(Items.REDSTONE)
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_FAN.get()), has(ModBlocks.LABORATORY_FAN.get()))
-                .unlockedBy(getHasName(ModItems.REDSTONE_PARTICLES.get()), has(ModItems.REDSTONE_PARTICLES.get()))
+                .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
                 .save(output);
 
         addScreenRecipes();
