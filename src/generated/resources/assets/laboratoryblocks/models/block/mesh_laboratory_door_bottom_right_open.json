@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_right_open",
-  "textures": {
-    "bottom": "laboratoryblocks:block/mesh_laboratory_door_bottom",
-    "top": "laboratoryblocks:block/mesh_laboratory_door_top"
-  }
-}

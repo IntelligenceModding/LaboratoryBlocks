@@ -1,7 +1,0 @@
-{
-  "parent": "laboratoryblocks:block/glowing_block_inventory_overlay",
-  "textures": {
-    "base": "laboratoryblocks:block/dark_oak_laboratory_tiles",
-    "overlay": "laboratoryblocks:block/glowing_block_inventory_overlay"
-  }
-}

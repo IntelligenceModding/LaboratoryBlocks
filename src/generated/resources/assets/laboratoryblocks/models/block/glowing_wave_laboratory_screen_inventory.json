@@ -1,7 +1,0 @@
-{
-  "parent": "laboratoryblocks:block/glowing_block_inventory_overlay",
-  "textures": {
-    "base": "laboratoryblocks:block/wave_laboratory_screen",
-    "overlay": "laboratoryblocks:block/glowing_block_inventory_overlay"
-  }
-}
