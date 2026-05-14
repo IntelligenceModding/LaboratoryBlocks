@@ -11,7 +11,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
     public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, LaboratoryBlocks.MOD_ID);
+        super(output, lookupProvider, LaboratoryBlocks.MOD_ID, null);
     }
 
     @Override

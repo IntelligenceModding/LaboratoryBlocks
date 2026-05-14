@@ -6,6 +6,7 @@ import de.artemis.laboratoryblocks.common.block.LaboratoryGlassBlock;
 import de.artemis.laboratoryblocks.common.block.RedstoneControlledLaboratoryBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.DoorBlock;
@@ -29,8 +30,8 @@ public class ModBlocks {
             Function<BlockBehaviour.Properties, T> blockFactory,
             UnaryOperator<BlockBehaviour.Properties> properties
     ) {
-        DeferredBlock<T> block = BLOCKS.registerBlock(name, blockFactory, properties);
-        ModItems.ITEMS.registerSimpleBlockItem(block, UnaryOperator.identity());
+        DeferredBlock<T> block = BLOCKS.registerBlock(name, blockFactory, properties.apply(BlockBehaviour.Properties.of()));
+        ModItems.ITEMS.registerSimpleBlockItem(block, new Item.Properties());
         return block;
     }
 
@@ -292,22 +293,6 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_OAK_LABORATORY_TILES = register("glowing_dark_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.DARK_OAK_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
-
-    public static final DeferredBlock<LaboratoryBlock> PALE_OAK_LABORATORY_FLOOR = register("pale_oak_laboratory_floor",
-            properties -> new LaboratoryBlock(ModBlocks.GLOWING_PALE_OAK_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
-
-    public static final DeferredBlock<LaboratoryBlock> GLOWING_PALE_OAK_LABORATORY_FLOOR = register("glowing_pale_oak_laboratory_floor",
-            properties -> new LaboratoryBlock(ModBlocks.PALE_OAK_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
-
-    public static final DeferredBlock<LaboratoryBlock> PALE_OAK_LABORATORY_TILES = register("pale_oak_laboratory_tiles",
-            properties -> new LaboratoryBlock(ModBlocks.GLOWING_PALE_OAK_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
-
-    public static final DeferredBlock<LaboratoryBlock> GLOWING_PALE_OAK_LABORATORY_TILES = register("glowing_pale_oak_laboratory_tiles",
-            properties -> new LaboratoryBlock(ModBlocks.PALE_OAK_LABORATORY_TILES, properties),
             properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> JUNGLE_LABORATORY_FLOOR = register("jungle_laboratory_floor",

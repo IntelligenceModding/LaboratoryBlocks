@@ -15,7 +15,7 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(LaboratoryBlocks.MOD_ID);
 
     private static <T extends Item> DeferredItem<T> register(String name, Function<Item.Properties, T> itemFactory, UnaryOperator<Item.Properties> properties) {
-        return ITEMS.registerItem(name, itemFactory, properties);
+        return ITEMS.registerItem(name, itemFactory, properties.apply(new Item.Properties()));
     }
 
     public static void register(IEventBus eventBus) {

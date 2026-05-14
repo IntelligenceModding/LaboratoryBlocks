@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": "laboratoryblocks:warped_laboratory_floor"
+    "A": {
+      "item": "laboratoryblocks:warped_laboratory_floor"
+    }
   },
   "pattern": [
     "AA",

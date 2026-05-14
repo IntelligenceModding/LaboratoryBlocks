@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    "laboratoryblocks:laboratory_fan",
-    "minecraft:redstone"
+    {
+      "item": "laboratoryblocks:laboratory_fan"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
   ],
   "result": {
     "count": 1,

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": "laboratoryblocks:spruce_laboratory_floor"
+    "A": {
+      "item": "laboratoryblocks:spruce_laboratory_floor"
+    }
   },
   "pattern": [
     "AA",

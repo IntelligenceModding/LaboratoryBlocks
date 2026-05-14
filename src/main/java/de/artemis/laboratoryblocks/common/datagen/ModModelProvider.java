@@ -2,130 +2,67 @@ package de.artemis.laboratoryblocks.common.datagen;
 
 import com.google.gson.JsonObject;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import de.artemis.laboratoryblocks.common.registry.ModItems;
-import net.minecraft.client.data.models.BlockModelGenerators;
-import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.ModelProvider;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
-import net.minecraft.core.Holder;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import org.jspecify.annotations.NonNull;
+import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Stream;
 
-public class ModModelProvider extends ModelProvider {
+public class ModModelProvider implements DataProvider {
     private static final String CUTOUT = "minecraft:cutout";
 
     private final PackOutput.PathProvider blockstatesPathProvider;
     private final PackOutput.PathProvider blockModelPathProvider;
-    private final PackOutput.PathProvider itemPathProvider;
+    private final PackOutput.PathProvider itemModelPathProvider;
 
     public ModModelProvider(PackOutput output) {
-        super(output, LaboratoryBlocks.MOD_ID);
         this.blockstatesPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "blockstates");
         this.blockModelPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/block");
-        this.itemPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "items");
+        this.itemModelPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/item");
     }
 
     @Override
-    protected void registerModels(@NonNull BlockModelGenerators blockModels, @NonNull ItemModelGenerators itemModels) {
-        registerFlatItemModels(itemModels);
-        ModDatagenEntries.ALL_PAIRS.forEach(pair -> registerCubePair(blockModels, pair));
-        ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> registerPillarPair(blockModels, pair));
-        ModDatagenEntries.DOORS.forEach(door -> blockModels.createDoor(door.get()));
-        ModDatagenEntries.TRAPDOORS.forEach(trapdoor -> blockModels.createTrapdoor(trapdoor.get()));
-    }
-
-    @Override
-    public @NonNull CompletableFuture<?> run(@NonNull CachedOutput output) {
-        return super.run(output).thenCompose(ignored -> writeCustomModels(output));
-    }
-
-    private void registerFlatItemModels(ItemModelGenerators itemModels) {
-        itemModels.generateFlatItem(ModItems.IRON_SCREW.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(ModItems.GLOWSTONE_PARTICLES.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(ModItems.CONFIGURATION_TOOL.get(), ModelTemplates.FLAT_ITEM);
-    }
-
-    private void registerCubePair(BlockModelGenerators blockModels, ModDatagenEntries.GeneratedBlockPair pair) {
-        Identifier basePlacedModel = modModel(pair.baseModelName());
-        Identifier glowingPlacedModel = modModel(pair.glowingModelName());
-        Identifier baseInventoryModel = ModelTemplates.CUBE_ALL.create(
-                modModel(pair.baseModelName() + "_inventory"),
-                TextureMapping.cube(texture(pair.texturePath())),
-                blockModels.modelOutput
-        );
-        Identifier glowingInventoryModel = modModel(pair.glowingModelName() + "_inventory");
-
-        registerBlockState(blockModels, pair.base().get(), basePlacedModel);
-        registerBlockState(blockModels, pair.glowing().get(), glowingPlacedModel);
-        registerItemModel(blockModels, pair.base().get(), baseInventoryModel);
-        registerItemModel(blockModels, pair.glowing().get(), glowingInventoryModel);
-    }
-
-    private void registerPillarPair(BlockModelGenerators blockModels, ModDatagenEntries.GeneratedPillarPair pair) {
-        Identifier basePlacedModel = ModelTemplates.CUBE_COLUMN.create(
-                modModel(pair.baseModelName()),
-                TextureMapping.column(texture(pair.sideTexturePath()), texture(pair.endTexturePath())),
-                blockModels.modelOutput
-        );
-        Identifier glowingPlacedModel = ModelTemplates.CUBE_COLUMN.create(
-                modModel(pair.glowingModelName()),
-                TextureMapping.column(texture(pair.sideTexturePath()), texture(pair.endTexturePath())),
-                blockModels.modelOutput
-        );
-        Identifier baseInventoryModel = ModelTemplates.CUBE_COLUMN.create(
-                modModel(pair.baseModelName() + "_inventory"),
-                TextureMapping.column(texture(pair.sideTexturePath()), texture(pair.endTexturePath())),
-                blockModels.modelOutput
-        );
-        Identifier glowingInventoryModel = modModel(pair.glowingModelName() + "_inventory");
-
-        registerBlockState(blockModels, pair.base().get(), basePlacedModel);
-        registerBlockState(blockModels, pair.glowing().get(), glowingPlacedModel);
-        registerItemModel(blockModels, pair.base().get(), baseInventoryModel);
-        registerItemModel(blockModels, pair.glowing().get(), glowingInventoryModel);
-    }
-
-    private void registerBlockState(BlockModelGenerators blockModels, Block block, Identifier model) {
-        blockModels.blockStateOutput.accept(
-                BlockModelGenerators.createSimpleBlock(block, BlockModelGenerators.plainVariant(model))
-        );
-    }
-
-    private void registerItemModel(BlockModelGenerators blockModels, Block block, Identifier model) {
-        blockModels.registerSimpleItemModel(block, model);
-    }
-
-    private static Identifier texture(String path) {
-        return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/" + path);
-    }
-
-    private static Identifier modModel(String path) {
-        return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/" + path);
-    }
-
-    private CompletableFuture<?> writeCustomModels(CachedOutput output) {
+    public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
         List<CompletableFuture<?>> futures = new ArrayList<>();
 
-        ModDatagenEntries.ALL_PAIRS.stream()
-                .filter(pair -> !isGlass(pair))
-                .forEach(pair -> futures.add(saveGlowingInventoryModel(output, pair.glowingModelName() + "_inventory", pair.texturePath())));
-        ModDatagenEntries.PILLAR_PAIRS.forEach(pair ->
-                futures.add(saveGlowingPillarInventoryModel(output, pair.glowingModelName() + "_inventory", pair.sideTexturePath(), pair.endTexturePath()))
-        );
+        futures.addAll(saveFlatItem(output, "iron_screw"));
+        futures.addAll(saveFlatItem(output, "glowstone_particles"));
+        futures.addAll(saveHandheldItem(output, "configuration_tool"));
+
+        ModDatagenEntries.ALL_PAIRS.forEach(pair -> {
+            futures.add(saveSimpleBlockstate(output, pair.baseModelName(), pair.baseModelName()));
+            futures.add(saveSimpleBlockstate(output, pair.glowingModelName(), pair.glowingModelName()));
+            futures.add(saveBlockItemDefinition(output, pair.baseModelName(), pair.baseModelName() + "_inventory"));
+            futures.add(saveBlockItemDefinition(output, pair.glowingModelName(), pair.glowingModelName() + "_inventory"));
+
+            if (isGlass(pair)) {
+                futures.add(saveCutoutCubeInventoryModel(output, pair.baseModelName() + "_inventory", pair.texturePath()));
+                futures.add(saveCutoutGlowingInventoryModel(output, pair.glowingModelName() + "_inventory", pair.texturePath()));
+            } else {
+                futures.add(saveCubeInventoryModel(output, pair.baseModelName() + "_inventory", pair.texturePath()));
+                futures.add(saveGlowingInventoryModel(output, pair.glowingModelName() + "_inventory", pair.texturePath()));
+            }
+        });
+
+        ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> {
+            futures.add(saveSimpleBlockstate(output, pair.baseModelName(), pair.baseModelName()));
+            futures.add(saveSimpleBlockstate(output, pair.glowingModelName(), pair.glowingModelName()));
+            futures.add(saveCubeColumnModel(output, pair.baseModelName(), pair.sideTexturePath(), pair.endTexturePath()));
+            futures.add(saveCubeColumnModel(output, pair.glowingModelName(), pair.sideTexturePath(), pair.endTexturePath()));
+            futures.add(saveCubeColumnModel(output, pair.baseModelName() + "_inventory", pair.sideTexturePath(), pair.endTexturePath()));
+            futures.add(saveGlowingPillarInventoryModel(output, pair.glowingModelName() + "_inventory", pair.sideTexturePath(), pair.endTexturePath()));
+            futures.add(saveBlockItemDefinition(output, pair.baseModelName(), pair.baseModelName() + "_inventory"));
+            futures.add(saveBlockItemDefinition(output, pair.glowingModelName(), pair.glowingModelName() + "_inventory"));
+        });
 
         ModDatagenEntries.DOORS.forEach(door -> {
             String name = door.getId().getPath();
+            futures.addAll(saveFlatItem(output, name));
+            futures.add(saveDoorBlockstate(output, name));
             futures.add(saveDoorModel(output, name + "_bottom_left", "minecraft:block/door_bottom_left", name));
             futures.add(saveDoorModel(output, name + "_bottom_left_open", "minecraft:block/door_bottom_left_open", name));
             futures.add(saveDoorModel(output, name + "_bottom_right", "minecraft:block/door_bottom_right", name));
@@ -138,6 +75,8 @@ public class ModModelProvider extends ModelProvider {
 
         ModDatagenEntries.TRAPDOORS.forEach(trapdoor -> {
             String name = trapdoor.getId().getPath();
+            futures.add(saveBlockItemDefinition(output, name, name + "_bottom"));
+            futures.add(saveTrapdoorBlockstate(output, name));
             futures.add(saveTrapdoorModel(output, name + "_bottom", "minecraft:block/template_orientable_trapdoor_bottom", name));
             futures.add(saveTrapdoorModel(output, name + "_open", "minecraft:block/template_orientable_trapdoor_open", name));
             futures.add(saveTrapdoorModel(output, name + "_top", "minecraft:block/template_orientable_trapdoor_top", name));
@@ -154,15 +93,136 @@ public class ModModelProvider extends ModelProvider {
         futures.add(saveSimpleBlockstate(output, "glowing_laboratory_fan", "laboratory_fan"));
         futures.add(savePoweredBlockstate(output, "laboratory_fan_redstone_controlled"));
         futures.add(savePoweredBlockstate(output, "glowing_laboratory_fan_redstone_controlled"));
-        futures.add(saveItemModel(output, "laboratory_fan", "laboratory_fan_inventory"));
-        futures.add(saveItemModel(output, "glowing_laboratory_fan", "glowing_laboratory_fan_inventory"));
-        futures.add(saveItemModel(output, "laboratory_fan_redstone_controlled", "laboratory_fan_redstone_controlled_inventory"));
-        futures.add(saveItemModel(output, "glowing_laboratory_fan_redstone_controlled", "glowing_laboratory_fan_redstone_controlled_inventory"));
-
-        futures.add(saveCutoutCubeInventoryModel(output, "laboratory_glass_inventory", "laboratory_glass"));
-        futures.add(saveCutoutGlowingInventoryModel(output, "glowing_laboratory_glass_inventory", "laboratory_glass"));
+        futures.add(saveBlockItemDefinition(output, "laboratory_fan", "laboratory_fan_inventory"));
+        futures.add(saveBlockItemDefinition(output, "glowing_laboratory_fan", "glowing_laboratory_fan_inventory"));
+        futures.add(saveBlockItemDefinition(output, "laboratory_fan_redstone_controlled", "laboratory_fan_redstone_controlled_inventory"));
+        futures.add(saveBlockItemDefinition(output, "glowing_laboratory_fan_redstone_controlled", "glowing_laboratory_fan_redstone_controlled_inventory"));
 
         return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
+    }
+
+    @Override
+    public @NotNull String getName() {
+        return "Model Definitions: " + LaboratoryBlocks.MOD_ID;
+    }
+
+    private List<CompletableFuture<?>> saveFlatItem(CachedOutput output, String itemName) {
+        return List.of(saveFlatItemModel(output, itemName, "minecraft:item/generated"));
+    }
+
+    @SuppressWarnings("all")
+    private List<CompletableFuture<?>> saveHandheldItem(CachedOutput output, String itemName) {
+        return List.of(saveFlatItemModel(output, itemName, "minecraft:item/handheld"));
+    }
+
+    private CompletableFuture<?> saveFlatItemModel(CachedOutput output, String itemName, String parent) {
+        JsonObject json = new JsonObject();
+        json.addProperty("parent", parent);
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("layer0", modPath("item/" + itemName));
+        json.add("textures", textures);
+
+        return DataProvider.saveStable(output, json, itemModelPathProvider.json(id(itemName)));
+    }
+
+    private CompletableFuture<?> saveSimpleBlockstate(CachedOutput output, String blockName, String modelName) {
+        JsonObject json = new JsonObject();
+        JsonObject variants = new JsonObject();
+        JsonObject variant = new JsonObject();
+        variant.addProperty("model", modPath("block/" + modelName));
+        variants.add("", variant);
+        json.add("variants", variants);
+        return DataProvider.saveStable(output, json, blockstatesPathProvider.json(id(blockName)));
+    }
+
+    private CompletableFuture<?> savePoweredBlockstate(CachedOutput output, String blockName) {
+        JsonObject json = new JsonObject();
+        JsonObject variants = new JsonObject();
+
+        JsonObject unpowered = new JsonObject();
+        unpowered.addProperty("model", modPath("block/laboratory_fan_unpowered"));
+        variants.add("powered=false", unpowered);
+
+        JsonObject powered = new JsonObject();
+        powered.addProperty("model", modPath("block/laboratory_fan_powered"));
+        variants.add("powered=true", powered);
+
+        json.add("variants", variants);
+        return DataProvider.saveStable(output, json, blockstatesPathProvider.json(id(blockName)));
+    }
+
+    private CompletableFuture<?> saveDoorBlockstate(CachedOutput output, String blockName) {
+        JsonObject json = new JsonObject();
+        JsonObject variants = new JsonObject();
+
+        for (String facing : List.of("east", "north", "south", "west")) {
+            for (String half : List.of("lower", "upper")) {
+                for (String hinge : List.of("left", "right")) {
+                    for (boolean open : List.of(false, true)) {
+                        JsonObject variant = new JsonObject();
+                        variant.addProperty("model", modPath("block/" + blockName + "_" + doorModelSuffix(half, hinge, open)));
+                        int rotation = doorYRotation(facing, hinge, open);
+                        if (rotation >= 0) {
+                            variant.addProperty("y", rotation);
+                        }
+                        variants.add("facing=" + facing + ",half=" + half + ",hinge=" + hinge + ",open=" + open, variant);
+                    }
+                }
+            }
+        }
+
+        json.add("variants", variants);
+        return DataProvider.saveStable(output, json, blockstatesPathProvider.json(id(blockName)));
+    }
+
+    private CompletableFuture<?> saveTrapdoorBlockstate(CachedOutput output, String blockName) {
+        JsonObject json = new JsonObject();
+        JsonObject variants = new JsonObject();
+
+        for (String facing : List.of("east", "north", "south", "west")) {
+            for (String half : List.of("bottom", "top")) {
+                for (boolean open : List.of(false, true)) {
+                    JsonObject variant = new JsonObject();
+                    variant.addProperty("model", modPath("block/" + blockName + "_" + trapdoorModelSuffix(half, open)));
+                    int rotation = trapdoorYRotation(facing, open);
+                    if (rotation >= 0) {
+                        variant.addProperty("y", rotation);
+                    }
+                    variants.add("facing=" + facing + ",half=" + half + ",open=" + open, variant);
+                }
+            }
+        }
+
+        json.add("variants", variants);
+        return DataProvider.saveStable(output, json, blockstatesPathProvider.json(id(blockName)));
+    }
+
+    private CompletableFuture<?> saveCubeInventoryModel(CachedOutput output, String modelName, String texturePath) {
+        JsonObject json = new JsonObject();
+        json.addProperty("parent", "minecraft:block/cube_all");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("all", modPath("block/" + texturePath));
+        json.add("textures", textures);
+
+        return DataProvider.saveStable(output, json, blockModelPathProvider.json(id(modelName)));
+    }
+
+    private CompletableFuture<?> saveCubeBlockModel(CachedOutput output, String modelName, String texturePath) {
+        return saveCubeInventoryModel(output, modelName, texturePath);
+    }
+
+    private CompletableFuture<?> saveCubeColumnModel(CachedOutput output, String modelName, String sideTexturePath, String endTexturePath) {
+        JsonObject json = new JsonObject();
+        json.addProperty("parent", "minecraft:block/cube_column");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("side", modPath("block/" + sideTexturePath));
+        textures.addProperty("end", modPath("block/" + endTexturePath));
+        json.add("textures", textures);
+
+        return DataProvider.saveStable(output, json, blockModelPathProvider.json(id(modelName)));
     }
 
     private CompletableFuture<?> saveGlowingInventoryModel(CachedOutput output, String modelName, String baseTexturePath) {
@@ -184,6 +244,31 @@ public class ModModelProvider extends ModelProvider {
         JsonObject textures = new JsonObject();
         textures.addProperty("base_side", modPath("block/" + sideTexturePath));
         textures.addProperty("base_end", modPath("block/" + endTexturePath));
+        textures.addProperty("overlay", modPath("block/glowing_block_inventory_overlay"));
+        json.add("textures", textures);
+
+        return DataProvider.saveStable(output, json, blockModelPathProvider.json(id(modelName)));
+    }
+
+    private CompletableFuture<?> saveCutoutCubeInventoryModel(CachedOutput output, String modelName, String texturePath) {
+        JsonObject json = new JsonObject();
+        json.addProperty("parent", "minecraft:block/cube_all");
+        json.addProperty("render_type", CUTOUT);
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("all", modPath("block/" + texturePath));
+        json.add("textures", textures);
+
+        return DataProvider.saveStable(output, json, blockModelPathProvider.json(id(modelName)));
+    }
+
+    private CompletableFuture<?> saveCutoutGlowingInventoryModel(CachedOutput output, String modelName, String texturePath) {
+        JsonObject json = new JsonObject();
+        json.addProperty("parent", modPath("block/glowing_block_inventory_overlay"));
+        json.addProperty("render_type", CUTOUT);
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("base", modPath("block/" + texturePath));
         textures.addProperty("overlay", modPath("block/glowing_block_inventory_overlay"));
         json.add("textures", textures);
 
@@ -215,110 +300,56 @@ public class ModModelProvider extends ModelProvider {
         return DataProvider.saveStable(output, json, blockModelPathProvider.json(id(modelName)));
     }
 
-    private CompletableFuture<?> saveSimpleBlockstate(CachedOutput output, String blockName, String modelName) {
+    private CompletableFuture<?> saveBlockItemDefinition(CachedOutput output, String itemName, String blockModelName) {
         JsonObject json = new JsonObject();
-        JsonObject variants = new JsonObject();
-        JsonObject variant = new JsonObject();
-        variant.addProperty("model", modPath("block/" + modelName));
-        variants.add("", variant);
-        json.add("variants", variants);
-        return DataProvider.saveStable(output, json, blockstatesPathProvider.json(id(blockName)));
+        json.addProperty("parent", modPath("block/" + blockModelName));
+        return DataProvider.saveStable(output, json, itemModelPathProvider.json(id(itemName)));
     }
 
-    private CompletableFuture<?> savePoweredBlockstate(CachedOutput output, String blockName) {
-        JsonObject json = new JsonObject();
-        JsonObject variants = new JsonObject();
-
-        JsonObject unpowered = new JsonObject();
-        unpowered.addProperty("model", modPath("block/laboratory_fan_unpowered"));
-        variants.add("powered=false", unpowered);
-
-        JsonObject powered = new JsonObject();
-        powered.addProperty("model", modPath("block/laboratory_fan_powered"));
-        variants.add("powered=true", powered);
-
-        json.add("variants", variants);
-        return DataProvider.saveStable(output, json, blockstatesPathProvider.json(id(blockName)));
+    private static String doorModelSuffix(String half, String hinge, boolean open) {
+        String halfPart = "upper".equals(half) ? "top" : "bottom";
+        return halfPart + "_" + hinge + (open ? "_open" : "");
     }
 
-    private CompletableFuture<?> saveCubeBlockModel(CachedOutput output, String modelName, String textureName) {
-        JsonObject json = new JsonObject();
-        json.addProperty("parent", "minecraft:block/cube_all");
-
-        JsonObject textures = new JsonObject();
-        textures.addProperty("all", modPath("block/" + textureName));
-        json.add("textures", textures);
-
-        return DataProvider.saveStable(output, json, blockModelPathProvider.json(id(modelName)));
+    private static int doorYRotation(String facing, String hinge, boolean open) {
+        return switch (facing) {
+            case "east" -> open ? ("left".equals(hinge) ? 90 : 270) : -1;
+            case "north" -> open ? ("left".equals(hinge) ? -1 : 180) : 270;
+            case "south" -> open ? ("left".equals(hinge) ? 180 : -1) : 90;
+            case "west" -> open ? ("left".equals(hinge) ? 270 : 90) : 180;
+            default -> -1;
+        };
     }
 
-    private CompletableFuture<?> saveCutoutCubeInventoryModel(CachedOutput output, String modelName, String texturePath) {
-        JsonObject json = new JsonObject();
-        json.addProperty("parent", "minecraft:block/cube_all");
-        json.addProperty("render_type", CUTOUT);
-
-        JsonObject textures = new JsonObject();
-        textures.addProperty("all", modPath("block/" + texturePath));
-        json.add("textures", textures);
-
-        return DataProvider.saveStable(output, json, blockModelPathProvider.json(id(modelName)));
+    private static String trapdoorModelSuffix(String half, boolean open) {
+        if (open) {
+            return "open";
+        }
+        return "top".equals(half) ? "top" : "bottom";
     }
 
-    private CompletableFuture<?> saveCutoutGlowingInventoryModel(CachedOutput output, String modelName, String texturePath) {
-        JsonObject json = new JsonObject();
-        json.addProperty("parent", modPath("block/glowing_block_inventory_overlay"));
-        json.addProperty("render_type", CUTOUT);
+    private static int trapdoorYRotation(String facing, boolean open) {
+        if (!open) {
+            return -1;
+        }
 
-        JsonObject textures = new JsonObject();
-        textures.addProperty("base", modPath("block/" + texturePath));
-        textures.addProperty("overlay", modPath("block/glowing_block_inventory_overlay"));
-        json.add("textures", textures);
-
-        return DataProvider.saveStable(output, json, blockModelPathProvider.json(id(modelName)));
-    }
-
-    private CompletableFuture<?> saveItemModel(CachedOutput output, String itemName, String blockModelName) {
-        JsonObject root = new JsonObject();
-        JsonObject model = new JsonObject();
-        model.addProperty("type", "minecraft:model");
-        model.addProperty("model", modPath("block/" + blockModelName));
-        root.add("model", model);
-        return DataProvider.saveStable(output, root, itemPathProvider.json(id(itemName)));
+        return switch (facing) {
+            case "east" -> 90;
+            case "south" -> 180;
+            case "west" -> 270;
+            default -> -1;
+        };
     }
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
         return "laboratory_glass".equals(pair.texturePath());
     }
 
-    private static Identifier id(String path) {
-        return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
+    private static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }
 
     private static String modPath(String path) {
         return LaboratoryBlocks.MOD_ID + ":" + path;
-    }
-
-    @SuppressWarnings("deprecation")
-    @Override
-    protected @NonNull Stream<? extends Holder<Block>> getKnownBlocks() {
-        Stream<Holder<Block>> pairBlocks = ModDatagenEntries.ALL_PAIRS.stream()
-                .flatMap(pair -> Stream.of(pair.base().get().builtInRegistryHolder(), pair.glowing().get().builtInRegistryHolder()));
-        Stream<Holder<Block>> pillarBlocks = ModDatagenEntries.PILLAR_PAIRS.stream()
-                .flatMap(pair -> Stream.of(pair.base().get().builtInRegistryHolder(), pair.glowing().get().builtInRegistryHolder()));
-        Stream<Holder<Block>> doors = ModDatagenEntries.DOORS.stream()
-                .map(door -> door.get().builtInRegistryHolder());
-        Stream<Holder<Block>> trapdoors = ModDatagenEntries.TRAPDOORS.stream()
-                .map(trapdoor -> trapdoor.get().builtInRegistryHolder());
-        return Stream.of(pairBlocks, pillarBlocks, doors, trapdoors).flatMap(stream -> stream);
-    }
-
-    @SuppressWarnings("deprecation")
-    @Override
-    protected @NonNull Stream<? extends Holder<Item>> getKnownItems() {
-        return Stream.of(
-                ModItems.IRON_SCREW.get().builtInRegistryHolder(),
-                ModItems.GLOWSTONE_PARTICLES.get().builtInRegistryHolder(),
-                ModItems.CONFIGURATION_TOOL.get().builtInRegistryHolder()
-        );
     }
 }

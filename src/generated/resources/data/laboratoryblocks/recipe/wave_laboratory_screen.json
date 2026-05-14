@@ -2,11 +2,21 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    "laboratoryblocks:clear_laboratory_screen",
-    "laboratoryblocks:clear_laboratory_screen",
-    "laboratoryblocks:clear_laboratory_screen",
-    "laboratoryblocks:clear_laboratory_screen",
-    "minecraft:cyan_dye"
+    {
+      "item": "laboratoryblocks:clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:clear_laboratory_screen"
+    },
+    {
+      "item": "minecraft:cyan_dye"
+    }
   ],
   "result": {
     "count": 4,

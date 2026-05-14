@@ -18,34 +18,25 @@ import java.util.concurrent.CompletableFuture;
 @EventBusSubscriber(modid = LaboratoryBlocks.MOD_ID)
 public class DataGenerators {
     @SubscribeEvent
-    public static void gatherClientData(GatherDataEvent.Client event) {
-        addProviders(event.getGenerator(), event.getGenerator().getPackOutput(), event.getLookupProvider());
-    }
+    public static void gatherData(GatherDataEvent event) {
+        DataGenerator generator = event.getGenerator();
+        PackOutput packOutput = generator.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-    @SubscribeEvent
-    public static void gatherServerData(GatherDataEvent.Server event) {
-        addProviders(event.getGenerator(), event.getGenerator().getPackOutput(), event.getLookupProvider());
-    }
-
-    private static void addProviders(
-            DataGenerator generator,
-            PackOutput packOutput,
-            CompletableFuture<HolderLookup.Provider> lookupProvider
-    ) {
-        generator.addProvider(true, new LootTableProvider(
+        generator.addProvider(event.includeServer(), new LootTableProvider(
                 packOutput,
                 Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)),
                 lookupProvider
         ));
-        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput, lookupProvider));
 
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
-        generator.addProvider(true, blockTagsProvider);
+        generator.addProvider(event.includeServer(), blockTagsProvider);
 
-        generator.addProvider(true, new ModModelProvider(packOutput));
-        generator.addProvider(true, new ModFusionModelProvider(packOutput));
-        generator.addProvider(true, new ModFusionTextureMetadataProvider(packOutput));
-        generator.addProvider(true, new ModLanguageProvider(packOutput, "en_us"));
+        generator.addProvider(event.includeClient(), new ModModelProvider(packOutput));
+        generator.addProvider(event.includeClient(), new ModFusionModelProvider(packOutput));
+        generator.addProvider(event.includeClient(), new ModFusionTextureMetadataProvider(packOutput));
+        generator.addProvider(event.includeClient(), new ModLanguageProvider(packOutput, "en_us"));
     }
 }

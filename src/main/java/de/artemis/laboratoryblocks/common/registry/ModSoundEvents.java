@@ -1,8 +1,8 @@
 package de.artemis.laboratoryblocks.common.registry;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import net.minecraft.resources.Identifier;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -17,7 +17,7 @@ public class ModSoundEvents {
     }
 
     private static DeferredHolder<SoundEvent, SoundEvent> register(String resourceLocation) {
-        return SOUND_EVENTS.register(resourceLocation, () -> SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, resourceLocation)));
+        return SOUND_EVENTS.register(resourceLocation, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, resourceLocation)));
     }
 
     public static final DeferredHolder<SoundEvent, SoundEvent> LABORATORY_BLOCK_BREAK = register("laboratory_block_break");

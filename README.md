@@ -36,7 +36,6 @@ Follow our projects or join our community for updates, modding help, and preview
 
 * **CurseForge:** [Project Page](https://www.curseforge.com/minecraft/mc-mods/artemis-laboratory-blocks)
 
-
 Additional Resources:
 ==========
 * **Community Documentation:** [Link](https://docs.neoforged.net/)

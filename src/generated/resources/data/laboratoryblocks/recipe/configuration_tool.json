@@ -2,10 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "A": "minecraft:iron_ingot",
-    "B": "minecraft:orange_wool",
-    "C": "laboratoryblocks:iron_screw",
-    "D": "minecraft:iron_nugget"
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:orange_wool"
+    },
+    "C": {
+      "item": "laboratoryblocks:iron_screw"
+    },
+    "D": {
+      "item": "minecraft:iron_nugget"
+    }
   },
   "pattern": [
     "  C",

@@ -2,11 +2,21 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    "laboratoryblocks:clear_laboratory_screen",
-    "laboratoryblocks:clear_laboratory_screen",
-    "laboratoryblocks:clear_laboratory_screen",
-    "laboratoryblocks:clear_laboratory_screen",
-    "minecraft:lime_dye"
+    {
+      "item": "laboratoryblocks:clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:clear_laboratory_screen"
+    },
+    {
+      "item": "minecraft:lime_dye"
+    }
   ],
   "result": {
     "count": 4,

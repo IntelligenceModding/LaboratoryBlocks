@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": "laboratoryblocks:birch_laboratory_floor"
+    "A": {
+      "item": "laboratoryblocks:birch_laboratory_floor"
+    }
   },
   "pattern": [
     "AA",

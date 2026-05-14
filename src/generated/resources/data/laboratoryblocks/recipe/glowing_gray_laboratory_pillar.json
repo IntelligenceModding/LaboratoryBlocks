@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    "laboratoryblocks:gray_laboratory_pillar",
-    "laboratoryblocks:glowstone_particles"
+    {
+      "item": "laboratoryblocks:gray_laboratory_pillar"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    }
   ],
   "result": {
     "count": 1,

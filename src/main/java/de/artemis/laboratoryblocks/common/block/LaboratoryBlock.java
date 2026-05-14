@@ -6,7 +6,7 @@ import de.artemis.laboratoryblocks.common.util.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -26,55 +26,53 @@ public class LaboratoryBlock extends Block {
     }
 
     @SuppressWarnings("deprecation")
-    public @NotNull InteractionResult useItemOn(@NotNull ItemStack itemStack, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    @Override
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack itemStack, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
 
         if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
-
-            // Applying Glowstone
             if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
-                if (!player.isCreative()) {
-                    itemStackInHand.shrink(1);
+                if (!level.isClientSide()) {
+                    if (!player.isCreative()) {
+                        itemStackInHand.shrink(1);
+                    }
+                    level.setBlock(blockPos, block.get().defaultBlockState(), 3);
+                    ModUtils.playGlowstoneApplySound(level, blockPos);
+                    ModUtils.spawnGlowstoneApplyParticles(level, blockHitResult);
                 }
-                level.setBlock(blockPos, block.get().defaultBlockState(), 3);
-                ModUtils.playGlowstoneApplySound(level, blockPos);
-                ModUtils.spawnGlowstoneApplyParticles(level, blockHitResult);
-
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.sidedSuccess(level.isClientSide());
             }
 
-            // Removing Glowstone
-            else if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
-                if (!player.isCreative()) {
-                    ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
-                    itemStackInHand.hurtAndBreak(1, player, itemStackInHand.getEquipmentSlot());
+            if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+                if (!level.isClientSide()) {
+                    if (!player.isCreative()) {
+                        ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
+                        itemStackInHand.hurtAndBreak(1, player, itemStackInHand.getEquipmentSlot());
+                    }
+                    level.setBlock(blockPos, block.get().defaultBlockState(), 3);
+                    ModUtils.playGlowstoneRemoveSound(level, blockPos);
+                    ModUtils.spawnGlowstoneRemoveParticles(level, blockHitResult);
                 }
-                level.setBlock(blockPos, block.get().defaultBlockState(), 3);
-                ModUtils.playGlowstoneRemoveSound(level, blockPos);
-                ModUtils.spawnGlowstoneRemoveParticles(level, blockHitResult);
-
-                return InteractionResult.SUCCESS;
+                return ItemInteractionResult.sidedSuccess(level.isClientSide());
             }
         }
 
         LaboratoryWoodSwapUtil.SwapResult woodSwap = LaboratoryWoodSwapUtil.getSwap(blockState.getBlock(), itemStackInHand.getItem());
         if (woodSwap != null) {
-            if (level.isClientSide()) {
-                return InteractionResult.SUCCESS;
-            }
+            if (!level.isClientSide()) {
+                if (!player.isCreative()) {
+                    itemStackInHand.shrink(1);
+                    ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, woodSwap.returnedPlanks());
+                }
 
-            if (!player.isCreative()) {
-                itemStackInHand.shrink(1);
-                ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, woodSwap.returnedPlanks());
+                BlockState targetState = woodSwap.targetBlock().defaultBlockState();
+                level.setBlock(blockPos, targetState, 3);
+                float pitch = 0.92F + level.random.nextFloat() * 0.08F;
+                level.playSound(null, blockPos, targetState.getSoundType().getPlaceSound(), SoundSource.BLOCKS, 0.7F, pitch);
             }
-
-            BlockState targetState = woodSwap.targetBlock().defaultBlockState();
-            level.setBlock(blockPos, targetState, 3);
-            float pitch = 0.92F + level.random.nextFloat() * 0.08F;
-            level.playSound(null, blockPos, targetState.getSoundType().getPlaceSound(), SoundSource.BLOCKS, 0.7F, pitch);
-            return InteractionResult.SUCCESS;
+            return ItemInteractionResult.sidedSuccess(level.isClientSide());
         }
 
-        return InteractionResult.FAIL;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 }

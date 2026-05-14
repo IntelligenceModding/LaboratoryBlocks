@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": "laboratoryblocks:laboratory_block",
-    "B": "minecraft:dark_oak_planks"
+    "A": {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    "B": {
+      "item": "minecraft:dark_oak_planks"
+    }
   },
   "pattern": [
     "AAA",

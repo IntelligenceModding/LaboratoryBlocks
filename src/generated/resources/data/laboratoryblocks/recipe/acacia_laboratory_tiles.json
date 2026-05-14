@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": "laboratoryblocks:acacia_laboratory_floor"
+    "A": {
+      "item": "laboratoryblocks:acacia_laboratory_floor"
+    }
   },
   "pattern": [
     "AA",

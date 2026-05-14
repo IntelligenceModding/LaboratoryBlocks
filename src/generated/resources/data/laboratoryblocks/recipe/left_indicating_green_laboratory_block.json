@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    "laboratoryblocks:right_indicating_green_laboratory_block"
+    {
+      "item": "laboratoryblocks:right_indicating_green_laboratory_block"
+    }
   ],
   "result": {
     "count": 1,

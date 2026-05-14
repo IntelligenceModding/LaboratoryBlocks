@@ -3,6 +3,11 @@ package de.artemis.laboratoryblocks.common.datagen;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -30,10 +35,10 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
             add(pair.base().get(), humanize(pair.base().getId().getPath()));
             add(pair.glowing().get(), humanize(pair.glowing().getId().getPath()));
         });
-        ModDatagenEntries.DOORS.forEach(door -> add(door.get(), humanize(door.getId().getPath())));
-        ModDatagenEntries.TRAPDOORS.forEach(trapdoor -> add(trapdoor.get(), humanize(trapdoor.getId().getPath())));
+        ModDatagenEntries.DOORS.forEach(this::addDoorTranslation);
+        ModDatagenEntries.TRAPDOORS.forEach(this::addTrapdoorTranslation);
 
-        Set<net.minecraft.resources.Identifier> generatedBlockIds = ModDatagenEntries.ALL_PAIRS.stream()
+        Set<ResourceLocation> generatedBlockIds = ModDatagenEntries.ALL_PAIRS.stream()
                 .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
                 .collect(Collectors.toCollection(java.util.HashSet::new));
         generatedBlockIds.addAll(ModDatagenEntries.PILLAR_PAIRS.stream()
@@ -42,8 +47,8 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         generatedBlockIds.addAll(ModDatagenEntries.FAN_PAIRS.stream()
                 .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
                 .toList());
-        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(door -> door.getId()).toList());
-        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(trapdoor -> trapdoor.getId()).toList());
+        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(DeferredHolder::getId).toList());
+        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(DeferredHolder::getId).toList());
         generatedBlockIds = Set.copyOf(generatedBlockIds);
 
         for (var item : ModItems.ITEMS.getEntries()) {
@@ -65,6 +70,14 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         }
 
         return builder.toString();
+    }
+
+    private void addDoorTranslation(DeferredBlock<? extends DoorBlock> door) {
+        add(door.get(), humanize(door.getId().getPath()));
+    }
+
+    private void addTrapdoorTranslation(DeferredBlock<? extends TrapDoorBlock> trapdoor) {
+        add(trapdoor.get(), humanize(trapdoor.getId().getPath()));
     }
 
     private static String capitalizeWord(String word) {

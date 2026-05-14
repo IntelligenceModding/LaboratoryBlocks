@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    "laboratoryblocks:laboratory_fan_redstone_controlled",
-    "laboratoryblocks:glowstone_particles"
+    {
+      "item": "laboratoryblocks:laboratory_fan_redstone_controlled"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    }
   ],
   "result": {
     "count": 1,
