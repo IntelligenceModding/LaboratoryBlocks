@@ -29,6 +29,6 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="fusion"
 type="required"
-versionRange="[1.0.0,)"
+versionRange="[1.2.12,)"
 ordering="NONE"
 side="CLIENT"
