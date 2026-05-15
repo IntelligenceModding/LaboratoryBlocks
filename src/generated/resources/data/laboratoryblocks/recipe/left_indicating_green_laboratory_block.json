@@ -1,13 +1,24 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "building",
-  "ingredients": [
-    {
-      "item": "laboratoryblocks:right_indicating_green_laboratory_block"
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    "B": {
+      "item": "minecraft:green_wool"
+    },
+    "C": {
+      "item": "minecraft:black_wool"
     }
+  },
+  "pattern": [
+    "AAA",
+    "CBB",
+    "AAA"
   ],
   "result": {
-    "count": 1,
+    "count": 8,
     "id": "laboratoryblocks:left_indicating_green_laboratory_block"
   }
 }
