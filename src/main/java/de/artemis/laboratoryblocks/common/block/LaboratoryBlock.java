@@ -70,7 +70,7 @@ public class LaboratoryBlock extends Block {
 
             BlockState targetState = woodSwap.targetBlock().defaultBlockState();
             level.setBlock(blockPos, targetState, 3);
-            float pitch = 0.92F + level.random.nextFloat() * 0.08F;
+            float pitch = 0.92F + level.getRandom().nextFloat() * 0.08F;
             level.playSound(null, blockPos, targetState.getSoundType().getPlaceSound(), SoundSource.BLOCKS, 0.7F, pitch);
             return InteractionResult.SUCCESS;
         }

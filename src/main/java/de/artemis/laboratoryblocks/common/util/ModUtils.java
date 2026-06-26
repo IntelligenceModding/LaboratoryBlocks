@@ -76,7 +76,7 @@ public final class ModUtils {
     }
 
     private static void playSoftBlockSound(@NotNull Level level, @NotNull BlockPos blockPos, @NotNull SoundEvent soundEvent, float volume, float basePitch, float pitchVariation) {
-        float pitch = basePitch + (level.random.nextFloat() * 2.0F - 1.0F) * pitchVariation;
+        float pitch = basePitch + (level.getRandom().nextFloat() * 2.0F - 1.0F) * pitchVariation;
         level.playSound(null, blockPos, soundEvent, SoundSource.BLOCKS, volume, pitch);
     }
 
@@ -85,26 +85,26 @@ public final class ModUtils {
         Vec3 normal = new Vec3(face.getStepX(), face.getStepY(), face.getStepZ());
         Vec3 tangentA = getFirstTangent(face);
         Vec3 tangentB = getSecondTangent(face);
-        Vec3 anchor = hitResult.getLocation().add(normal.scale(PARTICLE_FACE_OFFSET + level.random.nextDouble() * faceOffset * 0.25D));
+        Vec3 anchor = hitResult.getLocation().add(normal.scale(PARTICLE_FACE_OFFSET + level.getRandom().nextDouble() * faceOffset * 0.25D));
 
         for (int i = 0; i < count; i++) {
             double offsetA = randomCentered(level) * spread;
             double offsetB = randomCentered(level) * spread;
-            double offsetN = level.random.nextDouble() * faceOffset * 0.35D;
+            double offsetN = level.getRandom().nextDouble() * faceOffset * 0.35D;
 
             Vec3 position = anchor
                     .add(tangentA.scale(offsetA))
                     .add(tangentB.scale(offsetB))
                     .add(normal.scale(offsetN));
-            double motionX = normal.x * (outwardMotion + level.random.nextDouble() * 0.012D)
+            double motionX = normal.x * (outwardMotion + level.getRandom().nextDouble() * 0.012D)
                     + tangentA.x * randomCentered(level) * jitterMotion
                     + tangentB.x * randomCentered(level) * jitterMotion;
-            double motionY = normal.y * (outwardMotion + level.random.nextDouble() * 0.012D)
+            double motionY = normal.y * (outwardMotion + level.getRandom().nextDouble() * 0.012D)
                     + tangentA.y * randomCentered(level) * jitterMotion
                     + tangentB.y * randomCentered(level) * jitterMotion
                     + upwardMotion
-                    + level.random.nextDouble() * 0.012D;
-            double motionZ = normal.z * (outwardMotion + level.random.nextDouble() * 0.012D)
+                    + level.getRandom().nextDouble() * 0.012D;
+            double motionZ = normal.z * (outwardMotion + level.getRandom().nextDouble() * 0.012D)
                     + tangentA.z * randomCentered(level) * jitterMotion
                     + tangentB.z * randomCentered(level) * jitterMotion;
 
@@ -113,7 +113,7 @@ public final class ModUtils {
     }
 
     private static double randomCentered(@NotNull Level level) {
-        return level.random.nextDouble() - 0.5D;
+        return level.getRandom().nextDouble() - 0.5D;
     }
 
     private static @NotNull Vec3 getFirstTangent(@NotNull Direction face) {

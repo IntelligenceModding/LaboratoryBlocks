@@ -8,6 +8,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Holder;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
@@ -61,7 +62,7 @@ public class ModModelProvider extends ModelProvider {
         Identifier glowingPlacedModel = modModel(pair.glowingModelName());
         Identifier baseInventoryModel = ModelTemplates.CUBE_ALL.create(
                 modModel(pair.baseModelName() + "_inventory"),
-                TextureMapping.cube(texture(pair.texturePath())),
+                TextureMapping.cube(textureMaterial(pair.texturePath())),
                 blockModels.modelOutput
         );
         Identifier glowingInventoryModel = modModel(pair.glowingModelName() + "_inventory");
@@ -75,17 +76,17 @@ public class ModModelProvider extends ModelProvider {
     private void registerPillarPair(BlockModelGenerators blockModels, ModDatagenEntries.GeneratedPillarPair pair) {
         Identifier basePlacedModel = ModelTemplates.CUBE_COLUMN.create(
                 modModel(pair.baseModelName()),
-                TextureMapping.column(texture(pair.sideTexturePath()), texture(pair.endTexturePath())),
+                TextureMapping.column(textureMaterial(pair.sideTexturePath()), textureMaterial(pair.endTexturePath())),
                 blockModels.modelOutput
         );
         Identifier glowingPlacedModel = ModelTemplates.CUBE_COLUMN.create(
                 modModel(pair.glowingModelName()),
-                TextureMapping.column(texture(pair.sideTexturePath()), texture(pair.endTexturePath())),
+                TextureMapping.column(textureMaterial(pair.sideTexturePath()), textureMaterial(pair.endTexturePath())),
                 blockModels.modelOutput
         );
         Identifier baseInventoryModel = ModelTemplates.CUBE_COLUMN.create(
                 modModel(pair.baseModelName() + "_inventory"),
-                TextureMapping.column(texture(pair.sideTexturePath()), texture(pair.endTexturePath())),
+                TextureMapping.column(textureMaterial(pair.sideTexturePath()), textureMaterial(pair.endTexturePath())),
                 blockModels.modelOutput
         );
         Identifier glowingInventoryModel = modModel(pair.glowingModelName() + "_inventory");
@@ -108,6 +109,10 @@ public class ModModelProvider extends ModelProvider {
 
     private static Identifier texture(String path) {
         return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/" + path);
+    }
+
+    private static Material textureMaterial(String path) {
+        return new Material(texture(path));
     }
 
     private static Identifier modModel(String path) {

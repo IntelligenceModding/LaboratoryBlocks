@@ -6,7 +6,6 @@
     "minecraft:redstone"
   ],
   "result": {
-    "count": 1,
     "id": "laboratoryblocks:laboratory_fan_redstone_controlled"
   }
 }
