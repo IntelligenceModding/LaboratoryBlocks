@@ -3,15 +3,19 @@ package de.artemis.laboratoryblocks.common.datagen;
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
@@ -186,6 +190,7 @@ public class ModRecipeProvider extends RecipeProvider {
         );
 
         ModDatagenEntries.WOOD_FAMILIES.forEach(this::addWoodRecipes);
+        addStonecutterRecipes();
 
         ModDatagenEntries.ALL_PAIRS.forEach(pair -> addGlowstoneUpgrade(pair.base().get(), pair.glowing().get()));
         ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> addGlowstoneUpgrade(pair.base().get(), pair.glowing().get()));
@@ -209,6 +214,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('A', family.floorPair().base().get())
                 .unlockedBy(getHasName(family.floorPair().base().get()), has(family.floorPair().base().get()))
                 .save(output);
+
+        addStonecuttingRecipe(family.floorPair().base().get(), family.tilePair().base().get(), 2);
+        addStonecuttingRecipe(family.floorPair().glowing().get(), family.tilePair().glowing().get(), 2);
     }
 
     private void addGlowstoneUpgrade(Block base, Block glowing) {
@@ -254,10 +262,21 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
     }
 
-    private void addIndicatingRecipes(Block rightBlock, Block leftBlock, net.minecraft.world.item.Item colorWool) {
+    private void addStonecutterRecipes() {
+        addStonecuttingRecipe(ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_TILES.get(), 2);
+        addStonecuttingRecipe(ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_PILLAR.get(), 1);
+        addStonecuttingRecipe(ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_DOOR.get(), 1);
+        addStonecuttingRecipe(ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_TRAPDOOR.get(), 1);
+        addStonecuttingRecipe(ModBlocks.GLOWING_LABORATORY_BLOCK.get(), ModBlocks.GLOWING_LABORATORY_TILES.get(), 2);
+        addStonecuttingRecipe(ModBlocks.GLOWING_LABORATORY_BLOCK.get(), ModBlocks.GLOWING_LABORATORY_PILLAR.get(), 1);
+        addStonecuttingRecipe(ModBlocks.GRAY_LABORATORY_TILES.get(), ModBlocks.GRAY_LABORATORY_PILLAR.get(), 1);
+        addStonecuttingRecipe(ModBlocks.GLOWING_GRAY_LABORATORY_TILES.get(), ModBlocks.GLOWING_GRAY_LABORATORY_PILLAR.get(), 1);
+    }
+
+    private void addIndicatingRecipes(Block rightBlock, Block leftBlock, Item colorWool) {
         shaped(RecipeCategory.BUILDING_BLOCKS, rightBlock, 8)
                 .pattern("AAA")
-                .pattern("BCB")
+                .pattern("BBC")
                 .pattern("AAA")
                 .define('A', ModBlocks.LABORATORY_BLOCK.get())
                 .define('B', colorWool)
@@ -266,9 +285,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(output);
 
-        shapeless(RecipeCategory.BUILDING_BLOCKS, leftBlock)
-                .requires(rightBlock)
-                .unlockedBy(getHasName(rightBlock), has(rightBlock))
+        shaped(RecipeCategory.BUILDING_BLOCKS, leftBlock, 8)
+                .pattern("AAA")
+                .pattern("CBB")
+                .pattern("AAA")
+                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('B', colorWool)
+                .define('C', Blocks.BLACK_WOOL)
+                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(output);
     }
 
@@ -328,6 +353,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
                 .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
                 .save(output);
+    }
+
+    private void addStonecuttingRecipe(Block input, Block outputBlock, int count) {
+        Identifier inputId = BuiltInRegistries.BLOCK.getKey(input);
+        Identifier outputId = BuiltInRegistries.BLOCK.getKey(outputBlock);
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), RecipeCategory.BUILDING_BLOCKS, outputBlock, count)
+                .unlockedBy(getHasName(input), has(input))
+                .save(output, modLoc(outputId.getPath() + "_from_" + inputId.getPath() + "_stonecutting"));
     }
 
     private static @NotNull ResourceKey<net.minecraft.world.item.crafting.Recipe<?>> modLoc(String path) {

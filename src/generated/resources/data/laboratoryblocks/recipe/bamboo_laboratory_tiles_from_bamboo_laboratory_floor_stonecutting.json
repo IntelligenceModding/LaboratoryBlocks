@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "laboratoryblocks:bamboo_laboratory_floor",
+  "result": {
+    "count": 2,
+    "id": "laboratoryblocks:bamboo_laboratory_tiles"
+  }
+}

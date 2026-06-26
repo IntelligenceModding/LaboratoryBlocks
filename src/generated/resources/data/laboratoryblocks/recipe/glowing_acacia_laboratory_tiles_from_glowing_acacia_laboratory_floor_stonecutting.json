@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "laboratoryblocks:glowing_acacia_laboratory_floor",
+  "result": {
+    "count": 2,
+    "id": "laboratoryblocks:glowing_acacia_laboratory_tiles"
+  }
+}

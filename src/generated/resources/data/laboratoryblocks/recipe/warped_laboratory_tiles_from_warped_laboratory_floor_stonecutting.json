@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "laboratoryblocks:warped_laboratory_floor",
+  "result": {
+    "count": 2,
+    "id": "laboratoryblocks:warped_laboratory_tiles"
+  }
+}
