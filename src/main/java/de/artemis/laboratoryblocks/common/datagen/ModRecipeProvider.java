@@ -10,11 +10,13 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
+import net.minecraft.references.BlockItemIds;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -50,7 +52,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("DB ")
                 .pattern("AD ")
                 .define('A', Items.IRON_INGOT)
-                .define('B', Items.ORANGE_WOOL)
+                .define('B', woolIngredient(DyeColor.ORANGE))
                 .define('C', ModItems.IRON_SCREW.get())
                 .define('D', Items.IRON_NUGGET)
                 .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
@@ -104,8 +106,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("ABA")
                 .pattern("AAA")
                 .define('A', ModBlocks.LABORATORY_TILES.get())
-                .define('B', Items.GRAY_DYE)
+                .define('B', DyeColor.GRAY.getTag())
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_TILES.get()), has(ModBlocks.LABORATORY_TILES.get()))
+                .unlockedBy("has_gray_dye", has(DyeColor.GRAY.getTag()))
                 .save(output);
 
         shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MIXED_LABORATORY_TILES.get(), 2)
@@ -136,9 +139,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("ABA")
                 .pattern("AAA")
                 .define('A', ModBlocks.LABORATORY_PILLAR.get())
-                .define('B', Items.GRAY_DYE)
+                .define('B', DyeColor.GRAY.getTag())
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_PILLAR.get()), has(ModBlocks.LABORATORY_PILLAR.get()))
-                .unlockedBy(getHasName(Items.GRAY_DYE), has(Items.GRAY_DYE))
+                .unlockedBy("has_gray_dye", has(DyeColor.GRAY.getTag()))
                 .save(output);
 
         shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_GLASS.get(), 8)
@@ -176,17 +179,17 @@ public class ModRecipeProvider extends RecipeProvider {
         addIndicatingRecipes(
                 ModBlocks.RIGHT_INDICATING_BLUE_LABORATORY_BLOCK.get(),
                 ModBlocks.LEFT_INDICATING_BLUE_LABORATORY_BLOCK.get(),
-                Items.BLUE_WOOL
+                DyeColor.BLUE
         );
         addIndicatingRecipes(
                 ModBlocks.RIGHT_INDICATING_RED_LABORATORY_BLOCK.get(),
                 ModBlocks.LEFT_INDICATING_RED_LABORATORY_BLOCK.get(),
-                Items.RED_WOOL
+                DyeColor.RED
         );
         addIndicatingRecipes(
                 ModBlocks.RIGHT_INDICATING_GREEN_LABORATORY_BLOCK.get(),
                 ModBlocks.LEFT_INDICATING_GREEN_LABORATORY_BLOCK.get(),
-                Items.GREEN_WOOL
+                DyeColor.GREEN
         );
 
         ModDatagenEntries.WOOD_FAMILIES.forEach(this::addWoodRecipes);
@@ -242,23 +245,23 @@ public class ModRecipeProvider extends RecipeProvider {
 
         shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAVE_LABORATORY_SCREEN.get(), 4)
                 .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
-                .requires(Items.CYAN_DYE)
+                .requires(tag(DyeColor.CYAN.getTag()))
                 .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
-                .unlockedBy(getHasName(Items.CYAN_DYE), has(Items.CYAN_DYE))
+                .unlockedBy("has_cyan_dye", has(DyeColor.CYAN.getTag()))
                 .save(output);
 
         shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEXT_LABORATORY_SCREEN.get(), 4)
                 .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
-                .requires(Items.LIME_DYE)
+                .requires(tag(DyeColor.LIME.getTag()))
                 .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
-                .unlockedBy(getHasName(Items.LIME_DYE), has(Items.LIME_DYE))
+                .unlockedBy("has_lime_dye", has(DyeColor.LIME.getTag()))
                 .save(output);
 
         shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), 4)
                 .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
-                .requires(Items.PURPLE_DYE)
+                .requires(tag(DyeColor.PURPLE.getTag()))
                 .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
-                .unlockedBy(getHasName(Items.PURPLE_DYE), has(Items.PURPLE_DYE))
+                .unlockedBy("has_purple_dye", has(DyeColor.PURPLE.getTag()))
                 .save(output);
     }
 
@@ -273,14 +276,14 @@ public class ModRecipeProvider extends RecipeProvider {
         addStonecuttingRecipe(ModBlocks.GLOWING_GRAY_LABORATORY_TILES.get(), ModBlocks.GLOWING_GRAY_LABORATORY_PILLAR.get(), 1);
     }
 
-    private void addIndicatingRecipes(Block rightBlock, Block leftBlock, Item colorWool) {
+    private void addIndicatingRecipes(Block rightBlock, Block leftBlock, DyeColor color) {
         shaped(RecipeCategory.BUILDING_BLOCKS, rightBlock, 8)
                 .pattern("AAA")
                 .pattern("BBC")
                 .pattern("AAA")
                 .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .define('B', colorWool)
-                .define('C', Blocks.BLACK_WOOL)
+                .define('B', woolIngredient(color))
+                .define('C', woolIngredient(DyeColor.BLACK))
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(output);
@@ -290,8 +293,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("CBB")
                 .pattern("AAA")
                 .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .define('B', colorWool)
-                .define('C', Blocks.BLACK_WOOL)
+                .define('B', woolIngredient(color))
+                .define('C', woolIngredient(DyeColor.BLACK))
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(output);
@@ -366,5 +369,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static @NotNull ResourceKey<net.minecraft.world.item.crafting.Recipe<?>> modLoc(String path) {
         return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(ModBlocks.LABORATORY_BLOCK.getId().getNamespace(), path));
+    }
+
+    private Ingredient woolIngredient(DyeColor color) {
+        return Ingredient.of(items.getOrThrow(BlockItemIds.WOOL.pick(color).item()).value());
     }
 }

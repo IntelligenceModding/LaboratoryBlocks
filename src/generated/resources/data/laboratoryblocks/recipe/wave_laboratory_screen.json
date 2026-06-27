@@ -6,7 +6,7 @@
     "laboratoryblocks:clear_laboratory_screen",
     "laboratoryblocks:clear_laboratory_screen",
     "laboratoryblocks:clear_laboratory_screen",
-    "minecraft:cyan_dye"
+    "#c:dyes/cyan"
   ],
   "result": {
     "count": 4,
