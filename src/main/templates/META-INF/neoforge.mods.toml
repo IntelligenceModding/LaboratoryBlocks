@@ -7,26 +7,27 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/artemis-laboratory-blocks"
-logoFile="banner.png"
-logoBlur=true
+issueTrackerURL="https://github.com/IntelligenceModding/LaboratoryBlocks/issues"
+bannerFile="banner.png"
+iconFile="icon.png"
 authors="${mod_authors}"
 description='''${mod_description}'''
 
-[[dependencies.${mod_id}]]
+[[dependencies]]
 modId="neoforge"
 type="required"
 versionRange="[${neo_version},)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.${mod_id}]]
+[[dependencies]]
 modId="minecraft"
 type="required"
 versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.${mod_id}]]
+[[dependencies]]
 modId="fusion"
 type="required"
 versionRange="[1.0.0,)"

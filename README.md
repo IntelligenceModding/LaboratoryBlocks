@@ -30,6 +30,8 @@
 
 <p align="center">
   <a href="https://www.curseforge.com/minecraft/mc-mods/fusion-connected-textures"><img src="https://img.shields.io/badge/CurseForge-Fusion%20(Connected%20Textures)-F16436?style=for-the-badge&logo=curseforge&logoColor=white" alt="Fusion on CurseForge"></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://modrinth.com/mod/fusion-connected-textures"><img src="https://img.shields.io/badge/Modrinth-Fusion%20(Connected%20Textures)-00AF5C?style=for-the-badge&logo=modrinth&logoColor=white" alt="Fusion on Modrinth"></a>
 </p>
 
 <p align="center">
@@ -64,12 +66,14 @@
 
 <p align="center">
   <a href="https://discord.intelligence-modding.de/"><img src="https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join the Intelligence Modding Discord"></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://www.youtube.com/@intelligencemodding4093"><img src="https://img.shields.io/badge/YouTube-Intelligence%20Modding-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Intelligence Modding on YouTube"></a>
 </p>
 
 <p align="center">
   <a href="https://www.curseforge.com/minecraft/mc-mods/artemis-laboratory-blocks"><img src="https://img.shields.io/badge/CurseForge-LaboratoryBlocks-F16436?style=for-the-badge&logo=curseforge&logoColor=white" alt="Artemis' Laboratory Blocks on CurseForge"></a>
   &nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/IntelligenceModding/LaboratoryBlocks"><img src="https://img.shields.io/badge/GitHub-LaboratoryBlocks-181717?style=for-the-badge&logo=github&logoColor=white" alt="LaboratoryBlocks on GitHub"></a>
+  <a href="https://modrinth.com/mod/artemis-laboratory-blocks"><img src="https://img.shields.io/badge/Modrinth-LaboratoryBlocks-00AF5C?style=for-the-badge&logo=modrinth&logoColor=white" alt="Artemis' Laboratory Blocks on Modrinth"></a>
 </p>
 
 <p align="center">
@@ -117,14 +121,4 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-830F26?style=for-the-badge&labelColor=A4011A&logo=bookstack&logoColor=white" alt="MIT License"></a>
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/IntelligenceModding/LaboratoryBlocks/refs/heads/assets/Resources.png" alt="Resources" height="75">
-</p>
-
-<p align="center">
-  <a href="https://docs.neoforged.net/"><img src="https://img.shields.io/badge/NeoForge-Documentation-6C47FF?style=for-the-badge&logo=bookstack&logoColor=white" alt="NeoForge Documentation"></a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://discord.neoforged.net/"><img src="https://img.shields.io/badge/NeoForged-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="NeoForged Discord"></a>
 </p>
