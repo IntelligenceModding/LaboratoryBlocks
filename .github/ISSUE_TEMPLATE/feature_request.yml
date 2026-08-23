@@ -1,6 +1,8 @@
 name: Feature Request
 description: Suggest a new feature or improvement for Artemis' Laboratory Blocks
 title: "[Feature] "
+labels:
+  - enhancement
 
 body:
   - type: markdown
