@@ -1,4 +1,6 @@
-# Contributing to Artemis' Laboratory Blocks
+<p align="center">
+  <img src="https://raw.githubusercontent.com/IntelligenceModding/LaboratoryBlocks/refs/heads/assets/Project%20Title.png" alt="Artemis' Laboratory Blocks" width="900">
+</p>
 
 Thanks for your interest in contributing to Artemis' Laboratory Blocks.
 
