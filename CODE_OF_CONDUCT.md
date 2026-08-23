@@ -2,8 +2,6 @@
   <img src="https://raw.githubusercontent.com/IntelligenceModding/LaboratoryBlocks/refs/heads/assets/Project%20Title.png" alt="Artemis' Laboratory Blocks" width="900">
 </p>
 
-# Code of Conduct
-
 ## Our Pledge
 
 We are committed to making participation in Artemis' Laboratory Blocks a welcoming and harassment-free experience for everyone, regardless of age, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, sex characteristics, sexual identity, or sexual orientation.
