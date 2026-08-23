@@ -1,6 +1,8 @@
 name: Bug Report
 description: Report a reproducible problem with Artemis' Laboratory Blocks
 title: "[Bug] "
+labels:
+  - bug
 
 body:
   - type: markdown
