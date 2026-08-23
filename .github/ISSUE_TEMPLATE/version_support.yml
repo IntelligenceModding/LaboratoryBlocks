@@ -1,6 +1,8 @@
 name: Version Support Request
 description: Request support for another Minecraft version or mod loader
 title: "[Version] "
+labels:
+  - version-support
 
 body:
   - type: markdown
