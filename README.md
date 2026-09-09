@@ -10,6 +10,8 @@
   It focuses on connected laboratory building materials, reinforced structural blocks, screens, vents, fans, and other high-tech decorative pieces for research facilities, industrial corridors, control rooms, and other science-fiction inspired builds that still fit naturally into Minecraft construction.
 </p>
 
+<br>
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/IntelligenceModding/LaboratoryBlocks/refs/heads/assets/Compatibility.png" alt="Compatibility" height="75">
 </p>
@@ -34,6 +36,8 @@
   <a href="https://modrinth.com/mod/fusion-connected-textures"><img src="https://img.shields.io/badge/Modrinth-Fusion%20(Connected%20Textures)-00AF5C?style=for-the-badge&logo=modrinth&logoColor=white" alt="Fusion on Modrinth"></a>
 </p>
 
+<br>
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/IntelligenceModding/LaboratoryBlocks/refs/heads/assets/Features.png" alt="Features" height="75">
 </p>
@@ -51,6 +55,34 @@
   &bull; Themed floors and tiles<br>
   &bull; Doors and trapdoors
 </p>
+
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/IntelligenceModding/LaboratoryBlocks/refs/heads/assets/Resources.png" alt="Resources" height="75">
+</p>
+
+<p align="center">
+  Bug reports, feature requests, version support requests, and contributions are welcome.
+</p>
+
+<p align="center">
+  Please read the contribution guidelines before submitting changes and use the appropriate issue form when reporting problems or suggesting improvements.
+</p>
+
+<p align="center">
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/GitHub-Contributing%20Guidelines-181717?style=for-the-badge&logo=github&logoColor=white" alt="Contribution Guidelines"></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/IntelligenceModding/LaboratoryBlocks/issues/new/choose"><img src="https://img.shields.io/badge/GitHub-Issues-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Issues"></a>
+</p>
+
+<p align="center">
+  <a href="SUPPORT.md"><img src="https://img.shields.io/badge/GitHub-Support-181717?style=for-the-badge&logo=github&logoColor=white" alt="Support"></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/GitHub-Code%20of%20Conduct-181717?style=for-the-badge&logo=github&logoColor=white" alt="Code of Conduct"></a>
+</p>
+
+<br>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/IntelligenceModding/LaboratoryBlocks/refs/heads/assets/Community.png" alt="Community" height="75">
@@ -81,6 +113,8 @@
   &nbsp;&nbsp;&nbsp;
   <a href="https://github.com/IntelligenceModding"><img src="https://img.shields.io/badge/GitHub-IntelligenceModding-181717?style=for-the-badge&logo=github&logoColor=white" alt="Intelligence Modding on GitHub"></a>
 </p>
+
+<br>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/IntelligenceModding/LaboratoryBlocks/refs/heads/assets/Acknowledgments.png" alt="Acknowledgments" height="75">

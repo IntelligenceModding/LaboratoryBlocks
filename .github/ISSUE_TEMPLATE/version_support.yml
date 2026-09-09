@@ -1,0 +1,58 @@
+name: Version Support Request
+description: Request support for another Minecraft version or mod loader
+title: "[Version] "
+labels:
+  - version-support
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request support for another Minecraft version or mod loader.
+
+        Before submitting, check the repository branches and the CurseForge or Modrinth project pages to make sure support does not already exist.
+
+        A request does not guarantee that the requested version or loader will be supported.
+
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Requested Minecraft Version
+      placeholder: "Example: 1.21.8"
+    validations:
+      required: true
+
+  - type: input
+    id: loader
+    attributes:
+      label: Requested Mod Loader
+      placeholder: "Example: NeoForge"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why are you requesting this version?
+      description: Explain why support for this Minecraft version or loader would be useful.
+      placeholder: Explain why you would like this version to be supported.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Add anything else that may be relevant.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before Submitting
+      options:
+        - label: I checked the repository branches for existing support.
+          required: true
+        - label: I checked the CurseForge or Modrinth project pages for existing support.
+          required: true
+        - label: I understand that requesting a version does not guarantee that it will be supported.
+          required: true
