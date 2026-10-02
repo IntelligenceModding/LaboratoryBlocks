@@ -14,25 +14,13 @@
     "placed_mixed_laboratory_tiles": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:mixed_laboratory_tiles",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:mixed_laboratory_tiles"
       }
     },
     "placed_glowing_mixed_laboratory_tiles": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_mixed_laboratory_tiles",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:glowing_mixed_laboratory_tiles"
       }
     }
   },

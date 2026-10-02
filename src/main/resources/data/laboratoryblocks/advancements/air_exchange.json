@@ -14,13 +14,7 @@
     "placed_laboratory_vent": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:laboratory_vent",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:laboratory_vent"
       }
     }
   },

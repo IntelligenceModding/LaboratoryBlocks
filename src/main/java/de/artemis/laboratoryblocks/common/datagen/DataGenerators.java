@@ -10,7 +10,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.data.tags.BlockTagsProvider;
-import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -26,24 +26,28 @@ public class DataGenerators {
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
 
-        generator.addProvider(event.includeServer(), new LootTableProvider(generator) {
-            @Override
-            protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
-                return List.of(Pair.of(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK));
-            }
+        if (event.includeServer()) {
+            generator.addProvider(new LootTableProvider(generator) {
+                @Override
+                protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
+                    return List.of(Pair.of(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK));
+                }
 
-            @Override
-            protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext context) {
-            }
-        });
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(generator));
+                @Override
+                protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext context) {
+                }
+            });
+            generator.addProvider(new ModRecipeProvider(generator));
 
-        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(generator, event.getExistingFileHelper());
-        generator.addProvider(event.includeServer(), blockTagsProvider);
+            BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(generator, event.getExistingFileHelper());
+            generator.addProvider(blockTagsProvider);
+        }
 
-        generator.addProvider(event.includeClient(), new ModModelProvider(generator));
-        generator.addProvider(event.includeClient(), new ModFusionModelProvider(generator));
-        generator.addProvider(event.includeClient(), new ModFusionTextureMetadataProvider(generator));
-        generator.addProvider(event.includeClient(), new ModLanguageProvider(generator, "en_us"));
+        if (event.includeClient()) {
+            generator.addProvider(new ModModelProvider(generator));
+            generator.addProvider(new ModFusionModelProvider(generator));
+            generator.addProvider(new ModFusionTextureMetadataProvider(generator));
+            generator.addProvider(new ModLanguageProvider(generator, "en_us"));
+        }
     }
 }

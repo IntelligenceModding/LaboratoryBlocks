@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "laboratoryblocks:mangrove_laboratory_floor"
-  },
-  "result": "laboratoryblocks:mangrove_laboratory_tiles"
-}

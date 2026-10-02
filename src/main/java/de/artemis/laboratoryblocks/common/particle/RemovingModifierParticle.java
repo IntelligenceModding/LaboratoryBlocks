@@ -6,13 +6,14 @@ import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Random;
 
 public class RemovingModifierParticle extends TextureSheetParticle {
     private final float baseQuadSize;
 
-    protected RemovingModifierParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, RandomSource random, double xd, double yd, double zd) {
+    protected RemovingModifierParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, Random random, double xd, double yd, double zd) {
         super(level, xCoord, yCoord, zCoord, xd, yd, zd);
         this.setSprite(spriteSet.get(random));
 
@@ -60,7 +61,7 @@ public class RemovingModifierParticle extends TextureSheetParticle {
         }
 
         public Particle createParticle(@NotNull SimpleParticleType particleType, @NotNull ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
-            RandomSource random = level.random;
+            Random random = level.random;
             return new RemovingModifierParticle(level, x, y, z, this.spriteSet, random, dx, dy, dz);
         }
     }

@@ -17,7 +17,7 @@ body:
     attributes:
       label: Minecraft Version
       description: Which Minecraft version are you using?
-      placeholder: "Example: 1.19.2"
+      placeholder: "Example: 1.18.2"
     validations:
       required: true
 
@@ -35,7 +35,7 @@ body:
     attributes:
       label: Mod Loader
       description: Which mod loader and version are you using?
-      placeholder: "Example: Forge 43.5.0"
+      placeholder: "Example: Forge 40.3.0"
     validations:
       required: true
 

@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "laboratoryblocks:laboratory_block",
     "laboratoryblocks:glowing_laboratory_block",

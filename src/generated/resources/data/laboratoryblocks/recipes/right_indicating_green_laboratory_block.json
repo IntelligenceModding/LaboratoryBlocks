@@ -1,5 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "BBC",
+    "AAA"
+  ],
   "key": {
     "A": {
       "item": "laboratoryblocks:laboratory_block"
@@ -11,13 +16,8 @@
       "item": "minecraft:black_wool"
     }
   },
-  "pattern": [
-    "AAA",
-    "BBC",
-    "AAA"
-  ],
   "result": {
-    "count": 8,
-    "item": "laboratoryblocks:right_indicating_green_laboratory_block"
+    "item": "laboratoryblocks:right_indicating_green_laboratory_block",
+    "count": 8
   }
 }

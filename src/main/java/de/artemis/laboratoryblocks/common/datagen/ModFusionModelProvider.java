@@ -2,29 +2,37 @@ package de.artemis.laboratoryblocks.common.datagen;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.nio.file.Path;
 
 public class ModFusionModelProvider implements DataProvider {
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final String CUTOUT = "minecraft:cutout";
 
-    private final DataGenerator.PathProvider models;
+    private final Path modelsPath;
 
     public ModFusionModelProvider(DataGenerator generator) {
-        this.models = generator.createPathProvider(DataGenerator.Target.RESOURCE_PACK, "models/block");
+        this.modelsPath = generator.getOutputFolder()
+                .resolve("assets")
+                .resolve(LaboratoryBlocks.MOD_ID)
+                .resolve("models")
+                .resolve("block");
     }
 
     @Override
-    public void run(@NotNull CachedOutput output) throws IOException {
+    public void run(@NotNull HashCache cache) throws IOException {
         for (ModDatagenEntries.GeneratedBlockPair pair : ModDatagenEntries.ALL_PAIRS) {
-            saveConnectingModel(output, pair.baseModelName(), pair.glowingModelName(), pair.fusionTexturePath(), isGlass(pair));
-            saveConnectingModel(output, pair.glowingModelName(), pair.baseModelName(), pair.fusionTexturePath(), isGlass(pair));
+            saveConnectingModel(cache, pair.baseModelName(), pair.glowingModelName(), pair.fusionTexturePath(), isGlass(pair));
+            saveConnectingModel(cache, pair.glowingModelName(), pair.baseModelName(), pair.fusionTexturePath(), isGlass(pair));
         }
     }
 
@@ -33,7 +41,7 @@ public class ModFusionModelProvider implements DataProvider {
         return "Fusion Model Provider: " + LaboratoryBlocks.MOD_ID;
     }
 
-    private void saveConnectingModel(CachedOutput output, String modelName, String matchingBlock, String texturePath, boolean cutout) throws IOException {
+    private void saveConnectingModel(HashCache cache, String modelName, String matchingBlock, String texturePath, boolean cutout) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("type", "fusion:connecting");
         json.addProperty("parent", "minecraft:block/cube_all");
@@ -47,7 +55,7 @@ public class ModFusionModelProvider implements DataProvider {
         textures.addProperty("all", modPath("block/" + texturePath));
         json.add("textures", textures);
 
-        DataProvider.saveStable(output, json, models.json(id(modelName)));
+        DataProvider.save(GSON, cache, json, modelPath(id(modelName)));
     }
 
     private static JsonObject createConnections(String matchingBlock) {
@@ -73,6 +81,10 @@ public class ModFusionModelProvider implements DataProvider {
     }
     private static ResourceLocation id(String path) {
         return new ResourceLocation(LaboratoryBlocks.MOD_ID, path);
+    }
+
+    private Path modelPath(ResourceLocation id) {
+        return this.modelsPath.resolve(id.getPath() + ".json");
     }
 
     private static String modPath(String path) {

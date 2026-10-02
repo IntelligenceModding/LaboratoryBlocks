@@ -18,7 +18,7 @@
     }
   ],
   "result": {
-    "count": 4,
-    "item": "laboratoryblocks:text_laboratory_screen"
+    "item": "laboratoryblocks:text_laboratory_screen",
+    "count": 4
   }
 }

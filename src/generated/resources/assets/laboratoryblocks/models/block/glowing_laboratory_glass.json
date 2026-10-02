@@ -1,6 +1,8 @@
 {
   "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
+  "loader": "fusion:model",
+  "render_type": "minecraft:cutout",
   "connections": {
     "type": "fusion:or",
     "predicates": [
@@ -13,8 +15,6 @@
       }
     ]
   },
-  "loader": "fusion:model",
-  "render_type": "minecraft:cutout",
   "textures": {
     "all": "laboratoryblocks:block/laboratory_glass-fusion"
   }
