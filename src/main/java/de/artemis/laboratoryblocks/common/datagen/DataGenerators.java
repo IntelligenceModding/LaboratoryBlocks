@@ -1,41 +1,49 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import net.minecraft.core.HolderLookup;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.storage.loot.ValidationContext;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraftforge.common.data.BlockTagsProvider;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.Collections;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
+import java.util.Map;
+import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = LaboratoryBlocks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
-        PackOutput packOutput = generator.getPackOutput();
-        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new LootTableProvider(
-                packOutput,
-                Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK))
-        ));
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
+        generator.addProvider(event.includeServer(), new LootTableProvider(generator) {
+            @Override
+            protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
+                return List.of(Pair.of(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK));
+            }
 
-        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
+            @Override
+            protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext context) {
+            }
+        });
+        generator.addProvider(event.includeServer(), new ModRecipeProvider(generator));
+
+        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(generator, event.getExistingFileHelper());
         generator.addProvider(event.includeServer(), blockTagsProvider);
 
-        generator.addProvider(event.includeClient(), new ModModelProvider(packOutput));
-        generator.addProvider(event.includeClient(), new ModFusionModelProvider(packOutput));
-        generator.addProvider(event.includeClient(), new ModFusionTextureMetadataProvider(packOutput));
-        generator.addProvider(event.includeClient(), new ModLanguageProvider(packOutput, "en_us"));
+        generator.addProvider(event.includeClient(), new ModModelProvider(generator));
+        generator.addProvider(event.includeClient(), new ModFusionModelProvider(generator));
+        generator.addProvider(event.includeClient(), new ModFusionTextureMetadataProvider(generator));
+        generator.addProvider(event.includeClient(), new ModLanguageProvider(generator, "en_us"));
     }
 }

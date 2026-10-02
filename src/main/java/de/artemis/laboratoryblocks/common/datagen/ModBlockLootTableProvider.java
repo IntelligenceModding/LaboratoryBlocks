@@ -1,17 +1,13 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
-import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 import java.util.stream.Stream;
+import java.util.Set;
 
-public class ModBlockLootTableProvider extends BlockLootSubProvider {
+public class ModBlockLootTableProvider extends BlockLoot {
     private static final Set<Block> GENERATED_BLOCKS = ModDatagenEntries.ALL_PAIRS.stream()
             .flatMap(pair -> Stream.of(pair.base().get(), pair.glowing().get()))
             .collect(java.util.stream.Collectors.toUnmodifiableSet());
@@ -28,12 +24,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
             .map(trapdoor -> (Block)trapdoor.get())
             .collect(java.util.stream.Collectors.toUnmodifiableSet());
 
-    protected ModBlockLootTableProvider() {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), new HashMap<ResourceLocation, net.minecraft.world.level.storage.loot.LootTable.Builder>());
-    }
-
     @Override
-    protected void generate() {
+    protected void addTables() {
         GENERATED_BLOCKS.forEach(this::dropSelf);
         GENERATED_PILLARS.forEach(this::dropSelf);
         GENERATED_FANS.forEach(this::dropSelf);

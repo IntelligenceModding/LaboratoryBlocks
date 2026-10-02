@@ -16,7 +16,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, LaboratoryBlocks.MOD_ID);
 
     private static <T extends Item> RegistryObject<T> register(String name, Function<Item.Properties, T> itemFactory, UnaryOperator<Item.Properties> properties) {
-        return ITEMS.register(name, () -> itemFactory.apply(properties.apply(new Item.Properties())));
+        return ITEMS.register(name, () -> itemFactory.apply(properties.apply(new Item.Properties().tab(ModCreativeModeTabs.LABORATORY_BLOCKS_CREATIVE_TAB))));
     }
 
     public static void register(IEventBus eventBus) {

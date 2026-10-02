@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Minecraft-1.20.1-3C8527?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft 1.20.1">
+  <img src="https://img.shields.io/badge/Minecraft-1.19.2-3C8527?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft 1.19.2">
   &nbsp;&nbsp;&nbsp;
   <img src="https://img.shields.io/badge/Loader-Forge-F16436?style=for-the-badge" alt="Forge">
 </p>

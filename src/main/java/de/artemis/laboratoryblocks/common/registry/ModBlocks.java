@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -32,8 +32,8 @@ public class ModBlocks {
             Function<BlockBehaviour.Properties, T> blockFactory,
             UnaryOperator<BlockBehaviour.Properties> properties
     ) {
-        RegistryObject<T> block = BLOCKS.register(name, () -> blockFactory.apply(properties.apply(BlockBehaviour.Properties.of())));
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        RegistryObject<T> block = BLOCKS.register(name, () -> blockFactory.apply(properties.apply(BlockBehaviour.Properties.of(Material.STONE))));
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(ModCreativeModeTabs.LABORATORY_BLOCKS_CREATIVE_TAB)));
         return block;
     }
 
@@ -50,28 +50,28 @@ public class ModBlocks {
     }
 
     public static final RegistryObject<DoorBlock> LABORATORY_DOOR = register("laboratory_door",
-            properties -> new DoorBlock(properties, ModBlockSetTypes.LABORATORY),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            DoorBlock::new,
+            properties -> properties.strength(3.0F).noOcclusion());
 
     public static final RegistryObject<DoorBlock> MESH_LABORATORY_DOOR = register("mesh_laboratory_door",
-            properties -> new DoorBlock(properties, ModBlockSetTypes.LABORATORY),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            DoorBlock::new,
+            properties -> properties.strength(3.0F).noOcclusion());
 
     public static final RegistryObject<DoorBlock> GLASS_LABORATORY_DOOR = register("glass_laboratory_door",
-            properties -> new DoorBlock(properties, ModBlockSetTypes.LABORATORY),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            DoorBlock::new,
+            properties -> properties.strength(3.0F).noOcclusion());
 
     public static final RegistryObject<TrapDoorBlock> LABORATORY_TRAPDOOR = register("laboratory_trapdoor",
-            properties -> new TrapDoorBlock(properties, ModBlockSetTypes.LABORATORY),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            TrapDoorBlock::new,
+            properties -> properties.strength(3.0F).noOcclusion());
 
     public static final RegistryObject<TrapDoorBlock> MESH_LABORATORY_TRAPDOOR = register("mesh_laboratory_trapdoor",
-            properties -> new TrapDoorBlock(properties, ModBlockSetTypes.LABORATORY),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            TrapDoorBlock::new,
+            properties -> properties.strength(3.0F).noOcclusion());
 
     public static final RegistryObject<TrapDoorBlock> GLASS_LABORATORY_TRAPDOOR = register("glass_laboratory_trapdoor",
-            properties -> new TrapDoorBlock(properties, ModBlockSetTypes.LABORATORY),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            TrapDoorBlock::new,
+            properties -> properties.strength(3.0F).noOcclusion());
 
     public static final RegistryObject<LaboratoryBlock> LABORATORY_PILLAR = register("laboratory_pillar",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_LABORATORY_PILLAR, properties),
@@ -235,179 +235,147 @@ public class ModBlocks {
 
     public static final RegistryObject<LaboratoryBlock> OAK_LABORATORY_FLOOR = register("oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_OAK_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_OAK_LABORATORY_FLOOR = register("glowing_oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.OAK_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> OAK_LABORATORY_TILES = register("oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_OAK_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_OAK_LABORATORY_TILES = register("glowing_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.OAK_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> SPRUCE_LABORATORY_FLOOR = register("spruce_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_SPRUCE_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_SPRUCE_LABORATORY_FLOOR = register("glowing_spruce_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.SPRUCE_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> SPRUCE_LABORATORY_TILES = register("spruce_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_SPRUCE_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_SPRUCE_LABORATORY_TILES = register("glowing_spruce_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.SPRUCE_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> BIRCH_LABORATORY_FLOOR = register("birch_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_BIRCH_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_BIRCH_LABORATORY_FLOOR = register("glowing_birch_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.BIRCH_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> BIRCH_LABORATORY_TILES = register("birch_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_BIRCH_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_BIRCH_LABORATORY_TILES = register("glowing_birch_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.BIRCH_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> DARK_OAK_LABORATORY_FLOOR = register("dark_oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_OAK_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_DARK_OAK_LABORATORY_FLOOR = register("glowing_dark_oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.DARK_OAK_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> DARK_OAK_LABORATORY_TILES = register("dark_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_OAK_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_DARK_OAK_LABORATORY_TILES = register("glowing_dark_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.DARK_OAK_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> JUNGLE_LABORATORY_FLOOR = register("jungle_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_JUNGLE_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_JUNGLE_LABORATORY_FLOOR = register("glowing_jungle_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.JUNGLE_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> JUNGLE_LABORATORY_TILES = register("jungle_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_JUNGLE_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_JUNGLE_LABORATORY_TILES = register("glowing_jungle_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.JUNGLE_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> ACACIA_LABORATORY_FLOOR = register("acacia_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_ACACIA_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_ACACIA_LABORATORY_FLOOR = register("glowing_acacia_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.ACACIA_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> ACACIA_LABORATORY_TILES = register("acacia_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_ACACIA_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_ACACIA_LABORATORY_TILES = register("glowing_acacia_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.ACACIA_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> MANGROVE_LABORATORY_FLOOR = register("mangrove_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_MANGROVE_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_MANGROVE_LABORATORY_FLOOR = register("glowing_mangrove_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.MANGROVE_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> MANGROVE_LABORATORY_TILES = register("mangrove_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_MANGROVE_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_MANGROVE_LABORATORY_TILES = register("glowing_mangrove_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.MANGROVE_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
-
-    public static final RegistryObject<LaboratoryBlock> CHERRY_LABORATORY_FLOOR = register("cherry_laboratory_floor",
-            properties -> new LaboratoryBlock(ModBlocks.GLOWING_CHERRY_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD));
-
-    public static final RegistryObject<LaboratoryBlock> GLOWING_CHERRY_LABORATORY_FLOOR = register("glowing_cherry_laboratory_floor",
-            properties -> new LaboratoryBlock(ModBlocks.CHERRY_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(state -> 14));
-
-    public static final RegistryObject<LaboratoryBlock> CHERRY_LABORATORY_TILES = register("cherry_laboratory_tiles",
-            properties -> new LaboratoryBlock(ModBlocks.GLOWING_CHERRY_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD));
-
-    public static final RegistryObject<LaboratoryBlock> GLOWING_CHERRY_LABORATORY_TILES = register("glowing_cherry_laboratory_tiles",
-            properties -> new LaboratoryBlock(ModBlocks.CHERRY_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(state -> 14));
-
-    public static final RegistryObject<LaboratoryBlock> BAMBOO_LABORATORY_FLOOR = register("bamboo_laboratory_floor",
-            properties -> new LaboratoryBlock(ModBlocks.GLOWING_BAMBOO_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD));
-
-    public static final RegistryObject<LaboratoryBlock> GLOWING_BAMBOO_LABORATORY_FLOOR = register("glowing_bamboo_laboratory_floor",
-            properties -> new LaboratoryBlock(ModBlocks.BAMBOO_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(state -> 14));
-
-    public static final RegistryObject<LaboratoryBlock> BAMBOO_LABORATORY_TILES = register("bamboo_laboratory_tiles",
-            properties -> new LaboratoryBlock(ModBlocks.GLOWING_BAMBOO_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD));
-
-    public static final RegistryObject<LaboratoryBlock> GLOWING_BAMBOO_LABORATORY_TILES = register("glowing_bamboo_laboratory_tiles",
-            properties -> new LaboratoryBlock(ModBlocks.BAMBOO_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> CRIMSON_LABORATORY_FLOOR = register("crimson_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_CRIMSON_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_CRIMSON_LABORATORY_FLOOR = register("glowing_crimson_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.CRIMSON_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> CRIMSON_LABORATORY_TILES = register("crimson_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_CRIMSON_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_CRIMSON_LABORATORY_TILES = register("glowing_crimson_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.CRIMSON_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> WARPED_LABORATORY_FLOOR = register("warped_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_WARPED_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_WARPED_LABORATORY_FLOOR = register("glowing_warped_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.WARPED_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryBlock> WARPED_LABORATORY_TILES = register("warped_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_WARPED_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
 
     public static final RegistryObject<LaboratoryBlock> GLOWING_WARPED_LABORATORY_TILES = register("glowing_warped_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.WARPED_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
     public static final RegistryObject<LaboratoryGlassBlock> LABORATORY_GLASS = register("laboratory_glass",
             properties -> new LaboratoryGlassBlock(ModBlocks.GLOWING_LABORATORY_GLASS, properties),
@@ -421,3 +389,4 @@ public class ModBlocks {
                     .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
                     .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(state -> 14));
 }
+

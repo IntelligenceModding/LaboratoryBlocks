@@ -1,7 +1,6 @@
 package de.artemis.laboratoryblocks;
 
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
-import de.artemis.laboratoryblocks.common.registry.ModCreativeModeTabs;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
 import de.artemis.laboratoryblocks.common.registry.ModParticles;
 import de.artemis.laboratoryblocks.common.registry.ModSoundEvents;
@@ -18,7 +17,6 @@ public class LaboratoryBlocks {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-        ModCreativeModeTabs.register(modEventBus);
         ModParticles.register(modEventBus);
         ModSoundEvents.register(modEventBus);
     }

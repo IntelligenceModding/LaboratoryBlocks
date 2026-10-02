@@ -1,21 +1,19 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
-import net.minecraftforge.common.data.BlockTagsProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.concurrent.CompletableFuture;
-
 public class ModBlockTagProvider extends BlockTagsProvider {
-    public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, LaboratoryBlocks.MOD_ID, null);
+    public ModBlockTagProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+        super(generator, LaboratoryBlocks.MOD_ID, existingFileHelper);
     }
 
     @Override
-    protected void addTags(HolderLookup.@NotNull Provider provider) {
+    protected void addTags() {
         var pickaxeTag = tag(BlockTags.MINEABLE_WITH_PICKAXE);
         ModDatagenEntries.CORE_PAIRS.forEach(pair -> {
             pickaxeTag.add(pair.base().get());

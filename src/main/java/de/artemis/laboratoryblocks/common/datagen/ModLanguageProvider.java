@@ -2,7 +2,7 @@ package de.artemis.laboratoryblocks.common.datagen;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ModLanguageProvider extends net.minecraftforge.common.data.LanguageProvider {
-    public ModLanguageProvider(PackOutput output, String locale) {
-        super(output, LaboratoryBlocks.MOD_ID, locale);
+    public ModLanguageProvider(DataGenerator generator, String locale) {
+        super(generator, LaboratoryBlocks.MOD_ID, locale);
     }
 
     @Override
