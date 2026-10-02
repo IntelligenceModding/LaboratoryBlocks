@@ -4,19 +4,20 @@ import com.google.gson.JsonObject;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import net.minecraft.data.DataProvider;
+import net.minecraft.data.IDataProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.HashCache;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.data.DirectoryCache;
+import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
 
-public class ModFusionTextureMetadataProvider implements DataProvider {
+public class ModFusionTextureMetadataProvider implements IDataProvider {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private static final List<String> ANIMATED_SCREENS = List.of(
+    private static final List<String> ANIMATED_SCREENS = Arrays.asList(
             "wave_laboratory_screen",
             "text_laboratory_screen",
             "quantum_laboratory_screen"
@@ -33,7 +34,7 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
     }
 
     @Override
-    public void run(@NotNull HashCache cache) throws IOException {
+    public void run(@NotNull DirectoryCache cache) throws IOException {
         for (ModDatagenEntries.GeneratedBlockPair pair : ModDatagenEntries.ALL_PAIRS) {
             saveTextureMetadata(cache, pair);
         }
@@ -44,7 +45,7 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
         return "Fusion Texture Metadata Provider: " + LaboratoryBlocks.MOD_ID;
     }
 
-    private void saveTextureMetadata(HashCache cache, ModDatagenEntries.GeneratedBlockPair pair) throws IOException {
+    private void saveTextureMetadata(DirectoryCache cache, ModDatagenEntries.GeneratedBlockPair pair) throws IOException {
         JsonObject json = new JsonObject();
 
         if (isAnimatedScreen(pair)) {
@@ -61,7 +62,7 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
         }
         json.add("fusion", fusion);
 
-        DataProvider.save(GSON, cache, json, texturePath(texture(pair.fusionTexturePath())));
+        IDataProvider.save(GSON, cache, json, texturePath(texture(pair.fusionTexturePath())));
     }
 
     private static boolean isAnimatedScreen(ModDatagenEntries.GeneratedBlockPair pair) {

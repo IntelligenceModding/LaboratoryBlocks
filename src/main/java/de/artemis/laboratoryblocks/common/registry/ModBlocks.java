@@ -4,22 +4,23 @@ import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.block.LaboratoryBlock;
 import de.artemis.laboratoryblocks.common.block.LaboratoryGlassBlock;
 import de.artemis.laboratoryblocks.common.block.RedstoneControlledLaboratoryBlock;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.DoorBlock;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.TrapDoorBlock;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityType;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockReader;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.fml.RegistryObject;
 
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
@@ -29,19 +30,19 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<T> register(
             String name,
-            Function<BlockBehaviour.Properties, T> blockFactory,
-            UnaryOperator<BlockBehaviour.Properties> properties
+            Function<AbstractBlock.Properties, T> blockFactory,
+            UnaryOperator<AbstractBlock.Properties> properties
     ) {
-        RegistryObject<T> block = BLOCKS.register(name, () -> blockFactory.apply(properties.apply(BlockBehaviour.Properties.of(Material.STONE))));
+        RegistryObject<T> block = BLOCKS.register(name, () -> blockFactory.apply(properties.apply(AbstractBlock.Properties.of(Material.STONE).harvestTool(ToolType.PICKAXE))));
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(ModCreativeModeTabs.LABORATORY_BLOCKS_CREATIVE_TAB)));
         return block;
     }
 
-    private static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {
+    private static boolean never(BlockState blockState, IBlockReader blockGetter, BlockPos blockPos, EntityType<?> entityType) {
         return false;
     }
 
-    private static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+    private static boolean never(BlockState blockState, IBlockReader blockGetter, BlockPos blockPos) {
         return false;
     }
 

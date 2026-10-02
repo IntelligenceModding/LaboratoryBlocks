@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:glowstone_particles"
-            ]
+            "item": "laboratoryblocks:glowstone_particles"
           }
         ]
       }

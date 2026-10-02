@@ -1,18 +1,19 @@
 package de.artemis.laboratoryblocks.common.util;
 
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.List;
 
 public final class LaboratoryWoodSwapUtil {
 
-    private static final List<WoodFamily> FAMILIES = List.of(
+    private static final List<WoodFamily> FAMILIES = Arrays.asList(
             family(Blocks.OAK_PLANKS, ModBlocks.OAK_LABORATORY_FLOOR, ModBlocks.GLOWING_OAK_LABORATORY_FLOOR, ModBlocks.OAK_LABORATORY_TILES, ModBlocks.GLOWING_OAK_LABORATORY_TILES),
             family(Blocks.SPRUCE_PLANKS, ModBlocks.SPRUCE_LABORATORY_FLOOR, ModBlocks.GLOWING_SPRUCE_LABORATORY_FLOOR, ModBlocks.SPRUCE_LABORATORY_TILES, ModBlocks.GLOWING_SPRUCE_LABORATORY_TILES),
             family(Blocks.BIRCH_PLANKS, ModBlocks.BIRCH_LABORATORY_FLOOR, ModBlocks.GLOWING_BIRCH_LABORATORY_FLOOR, ModBlocks.BIRCH_LABORATORY_TILES, ModBlocks.GLOWING_BIRCH_LABORATORY_TILES),
@@ -38,10 +39,12 @@ public final class LaboratoryWoodSwapUtil {
             return null;
         }
 
-        Block targetBlock = switch (currentMatch.kind) {
-            case FLOOR -> currentMatch.glowing ? targetFamily.glowingFloor.get() : targetFamily.floor.get();
-            case TILES -> currentMatch.glowing ? targetFamily.glowingTiles.get() : targetFamily.tiles.get();
-        };
+        Block targetBlock;
+        if (currentMatch.kind == BlockKind.FLOOR) {
+            targetBlock = currentMatch.glowing ? targetFamily.glowingFloor.get() : targetFamily.floor.get();
+        } else {
+            targetBlock = currentMatch.glowing ? targetFamily.glowingTiles.get() : targetFamily.tiles.get();
+        }
 
         return new SwapResult(targetBlock, new ItemStack(currentMatch.family.planks));
     }
@@ -85,19 +88,50 @@ public final class LaboratoryWoodSwapUtil {
         return new WoodFamily(planks, floor, glowingFloor, tiles, glowingTiles);
     }
 
-    public record SwapResult(Block targetBlock, ItemStack returnedPlanks) {
+    public static final class SwapResult {
+        private final Block targetBlock;
+        private final ItemStack returnedPlanks;
+
+        private SwapResult(Block targetBlock, ItemStack returnedPlanks) {
+            this.targetBlock = targetBlock;
+            this.returnedPlanks = returnedPlanks;
+        }
+
+        public Block targetBlock() {
+            return this.targetBlock;
+        }
+
+        public ItemStack returnedPlanks() {
+            return this.returnedPlanks;
+        }
     }
 
-    private record WoodFamily(
-            Block planks,
-            RegistryObject<? extends Block> floor,
-            RegistryObject<? extends Block> glowingFloor,
-            RegistryObject<? extends Block> tiles,
-            RegistryObject<? extends Block> glowingTiles
-    ) {
+    private static final class WoodFamily {
+        private final Block planks;
+        private final RegistryObject<? extends Block> floor;
+        private final RegistryObject<? extends Block> glowingFloor;
+        private final RegistryObject<? extends Block> tiles;
+        private final RegistryObject<? extends Block> glowingTiles;
+
+        private WoodFamily(Block planks, RegistryObject<? extends Block> floor, RegistryObject<? extends Block> glowingFloor, RegistryObject<? extends Block> tiles, RegistryObject<? extends Block> glowingTiles) {
+            this.planks = planks;
+            this.floor = floor;
+            this.glowingFloor = glowingFloor;
+            this.tiles = tiles;
+            this.glowingTiles = glowingTiles;
+        }
     }
 
-    private record BlockMatch(WoodFamily family, BlockKind kind, boolean glowing) {
+    private static final class BlockMatch {
+        private final WoodFamily family;
+        private final BlockKind kind;
+        private final boolean glowing;
+
+        private BlockMatch(WoodFamily family, BlockKind kind, boolean glowing) {
+            this.family = family;
+            this.kind = kind;
+            this.glowing = glowing;
+        }
     }
 
     private enum BlockKind {

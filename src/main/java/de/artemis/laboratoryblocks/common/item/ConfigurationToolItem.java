@@ -1,12 +1,12 @@
 package de.artemis.laboratoryblocks.common.item;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,8 +18,8 @@ public class ConfigurationToolItem extends Item {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag flag) {
-        tooltipComponents.add(new TranslatableComponent("tooltip.laboratoryblocks.configuration_tool.remove_glowstone").withStyle(ChatFormatting.GRAY));
+    public void appendHoverText(@NotNull ItemStack itemStack, @Nullable World level, @NotNull List<ITextComponent> tooltipComponents, @NotNull ITooltipFlag flag) {
+        tooltipComponents.add(new TranslationTextComponent("tooltip.laboratoryblocks.configuration_tool.remove_glowstone").withStyle(TextFormatting.GRAY));
         super.appendHoverText(itemStack, level, tooltipComponents, flag);
     }
 }

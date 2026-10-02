@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:glowing_warped_laboratory_floor"
-            ]
+            "item": "laboratoryblocks:glowing_warped_laboratory_floor"
           }
         ]
       }

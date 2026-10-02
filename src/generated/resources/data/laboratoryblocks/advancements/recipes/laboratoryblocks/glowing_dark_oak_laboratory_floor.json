@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:dark_oak_laboratory_floor"
-            ]
+            "item": "laboratoryblocks:dark_oak_laboratory_floor"
           }
         ]
       }

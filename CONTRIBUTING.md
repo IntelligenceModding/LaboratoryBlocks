@@ -90,7 +90,7 @@ You can view the available branches [here][branches].
 
 When contributing, always work against the branch matching the Minecraft version and loader your change targets.
 
-For example, a change developed for Minecraft 1.18.2 with Forge should target the corresponding 1.18.2 Forge branch.
+For example, a change developed for Minecraft 1.16.5 with Forge should target the corresponding 1.16.5 Forge branch.
 
 Do **not** target the `assets` branch for code changes. The `assets` branch is used for project images and other repository assets.
 
@@ -112,13 +112,14 @@ Before working on Laboratory Blocks, make sure you have the following installed:
 
 Different Minecraft branches may require different Java versions.
 
-Check the following line in the branch's `build.gradle` file if you are unsure:
+Check the following lines in the branch's `build.gradle` file if you are unsure:
 
 ```gradle
-java.toolchain.languageVersion = JavaLanguageVersion.of(...)
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 ```
 
-For example, the Minecraft 1.18.2 Forge branch uses Java 17.
+For example, the Minecraft 1.16.5 Forge branch targets Java 8 bytecode.
 
 Java builds such as Eclipse Temurin can be downloaded from [Adoptium][adoptium].
 
@@ -150,7 +151,7 @@ Before beginning work, switch to the branch matching the Minecraft version you w
 For example:
 
 ```bash
-git switch 1.18.2-forge
+git switch 1.16.5-forge
 ```
 
 It is recommended to create your own development branch from there.

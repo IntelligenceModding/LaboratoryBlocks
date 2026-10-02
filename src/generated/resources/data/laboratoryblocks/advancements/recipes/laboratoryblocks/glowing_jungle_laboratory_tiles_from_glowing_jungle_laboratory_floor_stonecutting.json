@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:glowing_jungle_laboratory_floor"
-            ]
+            "item": "laboratoryblocks:glowing_jungle_laboratory_floor"
           }
         ]
       }

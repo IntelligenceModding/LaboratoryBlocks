@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:gray_laboratory_tiles"
-            ]
+            "item": "laboratoryblocks:gray_laboratory_tiles"
           }
         ]
       }

@@ -17,7 +17,7 @@ body:
     attributes:
       label: Minecraft Version
       description: Which Minecraft version are you using?
-      placeholder: "Example: 1.18.2"
+      placeholder: "Example: 1.16.5"
     validations:
       required: true
 
@@ -35,7 +35,7 @@ body:
     attributes:
       label: Mod Loader
       description: Which mod loader and version are you using?
-      placeholder: "Example: Forge 40.3.0"
+      placeholder: "Example: Forge 36.2.34"
     validations:
       required: true
 
@@ -86,7 +86,7 @@ body:
       description: List other mods that may be relevant. If the issue may be compatibility-related, provide the full mod list if possible.
       placeholder: |
         Example:
-        - JEI 19.22.0.315
+        - JEI 7.8.1.1018
         - Example Mod 1.2.3
 
   - type: textarea

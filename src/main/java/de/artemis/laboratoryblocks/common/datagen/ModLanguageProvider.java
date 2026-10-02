@@ -3,10 +3,10 @@ package de.artemis.laboratoryblocks.common.datagen;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.block.DoorBlock;
+import net.minecraft.block.TrapDoorBlock;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.RegistryObject;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -42,15 +42,14 @@ public class ModLanguageProvider extends net.minecraftforge.common.data.Language
                 .collect(Collectors.toCollection(java.util.HashSet::new));
         generatedBlockIds.addAll(ModDatagenEntries.PILLAR_PAIRS.stream()
                 .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
-                .toList());
+                .collect(Collectors.toList()));
         generatedBlockIds.addAll(ModDatagenEntries.FAN_PAIRS.stream()
                 .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
-                .toList());
-        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(RegistryObject::getId).toList());
-        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(RegistryObject::getId).toList());
-        generatedBlockIds = Set.copyOf(generatedBlockIds);
+                .collect(Collectors.toList()));
+        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(RegistryObject::getId).collect(Collectors.toList()));
+        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(RegistryObject::getId).collect(Collectors.toList()));
 
-        for (var item : ModItems.ITEMS.getEntries()) {
+        for (RegistryObject<net.minecraft.item.Item> item : ModItems.ITEMS.getEntries()) {
             if (!generatedBlockIds.contains(item.getId())) {
                 add(item.get(), humanize(item.getId().getPath()));
             }

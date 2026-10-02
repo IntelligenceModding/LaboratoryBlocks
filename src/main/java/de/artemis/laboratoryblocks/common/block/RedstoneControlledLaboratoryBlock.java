@@ -2,18 +2,18 @@ package de.artemis.laboratoryblocks.common.block;
 
 import de.artemis.laboratoryblocks.common.registry.ModItems;
 import de.artemis.laboratoryblocks.common.util.ModUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
@@ -30,14 +30,14 @@ public class RedstoneControlledLaboratoryBlock extends Block {
     }
 
     @Override
-    public void neighborChanged(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Block block, @NotNull BlockPos neighborPos, boolean isMoving) {
+    public void neighborChanged(@NotNull BlockState blockState, World level, @NotNull BlockPos blockPos, @NotNull Block block, @NotNull BlockPos neighborPos, boolean isMoving) {
         boolean powered = blockState.getValue(POWERED);
         boolean shouldBePowered = level.hasNeighborSignal(blockPos);
 
         if (!level.isClientSide()) {
             if (powered != shouldBePowered) {
                 if (powered) {
-                    level.scheduleTick(blockPos, this, 4);
+                    level.getBlockTicks().scheduleTick(blockPos, this, 4);
                 } else {
                     level.setBlock(blockPos, blockState.cycle(POWERED), 2);
                 }
@@ -46,7 +46,7 @@ public class RedstoneControlledLaboratoryBlock extends Block {
     }
 
     @Override
-    public void tick(BlockState blockState, @NotNull ServerLevel serverLevel, @NotNull BlockPos blockPos, @NotNull Random random) {
+    public void tick(BlockState blockState, @NotNull ServerWorld serverLevel, @NotNull BlockPos blockPos, @NotNull Random random) {
         boolean shouldBePowered = serverLevel.hasNeighborSignal(blockPos);
 
         if (blockState.getValue(POWERED) && !shouldBePowered) {
@@ -56,11 +56,11 @@ public class RedstoneControlledLaboratoryBlock extends Block {
 
     @SuppressWarnings("deprecation")
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull ActionResultType use(@NotNull BlockState blockState, @NotNull World level, @NotNull BlockPos blockPos, PlayerEntity player, @NotNull Hand interactionHand, @NotNull BlockRayTraceResult blockHitResult) {
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
 
-        if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
-            if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+        if (itemStackInHand.getItem() == ModItems.GLOWSTONE_PARTICLES.get() || itemStackInHand.getItem() == ModItems.CONFIGURATION_TOOL.get()) {
+            if (itemStackInHand.getItem() == ModItems.GLOWSTONE_PARTICLES.get() && !blockState.getBlock().getRegistryName().toString().contains("glowing")) {
                 if (!level.isClientSide()) {
                     if (!player.isCreative()) {
                         itemStackInHand.shrink(1);
@@ -69,10 +69,10 @@ public class RedstoneControlledLaboratoryBlock extends Block {
                     ModUtils.playGlowstoneApplySound(level, blockPos);
                     ModUtils.spawnGlowstoneApplyParticles(level, blockHitResult);
                 }
-                return InteractionResult.sidedSuccess(level.isClientSide());
+                return ActionResultType.sidedSuccess(level.isClientSide());
             }
 
-            if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+            if (itemStackInHand.getItem() == ModItems.CONFIGURATION_TOOL.get() && blockState.getBlock().getRegistryName().toString().contains("glowing")) {
                 if (!level.isClientSide()) {
                     if (!player.isCreative()) {
                         ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
@@ -82,15 +82,15 @@ public class RedstoneControlledLaboratoryBlock extends Block {
                     ModUtils.playGlowstoneRemoveSound(level, blockPos);
                     ModUtils.spawnGlowstoneRemoveParticles(level, blockHitResult);
                 }
-                return InteractionResult.sidedSuccess(level.isClientSide());
+                return ActionResultType.sidedSuccess(level.isClientSide());
             }
         }
 
-        return InteractionResult.PASS;
+        return ActionResultType.PASS;
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(POWERED);
     }
 

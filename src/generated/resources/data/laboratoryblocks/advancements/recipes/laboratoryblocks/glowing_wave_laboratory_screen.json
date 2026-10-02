@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:wave_laboratory_screen"
-            ]
+            "item": "laboratoryblocks:wave_laboratory_screen"
           }
         ]
       }

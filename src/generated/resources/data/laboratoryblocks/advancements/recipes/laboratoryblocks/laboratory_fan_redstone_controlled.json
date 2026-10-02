@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:laboratory_fan"
-            ]
+            "item": "laboratoryblocks:laboratory_fan"
           }
         ]
       }
@@ -23,9 +21,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:redstone"
-            ]
+            "item": "minecraft:redstone"
           }
         ]
       }

@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:laboratory_fan_redstone_controlled"
-            ]
+            "item": "laboratoryblocks:laboratory_fan_redstone_controlled"
           }
         ]
       }

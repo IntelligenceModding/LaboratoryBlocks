@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:spruce_laboratory_tiles"
-            ]
+            "item": "laboratoryblocks:spruce_laboratory_tiles"
           }
         ]
       }

@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:left_indicating_green_laboratory_block"
-            ]
+            "item": "laboratoryblocks:left_indicating_green_laboratory_block"
           }
         ]
       }

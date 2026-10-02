@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:reinforced_laboratory_block"
-            ]
+            "item": "laboratoryblocks:reinforced_laboratory_block"
           }
         ]
       }

@@ -1,23 +1,23 @@
 package de.artemis.laboratoryblocks.common.particle;
 
-import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.particle.IAnimatedSprite;
+import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.particle.ParticleRenderType;
-import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
-import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.client.particle.IParticleRenderType;
+import net.minecraft.client.particle.SpriteTexturedParticle;
+import net.minecraft.client.world.ClientWorld;
+import net.minecraft.particles.BasicParticleType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
-public class ApplyingGlowstoneParticle extends TextureSheetParticle {
+public class ApplyingGlowstoneParticle extends SpriteTexturedParticle {
     private final float baseQuadSize;
 
-    protected ApplyingGlowstoneParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, Random random, double xd, double yd, double zd) {
+    protected ApplyingGlowstoneParticle(ClientWorld level, double xCoord, double yCoord, double zCoord, IAnimatedSprite spriteSet, Random random, double xd, double yd, double zd) {
         super(level, xCoord, yCoord, zCoord, xd, yd, zd);
-        this.setSprite(spriteSet.get(random));
+        this.pickSprite(spriteSet);
 
-        this.friction = 0.90F;
         this.hasPhysics = false;
         this.xd = xd;
         this.yd = yd;
@@ -49,18 +49,18 @@ public class ApplyingGlowstoneParticle extends TextureSheetParticle {
 
     @NotNull
     @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+    public IParticleRenderType getRenderType() {
+        return IParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
     }
 
-    public static class Provider implements net.minecraft.client.particle.ParticleProvider<SimpleParticleType> {
-        private final SpriteSet spriteSet;
+    public static class Provider implements IParticleFactory<BasicParticleType> {
+        private final IAnimatedSprite spriteSet;
 
-        public Provider(SpriteSet spriteSet) {
+        public Provider(IAnimatedSprite spriteSet) {
             this.spriteSet = spriteSet;
         }
 
-        public Particle createParticle(@NotNull SimpleParticleType particleType, @NotNull ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
+        public Particle createParticle(@NotNull BasicParticleType particleType, @NotNull ClientWorld level, double x, double y, double z, double dx, double dy, double dz) {
             Random random = level.random;
             ApplyingGlowstoneParticle applyingGlowstoneParticle = new ApplyingGlowstoneParticle(level, x, y, z, this.spriteSet, random, dx, dy, dz);
             applyingGlowstoneParticle.setColor(1F, 0.80F, 0.25F);

@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:quantum_laboratory_screen"
-            ]
+            "item": "laboratoryblocks:quantum_laboratory_screen"
           }
         ]
       }

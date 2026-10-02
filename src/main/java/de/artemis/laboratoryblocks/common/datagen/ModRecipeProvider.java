@@ -3,20 +3,21 @@ package de.artemis.laboratoryblocks.common.datagen;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
-import net.minecraft.core.Registry;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.data.recipes.SingleItemRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.data.IFinishedRecipe;
+import net.minecraft.data.RecipeProvider;
+import net.minecraft.data.ShapedRecipeBuilder;
+import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.data.SingleItemRecipeBuilder;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.util.IItemProvider;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
@@ -27,7 +28,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> recipeOutput) {
+    protected void buildShapelessRecipes(@NotNull Consumer<IFinishedRecipe> recipeOutput) {
         ShapedRecipeBuilder.shaped(ModItems.CONFIGURATION_TOOL.get())
                 .pattern("  C")
                 .pattern("DB ")
@@ -180,7 +181,7 @@ public class ModRecipeProvider extends RecipeProvider {
         ModDatagenEntries.FAN_PAIRS.forEach(pair -> addGlowstoneUpgrade(recipeOutput, pair.base().get(), pair.glowing().get()));
     }
 
-    private void addWoodRecipes(Consumer<FinishedRecipe> recipeOutput, ModDatagenEntries.WoodFamily family) {
+    private void addWoodRecipes(Consumer<IFinishedRecipe> recipeOutput, ModDatagenEntries.WoodFamily family) {
         if (family.planks() == null) {
             return;
         }
@@ -206,7 +207,7 @@ public class ModRecipeProvider extends RecipeProvider {
         addStonecuttingRecipe(recipeOutput, family.floorPair().glowing().get(), family.tilePair().glowing().get(), 2);
     }
 
-    private void addGlowstoneUpgrade(Consumer<FinishedRecipe> recipeOutput, Block base, Block glowing) {
+    private void addGlowstoneUpgrade(Consumer<IFinishedRecipe> recipeOutput, Block base, Block glowing) {
         ShapelessRecipeBuilder.shapeless(glowing)
                 .requires(base)
                 .requires(ModItems.GLOWSTONE_PARTICLES.get())
@@ -214,7 +215,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeOutput);
     }
 
-    private void addScreenRecipes(Consumer<FinishedRecipe> recipeOutput) {
+    private void addScreenRecipes(Consumer<IFinishedRecipe> recipeOutput) {
         ShapedRecipeBuilder.shaped(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
                 .pattern("BAB")
                 .pattern("ACA")
@@ -249,7 +250,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeOutput);
     }
 
-    private void addStonecutterRecipes(Consumer<FinishedRecipe> recipeOutput) {
+    private void addStonecutterRecipes(Consumer<IFinishedRecipe> recipeOutput) {
         addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_TILES.get(), 2);
         addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_PILLAR.get(), 1);
         addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_DOOR.get(), 1);
@@ -260,7 +261,7 @@ public class ModRecipeProvider extends RecipeProvider {
         addStonecuttingRecipe(recipeOutput, ModBlocks.GLOWING_GRAY_LABORATORY_TILES.get(), ModBlocks.GLOWING_GRAY_LABORATORY_PILLAR.get(), 1);
     }
 
-    private void addIndicatingRecipes(Consumer<FinishedRecipe> recipeOutput, Block rightBlock, Block leftBlock, Item colorWool) {
+    private void addIndicatingRecipes(Consumer<IFinishedRecipe> recipeOutput, Block rightBlock, Block leftBlock, Item colorWool) {
         ShapedRecipeBuilder.shaped(rightBlock, 8)
                 .pattern("AAA")
                 .pattern("BBC")
@@ -284,7 +285,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeOutput);
     }
 
-    private void addDoorAndTrapdoorRecipes(Consumer<FinishedRecipe> recipeOutput) {
+    private void addDoorAndTrapdoorRecipes(Consumer<IFinishedRecipe> recipeOutput) {
         ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_DOOR.get(), 3)
                 .pattern("AA ")
                 .pattern("AA ")
@@ -342,12 +343,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeOutput);
     }
 
-    private void addStonecuttingRecipe(Consumer<FinishedRecipe> recipeOutput, Block input, Block output, int count) {
+    private void addStonecuttingRecipe(Consumer<IFinishedRecipe> recipeOutput, Block input, Block output, int count) {
         ResourceLocation inputId = Registry.BLOCK.getKey(input);
         ResourceLocation outputId = Registry.BLOCK.getKey(output);
 
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), output, count)
-                .unlockedBy(getHasName(input), has(input))
+                .unlocks(getHasName(input), has(input))
                 .save(recipeOutput, modLoc(outputId.getPath() + "_from_" + inputId.getPath() + "_stonecutting"));
     }
 
@@ -355,5 +356,8 @@ public class ModRecipeProvider extends RecipeProvider {
     private static ResourceLocation modLoc(String path) {
         return new ResourceLocation(LaboratoryBlocks.MOD_ID, path);
     }
-}
 
+    private static String getHasName(IItemProvider itemProvider) {
+        return "has_" + itemProvider.asItem().getRegistryName().getPath();
+    }
+}

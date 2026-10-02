@@ -3,16 +3,16 @@ package de.artemis.laboratoryblocks.common.block;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
 import de.artemis.laboratoryblocks.common.util.LaboratoryWoodSwapUtil;
 import de.artemis.laboratoryblocks.common.util.ModUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -27,11 +27,11 @@ public class LaboratoryBlock extends Block {
 
     @SuppressWarnings("deprecation")
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull ActionResultType use(@NotNull BlockState blockState, @NotNull World level, @NotNull BlockPos blockPos, PlayerEntity player, @NotNull Hand interactionHand, @NotNull BlockRayTraceResult blockHitResult) {
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
 
-        if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
-            if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+        if (itemStackInHand.getItem() == ModItems.GLOWSTONE_PARTICLES.get() || itemStackInHand.getItem() == ModItems.CONFIGURATION_TOOL.get()) {
+            if (itemStackInHand.getItem() == ModItems.GLOWSTONE_PARTICLES.get() && !blockState.getBlock().getRegistryName().toString().contains("glowing")) {
                 if (!level.isClientSide()) {
                     if (!player.isCreative()) {
                         itemStackInHand.shrink(1);
@@ -40,10 +40,10 @@ public class LaboratoryBlock extends Block {
                     ModUtils.playGlowstoneApplySound(level, blockPos);
                     ModUtils.spawnGlowstoneApplyParticles(level, blockHitResult);
                 }
-                return InteractionResult.sidedSuccess(level.isClientSide());
+                return ActionResultType.sidedSuccess(level.isClientSide());
             }
 
-            if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+            if (itemStackInHand.getItem() == ModItems.CONFIGURATION_TOOL.get() && blockState.getBlock().getRegistryName().toString().contains("glowing")) {
                 if (!level.isClientSide()) {
                     if (!player.isCreative()) {
                         ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
@@ -53,7 +53,7 @@ public class LaboratoryBlock extends Block {
                     ModUtils.playGlowstoneRemoveSound(level, blockPos);
                     ModUtils.spawnGlowstoneRemoveParticles(level, blockHitResult);
                 }
-                return InteractionResult.sidedSuccess(level.isClientSide());
+                return ActionResultType.sidedSuccess(level.isClientSide());
             }
         }
 
@@ -68,11 +68,11 @@ public class LaboratoryBlock extends Block {
                 BlockState targetState = woodSwap.targetBlock().defaultBlockState();
                 level.setBlock(blockPos, targetState, 3);
                 float pitch = 0.92F + level.random.nextFloat() * 0.08F;
-                level.playSound(null, blockPos, targetState.getSoundType().getPlaceSound(), SoundSource.BLOCKS, 0.7F, pitch);
+                level.playSound(null, blockPos, targetState.getSoundType().getPlaceSound(), SoundCategory.BLOCKS, 0.7F, pitch);
             }
-            return InteractionResult.sidedSuccess(level.isClientSide());
+            return ActionResultType.sidedSuccess(level.isClientSide());
         }
 
-        return InteractionResult.PASS;
+        return ActionResultType.PASS;
     }
 }

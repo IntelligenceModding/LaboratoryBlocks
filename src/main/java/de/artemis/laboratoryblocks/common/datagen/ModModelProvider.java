@@ -4,17 +4,17 @@ import com.google.gson.JsonObject;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import net.minecraft.data.DataProvider;
+import net.minecraft.data.IDataProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.HashCache;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.data.DirectoryCache;
+import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.List;
+import java.util.Arrays;
 
-public class ModModelProvider implements DataProvider {
+public class ModModelProvider implements IDataProvider {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final String CUTOUT = "minecraft:cutout";
 
@@ -30,7 +30,7 @@ public class ModModelProvider implements DataProvider {
     }
 
     @Override
-    public void run(@NotNull HashCache cache) throws IOException {
+    public void run(@NotNull DirectoryCache cache) throws IOException {
         saveFlatItem(cache, "iron_screw");
         saveFlatItem(cache, "glowstone_particles");
         saveHandheldItem(cache, "configuration_tool");
@@ -61,7 +61,7 @@ public class ModModelProvider implements DataProvider {
             saveBlockItemDefinition(cache, pair.glowingModelName(), pair.glowingModelName() + "_inventory");
         }
 
-        for (var door : ModDatagenEntries.DOORS) {
+        for (net.minecraftforge.fml.RegistryObject<? extends net.minecraft.block.DoorBlock> door : ModDatagenEntries.DOORS) {
             String name = door.getId().getPath();
             saveFlatItem(cache, name);
             saveDoorBlockstate(cache, name);
@@ -71,7 +71,7 @@ public class ModModelProvider implements DataProvider {
             saveDoorModel(cache, name + "_top_hinge", "minecraft:block/door_top_rh", name);
         }
 
-        for (var trapdoor : ModDatagenEntries.TRAPDOORS) {
+        for (net.minecraftforge.fml.RegistryObject<? extends net.minecraft.block.TrapDoorBlock> trapdoor : ModDatagenEntries.TRAPDOORS) {
             String name = trapdoor.getId().getPath();
             saveBlockItemDefinition(cache, name, name + "_bottom");
             saveTrapdoorBlockstate(cache, name);
@@ -102,16 +102,16 @@ public class ModModelProvider implements DataProvider {
         return "Model Definitions: " + LaboratoryBlocks.MOD_ID;
     }
 
-    private void saveFlatItem(HashCache cache, String itemName) throws IOException {
+    private void saveFlatItem(DirectoryCache cache, String itemName) throws IOException {
         saveFlatItemModel(cache, itemName, "minecraft:item/generated");
     }
 
     @SuppressWarnings("all")
-    private void saveHandheldItem(HashCache cache, String itemName) throws IOException {
+    private void saveHandheldItem(DirectoryCache cache, String itemName) throws IOException {
         saveFlatItemModel(cache, itemName, "minecraft:item/handheld");
     }
 
-    private void saveFlatItemModel(HashCache cache, String itemName, String parent) throws IOException {
+    private void saveFlatItemModel(DirectoryCache cache, String itemName, String parent) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", parent);
 
@@ -119,20 +119,20 @@ public class ModModelProvider implements DataProvider {
         textures.addProperty("layer0", modPath("item/" + itemName));
         json.add("textures", textures);
 
-        DataProvider.save(GSON, cache, json, itemModelPath(id(itemName)));
+        IDataProvider.save(GSON, cache, json, itemModelPath(id(itemName)));
     }
 
-    private void saveSimpleBlockstate(HashCache cache, String blockName, String modelName) throws IOException {
+    private void saveSimpleBlockstate(DirectoryCache cache, String blockName, String modelName) throws IOException {
         JsonObject json = new JsonObject();
         JsonObject variants = new JsonObject();
         JsonObject variant = new JsonObject();
         variant.addProperty("model", modPath("block/" + modelName));
         variants.add("", variant);
         json.add("variants", variants);
-        DataProvider.save(GSON, cache, json, blockstatePath(id(blockName)));
+        IDataProvider.save(GSON, cache, json, blockstatePath(id(blockName)));
     }
 
-    private void savePoweredBlockstate(HashCache cache, String blockName) throws IOException {
+    private void savePoweredBlockstate(DirectoryCache cache, String blockName) throws IOException {
         JsonObject json = new JsonObject();
         JsonObject variants = new JsonObject();
 
@@ -145,17 +145,17 @@ public class ModModelProvider implements DataProvider {
         variants.add("powered=true", powered);
 
         json.add("variants", variants);
-        DataProvider.save(GSON, cache, json, blockstatePath(id(blockName)));
+        IDataProvider.save(GSON, cache, json, blockstatePath(id(blockName)));
     }
 
-    private void saveDoorBlockstate(HashCache cache, String blockName) throws IOException {
+    private void saveDoorBlockstate(DirectoryCache cache, String blockName) throws IOException {
         JsonObject json = new JsonObject();
         JsonObject variants = new JsonObject();
 
-        for (String facing : List.of("east", "north", "south", "west")) {
-            for (String half : List.of("lower", "upper")) {
-                for (String hinge : List.of("left", "right")) {
-                    for (boolean open : List.of(false, true)) {
+        for (String facing : Arrays.asList("east", "north", "south", "west")) {
+            for (String half : Arrays.asList("lower", "upper")) {
+                for (String hinge : Arrays.asList("left", "right")) {
+                    for (boolean open : Arrays.asList(false, true)) {
                         JsonObject variant = new JsonObject();
                         variant.addProperty("model", modPath("block/" + blockName + "_" + doorModelSuffix(half, hinge, open)));
                         int rotation = doorYRotation(facing, hinge, open);
@@ -169,16 +169,16 @@ public class ModModelProvider implements DataProvider {
         }
 
         json.add("variants", variants);
-        DataProvider.save(GSON, cache, json, blockstatePath(id(blockName)));
+        IDataProvider.save(GSON, cache, json, blockstatePath(id(blockName)));
     }
 
-    private void saveTrapdoorBlockstate(HashCache cache, String blockName) throws IOException {
+    private void saveTrapdoorBlockstate(DirectoryCache cache, String blockName) throws IOException {
         JsonObject json = new JsonObject();
         JsonObject variants = new JsonObject();
 
-        for (String facing : List.of("east", "north", "south", "west")) {
-            for (String half : List.of("bottom", "top")) {
-                for (boolean open : List.of(false, true)) {
+        for (String facing : Arrays.asList("east", "north", "south", "west")) {
+            for (String half : Arrays.asList("bottom", "top")) {
+                for (boolean open : Arrays.asList(false, true)) {
                     JsonObject variant = new JsonObject();
                     variant.addProperty("model", modPath("block/" + blockName + "_" + trapdoorModelSuffix(half, open)));
                     int rotation = trapdoorYRotation(facing, open);
@@ -191,10 +191,10 @@ public class ModModelProvider implements DataProvider {
         }
 
         json.add("variants", variants);
-        DataProvider.save(GSON, cache, json, blockstatePath(id(blockName)));
+        IDataProvider.save(GSON, cache, json, blockstatePath(id(blockName)));
     }
 
-    private void saveCubeInventoryModel(HashCache cache, String modelName, String texturePath) throws IOException {
+    private void saveCubeInventoryModel(DirectoryCache cache, String modelName, String texturePath) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", "minecraft:block/cube_all");
 
@@ -202,14 +202,14 @@ public class ModModelProvider implements DataProvider {
         textures.addProperty("all", modPath("block/" + texturePath));
         json.add("textures", textures);
 
-        DataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
+        IDataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
     }
 
-    private void saveCubeBlockModel(HashCache cache, String modelName, String texturePath) throws IOException {
+    private void saveCubeBlockModel(DirectoryCache cache, String modelName, String texturePath) throws IOException {
         saveCubeInventoryModel(cache, modelName, texturePath);
     }
 
-    private void saveCubeColumnModel(HashCache cache, String modelName, String sideTexturePath, String endTexturePath) throws IOException {
+    private void saveCubeColumnModel(DirectoryCache cache, String modelName, String sideTexturePath, String endTexturePath) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", "minecraft:block/cube_column");
 
@@ -218,10 +218,10 @@ public class ModModelProvider implements DataProvider {
         textures.addProperty("end", modPath("block/" + endTexturePath));
         json.add("textures", textures);
 
-        DataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
+        IDataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
     }
 
-    private void saveGlowingInventoryModel(HashCache cache, String modelName, String baseTexturePath) throws IOException {
+    private void saveGlowingInventoryModel(DirectoryCache cache, String modelName, String baseTexturePath) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", modPath("block/glowing_block_inventory_overlay"));
 
@@ -230,10 +230,10 @@ public class ModModelProvider implements DataProvider {
         textures.addProperty("overlay", modPath("block/glowing_block_inventory_overlay"));
         json.add("textures", textures);
 
-        DataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
+        IDataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
     }
 
-    private void saveGlowingPillarInventoryModel(HashCache cache, String modelName, String sideTexturePath, String endTexturePath) throws IOException {
+    private void saveGlowingPillarInventoryModel(DirectoryCache cache, String modelName, String sideTexturePath, String endTexturePath) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", modPath("block/glowing_column_inventory_overlay"));
 
@@ -243,10 +243,10 @@ public class ModModelProvider implements DataProvider {
         textures.addProperty("overlay", modPath("block/glowing_block_inventory_overlay"));
         json.add("textures", textures);
 
-        DataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
+        IDataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
     }
 
-    private void saveCutoutCubeInventoryModel(HashCache cache, String modelName, String texturePath) throws IOException {
+    private void saveCutoutCubeInventoryModel(DirectoryCache cache, String modelName, String texturePath) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", "minecraft:block/cube_all");
         json.addProperty("render_type", CUTOUT);
@@ -255,10 +255,10 @@ public class ModModelProvider implements DataProvider {
         textures.addProperty("all", modPath("block/" + texturePath));
         json.add("textures", textures);
 
-        DataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
+        IDataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
     }
 
-    private void saveCutoutGlowingInventoryModel(HashCache cache, String modelName, String texturePath) throws IOException {
+    private void saveCutoutGlowingInventoryModel(DirectoryCache cache, String modelName, String texturePath) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", modPath("block/glowing_block_inventory_overlay"));
         json.addProperty("render_type", CUTOUT);
@@ -268,10 +268,10 @@ public class ModModelProvider implements DataProvider {
         textures.addProperty("overlay", modPath("block/glowing_block_inventory_overlay"));
         json.add("textures", textures);
 
-        DataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
+        IDataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
     }
 
-    private void saveDoorModel(HashCache cache, String modelName, String parent, String textureBase) throws IOException {
+    private void saveDoorModel(DirectoryCache cache, String modelName, String parent, String textureBase) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", parent);
         json.addProperty("render_type", CUTOUT);
@@ -281,10 +281,10 @@ public class ModModelProvider implements DataProvider {
         textures.addProperty("top", modPath("block/" + textureBase + "_top"));
         json.add("textures", textures);
 
-        DataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
+        IDataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
     }
 
-    private void saveTrapdoorModel(HashCache cache, String modelName, String parent, String textureBase) throws IOException {
+    private void saveTrapdoorModel(DirectoryCache cache, String modelName, String parent, String textureBase) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", parent);
         json.addProperty("render_type", CUTOUT);
@@ -293,13 +293,13 @@ public class ModModelProvider implements DataProvider {
         textures.addProperty("texture", modPath("block/" + textureBase));
         json.add("textures", textures);
 
-        DataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
+        IDataProvider.save(GSON, cache, json, blockModelPath(id(modelName)));
     }
 
-    private void saveBlockItemDefinition(HashCache cache, String itemName, String blockModelName) throws IOException {
+    private void saveBlockItemDefinition(DirectoryCache cache, String itemName, String blockModelName) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("parent", modPath("block/" + blockModelName));
-        DataProvider.save(GSON, cache, json, itemModelPath(id(itemName)));
+        IDataProvider.save(GSON, cache, json, itemModelPath(id(itemName)));
     }
 
     private static String doorModelSuffix(String half, String hinge, boolean open) {
@@ -309,13 +309,19 @@ public class ModModelProvider implements DataProvider {
     }
 
     private static int doorYRotation(String facing, String hinge, boolean open) {
-        return switch (facing) {
-            case "east" -> open ? ("left".equals(hinge) ? 90 : 270) : -1;
-            case "north" -> open ? ("left".equals(hinge) ? -1 : 180) : 270;
-            case "south" -> open ? ("left".equals(hinge) ? 180 : -1) : 90;
-            case "west" -> open ? ("left".equals(hinge) ? 270 : 90) : 180;
-            default -> -1;
-        };
+        if ("east".equals(facing)) {
+            return open ? ("left".equals(hinge) ? 90 : 270) : -1;
+        }
+        if ("north".equals(facing)) {
+            return open ? ("left".equals(hinge) ? -1 : 180) : 270;
+        }
+        if ("south".equals(facing)) {
+            return open ? ("left".equals(hinge) ? 180 : -1) : 90;
+        }
+        if ("west".equals(facing)) {
+            return open ? ("left".equals(hinge) ? 270 : 90) : 180;
+        }
+        return -1;
     }
 
     private static String trapdoorModelSuffix(String half, boolean open) {
@@ -330,12 +336,16 @@ public class ModModelProvider implements DataProvider {
             return -1;
         }
 
-        return switch (facing) {
-            case "east" -> 90;
-            case "south" -> 180;
-            case "west" -> 270;
-            default -> -1;
-        };
+        if ("east".equals(facing)) {
+            return 90;
+        }
+        if ("south".equals(facing)) {
+            return 180;
+        }
+        if ("west".equals(facing)) {
+            return 270;
+        }
+        return -1;
     }
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
