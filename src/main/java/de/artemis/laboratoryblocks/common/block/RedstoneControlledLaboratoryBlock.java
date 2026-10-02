@@ -6,7 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -30,7 +30,7 @@ public class RedstoneControlledLaboratoryBlock extends Block {
     }
 
     @Override
-    protected void neighborChanged(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Block block, @NotNull BlockPos neighborPos, boolean isMoving) {
+    public void neighborChanged(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Block block, @NotNull BlockPos neighborPos, boolean isMoving) {
         boolean powered = blockState.getValue(POWERED);
         boolean shouldBePowered = level.hasNeighborSignal(blockPos);
 
@@ -46,7 +46,7 @@ public class RedstoneControlledLaboratoryBlock extends Block {
     }
 
     @Override
-    protected void tick(BlockState blockState, @NotNull ServerLevel serverLevel, @NotNull BlockPos blockPos, @NotNull RandomSource randomSource) {
+    public void tick(BlockState blockState, @NotNull ServerLevel serverLevel, @NotNull BlockPos blockPos, @NotNull RandomSource randomSource) {
         boolean shouldBePowered = serverLevel.hasNeighborSignal(blockPos);
 
         if (blockState.getValue(POWERED) && !shouldBePowered) {
@@ -56,7 +56,7 @@ public class RedstoneControlledLaboratoryBlock extends Block {
 
     @SuppressWarnings("deprecation")
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack itemStack, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
 
         if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
@@ -69,24 +69,24 @@ public class RedstoneControlledLaboratoryBlock extends Block {
                     ModUtils.playGlowstoneApplySound(level, blockPos);
                     ModUtils.spawnGlowstoneApplyParticles(level, blockHitResult);
                 }
-                return ItemInteractionResult.sidedSuccess(level.isClientSide());
+                return InteractionResult.sidedSuccess(level.isClientSide());
             }
 
             if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
                 if (!level.isClientSide()) {
                     if (!player.isCreative()) {
                         ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
-                        itemStackInHand.hurtAndBreak(1, player, itemStackInHand.getEquipmentSlot());
+                        itemStackInHand.hurtAndBreak(1, player, entity -> entity.broadcastBreakEvent(interactionHand));
                     }
                     level.setBlock(blockPos, copyPoweredState(blockState, glowstoneVariant.get().defaultBlockState()), 3);
                     ModUtils.playGlowstoneRemoveSound(level, blockPos);
                     ModUtils.spawnGlowstoneRemoveParticles(level, blockHitResult);
                 }
-                return ItemInteractionResult.sidedSuccess(level.isClientSide());
+                return InteractionResult.sidedSuccess(level.isClientSide());
             }
         }
 
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return InteractionResult.PASS;
     }
 
     @Override

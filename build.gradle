@@ -2,7 +2,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'idea'
-    id 'net.neoforged.moddev' version '2.0.140'
+    id 'net.neoforged.moddev.legacyforge' version '2.0.140'
 }
 
 group = mod_group_id
@@ -12,7 +12,7 @@ base {
     archivesName = mod_id
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
@@ -42,8 +42,16 @@ repositories {
     }
 }
 
-neoForge {
-    version = project.neo_version
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/generated/resources'
+        }
+    }
+}
+
+legacyForge {
+    version = "${minecraft_version}-${neo_version}"
 
     parchment {
         mappingsVersion = project.parchment_mappings_version
@@ -53,18 +61,18 @@ neoForge {
     runs {
         client {
             client()
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
         }
 
         server {
             server()
             programArgument '--nogui'
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
         }
 
         gameTestServer {
             type = 'gameTestServer'
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
         }
 
         data {
@@ -88,21 +96,9 @@ neoForge {
     }
 }
 
-sourceSets {
-    main {
-        resources {
-            srcDir 'src/generated/resources'
-        }
-    }
-}
-
-configurations {
-    runtimeClasspath.extendsFrom localRuntime
-}
-
 dependencies {
-    implementation("maven.modrinth:fusion-connected-textures:${fusion_version}-neoforge-mc${fusion_minecraft_version}")
-    localRuntime("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    modImplementation("maven.modrinth:fusion-connected-textures:${fusion_version}-forge-mc${fusion_minecraft_version}")
+    modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 }
 
 tasks.named('processResources', ProcessResources).configure {
@@ -110,8 +106,10 @@ tasks.named('processResources', ProcessResources).configure {
         minecraft_version      : minecraft_version,
         minecraft_version_range: minecraft_version_range,
         neo_version            : neo_version,
+        neo_version_range      : neo_version_range,
         loader_version_range   : loader_version_range,
         fusion_version         : fusion_version,
+        fusion_version_range   : fusion_version_range,
         mod_id                 : mod_id,
         mod_name               : mod_name,
         mod_license            : mod_license,
@@ -120,7 +118,7 @@ tasks.named('processResources', ProcessResources).configure {
         mod_description        : mod_description
     ]
     inputs.properties replaceProperties
-    filesMatching('META-INF/neoforge.mods.toml') {
+    filesMatching('META-INF/mods.toml') {
         expand replaceProperties
     }
 }

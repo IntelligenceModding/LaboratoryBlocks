@@ -5,7 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.neoforge.registries.DeferredBlock;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -80,10 +80,10 @@ public final class LaboratoryWoodSwapUtil {
 
     private static WoodFamily family(
             Block planks,
-            DeferredBlock<? extends Block> floor,
-            DeferredBlock<? extends Block> glowingFloor,
-            DeferredBlock<? extends Block> tiles,
-            DeferredBlock<? extends Block> glowingTiles
+            RegistryObject<? extends Block> floor,
+            RegistryObject<? extends Block> glowingFloor,
+            RegistryObject<? extends Block> tiles,
+            RegistryObject<? extends Block> glowingTiles
     ) {
         return new WoodFamily(planks, floor, glowingFloor, tiles, glowingTiles);
     }
@@ -93,10 +93,10 @@ public final class LaboratoryWoodSwapUtil {
 
     private record WoodFamily(
             Block planks,
-            DeferredBlock<? extends Block> floor,
-            DeferredBlock<? extends Block> glowingFloor,
-            DeferredBlock<? extends Block> tiles,
-            DeferredBlock<? extends Block> glowingTiles
+            RegistryObject<? extends Block> floor,
+            RegistryObject<? extends Block> glowingFloor,
+            RegistryObject<? extends Block> tiles,
+            RegistryObject<? extends Block> glowingTiles
     ) {
     }
 

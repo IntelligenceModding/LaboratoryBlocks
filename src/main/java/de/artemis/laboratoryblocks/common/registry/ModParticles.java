@@ -3,19 +3,19 @@ package de.artemis.laboratoryblocks.common.registry;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModParticles {
     public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES =
-            DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, LaboratoryBlocks.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, LaboratoryBlocks.MOD_ID);
 
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> APPLYING_GLOWSTONE_PARTICLE =
+    public static final RegistryObject<SimpleParticleType> APPLYING_GLOWSTONE_PARTICLE =
             PARTICLE_TYPES.register("applying_glowstone_particle", () -> new SimpleParticleType(true));
 
-    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> REMOVING_MODIFIER_PARTICLE =
+    public static final RegistryObject<SimpleParticleType> REMOVING_MODIFIER_PARTICLE =
             PARTICLE_TYPES.register("removing_modifier_particle", () -> new SimpleParticleType(true));
 
     public static void register(IEventBus eventBus) {

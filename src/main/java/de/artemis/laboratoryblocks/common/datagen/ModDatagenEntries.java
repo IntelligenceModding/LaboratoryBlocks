@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
-import net.neoforged.neoforge.registries.DeferredBlock;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -57,13 +57,13 @@ public final class ModDatagenEntries {
             wood(Blocks.WARPED_PLANKS, ModBlocks.WARPED_LABORATORY_FLOOR, ModBlocks.GLOWING_WARPED_LABORATORY_FLOOR, "warped_laboratory_floor", ModBlocks.WARPED_LABORATORY_TILES, ModBlocks.GLOWING_WARPED_LABORATORY_TILES, "warped_laboratory_tiles")
     );
 
-    public static final List<DeferredBlock<? extends DoorBlock>> DOORS = List.of(
+    public static final List<RegistryObject<? extends DoorBlock>> DOORS = List.of(
             ModBlocks.LABORATORY_DOOR,
             ModBlocks.MESH_LABORATORY_DOOR,
             ModBlocks.GLASS_LABORATORY_DOOR
     );
 
-    public static final List<DeferredBlock<? extends TrapDoorBlock>> TRAPDOORS = List.of(
+    public static final List<RegistryObject<? extends TrapDoorBlock>> TRAPDOORS = List.of(
             ModBlocks.LABORATORY_TRAPDOOR,
             ModBlocks.MESH_LABORATORY_TRAPDOOR,
             ModBlocks.GLASS_LABORATORY_TRAPDOOR
@@ -82,7 +82,7 @@ public final class ModDatagenEntries {
     private ModDatagenEntries() {
     }
 
-    public record GeneratedBlockPair(DeferredBlock<? extends Block> base, DeferredBlock<? extends Block> glowing, String texturePath) {
+    public record GeneratedBlockPair(RegistryObject<? extends Block> base, RegistryObject<? extends Block> glowing, String texturePath) {
         public String baseModelName() {
             return this.base.getId().getPath();
         }
@@ -103,8 +103,8 @@ public final class ModDatagenEntries {
     }
 
     public record GeneratedPillarPair(
-            DeferredBlock<? extends Block> base,
-            DeferredBlock<? extends Block> glowing,
+            RegistryObject<? extends Block> base,
+            RegistryObject<? extends Block> glowing,
             String sideTexturePath,
             String endTexturePath
     ) {
@@ -118,8 +118,8 @@ public final class ModDatagenEntries {
     }
 
     public record GeneratedFanPair(
-            DeferredBlock<? extends Block> base,
-            DeferredBlock<? extends Block> glowing,
+            RegistryObject<? extends Block> base,
+            RegistryObject<? extends Block> glowing,
             String poweredTexturePath
     ) {
         public String baseModelName() {
@@ -131,13 +131,13 @@ public final class ModDatagenEntries {
         }
     }
 
-    private static GeneratedBlockPair pair(DeferredBlock<? extends Block> base, DeferredBlock<? extends Block> glowing, String texturePath) {
+    private static GeneratedBlockPair pair(RegistryObject<? extends Block> base, RegistryObject<? extends Block> glowing, String texturePath) {
         return new GeneratedBlockPair(base, glowing, texturePath);
     }
 
     private static GeneratedPillarPair pillar(
-            DeferredBlock<? extends Block> base,
-            DeferredBlock<? extends Block> glowing,
+            RegistryObject<? extends Block> base,
+            RegistryObject<? extends Block> glowing,
             String sideTexturePath,
             String endTexturePath
     ) {
@@ -145,8 +145,8 @@ public final class ModDatagenEntries {
     }
 
     private static GeneratedFanPair fan(
-            DeferredBlock<? extends Block> base,
-            DeferredBlock<? extends Block> glowing,
+            RegistryObject<? extends Block> base,
+            RegistryObject<? extends Block> glowing,
             String poweredTexturePath
     ) {
         return new GeneratedFanPair(base, glowing, poweredTexturePath);
@@ -154,11 +154,11 @@ public final class ModDatagenEntries {
 
     private static WoodFamily wood(
             @Nullable Block planks,
-            DeferredBlock<? extends Block> floor,
-            DeferredBlock<? extends Block> glowingFloor,
+            RegistryObject<? extends Block> floor,
+            RegistryObject<? extends Block> glowingFloor,
             String floorTexturePath,
-            DeferredBlock<? extends Block> tiles,
-            DeferredBlock<? extends Block> glowingTiles,
+            RegistryObject<? extends Block> tiles,
+            RegistryObject<? extends Block> glowingTiles,
             String tileTexturePath
     ) {
         return new WoodFamily(

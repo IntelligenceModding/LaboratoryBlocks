@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "laboratoryblocks:glowing_cherry_laboratory_floor"
+  },
+  "result": "laboratoryblocks:glowing_cherry_laboratory_tiles"
+}

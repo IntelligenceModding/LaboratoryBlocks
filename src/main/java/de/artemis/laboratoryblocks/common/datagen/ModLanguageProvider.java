@@ -6,14 +6,13 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ModLanguageProvider extends net.neoforged.neoforge.common.data.LanguageProvider {
+public class ModLanguageProvider extends net.minecraftforge.common.data.LanguageProvider {
     public ModLanguageProvider(PackOutput output, String locale) {
         super(output, LaboratoryBlocks.MOD_ID, locale);
     }
@@ -47,8 +46,8 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         generatedBlockIds.addAll(ModDatagenEntries.FAN_PAIRS.stream()
                 .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
                 .toList());
-        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(DeferredHolder::getId).toList());
-        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(DeferredHolder::getId).toList());
+        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(RegistryObject::getId).toList());
+        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(RegistryObject::getId).toList());
         generatedBlockIds = Set.copyOf(generatedBlockIds);
 
         for (var item : ModItems.ITEMS.getEntries()) {
@@ -72,11 +71,11 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         return builder.toString();
     }
 
-    private void addDoorTranslation(DeferredBlock<? extends DoorBlock> door) {
+    private void addDoorTranslation(RegistryObject<? extends DoorBlock> door) {
         add(door.get(), humanize(door.getId().getPath()));
     }
 
-    private void addTrapdoorTranslation(DeferredBlock<? extends TrapDoorBlock> trapdoor) {
+    private void addTrapdoorTranslation(RegistryObject<? extends TrapDoorBlock> trapdoor) {
         add(trapdoor.get(), humanize(trapdoor.getId().getPath()));
     }
 

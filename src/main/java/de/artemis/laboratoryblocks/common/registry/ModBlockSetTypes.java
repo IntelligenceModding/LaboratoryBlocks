@@ -8,9 +8,6 @@ public class ModBlockSetTypes {
     public static final BlockSetType LABORATORY = new BlockSetType(
             "laboratory",
             true,
-            true,
-            true,
-            BlockSetType.PressurePlateSensitivity.EVERYTHING,
             ModSoundTypes.LABORATORY_BLOCK,
             SoundEvents.IRON_DOOR_CLOSE,
             SoundEvents.IRON_DOOR_OPEN,

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "laboratoryblocks:acacia_laboratory_floor"
+  },
+  "result": "laboratoryblocks:acacia_laboratory_tiles"
+}

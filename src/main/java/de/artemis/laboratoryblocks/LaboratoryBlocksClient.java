@@ -3,14 +3,12 @@ package de.artemis.laboratoryblocks;
 import de.artemis.laboratoryblocks.common.particle.ApplyingGlowstoneParticle;
 import de.artemis.laboratoryblocks.common.particle.RemovingModifierParticle;
 import de.artemis.laboratoryblocks.common.registry.ModParticles;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
-@Mod(value = LaboratoryBlocks.MOD_ID, dist = Dist.CLIENT)
-@EventBusSubscriber(modid = LaboratoryBlocks.MOD_ID, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = LaboratoryBlocks.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class LaboratoryBlocksClient {
 
     @SubscribeEvent
