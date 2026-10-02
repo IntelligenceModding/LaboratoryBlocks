@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "laboratoryblocks:laboratory_vent"
+    },
+    "title": "Air Exchange",
+    "description": "Place a Laboratory Vent",
+    "frame": "task",
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "laboratoryblocks:first_day_on_site",
+  "criteria": {
+    "placed_laboratory_vent": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:laboratory_vent",
+            "properties": {}
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 75
+  }
+}

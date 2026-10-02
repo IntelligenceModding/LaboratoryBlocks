@@ -13,8 +13,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class LaboratoryBlocks {
     public static final String MOD_ID = "laboratoryblocks";
 
-    public LaboratoryBlocks() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public LaboratoryBlocks(FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);

@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:glowstone_dust"
+  }
+}

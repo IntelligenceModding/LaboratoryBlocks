@@ -3,9 +3,10 @@ package de.artemis.laboratoryblocks.common.datagen;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -20,15 +21,15 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider {
-    public ModRecipeProvider(PackOutput output) {
-        super(output);
+    public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider);
     }
 
     @Override
-    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> recipeOutput) {
+    protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CONFIGURATION_TOOL.get())
                 .pattern("  C")
                 .pattern("DB ")
@@ -181,7 +182,7 @@ public class ModRecipeProvider extends RecipeProvider {
         ModDatagenEntries.FAN_PAIRS.forEach(pair -> addGlowstoneUpgrade(recipeOutput, pair.base().get(), pair.glowing().get()));
     }
 
-    private void addWoodRecipes(Consumer<FinishedRecipe> recipeOutput, ModDatagenEntries.WoodFamily family) {
+    private void addWoodRecipes(RecipeOutput recipeOutput, ModDatagenEntries.WoodFamily family) {
         if (family.planks() == null) {
             return;
         }
@@ -207,7 +208,7 @@ public class ModRecipeProvider extends RecipeProvider {
         addStonecuttingRecipe(recipeOutput, family.floorPair().glowing().get(), family.tilePair().glowing().get(), 2);
     }
 
-    private void addGlowstoneUpgrade(Consumer<FinishedRecipe> recipeOutput, Block base, Block glowing) {
+    private void addGlowstoneUpgrade(RecipeOutput recipeOutput, Block base, Block glowing) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, glowing)
                 .requires(base)
                 .requires(ModItems.GLOWSTONE_PARTICLES.get())
@@ -215,7 +216,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeOutput);
     }
 
-    private void addScreenRecipes(Consumer<FinishedRecipe> recipeOutput) {
+    private void addScreenRecipes(RecipeOutput recipeOutput) {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
                 .pattern("BAB")
                 .pattern("ACA")
@@ -250,7 +251,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeOutput);
     }
 
-    private void addStonecutterRecipes(Consumer<FinishedRecipe> recipeOutput) {
+    private void addStonecutterRecipes(RecipeOutput recipeOutput) {
         addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_TILES.get(), 2);
         addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_PILLAR.get(), 1);
         addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_DOOR.get(), 1);
@@ -261,7 +262,7 @@ public class ModRecipeProvider extends RecipeProvider {
         addStonecuttingRecipe(recipeOutput, ModBlocks.GLOWING_GRAY_LABORATORY_TILES.get(), ModBlocks.GLOWING_GRAY_LABORATORY_PILLAR.get(), 1);
     }
 
-    private void addIndicatingRecipes(Consumer<FinishedRecipe> recipeOutput, Block rightBlock, Block leftBlock, Item colorWool) {
+    private void addIndicatingRecipes(RecipeOutput recipeOutput, Block rightBlock, Block leftBlock, Item colorWool) {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, rightBlock, 8)
                 .pattern("AAA")
                 .pattern("BBC")
@@ -285,7 +286,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeOutput);
     }
 
-    private void addDoorAndTrapdoorRecipes(Consumer<FinishedRecipe> recipeOutput) {
+    private void addDoorAndTrapdoorRecipes(RecipeOutput recipeOutput) {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_DOOR.get(), 3)
                 .pattern("AA ")
                 .pattern("AA ")
@@ -343,7 +344,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeOutput);
     }
 
-    private void addStonecuttingRecipe(Consumer<FinishedRecipe> recipeOutput, Block input, Block output, int count) {
+    private void addStonecuttingRecipe(RecipeOutput recipeOutput, Block input, Block output, int count) {
         ResourceLocation inputId = BuiltInRegistries.BLOCK.getKey(input);
         ResourceLocation outputId = BuiltInRegistries.BLOCK.getKey(output);
 
@@ -354,6 +355,6 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @SuppressWarnings("all")
     private static ResourceLocation modLoc(String path) {
-        return new ResourceLocation(LaboratoryBlocks.MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }
 }

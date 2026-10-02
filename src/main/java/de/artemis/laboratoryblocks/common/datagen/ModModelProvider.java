@@ -346,7 +346,7 @@ public class ModModelProvider implements DataProvider {
     }
 
     private static ResourceLocation id(String path) {
-        return new ResourceLocation(LaboratoryBlocks.MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }
 
     private static String modPath(String path) {

@@ -4,9 +4,10 @@ import de.artemis.laboratoryblocks.common.registry.ModItems;
 import de.artemis.laboratoryblocks.common.util.LaboratoryWoodSwapUtil;
 import de.artemis.laboratoryblocks.common.util.ModUtils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -27,9 +28,7 @@ public class LaboratoryBlock extends Block {
 
     @SuppressWarnings("deprecation")
     @Override
-    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
-        ItemStack itemStackInHand = player.getItemInHand(interactionHand);
-
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack itemStackInHand, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
             if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
                 if (!level.isClientSide()) {
@@ -40,20 +39,20 @@ public class LaboratoryBlock extends Block {
                     ModUtils.playGlowstoneApplySound(level, blockPos);
                     ModUtils.spawnGlowstoneApplyParticles(level, blockHitResult);
                 }
-                return InteractionResult.sidedSuccess(level.isClientSide());
+                return ItemInteractionResult.sidedSuccess(level.isClientSide());
             }
 
             if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
                 if (!level.isClientSide()) {
                     if (!player.isCreative()) {
                         ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
-                        itemStackInHand.hurtAndBreak(1, player, entity -> entity.broadcastBreakEvent(interactionHand));
+                        itemStackInHand.hurtAndBreak(1, player, equipmentSlot(interactionHand));
                     }
                     level.setBlock(blockPos, block.get().defaultBlockState(), 3);
                     ModUtils.playGlowstoneRemoveSound(level, blockPos);
                     ModUtils.spawnGlowstoneRemoveParticles(level, blockHitResult);
                 }
-                return InteractionResult.sidedSuccess(level.isClientSide());
+                return ItemInteractionResult.sidedSuccess(level.isClientSide());
             }
         }
 
@@ -70,9 +69,13 @@ public class LaboratoryBlock extends Block {
                 float pitch = 0.92F + level.random.nextFloat() * 0.08F;
                 level.playSound(null, blockPos, targetState.getSoundType().getPlaceSound(), SoundSource.BLOCKS, 0.7F, pitch);
             }
-            return InteractionResult.sidedSuccess(level.isClientSide());
+            return ItemInteractionResult.sidedSuccess(level.isClientSide());
         }
 
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    private static EquipmentSlot equipmentSlot(InteractionHand hand) {
+        return hand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
     }
 }

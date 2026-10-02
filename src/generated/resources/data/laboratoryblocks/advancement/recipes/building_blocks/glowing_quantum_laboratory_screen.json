@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_quantum_laboratory_screen": {
+      "conditions": {
+        "items": [
+          {
+            "items": "laboratoryblocks:quantum_laboratory_screen"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "laboratoryblocks:glowing_quantum_laboratory_screen"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_quantum_laboratory_screen"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:glowing_quantum_laboratory_screen"
+    ]
+  }
+}

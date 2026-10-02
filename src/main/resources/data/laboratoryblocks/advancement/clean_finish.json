@@ -1,0 +1,48 @@
+{
+  "display": {
+    "icon": {
+      "id": "laboratoryblocks:mixed_laboratory_tiles"
+    },
+    "title": "Clean Finish",
+    "description": "Lay down Mixed Laboratory Tiles",
+    "frame": "task",
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "laboratoryblocks:structural_integrity",
+  "criteria": {
+    "placed_mixed_laboratory_tiles": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:mixed_laboratory_tiles",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_mixed_laboratory_tiles": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_mixed_laboratory_tiles",
+            "properties": {}
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "placed_mixed_laboratory_tiles",
+      "placed_glowing_mixed_laboratory_tiles"
+    ]
+  ],
+  "rewards": {
+    "experience": 75
+  }
+}

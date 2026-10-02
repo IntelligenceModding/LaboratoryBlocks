@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "laboratoryblocks:gray_laboratory_tiles"
+  },
+  "result": {
+    "count": 1,
+    "id": "laboratoryblocks:gray_laboratory_pillar"
+  }
+}

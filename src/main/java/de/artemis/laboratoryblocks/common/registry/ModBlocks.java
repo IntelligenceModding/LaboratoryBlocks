@@ -50,27 +50,27 @@ public class ModBlocks {
     }
 
     public static final RegistryObject<DoorBlock> LABORATORY_DOOR = register("laboratory_door",
-            properties -> new DoorBlock(properties, ModBlockSetTypes.LABORATORY),
+            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistryObject<DoorBlock> MESH_LABORATORY_DOOR = register("mesh_laboratory_door",
-            properties -> new DoorBlock(properties, ModBlockSetTypes.LABORATORY),
+            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistryObject<DoorBlock> GLASS_LABORATORY_DOOR = register("glass_laboratory_door",
-            properties -> new DoorBlock(properties, ModBlockSetTypes.LABORATORY),
+            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistryObject<TrapDoorBlock> LABORATORY_TRAPDOOR = register("laboratory_trapdoor",
-            properties -> new TrapDoorBlock(properties, ModBlockSetTypes.LABORATORY),
+            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistryObject<TrapDoorBlock> MESH_LABORATORY_TRAPDOOR = register("mesh_laboratory_trapdoor",
-            properties -> new TrapDoorBlock(properties, ModBlockSetTypes.LABORATORY),
+            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistryObject<TrapDoorBlock> GLASS_LABORATORY_TRAPDOOR = register("glass_laboratory_trapdoor",
-            properties -> new TrapDoorBlock(properties, ModBlockSetTypes.LABORATORY),
+            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistryObject<LaboratoryBlock> LABORATORY_PILLAR = register("laboratory_pillar",

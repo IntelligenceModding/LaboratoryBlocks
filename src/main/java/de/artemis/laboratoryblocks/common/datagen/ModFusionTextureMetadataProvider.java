@@ -70,6 +70,6 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
     }
 
     private static ResourceLocation texture(String path) {
-        return new ResourceLocation(LaboratoryBlocks.MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }
 }

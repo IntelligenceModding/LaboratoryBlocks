@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:oak_laboratory_floor"
+    }
+  },
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:oak_laboratory_tiles"
+  }
+}

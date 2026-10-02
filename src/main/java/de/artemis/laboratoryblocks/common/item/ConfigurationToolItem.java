@@ -5,9 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -17,8 +15,8 @@ public class ConfigurationToolItem extends Item {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag flag) {
+    public void appendHoverText(@NotNull ItemStack itemStack, @NotNull Item.TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag flag) {
         tooltipComponents.add(Component.translatable("tooltip.laboratoryblocks.configuration_tool.remove_glowstone").withStyle(ChatFormatting.GRAY));
-        super.appendHoverText(itemStack, level, tooltipComponents, flag);
+        super.appendHoverText(itemStack, context, tooltipComponents, flag);
     }
 }

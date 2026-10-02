@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "laboratoryblocks:crimson_laboratory_floor"
+  },
+  "result": {
+    "count": 2,
+    "id": "laboratoryblocks:crimson_laboratory_tiles"
+  }
+}
