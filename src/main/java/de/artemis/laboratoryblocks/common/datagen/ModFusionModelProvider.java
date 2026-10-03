@@ -5,31 +5,27 @@ import com.google.gson.JsonObject;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
+import java.io.IOException;
 
 public class ModFusionModelProvider implements DataProvider {
     private static final String CUTOUT = "minecraft:cutout";
 
-    private final PackOutput.PathProvider models;
+    private final DataGenerator.PathProvider models;
 
-    public ModFusionModelProvider(PackOutput output) {
-        this.models = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/block");
+    public ModFusionModelProvider(DataGenerator generator) {
+        this.models = generator.createPathProvider(DataGenerator.Target.RESOURCE_PACK, "models/block");
     }
 
     @Override
-    public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
-        List<CompletableFuture<?>> futures = new ArrayList<>();
-        ModDatagenEntries.ALL_PAIRS.forEach(pair -> {
-            futures.add(saveConnectingModel(output, pair.baseModelName(), pair.glowingModelName(), pair.fusionTexturePath(), isGlass(pair)));
-            futures.add(saveConnectingModel(output, pair.glowingModelName(), pair.baseModelName(), pair.fusionTexturePath(), isGlass(pair)));
-        });
-        return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
+    public void run(@NotNull CachedOutput output) throws IOException {
+        for (ModDatagenEntries.GeneratedBlockPair pair : ModDatagenEntries.ALL_PAIRS) {
+            saveConnectingModel(output, pair.baseModelName(), pair.glowingModelName(), pair.fusionTexturePath(), isGlass(pair));
+            saveConnectingModel(output, pair.glowingModelName(), pair.baseModelName(), pair.fusionTexturePath(), isGlass(pair));
+        }
     }
 
     @Override
@@ -37,7 +33,7 @@ public class ModFusionModelProvider implements DataProvider {
         return "Fusion Model Provider: " + LaboratoryBlocks.MOD_ID;
     }
 
-    private CompletableFuture<?> saveConnectingModel(CachedOutput output, String modelName, String matchingBlock, String texturePath, boolean cutout) {
+    private void saveConnectingModel(CachedOutput output, String modelName, String matchingBlock, String texturePath, boolean cutout) throws IOException {
         JsonObject json = new JsonObject();
         json.addProperty("type", "fusion:connecting");
         json.addProperty("parent", "minecraft:block/cube_all");
@@ -51,7 +47,7 @@ public class ModFusionModelProvider implements DataProvider {
         textures.addProperty("all", modPath("block/" + texturePath));
         json.add("textures", textures);
 
-        return DataProvider.saveStable(output, json, models.json(id(modelName)));
+        DataProvider.saveStable(output, json, models.json(id(modelName)));
     }
 
     private static JsonObject createConnections(String matchingBlock) {

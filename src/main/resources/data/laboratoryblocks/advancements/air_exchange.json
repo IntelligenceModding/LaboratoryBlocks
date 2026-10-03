@@ -14,16 +14,22 @@
     "placed_laboratory_vent": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:laboratory_vent",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:laboratory_vent"
+      }
+    },
+    "placed_glowing_laboratory_vent": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "laboratoryblocks:glowing_laboratory_vent"
       }
     }
   },
+  "requirements": [
+    [
+      "placed_laboratory_vent",
+      "placed_glowing_laboratory_vent"
+    ]
+  ],
   "rewards": {
     "experience": 75
   }

@@ -4,13 +4,12 @@ import com.google.gson.JsonObject;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 public class ModFusionTextureMetadataProvider implements DataProvider {
     private static final List<String> ANIMATED_SCREENS = List.of(
@@ -19,17 +18,17 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
             "quantum_laboratory_screen"
     );
 
-    private final PackOutput.PathProvider textures;
+    private final DataGenerator.PathProvider textures;
 
-    public ModFusionTextureMetadataProvider(PackOutput output) {
-        this.textures = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "textures/block");
+    public ModFusionTextureMetadataProvider(DataGenerator generator) {
+        this.textures = generator.createPathProvider(DataGenerator.Target.RESOURCE_PACK, "textures/block");
     }
 
     @Override
-    public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
-        List<CompletableFuture<?>> futures = new ArrayList<>();
-        ModDatagenEntries.ALL_PAIRS.forEach(pair -> futures.add(saveTextureMetadata(output, pair)));
-        return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
+    public void run(@NotNull CachedOutput output) throws IOException {
+        for (ModDatagenEntries.GeneratedBlockPair pair : ModDatagenEntries.ALL_PAIRS) {
+            saveTextureMetadata(output, pair);
+        }
     }
 
     @Override
@@ -37,7 +36,7 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
         return "Fusion Texture Metadata Provider: " + LaboratoryBlocks.MOD_ID;
     }
 
-    private CompletableFuture<?> saveTextureMetadata(CachedOutput output, ModDatagenEntries.GeneratedBlockPair pair) {
+    private void saveTextureMetadata(CachedOutput output, ModDatagenEntries.GeneratedBlockPair pair) throws IOException {
         JsonObject json = new JsonObject();
 
         if (isAnimatedScreen(pair)) {
@@ -54,7 +53,7 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
         }
         json.add("fusion", fusion);
 
-        return DataProvider.saveStable(output, json, textures.file(texture(pair.fusionTexturePath()), "png.mcmeta"));
+        DataProvider.saveStable(output, json, textures.file(texture(pair.fusionTexturePath()), "png.mcmeta"));
     }
 
     private static boolean isAnimatedScreen(ModDatagenEntries.GeneratedBlockPair pair) {

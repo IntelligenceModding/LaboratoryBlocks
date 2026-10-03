@@ -3,14 +3,13 @@ package de.artemis.laboratoryblocks.common.datagen;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
@@ -23,13 +22,13 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-    public ModRecipeProvider(FabricDataOutput output) {
-        super(output);
+    public ModRecipeProvider(FabricDataGenerator dataGenerator) {
+        super(dataGenerator);
     }
 
     @Override
-    public void buildRecipes(@NotNull Consumer<FinishedRecipe> recipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CONFIGURATION_TOOL.get())
+    protected void generateRecipes(@NotNull Consumer<FinishedRecipe> recipeOutput) {
+        ShapedRecipeBuilder.shaped(ModItems.CONFIGURATION_TOOL.get())
                 .pattern("  C")
                 .pattern("DB ")
                 .pattern("AD ")
@@ -40,7 +39,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_SCREW.get(), 16)
+        ShapedRecipeBuilder.shaped(ModItems.IRON_SCREW.get(), 16)
                 .pattern("ABA")
                 .pattern(" A ")
                 .define('A', Items.IRON_NUGGET)
@@ -48,17 +47,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.GLOWSTONE_PARTICLES.get(), 8)
+        ShapelessRecipeBuilder.shapeless(ModItems.GLOWSTONE_PARTICLES.get(), 8)
                 .requires(Items.GLOWSTONE_DUST)
                 .unlockedBy(getHasName(Items.GLOWSTONE_DUST), has(Items.GLOWSTONE_DUST))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.GLOWSTONE_DUST)
+        ShapelessRecipeBuilder.shapeless(Items.GLOWSTONE_DUST)
                 .requires(ModItems.GLOWSTONE_PARTICLES.get(), 8)
                 .unlockedBy(getHasName(ModItems.GLOWSTONE_PARTICLES.get()), has(ModItems.GLOWSTONE_PARTICLES.get()))
                 .save(recipeOutput, modLoc("glowstone_dust_from_glowstone_particles"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_BLOCK.get(), 8)
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_BLOCK.get(), 8)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
@@ -67,7 +66,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Blocks.STONE), has(Blocks.STONE))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_LABORATORY_BLOCK.get(), 2)
+        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_LABORATORY_BLOCK.get(), 2)
                 .pattern("A A")
                 .pattern(" B ")
                 .pattern("A A")
@@ -76,14 +75,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_TILES.get(), 8)
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_TILES.get(), 8)
                 .pattern("AA")
                 .pattern("AA")
                 .define('A', ModBlocks.LABORATORY_BLOCK.get())
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAY_LABORATORY_TILES.get(), 8)
+        ShapedRecipeBuilder.shaped(ModBlocks.GRAY_LABORATORY_TILES.get(), 8)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
@@ -92,13 +91,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_TILES.get()), has(ModBlocks.LABORATORY_TILES.get()))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MIXED_LABORATORY_TILES.get(), 2)
+        ShapelessRecipeBuilder.shapeless(ModBlocks.MIXED_LABORATORY_TILES.get(), 2)
                 .requires(ModBlocks.GRAY_LABORATORY_TILES.get())
                 .requires(ModBlocks.LABORATORY_TILES.get())
                 .unlockedBy(getHasName(ModBlocks.GRAY_LABORATORY_TILES.get()), has(ModBlocks.GRAY_LABORATORY_TILES.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_VENT.get())
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_VENT.get())
                 .pattern(" B ")
                 .pattern("BAB")
                 .pattern(" B ")
@@ -108,14 +107,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_PILLAR.get(), 2)
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_PILLAR.get(), 2)
                 .pattern("A")
                 .pattern("A")
                 .define('A', ModBlocks.LABORATORY_BLOCK.get())
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAY_LABORATORY_PILLAR.get(), 8)
+        ShapedRecipeBuilder.shaped(ModBlocks.GRAY_LABORATORY_PILLAR.get(), 8)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
@@ -125,7 +124,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.GRAY_DYE), has(Items.GRAY_DYE))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_GLASS.get(), 8)
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_GLASS.get(), 8)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
@@ -135,7 +134,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_FAN.get())
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_FAN.get())
                 .pattern("ABA")
                 .pattern("BCB")
                 .pattern("ABA")
@@ -147,7 +146,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(ModItems.IRON_SCREW.get()), has(ModItems.IRON_SCREW.get()))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get())
+        ShapelessRecipeBuilder.shapeless(ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get())
                 .requires(ModBlocks.LABORATORY_FAN.get())
                 .requires(Items.REDSTONE)
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_FAN.get()), has(ModBlocks.LABORATORY_FAN.get()))
@@ -186,7 +185,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             return;
         }
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, family.floorPair().base().get(), 8)
+        ShapedRecipeBuilder.shaped(family.floorPair().base().get(), 8)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
@@ -196,7 +195,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(family.planks()), has(family.planks()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, family.tilePair().base().get(), 8)
+        ShapedRecipeBuilder.shaped(family.tilePair().base().get(), 8)
                 .pattern("AA")
                 .pattern("AA")
                 .define('A', family.floorPair().base().get())
@@ -208,7 +207,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void addGlowstoneUpgrade(Consumer<FinishedRecipe> recipeOutput, Block base, Block glowing) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, glowing)
+        ShapelessRecipeBuilder.shapeless(glowing)
                 .requires(base)
                 .requires(ModItems.GLOWSTONE_PARTICLES.get())
                 .unlockedBy(getHasName(base), has(base))
@@ -216,7 +215,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void addScreenRecipes(Consumer<FinishedRecipe> recipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
                 .pattern("BAB")
                 .pattern("ACA")
                 .pattern("BAB")
@@ -228,21 +227,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_GLASS.get()), has(ModBlocks.LABORATORY_GLASS.get()))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAVE_LABORATORY_SCREEN.get(), 4)
+        ShapelessRecipeBuilder.shapeless(ModBlocks.WAVE_LABORATORY_SCREEN.get(), 4)
                 .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
                 .requires(Items.CYAN_DYE)
                 .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
                 .unlockedBy(getHasName(Items.CYAN_DYE), has(Items.CYAN_DYE))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEXT_LABORATORY_SCREEN.get(), 4)
+        ShapelessRecipeBuilder.shapeless(ModBlocks.TEXT_LABORATORY_SCREEN.get(), 4)
                 .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
                 .requires(Items.LIME_DYE)
                 .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
                 .unlockedBy(getHasName(Items.LIME_DYE), has(Items.LIME_DYE))
                 .save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), 4)
+        ShapelessRecipeBuilder.shapeless(ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), 4)
                 .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
                 .requires(Items.PURPLE_DYE)
                 .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
@@ -262,7 +261,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void addIndicatingRecipes(Consumer<FinishedRecipe> recipeOutput, Block rightBlock, Block leftBlock, Item colorWool) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, rightBlock, 8)
+        ShapedRecipeBuilder.shaped(rightBlock, 8)
                 .pattern("AAA")
                 .pattern("BBC")
                 .pattern("AAA")
@@ -273,7 +272,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, leftBlock, 8)
+        ShapedRecipeBuilder.shaped(leftBlock, 8)
                 .pattern("AAA")
                 .pattern("CBB")
                 .pattern("AAA")
@@ -286,7 +285,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void addDoorAndTrapdoorRecipes(Consumer<FinishedRecipe> recipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_DOOR.get(), 3)
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_DOOR.get(), 3)
                 .pattern("AA ")
                 .pattern("AA ")
                 .pattern("AA ")
@@ -294,7 +293,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_TRAPDOOR.get(), 2)
+        ShapedRecipeBuilder.shaped(ModBlocks.LABORATORY_TRAPDOOR.get(), 2)
                 .pattern("   ")
                 .pattern("AAA")
                 .pattern("AAA")
@@ -302,7 +301,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MESH_LABORATORY_DOOR.get(), 3)
+        ShapedRecipeBuilder.shaped(ModBlocks.MESH_LABORATORY_DOOR.get(), 3)
                 .pattern("AA ")
                 .pattern("BB ")
                 .pattern("AA ")
@@ -312,7 +311,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.IRON_BARS), has(Items.IRON_BARS))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MESH_LABORATORY_TRAPDOOR.get(), 2)
+        ShapedRecipeBuilder.shaped(ModBlocks.MESH_LABORATORY_TRAPDOOR.get(), 2)
                 .pattern("   ")
                 .pattern("ABA")
                 .pattern("ABA")
@@ -322,7 +321,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.IRON_BARS), has(Items.IRON_BARS))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_LABORATORY_DOOR.get(), 3)
+        ShapedRecipeBuilder.shaped(ModBlocks.GLASS_LABORATORY_DOOR.get(), 3)
                 .pattern("AA ")
                 .pattern("BB ")
                 .pattern("AA ")
@@ -332,7 +331,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_LABORATORY_TRAPDOOR.get(), 2)
+        ShapedRecipeBuilder.shaped(ModBlocks.GLASS_LABORATORY_TRAPDOOR.get(), 2)
                 .pattern("   ")
                 .pattern("ABA")
                 .pattern("ABA")
@@ -344,10 +343,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void addStonecuttingRecipe(Consumer<FinishedRecipe> recipeOutput, Block input, Block output, int count) {
-        ResourceLocation inputId = BuiltInRegistries.BLOCK.getKey(input);
-        ResourceLocation outputId = BuiltInRegistries.BLOCK.getKey(output);
+        ResourceLocation inputId = Registry.BLOCK.getKey(input);
+        ResourceLocation outputId = Registry.BLOCK.getKey(output);
 
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), RecipeCategory.BUILDING_BLOCKS, output, count)
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), output, count)
                 .unlockedBy(getHasName(input), has(input))
                 .save(recipeOutput, modLoc(outputId.getPath() + "_from_" + inputId.getPath() + "_stonecutting"));
     }

@@ -4,7 +4,6 @@ import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 
 public class ModParticles {
@@ -19,7 +18,7 @@ public class ModParticles {
 
     private static RegistrySupplier<SimpleParticleType> register(String name) {
         ResourceLocation id = new ResourceLocation(LaboratoryBlocks.MOD_ID, name);
-        SimpleParticleType particleType = Registry.register(BuiltInRegistries.PARTICLE_TYPE, id, FabricParticleTypes.simple(true));
+        SimpleParticleType particleType = Registry.register(Registry.PARTICLE_TYPE, id, FabricParticleTypes.simple(true));
         return new RegistrySupplier<>(id, particleType);
     }
 }

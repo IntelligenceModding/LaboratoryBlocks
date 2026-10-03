@@ -14,25 +14,13 @@
     "placed_laboratory_fan": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:laboratory_fan",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:laboratory_fan"
       }
     },
     "placed_glowing_laboratory_fan": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_fan",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:glowing_laboratory_fan"
       }
     }
   },

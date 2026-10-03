@@ -1,6 +1,6 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.world.level.block.Block;
 
@@ -24,12 +24,12 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
             .map(trapdoor -> (Block)trapdoor.get())
             .collect(java.util.stream.Collectors.toUnmodifiableSet());
 
-    protected ModBlockLootTableProvider(FabricDataOutput output) {
-        super(output);
+    protected ModBlockLootTableProvider(FabricDataGenerator dataGenerator) {
+        super(dataGenerator);
     }
 
     @Override
-    public void generate() {
+    protected void generateBlockLootTables() {
         GENERATED_BLOCKS.forEach(this::dropSelf);
         GENERATED_PILLARS.forEach(this::dropSelf);
         GENERATED_FANS.forEach(this::dropSelf);

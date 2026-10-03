@@ -30,6 +30,5 @@
     "recipes": [
       "laboratoryblocks:glowstone_dust_from_glowstone_particles"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

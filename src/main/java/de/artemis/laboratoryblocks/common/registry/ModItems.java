@@ -3,7 +3,6 @@ package de.artemis.laboratoryblocks.common.registry;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.item.ConfigurationToolItem;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -22,7 +21,7 @@ public class ModItems {
 
     private static <T extends Item> RegistrySupplier<T> register(String name, Function<Item.Properties, T> itemFactory, UnaryOperator<Item.Properties> properties) {
         ResourceLocation id = id(name);
-        T item = Registry.register(BuiltInRegistries.ITEM, id, itemFactory.apply(properties.apply(new Item.Properties())));
+        T item = Registry.register(Registry.ITEM, id, itemFactory.apply(properties.apply(new Item.Properties().tab(ModCreativeModeTabs.LABORATORY_BLOCKS_CREATIVE_TAB))));
         RegistrySupplier<T> entry = new RegistrySupplier<>(id, item);
         ENTRIES.add(entry);
         return entry;

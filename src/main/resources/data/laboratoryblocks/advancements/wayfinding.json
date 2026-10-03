@@ -14,145 +14,73 @@
     "placed_left_indicating_blue": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:left_indicating_blue_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:left_indicating_blue_laboratory_block"
       }
     },
     "placed_right_indicating_blue": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:right_indicating_blue_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:right_indicating_blue_laboratory_block"
       }
     },
     "placed_left_indicating_red": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:left_indicating_red_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:left_indicating_red_laboratory_block"
       }
     },
     "placed_right_indicating_red": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:right_indicating_red_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:right_indicating_red_laboratory_block"
       }
     },
     "placed_left_indicating_green": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:left_indicating_green_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:left_indicating_green_laboratory_block"
       }
     },
     "placed_right_indicating_green": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:right_indicating_green_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:right_indicating_green_laboratory_block"
       }
     },
     "placed_glowing_left_indicating_blue": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_left_indicating_blue_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:glowing_left_indicating_blue_laboratory_block"
       }
     },
     "placed_glowing_right_indicating_blue": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_right_indicating_blue_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:glowing_right_indicating_blue_laboratory_block"
       }
     },
     "placed_glowing_left_indicating_red": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_left_indicating_red_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:glowing_left_indicating_red_laboratory_block"
       }
     },
     "placed_glowing_right_indicating_red": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_right_indicating_red_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:glowing_right_indicating_red_laboratory_block"
       }
     },
     "placed_glowing_left_indicating_green": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:glowing_left_indicating_green_laboratory_block"
       }
     },
     "placed_glowing_right_indicating_green": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_right_indicating_green_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "block": "laboratoryblocks:glowing_right_indicating_green_laboratory_block"
       }
     }
   },
