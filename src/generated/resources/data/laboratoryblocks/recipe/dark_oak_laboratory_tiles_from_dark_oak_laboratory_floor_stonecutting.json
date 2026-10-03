@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "laboratoryblocks:dark_oak_laboratory_floor"
-  },
+  "ingredient": "laboratoryblocks:dark_oak_laboratory_floor",
   "result": {
     "count": 2,
     "id": "laboratoryblocks:dark_oak_laboratory_tiles"

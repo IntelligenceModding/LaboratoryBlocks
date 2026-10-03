@@ -6,7 +6,7 @@ import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -25,7 +25,9 @@ public class ModFusionModelProvider implements DataProvider {
     @Override
     public @NotNull CompletableFuture<?> run(@NotNull CachedOutput output) {
         List<CompletableFuture<?>> futures = new ArrayList<>();
-        ModDatagenEntries.ALL_PAIRS.forEach(pair -> {
+        ModDatagenEntries.ALL_PAIRS.stream()
+                .filter(pair -> !isAnimatedScreen(pair))
+                .forEach(pair -> {
             futures.add(saveConnectingModel(output, pair.baseModelName(), pair.glowingModelName(), pair.fusionTexturePath(), isGlass(pair)));
             futures.add(saveConnectingModel(output, pair.glowingModelName(), pair.baseModelName(), pair.fusionTexturePath(), isGlass(pair)));
         });
@@ -45,16 +47,7 @@ public class ModFusionModelProvider implements DataProvider {
         if (cutout) {
             json.addProperty("render_type", CUTOUT);
         }
-        json.add("connections", createConnections(matchingBlock));
 
-        JsonObject textures = new JsonObject();
-        textures.addProperty("all", modPath("block/" + texturePath));
-        json.add("textures", textures);
-
-        return DataProvider.saveStable(output, json, models.json(id(modelName)));
-    }
-
-    private static JsonObject createConnections(String matchingBlock) {
         JsonObject connections = new JsonObject();
         connections.addProperty("type", "fusion:or");
 
@@ -69,14 +62,29 @@ public class ModFusionModelProvider implements DataProvider {
         predicates.add(matchBlock);
 
         connections.add("predicates", predicates);
-        return connections;
+        json.add("connections", connections);
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("all", modPath("block/" + texturePath));
+        json.add("textures", textures);
+
+        return DataProvider.saveStable(output, json, models.json(id(modelName)));
     }
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
         return "laboratory_glass".equals(pair.texturePath());
     }
-    private static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
+
+    private static boolean isAnimatedScreen(ModDatagenEntries.GeneratedBlockPair pair) {
+        return java.util.stream.Stream.of(
+                "wave_laboratory_screen",
+                "text_laboratory_screen",
+                "quantum_laboratory_screen"
+        ).anyMatch(pair.texturePath()::equals);
+    }
+
+    private static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }
 
     private static String modPath(String path) {

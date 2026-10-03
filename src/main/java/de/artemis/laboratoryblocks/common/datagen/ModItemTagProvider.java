@@ -19,10 +19,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        tag(ItemTags.DURABILITY_ENCHANTABLE).add(key(ModItems.CONFIGURATION_TOOL.getId()));
+        builder(ItemTags.DURABILITY_ENCHANTABLE).add(key(ModItems.CONFIGURATION_TOOL.getId()));
     }
 
-    private static ResourceKey<Item> key(net.minecraft.resources.ResourceLocation id) {
+    private static ResourceKey<Item> key(net.minecraft.resources.Identifier id) {
         return ResourceKey.create(Registries.ITEM, id);
     }
 }

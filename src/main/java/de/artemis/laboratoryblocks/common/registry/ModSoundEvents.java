@@ -3,7 +3,7 @@ package de.artemis.laboratoryblocks.common.registry;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
 public class ModSoundEvents {
@@ -11,7 +11,7 @@ public class ModSoundEvents {
     }
 
     private static RegistrySupplier<SoundEvent> register(String name) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, name);
+        Identifier id = Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, name);
         SoundEvent soundEvent = Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));
         return new RegistrySupplier<>(id, soundEvent);
     }

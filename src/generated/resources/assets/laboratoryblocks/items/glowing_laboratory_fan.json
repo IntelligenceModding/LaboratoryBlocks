@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "laboratoryblocks:block/glowing_laboratory_fan_inventory"
+  }
+}

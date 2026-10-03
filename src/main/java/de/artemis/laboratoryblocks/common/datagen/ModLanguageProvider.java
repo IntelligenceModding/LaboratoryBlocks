@@ -5,14 +5,10 @@ import de.artemis.laboratoryblocks.common.registry.RegistrySupplier;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 
-import java.util.Set;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ModLanguageProvider extends FabricLanguageProvider {
     public ModLanguageProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
@@ -45,23 +41,8 @@ public class ModLanguageProvider extends FabricLanguageProvider {
         ModDatagenEntries.DOORS.forEach(door -> addDoorTranslation(builder, door));
         ModDatagenEntries.TRAPDOORS.forEach(trapdoor -> addTrapdoorTranslation(builder, trapdoor));
 
-        Set<ResourceLocation> generatedBlockIds = ModDatagenEntries.ALL_PAIRS.stream()
-                .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
-                .collect(Collectors.toCollection(java.util.HashSet::new));
-        generatedBlockIds.addAll(ModDatagenEntries.PILLAR_PAIRS.stream()
-                .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
-                .toList());
-        generatedBlockIds.addAll(ModDatagenEntries.FAN_PAIRS.stream()
-                .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
-                .toList());
-        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(RegistrySupplier::getId).toList());
-        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(RegistrySupplier::getId).toList());
-        generatedBlockIds = Set.copyOf(generatedBlockIds);
-
         for (var item : ModItems.ITEMS) {
-            if (!generatedBlockIds.contains(item.getId())) {
-                builder.add(item.get(), humanize(item.getId().getPath()));
-            }
+            builder.add(item.get(), humanize(item.getId().getPath()));
         }
     }
 

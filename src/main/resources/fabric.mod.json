@@ -29,12 +29,13 @@
       "de.artemis.laboratoryblocks.common.datagen.DataGenerators"
     ]
   },
+  "accessWidener": "laboratoryblocks.accesswidener",
   "depends": {
-    "fabricloader": ">=${loader_version}",
+    "fabricloader": "${loader_version_range}",
     "minecraft": "${minecraft_version_range}",
     "java": ">=21",
-    "fabric-api": "*",
-    "fusion": ">=${fusion_version}"
+    "fabric-api": "${fabric_api_version_range}",
+    "fusion": "${fusion_version_range}"
   },
   "suggests": {
     "modmenu": ">=${modmenu_version}",

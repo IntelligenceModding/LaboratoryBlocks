@@ -19,7 +19,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        var pickaxeTag = tag(BlockTags.MINEABLE_WITH_PICKAXE);
+        var pickaxeTag = builder(BlockTags.MINEABLE_WITH_PICKAXE);
         ModDatagenEntries.CORE_PAIRS.forEach(pair -> {
             pickaxeTag.add(key(pair.base().get()));
             pickaxeTag.add(key(pair.glowing().get()));
@@ -35,13 +35,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ModDatagenEntries.DOORS.forEach(door -> pickaxeTag.add(key(door.get())));
         ModDatagenEntries.TRAPDOORS.forEach(trapdoor -> pickaxeTag.add(key(trapdoor.get())));
 
-        var doorsTag = tag(BlockTags.DOORS);
+        var doorsTag = builder(BlockTags.DOORS);
         ModDatagenEntries.DOORS.forEach(door -> doorsTag.add(key(door.get())));
 
-        var trapdoorsTag = tag(BlockTags.TRAPDOORS);
+        var trapdoorsTag = builder(BlockTags.TRAPDOORS);
         ModDatagenEntries.TRAPDOORS.forEach(trapdoor -> trapdoorsTag.add(key(trapdoor.get())));
 
-        var axeTag = tag(BlockTags.MINEABLE_WITH_AXE);
+        var axeTag = builder(BlockTags.MINEABLE_WITH_AXE);
         ModDatagenEntries.WOOD_FAMILIES.forEach(family -> family.pairs().forEach(pair -> {
             axeTag.add(key(pair.base().get()));
             axeTag.add(key(pair.glowing().get()));

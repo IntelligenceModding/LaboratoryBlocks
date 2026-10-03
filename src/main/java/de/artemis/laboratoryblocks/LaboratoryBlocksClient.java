@@ -5,9 +5,9 @@ import de.artemis.laboratoryblocks.common.particle.RemovingModifierParticle;
 import de.artemis.laboratoryblocks.common.registry.ModParticles;
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 
 public class LaboratoryBlocksClient implements ClientModInitializer {
 
@@ -16,7 +16,7 @@ public class LaboratoryBlocksClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), ApplyingGlowstoneParticle.Provider::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.REMOVING_MODIFIER_PARTICLE.get(), RemovingModifierParticle.Provider::new);
 
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
+        BlockRenderLayerMap.putBlocks(ChunkSectionLayer.CUTOUT,
                 ModBlocks.LABORATORY_GLASS.get(),
                 ModBlocks.GLOWING_LABORATORY_GLASS.get(),
                 ModBlocks.LABORATORY_DOOR.get(),

@@ -6,12 +6,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -31,7 +32,7 @@ public class RedstoneControlledLaboratoryBlock extends Block {
     }
 
     @Override
-    protected void neighborChanged(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Block block, @NotNull BlockPos neighborPos, boolean isMoving) {
+    protected void neighborChanged(@NotNull BlockState blockState, Level level, @NotNull BlockPos blockPos, @NotNull Block block, Orientation orientation, boolean isMoving) {
         boolean powered = blockState.getValue(POWERED);
         boolean shouldBePowered = level.hasNeighborSignal(blockPos);
 
@@ -57,37 +58,35 @@ public class RedstoneControlledLaboratoryBlock extends Block {
 
     @SuppressWarnings("deprecation")
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack itemStack, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult useItemOn(@NotNull ItemStack itemStack, @NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
 
         if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
             if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
-                if (!level.isClientSide()) {
-                    if (!player.isCreative()) {
-                        itemStackInHand.shrink(1);
-                    }
-                    level.setBlock(blockPos, copyPoweredState(blockState, glowstoneVariant.get().defaultBlockState()), 3);
-                    ModUtils.playGlowstoneApplySound(level, blockPos);
-                    ModUtils.spawnGlowstoneApplyParticles(level, blockHitResult);
+                if (!player.isCreative()) {
+                    itemStackInHand.shrink(1);
                 }
-                return ItemInteractionResult.sidedSuccess(level.isClientSide());
+                level.setBlock(blockPos, copyPoweredState(blockState, glowstoneVariant.get().defaultBlockState()), 3);
+                ModUtils.playGlowstoneApplySound(level, blockPos);
+                ModUtils.spawnGlowstoneApplyParticles(level, blockHitResult);
+
+                return InteractionResult.SUCCESS;
             }
 
             if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
-                if (!level.isClientSide()) {
-                    if (!player.isCreative()) {
-                        ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
-                        itemStackInHand.hurtAndBreak(1, player, interactionHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
-                    }
-                    level.setBlock(blockPos, copyPoweredState(blockState, glowstoneVariant.get().defaultBlockState()), 3);
-                    ModUtils.playGlowstoneRemoveSound(level, blockPos);
-                    ModUtils.spawnGlowstoneRemoveParticles(level, blockHitResult);
+                if (!player.isCreative()) {
+                    ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
+                    itemStackInHand.hurtAndBreak(1, player, interactionHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                 }
-                return ItemInteractionResult.sidedSuccess(level.isClientSide());
+                level.setBlock(blockPos, copyPoweredState(blockState, glowstoneVariant.get().defaultBlockState()), 3);
+                ModUtils.playGlowstoneRemoveSound(level, blockPos);
+                ModUtils.spawnGlowstoneRemoveParticles(level, blockHitResult);
+
+                return InteractionResult.SUCCESS;
             }
         }
 
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return InteractionResult.FAIL;
     }
 
     @Override

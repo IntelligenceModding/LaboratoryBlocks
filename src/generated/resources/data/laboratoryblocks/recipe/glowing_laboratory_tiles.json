@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "laboratoryblocks:laboratory_tiles"
-    },
-    {
-      "item": "laboratoryblocks:glowstone_particles"
-    }
+    "laboratoryblocks:laboratory_tiles",
+    "laboratoryblocks:glowstone_particles"
   ],
   "result": {
     "count": 1,

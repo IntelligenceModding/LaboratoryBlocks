@@ -4,7 +4,7 @@ import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 
@@ -14,7 +14,7 @@ public class ModCreativeModeTabs {
     @SuppressWarnings("unused")
     public static final CreativeModeTab LABORATORY_BLOCKS_CREATIVE_TAB = Registry.register(
             BuiltInRegistries.CREATIVE_MODE_TAB,
-            ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "laboratory_blocks_creative_tab"),
+            Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "laboratory_blocks_creative_tab"),
             CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .icon(() -> ModBlocks.QUANTUM_LABORATORY_SCREEN.get().asItem().getDefaultInstance())
                     .title(Component.translatable("itemGroup.laboratoryblocks"))
@@ -48,6 +48,10 @@ public class ModCreativeModeTabs {
                             ModBlocks.GLOWING_DARK_OAK_LABORATORY_FLOOR.get().asItem(),
                             ModBlocks.DARK_OAK_LABORATORY_TILES.get().asItem(),
                             ModBlocks.GLOWING_DARK_OAK_LABORATORY_TILES.get().asItem(),
+                            ModBlocks.PALE_OAK_LABORATORY_FLOOR.get().asItem(),
+                            ModBlocks.GLOWING_PALE_OAK_LABORATORY_FLOOR.get().asItem(),
+                            ModBlocks.PALE_OAK_LABORATORY_TILES.get().asItem(),
+                            ModBlocks.GLOWING_PALE_OAK_LABORATORY_TILES.get().asItem(),
                             ModBlocks.JUNGLE_LABORATORY_FLOOR.get().asItem(),
                             ModBlocks.GLOWING_JUNGLE_LABORATORY_FLOOR.get().asItem(),
                             ModBlocks.JUNGLE_LABORATORY_TILES.get().asItem(),

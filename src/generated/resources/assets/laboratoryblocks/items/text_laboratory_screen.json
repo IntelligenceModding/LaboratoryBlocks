@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "laboratoryblocks:block/text_laboratory_screen_inventory"
+  }
+}

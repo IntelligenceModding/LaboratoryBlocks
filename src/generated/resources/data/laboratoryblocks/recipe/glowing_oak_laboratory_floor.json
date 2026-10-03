@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "laboratoryblocks:oak_laboratory_floor"
-    },
-    {
-      "item": "laboratoryblocks:glowstone_particles"
-    }
+    "laboratoryblocks:oak_laboratory_floor",
+    "laboratoryblocks:glowstone_particles"
   ],
   "result": {
     "count": 1,

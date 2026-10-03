@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pale_oak_laboratory_floor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "laboratoryblocks:pale_oak_laboratory_floor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "laboratoryblocks:pale_oak_laboratory_tiles"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pale_oak_laboratory_floor"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:pale_oak_laboratory_tiles"
+    ]
+  }
+}

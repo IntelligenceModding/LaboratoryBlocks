@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "laboratoryblocks:gray_laboratory_tiles"
-    },
-    {
-      "item": "laboratoryblocks:laboratory_tiles"
-    }
+    "laboratoryblocks:gray_laboratory_tiles",
+    "laboratoryblocks:laboratory_tiles"
   ],
   "result": {
     "count": 2,

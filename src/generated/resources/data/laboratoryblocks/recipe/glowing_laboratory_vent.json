@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "laboratoryblocks:laboratory_vent"
-    },
-    {
-      "item": "laboratoryblocks:glowstone_particles"
-    }
+    "laboratoryblocks:laboratory_vent",
+    "laboratoryblocks:glowstone_particles"
   ],
   "result": {
     "count": 1,

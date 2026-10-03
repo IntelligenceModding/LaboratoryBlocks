@@ -5,6 +5,8 @@ plugins {
     id 'idea'
 }
 
+import groovy.json.JsonSlurper
+
 tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }
@@ -65,6 +67,8 @@ tasks.register('syncClientRuntimeMods', Sync) {
 }
 
 loom {
+    accessWidenerPath = file("src/main/resources/laboratoryblocks.accesswidener")
+
     runs {
         client {
             client()
@@ -84,10 +88,67 @@ fabricApi {
     }
 }
 
+def generatedResourcesDir = layout.projectDirectory.dir('src/generated/resources')
+
+tasks.named('runDatagen') {
+    outputs.dir(generatedResourcesDir)
+}
+
 tasks.register('runData') {
     group = 'Fabric'
     description = 'Runs Fabric data generation.'
     dependsOn tasks.named('runDatagen')
+}
+
+tasks.register('verifyGeneratedResources') {
+    group = 'verification'
+    description = 'Verifies generated data/resource provider outputs required by the mod.'
+    dependsOn tasks.named('runData')
+
+    def generatedDir = generatedResourcesDir
+    inputs.dir(generatedDir)
+
+    doLast {
+        def requiredFiles = [
+                'assets/laboratoryblocks/lang/en_us.json',
+                'assets/laboratoryblocks/items/laboratory_block.json',
+                'assets/laboratoryblocks/blockstates/laboratory_block.json',
+                'assets/laboratoryblocks/models/block/laboratory_block.json',
+                'assets/laboratoryblocks/textures/block/laboratory_block-fusion.png.mcmeta',
+                'data/laboratoryblocks/loot_table/blocks/laboratory_block.json',
+                'data/laboratoryblocks/recipe/laboratory_block.json',
+                'data/minecraft/tags/block/mineable/pickaxe.json',
+                'data/minecraft/tags/item/enchantable/durability.json'
+        ]
+
+        requiredFiles.each { path ->
+            def file = generatedDir.file(path).asFile
+            if (!file.isFile()) {
+                throw new GradleException("Missing generated resource: ${path}. Run ./gradlew runData.")
+            }
+        }
+
+        def langFile = generatedDir.file('assets/laboratoryblocks/lang/en_us.json').asFile
+        def lang = new JsonSlurper().parse(langFile)
+        [
+                'itemGroup.laboratoryblocks',
+                'item.laboratoryblocks.configuration_tool',
+                'item.laboratoryblocks.iron_screw',
+                'item.laboratoryblocks.glowstone_particles',
+                'item.laboratoryblocks.laboratory_door',
+                'block.laboratoryblocks.laboratory_block',
+                'block.laboratoryblocks.pale_oak_laboratory_floor',
+                'tooltip.laboratoryblocks.configuration_tool.remove_glowstone'
+        ].each { key ->
+            if (!lang.containsKey(key)) {
+                throw new GradleException("Missing generated language key: ${key}. Run ./gradlew runData.")
+            }
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('verifyGeneratedResources')
 }
 
 dependencies {
@@ -98,7 +159,7 @@ dependencies {
     }
     modImplementation "net.fabricmc:fabric-loader:${loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
-    modImplementation "maven.modrinth:fusion-connected-textures:${fusion_version}-fabric-mc${fusion_minecraft_version}"
+    modImplementation "maven.modrinth:fusion-connected-textures:${fusion_version}-fabric-mc${minecraft_version}"
     modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
     clientRuntimeMods "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
 }
@@ -118,8 +179,11 @@ tasks.named('processResources', ProcessResources).configure {
             minecraft_version       : minecraft_version,
             minecraft_version_range : minecraft_version_range,
             loader_version          : loader_version,
+            loader_version_range    : loader_version_range,
             fabric_api_version      : fabric_api_version,
+            fabric_api_version_range: fabric_api_version_range,
             fusion_version          : fusion_version,
+            fusion_version_range    : fusion_version_range,
             modmenu_version         : modmenu_version
     ])
 

@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "minecraft:iron_nugget"
-    },
-    "B": {
-      "item": "minecraft:iron_ingot"
-    }
+    "A": "minecraft:iron_nugget",
+    "B": "minecraft:iron_ingot"
   },
   "pattern": [
     "ABA",

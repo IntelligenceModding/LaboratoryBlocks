@@ -4,9 +4,12 @@ import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.item.ConfigurationToolItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 
@@ -21,8 +24,9 @@ public class ModItems {
     public static final List<RegistrySupplier<? extends Item>> ITEMS = Collections.unmodifiableList(ENTRIES);
 
     private static <T extends Item> RegistrySupplier<T> register(String name, Function<Item.Properties, T> itemFactory, UnaryOperator<Item.Properties> properties) {
-        ResourceLocation id = id(name);
-        T item = Registry.register(BuiltInRegistries.ITEM, id, itemFactory.apply(properties.apply(new Item.Properties())));
+        Identifier id = id(name);
+        ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, id);
+        T item = Registry.register(BuiltInRegistries.ITEM, id, itemFactory.apply(properties.apply(new Item.Properties().setId(key))));
         RegistrySupplier<T> entry = new RegistrySupplier<>(id, item);
         ENTRIES.add(entry);
         return entry;
@@ -42,9 +46,9 @@ public class ModItems {
             Item::new, UnaryOperator.identity());
 
     public static final RegistrySupplier<ConfigurationToolItem> CONFIGURATION_TOOL = register("configuration_tool",
-            ConfigurationToolItem::new, properties -> properties.durability(640).rarity(Rarity.UNCOMMON));
+            ConfigurationToolItem::new, properties -> properties.durability(640).rarity(Rarity.UNCOMMON).enchantable(10).repairable(Items.IRON_INGOT));
 
-    private static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
+    private static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }
 }

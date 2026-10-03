@@ -5,7 +5,7 @@ import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -18,11 +18,13 @@ public class ModModelProvider implements DataProvider {
     private final PackOutput.PathProvider blockstatesPathProvider;
     private final PackOutput.PathProvider blockModelPathProvider;
     private final PackOutput.PathProvider itemModelPathProvider;
+    private final PackOutput.PathProvider itemPathProvider;
 
     public ModModelProvider(PackOutput output) {
         this.blockstatesPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "blockstates");
         this.blockModelPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/block");
         this.itemModelPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "models/item");
+        this.itemPathProvider = output.createPathProvider(PackOutput.Target.RESOURCE_PACK, "items");
     }
 
     @Override
@@ -107,12 +109,15 @@ public class ModModelProvider implements DataProvider {
     }
 
     private List<CompletableFuture<?>> saveFlatItem(CachedOutput output, String itemName) {
-        return List.of(saveFlatItemModel(output, itemName, "minecraft:item/generated"));
+        return List.of(
+                saveFlatItemModel(output, itemName, "minecraft:item/generated"),
+                saveItemDefinition(output, itemName, "item/" + itemName)
+        );
     }
 
     @SuppressWarnings("all")
     private List<CompletableFuture<?>> saveHandheldItem(CachedOutput output, String itemName) {
-        return List.of(saveFlatItemModel(output, itemName, "minecraft:item/handheld"));
+        return saveFlatItem(output, itemName);
     }
 
     private CompletableFuture<?> saveFlatItemModel(CachedOutput output, String itemName, String parent) {
@@ -301,6 +306,19 @@ public class ModModelProvider implements DataProvider {
     }
 
     private CompletableFuture<?> saveBlockItemDefinition(CachedOutput output, String itemName, String blockModelName) {
+        return saveItemDefinition(output, itemName, "block/" + blockModelName);
+    }
+
+    private CompletableFuture<?> saveItemDefinition(CachedOutput output, String itemName, String modelName) {
+        JsonObject json = new JsonObject();
+        JsonObject model = new JsonObject();
+        model.addProperty("type", "minecraft:model");
+        model.addProperty("model", modPath(modelName));
+        json.add("model", model);
+        return DataProvider.saveStable(output, json, itemPathProvider.json(id(itemName)));
+    }
+
+    private CompletableFuture<?> saveLegacyBlockItemModel(CachedOutput output, String itemName, String blockModelName) {
         JsonObject json = new JsonObject();
         json.addProperty("parent", modPath("block/" + blockModelName));
         return DataProvider.saveStable(output, json, itemModelPathProvider.json(id(itemName)));
@@ -345,8 +363,8 @@ public class ModModelProvider implements DataProvider {
         return "laboratory_glass".equals(pair.texturePath());
     }
 
-    private static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
+    private static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }
 
     private static String modPath(String path) {

@@ -2,19 +2,18 @@ package de.artemis.laboratoryblocks.common.particle;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
-import net.minecraft.client.particle.ParticleRenderType;
+import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
-public class ApplyingGlowstoneParticle extends TextureSheetParticle {
+public class ApplyingGlowstoneParticle extends SingleQuadParticle {
     private final float baseQuadSize;
 
     protected ApplyingGlowstoneParticle(ClientLevel level, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, RandomSource random, double xd, double yd, double zd) {
-        super(level, xCoord, yCoord, zCoord, xd, yd, zd);
-        this.setSprite(spriteSet.get(random));
+        super(level, xCoord, yCoord, zCoord, xd, yd, zd, spriteSet.get(random));
 
         this.friction = 0.90F;
         this.hasPhysics = false;
@@ -24,6 +23,7 @@ public class ApplyingGlowstoneParticle extends TextureSheetParticle {
         this.quadSize *= 1.80F + random.nextFloat() * 0.56F;
         this.baseQuadSize = this.quadSize;
         this.lifetime = 10 + random.nextInt(5);
+        this.setSpriteFromAge(spriteSet);
         this.alpha = 0.90F;
 
         this.rCol = 1f;
@@ -48,8 +48,8 @@ public class ApplyingGlowstoneParticle extends TextureSheetParticle {
 
     @NotNull
     @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+    protected Layer getLayer() {
+        return Layer.TRANSLUCENT;
     }
 
     public static class Provider implements net.minecraft.client.particle.ParticleProvider<SimpleParticleType> {
@@ -59,8 +59,7 @@ public class ApplyingGlowstoneParticle extends TextureSheetParticle {
             this.spriteSet = spriteSet;
         }
 
-        public Particle createParticle(@NotNull SimpleParticleType particleType, @NotNull ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
-            RandomSource random = level.random;
+        public Particle createParticle(@NotNull SimpleParticleType particleType, @NotNull ClientLevel level, double x, double y, double z, double dx, double dy, double dz, @NonNull RandomSource random) {
             ApplyingGlowstoneParticle applyingGlowstoneParticle = new ApplyingGlowstoneParticle(level, x, y, z, this.spriteSet, random, dx, dy, dz);
             applyingGlowstoneParticle.setColor(1F, 0.80F, 0.25F);
 

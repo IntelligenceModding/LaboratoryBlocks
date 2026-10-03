@@ -3,7 +3,6 @@ package de.artemis.laboratoryblocks.common.util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -87,8 +86,6 @@ public final class ModUtils {
         Vec3 tangentA = getFirstTangent(face);
         Vec3 tangentB = getSecondTangent(face);
         Vec3 anchor = hitResult.getLocation().add(normal.scale(PARTICLE_FACE_OFFSET + level.random.nextDouble() * faceOffset * 0.25D));
-        ServerLevel serverLevel = level instanceof ServerLevel server ? server : null;
-
         for (int i = 0; i < count; i++) {
             double offsetA = randomCentered(level) * spread;
             double offsetB = randomCentered(level) * spread;
@@ -110,11 +107,7 @@ public final class ModUtils {
                     + tangentA.z * randomCentered(level) * jitterMotion
                     + tangentB.z * randomCentered(level) * jitterMotion;
 
-            if (serverLevel != null) {
-                serverLevel.sendParticles(particleType, position.x, position.y, position.z, 1, motionX, motionY, motionZ, 0.0D);
-            } else {
-                level.addParticle(particleType, position.x, position.y, position.z, motionX, motionY, motionZ);
-            }
+            level.addParticle(particleType, position.x, position.y, position.z, motionX, motionY, motionZ);
         }
     }
 

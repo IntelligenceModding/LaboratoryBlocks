@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class ModParticles {
     public static final RegistrySupplier<SimpleParticleType> APPLYING_GLOWSTONE_PARTICLE =
@@ -18,7 +18,7 @@ public class ModParticles {
     }
 
     private static RegistrySupplier<SimpleParticleType> register(String name) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, name);
+        Identifier id = Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, name);
         SimpleParticleType particleType = Registry.register(BuiltInRegistries.PARTICLE_TYPE, id, FabricParticleTypes.simple(true));
         return new RegistrySupplier<>(id, particleType);
     }

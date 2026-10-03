@@ -7,7 +7,9 @@ import de.artemis.laboratoryblocks.common.block.RedstoneControlledLaboratoryBloc
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.BlockGetter;
@@ -27,8 +29,9 @@ public class ModBlocks {
             Function<BlockBehaviour.Properties, T> blockFactory,
             UnaryOperator<BlockBehaviour.Properties> properties
     ) {
-        ResourceLocation id = id(name);
-        T block = Registry.register(BuiltInRegistries.BLOCK, id, blockFactory.apply(properties.apply(BlockBehaviour.Properties.of())));
+        Identifier id = id(name);
+        ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, id);
+        T block = Registry.register(BuiltInRegistries.BLOCK, id, blockFactory.apply(properties.apply(BlockBehaviour.Properties.of().setId(key))));
         ModItems.registerBlockItem(name, block);
         return new RegistrySupplier<>(id, block);
     }
@@ -292,6 +295,22 @@ public class ModBlocks {
             properties -> new LaboratoryBlock(() -> ModBlocks.DARK_OAK_LABORATORY_TILES.get(), properties),
             properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
+    public static final RegistrySupplier<LaboratoryBlock> PALE_OAK_LABORATORY_FLOOR = register("pale_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_PALE_OAK_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_PALE_OAK_LABORATORY_FLOOR = register("glowing_pale_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.PALE_OAK_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> PALE_OAK_LABORATORY_TILES = register("pale_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_PALE_OAK_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_PALE_OAK_LABORATORY_TILES = register("glowing_pale_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.PALE_OAK_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
     public static final RegistrySupplier<LaboratoryBlock> JUNGLE_LABORATORY_FLOOR = register("jungle_laboratory_floor",
             properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_JUNGLE_LABORATORY_FLOOR.get(), properties),
             properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
@@ -416,7 +435,7 @@ public class ModBlocks {
                     .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
                     .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(state -> 14));
 
-    private static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
+    private static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }
 }

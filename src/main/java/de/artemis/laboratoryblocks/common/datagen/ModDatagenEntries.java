@@ -6,8 +6,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import de.artemis.laboratoryblocks.common.registry.RegistrySupplier;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -48,6 +46,7 @@ public final class ModDatagenEntries {
             wood(Blocks.SPRUCE_PLANKS, ModBlocks.SPRUCE_LABORATORY_FLOOR, ModBlocks.GLOWING_SPRUCE_LABORATORY_FLOOR, "spruce_laboratory_floor", ModBlocks.SPRUCE_LABORATORY_TILES, ModBlocks.GLOWING_SPRUCE_LABORATORY_TILES, "spruce_laboratory_tiles"),
             wood(Blocks.BIRCH_PLANKS, ModBlocks.BIRCH_LABORATORY_FLOOR, ModBlocks.GLOWING_BIRCH_LABORATORY_FLOOR, "birch_laboratory_floor", ModBlocks.BIRCH_LABORATORY_TILES, ModBlocks.GLOWING_BIRCH_LABORATORY_TILES, "birch_laboratory_tiles"),
             wood(Blocks.DARK_OAK_PLANKS, ModBlocks.DARK_OAK_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_OAK_LABORATORY_FLOOR, "dark_oak_laboratory_floor", ModBlocks.DARK_OAK_LABORATORY_TILES, ModBlocks.GLOWING_DARK_OAK_LABORATORY_TILES, "dark_oak_laboratory_tiles"),
+            wood(Blocks.PALE_OAK_PLANKS, ModBlocks.PALE_OAK_LABORATORY_FLOOR, ModBlocks.GLOWING_PALE_OAK_LABORATORY_FLOOR, "pale_oak_laboratory_floor", ModBlocks.PALE_OAK_LABORATORY_TILES, ModBlocks.GLOWING_PALE_OAK_LABORATORY_TILES, "pale_oak_laboratory_tiles"),
             wood(Blocks.JUNGLE_PLANKS, ModBlocks.JUNGLE_LABORATORY_FLOOR, ModBlocks.GLOWING_JUNGLE_LABORATORY_FLOOR, "jungle_laboratory_floor", ModBlocks.JUNGLE_LABORATORY_TILES, ModBlocks.GLOWING_JUNGLE_LABORATORY_TILES, "jungle_laboratory_tiles"),
             wood(Blocks.ACACIA_PLANKS, ModBlocks.ACACIA_LABORATORY_FLOOR, ModBlocks.GLOWING_ACACIA_LABORATORY_FLOOR, "acacia_laboratory_floor", ModBlocks.ACACIA_LABORATORY_TILES, ModBlocks.GLOWING_ACACIA_LABORATORY_TILES, "acacia_laboratory_tiles"),
             wood(Blocks.MANGROVE_PLANKS, ModBlocks.MANGROVE_LABORATORY_FLOOR, ModBlocks.GLOWING_MANGROVE_LABORATORY_FLOOR, "mangrove_laboratory_floor", ModBlocks.MANGROVE_LABORATORY_TILES, ModBlocks.GLOWING_MANGROVE_LABORATORY_TILES, "mangrove_laboratory_tiles"),
@@ -96,7 +95,7 @@ public final class ModDatagenEntries {
         }
     }
 
-    public record WoodFamily(@Nullable Block planks, GeneratedBlockPair floorPair, GeneratedBlockPair tilePair) {
+    public record WoodFamily(Block planks, GeneratedBlockPair floorPair, GeneratedBlockPair tilePair) {
         public Stream<GeneratedBlockPair> pairs() {
             return Stream.of(this.floorPair, this.tilePair);
         }
@@ -153,7 +152,7 @@ public final class ModDatagenEntries {
     }
 
     private static WoodFamily wood(
-            @Nullable Block planks,
+            Block planks,
             RegistrySupplier<? extends Block> floor,
             RegistrySupplier<? extends Block> glowingFloor,
             String floorTexturePath,
