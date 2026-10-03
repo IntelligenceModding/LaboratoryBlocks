@@ -1,6 +1,7 @@
 {
   "type": "fusion:connecting",
   "parent": "minecraft:block/cube_all",
+  "loader": "fusion:model",
   "connections": {
     "type": "fusion:or",
     "predicates": [
@@ -13,7 +14,6 @@
       }
     ]
   },
-  "loader": "fusion:model",
   "textures": {
     "all": "laboratoryblocks:block/laboratory_tiles-fusion"
   }

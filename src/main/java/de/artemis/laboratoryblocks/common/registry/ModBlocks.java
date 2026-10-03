@@ -323,22 +323,6 @@ public class ModBlocks {
             properties -> new LaboratoryBlock(() -> ModBlocks.ACACIA_LABORATORY_TILES.get(), properties),
             properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
-    public static final RegistrySupplier<LaboratoryBlock> MANGROVE_LABORATORY_FLOOR = register("mangrove_laboratory_floor",
-            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_MANGROVE_LABORATORY_FLOOR.get(), properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
-
-    public static final RegistrySupplier<LaboratoryBlock> GLOWING_MANGROVE_LABORATORY_FLOOR = register("glowing_mangrove_laboratory_floor",
-            properties -> new LaboratoryBlock(() -> ModBlocks.MANGROVE_LABORATORY_FLOOR.get(), properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
-
-    public static final RegistrySupplier<LaboratoryBlock> MANGROVE_LABORATORY_TILES = register("mangrove_laboratory_tiles",
-            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_MANGROVE_LABORATORY_TILES.get(), properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));
-
-    public static final RegistrySupplier<LaboratoryBlock> GLOWING_MANGROVE_LABORATORY_TILES = register("glowing_mangrove_laboratory_tiles",
-            properties -> new LaboratoryBlock(() -> ModBlocks.MANGROVE_LABORATORY_TILES.get(), properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
-
     public static final RegistrySupplier<LaboratoryBlock> CRIMSON_LABORATORY_FLOOR = register("crimson_laboratory_floor",
             properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_CRIMSON_LABORATORY_FLOOR.get(), properties),
             properties -> properties.strength(2.5F, 3.0F).sound(SoundType.WOOD));

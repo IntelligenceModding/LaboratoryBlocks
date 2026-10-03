@@ -1,5 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    " A "
+  ],
   "key": {
     "A": {
       "item": "minecraft:iron_nugget"
@@ -8,12 +12,8 @@
       "item": "minecraft:iron_ingot"
     }
   },
-  "pattern": [
-    "ABA",
-    " A "
-  ],
   "result": {
-    "count": 16,
-    "item": "laboratoryblocks:iron_screw"
+    "item": "laboratoryblocks:iron_screw",
+    "count": 16
   }
 }

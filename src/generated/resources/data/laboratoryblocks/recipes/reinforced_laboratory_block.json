@@ -1,5 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A A",
+    " B ",
+    "A A"
+  ],
   "key": {
     "A": {
       "item": "laboratoryblocks:iron_screw"
@@ -8,13 +13,8 @@
       "item": "laboratoryblocks:laboratory_block"
     }
   },
-  "pattern": [
-    "A A",
-    " B ",
-    "A A"
-  ],
   "result": {
-    "count": 2,
-    "item": "laboratoryblocks:reinforced_laboratory_block"
+    "item": "laboratoryblocks:reinforced_laboratory_block",
+    "count": 2
   }
 }

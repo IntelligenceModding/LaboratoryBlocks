@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
   "key": {
     "A": {
       "item": "laboratoryblocks:acacia_laboratory_floor"
     }
   },
-  "pattern": [
-    "AA",
-    "AA"
-  ],
   "result": {
-    "count": 8,
-    "item": "laboratoryblocks:acacia_laboratory_tiles"
+    "item": "laboratoryblocks:acacia_laboratory_tiles",
+    "count": 8
   }
 }

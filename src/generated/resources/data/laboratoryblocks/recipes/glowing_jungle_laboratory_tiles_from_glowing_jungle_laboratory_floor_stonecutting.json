@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "laboratoryblocks:glowing_jungle_laboratory_floor"
   },
-  "result": "laboratoryblocks:glowing_jungle_laboratory_tiles"
+  "result": "laboratoryblocks:glowing_jungle_laboratory_tiles",
+  "count": 2
 }

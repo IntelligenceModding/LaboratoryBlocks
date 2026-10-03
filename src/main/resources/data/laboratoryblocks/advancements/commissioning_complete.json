@@ -113,70 +113,16 @@
         "block": "laboratoryblocks:right_indicating_blue_laboratory_block"
       }
     },
-    "placed_any_indicator_left_blue": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:left_indicating_blue_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_right_blue": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_right_indicating_blue_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_left_blue": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_left_indicating_blue_laboratory_block"
-      }
-    },
     "placed_any_indicator_red": {
       "trigger": "minecraft:placed_block",
       "conditions": {
         "block": "laboratoryblocks:right_indicating_red_laboratory_block"
       }
     },
-    "placed_any_indicator_left_red": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:left_indicating_red_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_right_red": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_right_indicating_red_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_left_red": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_left_indicating_red_laboratory_block"
-      }
-    },
     "placed_any_indicator_green": {
       "trigger": "minecraft:placed_block",
       "conditions": {
         "block": "laboratoryblocks:right_indicating_green_laboratory_block"
-      }
-    },
-    "placed_any_indicator_left_green": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:left_indicating_green_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_right_green": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_right_indicating_green_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_left_green": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_left_indicating_green_laboratory_block"
       }
     },
     "placed_glowing_laboratory_glass": {
@@ -219,17 +165,8 @@
     ],
     [
       "placed_any_indicator_blue",
-      "placed_any_indicator_left_blue",
-      "placed_any_indicator_glowing_right_blue",
-      "placed_any_indicator_glowing_left_blue",
       "placed_any_indicator_red",
-      "placed_any_indicator_left_red",
-      "placed_any_indicator_glowing_right_red",
-      "placed_any_indicator_glowing_left_red",
-      "placed_any_indicator_green",
-      "placed_any_indicator_left_green",
-      "placed_any_indicator_glowing_right_green",
-      "placed_any_indicator_glowing_left_green"
+      "placed_any_indicator_green"
     ],
     [
       "placed_glowing_laboratory_glass",

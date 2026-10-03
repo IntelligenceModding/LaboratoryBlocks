@@ -1,5 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
   "key": {
     "A": {
       "item": "minecraft:glass"
@@ -8,13 +13,8 @@
       "item": "laboratoryblocks:laboratory_block"
     }
   },
-  "pattern": [
-    "AAA",
-    "ABA",
-    "AAA"
-  ],
   "result": {
-    "count": 8,
-    "item": "laboratoryblocks:laboratory_glass"
+    "item": "laboratoryblocks:laboratory_glass",
+    "count": 8
   }
 }
