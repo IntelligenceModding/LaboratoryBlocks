@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "laboratoryblocks:glowstone_particles",
     "laboratoryblocks:glowstone_particles",

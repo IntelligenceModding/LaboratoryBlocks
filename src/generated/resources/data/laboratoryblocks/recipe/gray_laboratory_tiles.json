@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "A": "laboratoryblocks:laboratory_tiles",
-    "B": "minecraft:gray_dye"
+    "B": "#c:dyes/gray"
   },
   "pattern": [
     "AAA",

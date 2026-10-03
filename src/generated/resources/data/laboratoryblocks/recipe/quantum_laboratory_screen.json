@@ -6,7 +6,7 @@
     "laboratoryblocks:clear_laboratory_screen",
     "laboratoryblocks:clear_laboratory_screen",
     "laboratoryblocks:clear_laboratory_screen",
-    "minecraft:purple_dye"
+    "#c:dyes/purple"
   ],
   "result": {
     "count": 4,

@@ -3,8 +3,6 @@ package de.artemis.laboratoryblocks.common.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
@@ -49,6 +47,6 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
     }
 
     private static ResourceKey<Block> key(Block block) {
-        return ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(block));
+        return block.builtInRegistryHolder().key();
     }
 }

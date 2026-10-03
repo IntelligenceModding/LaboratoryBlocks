@@ -48,7 +48,7 @@ body:
     attributes:
       label: Relevant Minecraft Version
       description: If this request relates to a specific Minecraft version, enter it here.
-      placeholder: "Example: 26.1.2 or N/A"
+      placeholder: "Example: 26.2 or N/A"
 
   - type: checkboxes
     id: checks

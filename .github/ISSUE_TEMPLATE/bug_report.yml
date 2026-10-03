@@ -17,7 +17,7 @@ body:
     attributes:
       label: Minecraft Version
       description: Which Minecraft version are you using?
-      placeholder: "Example: 26.1.2"
+      placeholder: "Example: 26.2"
     validations:
       required: true
 
@@ -44,7 +44,7 @@ body:
     attributes:
       label: Fusion Version
       description: Which version of Fusion are you using? Enter N/A if it does not apply to the affected version.
-      placeholder: "Example: 1.2.12"
+      placeholder: "Example: 1.3.15a"
     validations:
       required: true
 
@@ -86,7 +86,7 @@ body:
       description: List other mods that may be relevant. If the issue may be compatibility-related, provide the full mod list if possible.
       placeholder: |
         Example:
-        - JEI 29.6.2.38
+        - JEI 30.32.0.221
         - Example Mod 1.2.3
 
   - type: textarea
