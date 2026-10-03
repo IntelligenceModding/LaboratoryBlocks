@@ -18,7 +18,7 @@ body:
     id: minecraft-version
     attributes:
       label: Requested Minecraft Version
-      placeholder: "Example: 1.21.8"
+      placeholder: "Example: 26.2"
     validations:
       required: true
 

@@ -2,7 +2,7 @@ package de.artemis.laboratoryblocks.common.datagen;
 
 import de.artemis.laboratoryblocks.common.registry.ModItems;
 import de.artemis.laboratoryblocks.common.registry.RegistrySupplier;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.level.block.DoorBlock;
@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.TrapDoorBlock;
 import java.util.concurrent.CompletableFuture;
 
 public class ModLanguageProvider extends FabricLanguageProvider {
-    public ModLanguageProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public ModLanguageProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(output, registryLookup);
     }
 

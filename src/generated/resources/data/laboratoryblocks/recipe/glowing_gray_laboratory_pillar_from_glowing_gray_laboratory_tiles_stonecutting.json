@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "laboratoryblocks:glowing_gray_laboratory_tiles",
   "result": {
-    "count": 1,
     "id": "laboratoryblocks:glowing_gray_laboratory_pillar"
   }
 }

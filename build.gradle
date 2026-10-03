@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
     id 'idea'
 }
 
@@ -19,7 +19,7 @@ base {
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
 }
 
 sourceSets {
@@ -29,10 +29,6 @@ sourceSets {
 }
 
 repositories {
-    maven {
-        name = 'ParchmentMC'
-        url = 'https://maven.parchmentmc.org'
-    }
     maven {
         name = 'Terraformers'
         url = 'https://maven.terraformersmc.com/'
@@ -153,14 +149,10 @@ tasks.named('check') {
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.layered {
-        officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-${parchment_minecraft_version}:${parchment_mappings_version}@zip")
-    }
-    modImplementation "net.fabricmc:fabric-loader:${loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
-    modImplementation "maven.modrinth:fusion-connected-textures:${fusion_version}-fabric-mc${minecraft_version}"
-    modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
+    implementation "net.fabricmc:fabric-loader:${loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    implementation "maven.modrinth:fusion-connected-textures:${fusion_version}-fabric-mc${fusion_minecraft_version}"
+    runtimeOnly "com.terraformersmc:modmenu:${modmenu_version}"
     clientRuntimeMods "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
 }
 
@@ -169,7 +161,7 @@ tasks.named('runClient') {
 }
 
 tasks.named('processResources', ProcessResources).configure {
-    inputs.properties([
+    def replaceProperties = [
             mod_id                  : mod_id,
             mod_name                : mod_name,
             mod_license             : mod_license,
@@ -185,10 +177,11 @@ tasks.named('processResources', ProcessResources).configure {
             fusion_version          : fusion_version,
             fusion_version_range    : fusion_version_range,
             modmenu_version         : modmenu_version
-    ])
+    ]
+    inputs.properties(replaceProperties)
 
     filesMatching('fabric.mod.json') {
-        expand inputs.properties
+        expand replaceProperties
     }
 }
 
