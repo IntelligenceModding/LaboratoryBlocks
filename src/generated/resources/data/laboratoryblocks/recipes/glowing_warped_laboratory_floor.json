@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:warped_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:glowing_warped_laboratory_floor"
+  }
+}

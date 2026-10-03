@@ -17,7 +17,7 @@ base {
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 sourceSets {
@@ -65,6 +65,8 @@ tasks.register('syncClientRuntimeMods', Sync) {
 }
 
 loom {
+    accessWidenerPath = file("src/main/resources/laboratoryblocks.accesswidener")
+
     runs {
         client {
             client()
@@ -118,9 +120,13 @@ tasks.named('processResources', ProcessResources).configure {
             minecraft_version       : minecraft_version,
             minecraft_version_range : minecraft_version_range,
             loader_version          : loader_version,
+            loader_version_range    : loader_version_range,
             fabric_api_version      : fabric_api_version,
+            fabric_api_version_range: fabric_api_version_range,
             fusion_version          : fusion_version,
-            modmenu_version         : modmenu_version
+            fusion_version_range    : fusion_version_range,
+            modmenu_version         : modmenu_version,
+            modmenu_version_range   : modmenu_version_range
     ])
 
     filesMatching('fabric.mod.json') {

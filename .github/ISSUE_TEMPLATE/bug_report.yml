@@ -17,7 +17,7 @@ body:
     attributes:
       label: Minecraft Version
       description: Which Minecraft version are you using?
-      placeholder: "Example: 1.21.1"
+      placeholder: "Example: 1.20.1"
     validations:
       required: true
 
@@ -35,7 +35,7 @@ body:
     attributes:
       label: Mod Loader
       description: Which mod loader and version are you using?
-      placeholder: "Example: Fabric Loader 0.18.5"
+      placeholder: "Example: Fabric Loader 0.14.21"
     validations:
       required: true
 
@@ -44,7 +44,7 @@ body:
     attributes:
       label: Fusion Version
       description: Which version of Fusion are you using? Enter N/A if it does not apply to the affected version.
-      placeholder: "Example: 1.2.12"
+      placeholder: "Example: 1.3.15b"
     validations:
       required: true
 

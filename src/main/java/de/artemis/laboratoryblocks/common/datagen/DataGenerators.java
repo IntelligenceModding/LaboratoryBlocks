@@ -14,7 +14,6 @@ public class DataGenerators implements DataGeneratorEntrypoint {
         pack.addProvider(ModBlockLootTableProvider::new);
         pack.addProvider(ModRecipeProvider::new);
         pack.addProvider(ModBlockTagProvider::new);
-        pack.addProvider(ModItemTagProvider::new);
         pack.addProvider((FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) -> new ModModelProvider(output));
         pack.addProvider((FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) -> new ModFusionModelProvider(output));
         pack.addProvider((FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) -> new ModFusionTextureMetadataProvider(output));

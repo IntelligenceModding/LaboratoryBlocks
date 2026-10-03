@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "laboratoryblocks:laboratory_trapdoor",
+    "laboratoryblocks:mesh_laboratory_trapdoor",
+    "laboratoryblocks:glass_laboratory_trapdoor"
+  ]
+}

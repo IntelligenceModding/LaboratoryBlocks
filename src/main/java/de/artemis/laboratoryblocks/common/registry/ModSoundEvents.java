@@ -11,7 +11,7 @@ public class ModSoundEvents {
     }
 
     private static RegistrySupplier<SoundEvent> register(String name) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, name);
+        ResourceLocation id = new ResourceLocation(LaboratoryBlocks.MOD_ID, name);
         SoundEvent soundEvent = Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));
         return new RegistrySupplier<>(id, soundEvent);
     }

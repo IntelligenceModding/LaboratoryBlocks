@@ -45,6 +45,6 @@ public class ModItems {
             ConfigurationToolItem::new, properties -> properties.durability(640).rarity(Rarity.UNCOMMON));
 
     private static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
+        return new ResourceLocation(LaboratoryBlocks.MOD_ID, path);
     }
 }

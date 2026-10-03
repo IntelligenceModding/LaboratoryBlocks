@@ -45,27 +45,27 @@ public class ModBlocks {
     }
 
     public static final RegistrySupplier<DoorBlock> LABORATORY_DOOR = register("laboratory_door",
-            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> new DoorBlock(properties, ModBlockSetTypes.LABORATORY),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistrySupplier<DoorBlock> MESH_LABORATORY_DOOR = register("mesh_laboratory_door",
-            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> new DoorBlock(properties, ModBlockSetTypes.LABORATORY),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistrySupplier<DoorBlock> GLASS_LABORATORY_DOOR = register("glass_laboratory_door",
-            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> new DoorBlock(properties, ModBlockSetTypes.LABORATORY),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistrySupplier<TrapDoorBlock> LABORATORY_TRAPDOOR = register("laboratory_trapdoor",
-            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> new TrapDoorBlock(properties, ModBlockSetTypes.LABORATORY),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistrySupplier<TrapDoorBlock> MESH_LABORATORY_TRAPDOOR = register("mesh_laboratory_trapdoor",
-            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> new TrapDoorBlock(properties, ModBlockSetTypes.LABORATORY),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistrySupplier<TrapDoorBlock> GLASS_LABORATORY_TRAPDOOR = register("glass_laboratory_trapdoor",
-            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> new TrapDoorBlock(properties, ModBlockSetTypes.LABORATORY),
             properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
 
     public static final RegistrySupplier<LaboratoryBlock> LABORATORY_PILLAR = register("laboratory_pillar",
@@ -417,6 +417,6 @@ public class ModBlocks {
                     .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(state -> 14));
 
     private static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
+        return new ResourceLocation(LaboratoryBlocks.MOD_ID, path);
     }
 }

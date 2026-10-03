@@ -2,11 +2,9 @@ package de.artemis.laboratoryblocks.common.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.world.level.block.Block;
 
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
 public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
@@ -26,8 +24,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
             .map(trapdoor -> (Block)trapdoor.get())
             .collect(java.util.stream.Collectors.toUnmodifiableSet());
 
-    protected ModBlockLootTableProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
-        super(output, registryLookup);
+    protected ModBlockLootTableProvider(FabricDataOutput output) {
+        super(output);
     }
 
     @Override

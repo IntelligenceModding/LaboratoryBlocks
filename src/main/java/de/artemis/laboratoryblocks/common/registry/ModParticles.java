@@ -18,7 +18,7 @@ public class ModParticles {
     }
 
     private static RegistrySupplier<SimpleParticleType> register(String name) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, name);
+        ResourceLocation id = new ResourceLocation(LaboratoryBlocks.MOD_ID, name);
         SimpleParticleType particleType = Registry.register(BuiltInRegistries.PARTICLE_TYPE, id, FabricParticleTypes.simple(true));
         return new RegistrySupplier<>(id, particleType);
     }

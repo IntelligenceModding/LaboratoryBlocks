@@ -14,7 +14,7 @@ public class ModCreativeModeTabs {
     @SuppressWarnings("unused")
     public static final CreativeModeTab LABORATORY_BLOCKS_CREATIVE_TAB = Registry.register(
             BuiltInRegistries.CREATIVE_MODE_TAB,
-            ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "laboratory_blocks_creative_tab"),
+            new ResourceLocation(LaboratoryBlocks.MOD_ID, "laboratory_blocks_creative_tab"),
             CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .icon(() -> ModBlocks.QUANTUM_LABORATORY_SCREEN.get().asItem().getDefaultInstance())
                     .title(Component.translatable("itemGroup.laboratoryblocks"))

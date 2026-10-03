@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:iron_screw"
+    },
+    "B": {
+      "item": "laboratoryblocks:laboratory_block"
+    }
+  },
+  "pattern": [
+    "A A",
+    " B ",
+    "A A"
+  ],
+  "result": {
+    "count": 2,
+    "item": "laboratoryblocks:reinforced_laboratory_block"
+  },
+  "show_notification": true
+}

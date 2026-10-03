@@ -1,5 +1,5 @@
-// 1.21.1	2026-10-03T15:32:16.4502504	Artemis' Laboratory Blocks/Tags for minecraft:block
-b81e6d76997fef9e7ee4851abf34ac1380c233c6 data\minecraft\tags\block\mineable\axe.json
-f5ade977c82493b683d0ed700abbfee36569381a data\minecraft\tags\block\trapdoors.json
-753296f9ba68f2e24e7aa949af7a26280759938f data\minecraft\tags\block\doors.json
-1be7694835ac2c625811e9896689872b7766f9bd data\minecraft\tags\block\mineable\pickaxe.json
+// 1.20.1	2026-10-03T21:47:43.9925791	Artemis' Laboratory Blocks/Tags for minecraft:block
+94aa449a07e1ae145b5ef39f940885349ce3dbf0 data\minecraft\tags\blocks\mineable\pickaxe.json
+ed61a44654dab99f1a981465cd7d309b732a32e0 data\minecraft\tags\blocks\mineable\axe.json
+31ea794422c92c339644061fd3445c642f4ba4b1 data\minecraft\tags\blocks\doors.json
+e121a21e683ed2a850ed028e719ac1d0ac15558f data\minecraft\tags\blocks\trapdoors.json

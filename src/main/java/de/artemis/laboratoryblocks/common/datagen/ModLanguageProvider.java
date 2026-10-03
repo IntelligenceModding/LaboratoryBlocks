@@ -4,23 +4,21 @@ import de.artemis.laboratoryblocks.common.registry.ModItems;
 import de.artemis.laboratoryblocks.common.registry.RegistrySupplier;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ModLanguageProvider extends FabricLanguageProvider {
-    public ModLanguageProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
-        super(output, registryLookup);
+    public ModLanguageProvider(FabricDataOutput output) {
+        super(output, "en_us");
     }
 
     @Override
-    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder builder) {
+    public void generateTranslations(TranslationBuilder builder) {
         builder.add("itemGroup.laboratoryblocks", "Artemis' Laboratory Blocks");
         builder.add("tooltip.laboratoryblocks.configuration_tool.remove_glowstone", "Right-click glowing blocks to remove Glowstone Particles.");
         builder.add("modmenu.nameTranslation.laboratoryblocks", "Artemis' Laboratory Blocks");
