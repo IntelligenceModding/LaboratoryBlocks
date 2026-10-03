@@ -35,7 +35,7 @@ body:
     attributes:
       label: Mod Loader
       description: Which mod loader and version are you using?
-      placeholder: "Example: NeoForge 21.1.226"
+      placeholder: "Example: Fabric Loader 0.18.5"
     validations:
       required: true
 

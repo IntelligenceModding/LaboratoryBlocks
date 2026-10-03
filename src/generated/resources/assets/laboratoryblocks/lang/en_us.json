@@ -95,5 +95,11 @@
   "item.laboratoryblocks.glowstone_particles": "Glowstone Particles",
   "item.laboratoryblocks.iron_screw": "Iron Screw",
   "itemGroup.laboratoryblocks": "Artemis' Laboratory Blocks",
+  "laboratoryblocks.link.discord": "Discord",
+  "laboratoryblocks.link.github": "GitHub",
+  "laboratoryblocks.link.modrinth": "Modrinth",
+  "laboratoryblocks.link.youtube": "YouTube",
+  "modmenu.descriptionTranslation.laboratoryblocks": "Upgrade your builds with modern, futuristic laboratory blocks inspired by the classic laboratory style.",
+  "modmenu.nameTranslation.laboratoryblocks": "Artemis' Laboratory Blocks",
   "tooltip.laboratoryblocks.configuration_tool.remove_glowstone": "Right-click glowing blocks to remove Glowstone Particles."
 }

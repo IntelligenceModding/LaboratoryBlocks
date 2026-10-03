@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/artemis-laboratory-blocks",
+    "sources": "https://github.com/IntelligenceModding/LaboratoryBlocks",
+    "issues": "https://github.com/IntelligenceModding/LaboratoryBlocks/issues",
+    "discord": "https://discord.com/invite/JGWkTy6PG8",
+    "github": "https://github.com/IntelligenceModding",
+    "youtube": "https://www.youtube.com/@intelligencemodding4093"
+  },
+  "license": "${mod_license}",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "de.artemis.laboratoryblocks.LaboratoryBlocks"
+    ],
+    "client": [
+      "de.artemis.laboratoryblocks.LaboratoryBlocksClient"
+    ],
+    "fabric-datagen": [
+      "de.artemis.laboratoryblocks.common.datagen.DataGenerators"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version_range}",
+    "java": ">=21",
+    "fabric-api": "*",
+    "fusion": ">=${fusion_version}"
+  },
+  "suggests": {
+    "modmenu": ">=${modmenu_version}",
+    "jei": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "laboratoryblocks.link.discord": "https://discord.com/invite/JGWkTy6PG8",
+        "laboratoryblocks.link.github": "https://github.com/IntelligenceModding",
+        "laboratoryblocks.link.modrinth": "https://modrinth.com/mod/artemis-laboratory-blocks",
+        "laboratoryblocks.link.youtube": "https://www.youtube.com/@intelligencemodding4093"
+      }
+    }
+  }
+}

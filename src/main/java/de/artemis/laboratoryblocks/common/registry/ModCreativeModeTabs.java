@@ -1,23 +1,21 @@
 package de.artemis.laboratoryblocks.common.registry;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.Arrays;
-import java.util.function.Supplier;
 
 public class ModCreativeModeTabs {
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, LaboratoryBlocks.MOD_ID);
-
     @SuppressWarnings("unused")
-    public static final Supplier<CreativeModeTab> LABORATORY_BLOCKS_CREATIVE_TAB = CREATIVE_MODE_TAB.register("laboratory_blocks_creative_tab",
-            () -> CreativeModeTab.builder()
+    public static final CreativeModeTab LABORATORY_BLOCKS_CREATIVE_TAB = Registry.register(
+            BuiltInRegistries.CREATIVE_MODE_TAB,
+            ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "laboratory_blocks_creative_tab"),
+            CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .icon(() -> ModBlocks.QUANTUM_LABORATORY_SCREEN.get().asItem().getDefaultInstance())
                     .title(Component.translatable("itemGroup.laboratoryblocks"))
                     .displayItems((itemDisplayParameters, output) -> Arrays.stream(new Item[]{
@@ -122,7 +120,6 @@ public class ModCreativeModeTabs {
     private ModCreativeModeTabs() {
     }
 
-    public static void register(IEventBus eventBus) {
-        CREATIVE_MODE_TAB.register(eventBus);
+    public static void register() {
     }
 }

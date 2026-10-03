@@ -5,18 +5,17 @@ import de.artemis.laboratoryblocks.common.registry.ModCreativeModeTabs;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
 import de.artemis.laboratoryblocks.common.registry.ModParticles;
 import de.artemis.laboratoryblocks.common.registry.ModSoundEvents;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.common.Mod;
+import net.fabricmc.api.ModInitializer;
 
-@Mod(LaboratoryBlocks.MOD_ID)
-public class LaboratoryBlocks {
+public class LaboratoryBlocks implements ModInitializer {
     public static final String MOD_ID = "laboratoryblocks";
 
-    public LaboratoryBlocks(IEventBus modEventBus) {
-        ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
-        ModCreativeModeTabs.register(modEventBus);
-        ModParticles.register(modEventBus);
-        ModSoundEvents.register(modEventBus);
+    @Override
+    public void onInitialize() {
+        ModSoundEvents.register();
+        ModItems.register();
+        ModBlocks.register();
+        ModParticles.register();
+        ModCreativeModeTabs.register();
     }
 }

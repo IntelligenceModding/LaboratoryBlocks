@@ -19,7 +19,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Minecraft-1.21.1-3C8527?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft 1.21.1">
   &nbsp;&nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/Loader-NeoForge-6C47FF?style=for-the-badge" alt="NeoForge">
+  <img src="https://img.shields.io/badge/Loader-Fabric-DBD0B4?style=for-the-badge" alt="Fabric">
 </p>
 
 <p align="center">
@@ -125,7 +125,7 @@
 </p>
 
 <p align="center">
-  &bull; The NeoForged team for NeoForge and its documentation<br>
+  &bull; The Fabric team for Fabric Loader, Fabric API, and documentation<br>
   &bull; The Minecraft modding community for examples, tools, and support<br>
   &bull; The Intelligence Modding community for feedback, testing, and ideas<br>
   &bull; Everyone who reports issues, suggests improvements, or includes the mod in their worlds or modpacks<br>

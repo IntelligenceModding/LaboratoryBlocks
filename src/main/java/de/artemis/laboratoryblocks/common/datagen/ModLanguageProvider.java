@@ -1,42 +1,49 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
-import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
-import net.minecraft.data.PackOutput;
+import de.artemis.laboratoryblocks.common.registry.RegistrySupplier;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ModLanguageProvider extends net.neoforged.neoforge.common.data.LanguageProvider {
-    public ModLanguageProvider(PackOutput output, String locale) {
-        super(output, LaboratoryBlocks.MOD_ID, locale);
+public class ModLanguageProvider extends FabricLanguageProvider {
+    public ModLanguageProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(output, registryLookup);
     }
 
     @Override
-    protected void addTranslations() {
-        add("itemGroup.laboratoryblocks", "Artemis' Laboratory Blocks");
-        add("tooltip.laboratoryblocks.configuration_tool.remove_glowstone", "Right-click glowing blocks to remove Glowstone Particles.");
+    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder builder) {
+        builder.add("itemGroup.laboratoryblocks", "Artemis' Laboratory Blocks");
+        builder.add("tooltip.laboratoryblocks.configuration_tool.remove_glowstone", "Right-click glowing blocks to remove Glowstone Particles.");
+        builder.add("modmenu.nameTranslation.laboratoryblocks", "Artemis' Laboratory Blocks");
+        builder.add("modmenu.descriptionTranslation.laboratoryblocks", "Upgrade your builds with modern, futuristic laboratory blocks inspired by the classic laboratory style.");
+        builder.add("laboratoryblocks.link.discord", "Discord");
+        builder.add("laboratoryblocks.link.github", "GitHub");
+        builder.add("laboratoryblocks.link.modrinth", "Modrinth");
+        builder.add("laboratoryblocks.link.youtube", "YouTube");
 
         ModDatagenEntries.ALL_PAIRS.forEach(pair -> {
-            add(pair.base().get(), humanize(pair.base().getId().getPath()));
-            add(pair.glowing().get(), humanize(pair.glowing().getId().getPath()));
+            builder.add(pair.base().get(), humanize(pair.base().getId().getPath()));
+            builder.add(pair.glowing().get(), humanize(pair.glowing().getId().getPath()));
         });
         ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> {
-            add(pair.base().get(), humanize(pair.base().getId().getPath()));
-            add(pair.glowing().get(), humanize(pair.glowing().getId().getPath()));
+            builder.add(pair.base().get(), humanize(pair.base().getId().getPath()));
+            builder.add(pair.glowing().get(), humanize(pair.glowing().getId().getPath()));
         });
         ModDatagenEntries.FAN_PAIRS.forEach(pair -> {
-            add(pair.base().get(), humanize(pair.base().getId().getPath()));
-            add(pair.glowing().get(), humanize(pair.glowing().getId().getPath()));
+            builder.add(pair.base().get(), humanize(pair.base().getId().getPath()));
+            builder.add(pair.glowing().get(), humanize(pair.glowing().getId().getPath()));
         });
-        ModDatagenEntries.DOORS.forEach(this::addDoorTranslation);
-        ModDatagenEntries.TRAPDOORS.forEach(this::addTrapdoorTranslation);
+        ModDatagenEntries.DOORS.forEach(door -> addDoorTranslation(builder, door));
+        ModDatagenEntries.TRAPDOORS.forEach(trapdoor -> addTrapdoorTranslation(builder, trapdoor));
 
         Set<ResourceLocation> generatedBlockIds = ModDatagenEntries.ALL_PAIRS.stream()
                 .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
@@ -47,13 +54,13 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         generatedBlockIds.addAll(ModDatagenEntries.FAN_PAIRS.stream()
                 .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
                 .toList());
-        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(DeferredHolder::getId).toList());
-        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(DeferredHolder::getId).toList());
+        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(RegistrySupplier::getId).toList());
+        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(RegistrySupplier::getId).toList());
         generatedBlockIds = Set.copyOf(generatedBlockIds);
 
-        for (var item : ModItems.ITEMS.getEntries()) {
+        for (var item : ModItems.ITEMS) {
             if (!generatedBlockIds.contains(item.getId())) {
-                add(item.get(), humanize(item.getId().getPath()));
+                builder.add(item.get(), humanize(item.getId().getPath()));
             }
         }
     }
@@ -72,12 +79,12 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         return builder.toString();
     }
 
-    private void addDoorTranslation(DeferredBlock<? extends DoorBlock> door) {
-        add(door.get(), humanize(door.getId().getPath()));
+    private static void addDoorTranslation(TranslationBuilder builder, RegistrySupplier<? extends DoorBlock> door) {
+        builder.add(door.get(), humanize(door.getId().getPath()));
     }
 
-    private void addTrapdoorTranslation(DeferredBlock<? extends TrapDoorBlock> trapdoor) {
-        add(trapdoor.get(), humanize(trapdoor.getId().getPath()));
+    private static void addTrapdoorTranslation(TranslationBuilder builder, RegistrySupplier<? extends TrapDoorBlock> trapdoor) {
+        builder.add(trapdoor.get(), humanize(trapdoor.getId().getPath()));
     }
 
     private static String capitalizeWord(String word) {

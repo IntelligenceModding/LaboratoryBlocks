@@ -3,19 +3,28 @@ package de.artemis.laboratoryblocks;
 import de.artemis.laboratoryblocks.common.particle.ApplyingGlowstoneParticle;
 import de.artemis.laboratoryblocks.common.particle.RemovingModifierParticle;
 import de.artemis.laboratoryblocks.common.registry.ModParticles;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import de.artemis.laboratoryblocks.common.registry.ModBlocks;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.minecraft.client.renderer.RenderType;
 
-@Mod(value = LaboratoryBlocks.MOD_ID, dist = Dist.CLIENT)
-@EventBusSubscriber(modid = LaboratoryBlocks.MOD_ID, value = Dist.CLIENT)
-public class LaboratoryBlocksClient {
+public class LaboratoryBlocksClient implements ClientModInitializer {
 
-    @SubscribeEvent
-    public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), ApplyingGlowstoneParticle.Provider::new);
-        event.registerSpriteSet(ModParticles.REMOVING_MODIFIER_PARTICLE.get(), RemovingModifierParticle.Provider::new);
+    @Override
+    public void onInitializeClient() {
+        ParticleFactoryRegistry.getInstance().register(ModParticles.APPLYING_GLOWSTONE_PARTICLE.get(), ApplyingGlowstoneParticle.Provider::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.REMOVING_MODIFIER_PARTICLE.get(), RemovingModifierParticle.Provider::new);
+
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
+                ModBlocks.LABORATORY_GLASS.get(),
+                ModBlocks.GLOWING_LABORATORY_GLASS.get(),
+                ModBlocks.LABORATORY_DOOR.get(),
+                ModBlocks.MESH_LABORATORY_DOOR.get(),
+                ModBlocks.GLASS_LABORATORY_DOOR.get(),
+                ModBlocks.LABORATORY_TRAPDOOR.get(),
+                ModBlocks.MESH_LABORATORY_TRAPDOOR.get(),
+                ModBlocks.GLASS_LABORATORY_TRAPDOOR.get()
+        );
     }
 }

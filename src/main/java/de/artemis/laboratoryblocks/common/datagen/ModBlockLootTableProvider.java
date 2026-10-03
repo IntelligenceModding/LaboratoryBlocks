@@ -1,15 +1,15 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
-public class ModBlockLootTableProvider extends BlockLootSubProvider {
+public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
     private static final Set<Block> GENERATED_BLOCKS = ModDatagenEntries.ALL_PAIRS.stream()
             .flatMap(pair -> Stream.of(pair.base().get(), pair.glowing().get()))
             .collect(java.util.stream.Collectors.toUnmodifiableSet());
@@ -26,23 +26,16 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
             .map(trapdoor -> (Block)trapdoor.get())
             .collect(java.util.stream.Collectors.toUnmodifiableSet());
 
-    protected ModBlockLootTableProvider(HolderLookup.Provider registries) {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
+    protected ModBlockLootTableProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(output, registryLookup);
     }
 
     @Override
-    protected void generate() {
+    public void generate() {
         GENERATED_BLOCKS.forEach(this::dropSelf);
         GENERATED_PILLARS.forEach(this::dropSelf);
         GENERATED_FANS.forEach(this::dropSelf);
         GENERATED_DOORS.forEach(door -> add(door, createDoorTable(door)));
         GENERATED_TRAPDOORS.forEach(this::dropSelf);
-    }
-
-    @Override
-    protected @NotNull Iterable<Block> getKnownBlocks() {
-        return Stream.of(GENERATED_BLOCKS.stream(), GENERATED_PILLARS.stream(), GENERATED_FANS.stream(), GENERATED_DOORS.stream(), GENERATED_TRAPDOORS.stream())
-                .flatMap(stream -> stream)
-                .toList();
     }
 }

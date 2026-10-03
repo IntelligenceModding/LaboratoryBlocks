@@ -2,32 +2,49 @@ package de.artemis.laboratoryblocks.common.registry;
 
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.item.ConfigurationToolItem;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraft.world.level.block.Block;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 public class ModItems {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(LaboratoryBlocks.MOD_ID);
+    private static final List<RegistrySupplier<? extends Item>> ENTRIES = new ArrayList<>();
+    public static final List<RegistrySupplier<? extends Item>> ITEMS = Collections.unmodifiableList(ENTRIES);
 
-    private static <T extends Item> DeferredItem<T> register(String name, Function<Item.Properties, T> itemFactory, UnaryOperator<Item.Properties> properties) {
-        return ITEMS.registerItem(name, itemFactory, properties.apply(new Item.Properties()));
+    private static <T extends Item> RegistrySupplier<T> register(String name, Function<Item.Properties, T> itemFactory, UnaryOperator<Item.Properties> properties) {
+        ResourceLocation id = id(name);
+        T item = Registry.register(BuiltInRegistries.ITEM, id, itemFactory.apply(properties.apply(new Item.Properties())));
+        RegistrySupplier<T> entry = new RegistrySupplier<>(id, item);
+        ENTRIES.add(entry);
+        return entry;
     }
 
-    public static void register(IEventBus eventBus) {
-        ITEMS.register(eventBus);
+    static RegistrySupplier<BlockItem> registerBlockItem(String name, Block block) {
+        return register(name, properties -> new BlockItem(block, properties), UnaryOperator.identity());
     }
 
-    public static final DeferredItem<Item> IRON_SCREW = register("iron_screw",
+    public static void register() {
+    }
+
+    public static final RegistrySupplier<Item> IRON_SCREW = register("iron_screw",
             Item::new, UnaryOperator.identity());
 
-    public static final DeferredItem<Item> GLOWSTONE_PARTICLES = register("glowstone_particles",
+    public static final RegistrySupplier<Item> GLOWSTONE_PARTICLES = register("glowstone_particles",
             Item::new, UnaryOperator.identity());
 
-    public static final DeferredItem<ConfigurationToolItem> CONFIGURATION_TOOL = register("configuration_tool",
+    public static final RegistrySupplier<ConfigurationToolItem> CONFIGURATION_TOOL = register("configuration_tool",
             ConfigurationToolItem::new, properties -> properties.durability(640).rarity(Rarity.UNCOMMON));
+
+    private static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
+    }
 }
