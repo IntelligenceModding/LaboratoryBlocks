@@ -17,17 +17,169 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Minecraft-1.21.1-3C8527?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft 1.21.1">
-  &nbsp;&nbsp;&nbsp;
+  Laboratory Blocks is available across <strong>Fabric</strong>, <strong>Forge</strong>, and <strong>NeoForge</strong> for a wide range of Minecraft versions.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Loader-Fabric-DBD0B4?style=for-the-badge" alt="Fabric">
+  &nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/Loader-Forge-E04E14?style=for-the-badge" alt="Forge">
+  &nbsp;&nbsp;
   <img src="https://img.shields.io/badge/Loader-NeoForge-6C47FF?style=for-the-badge" alt="NeoForge">
 </p>
 
+<h3 align="center">Fabric</h3>
+
+<table align="center">
+  <thead>
+    <tr>
+      <th align="center">Minecraft</th>
+      <th align="center">Fabric Loader</th>
+      <th align="center">Fabric API</th>
+      <th align="center">Fusion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><strong>1.18.2</strong></td>
+      <td align="center"><code>0.14.9+</code></td>
+      <td align="center"><code>0.67.0+1.18.2+</code></td>
+      <td align="center"><code>1.3.2+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>1.19.2</strong></td>
+      <td align="center"><code>0.16.1+</code></td>
+      <td align="center"><code>0.60.0+1.19.2+</code></td>
+      <td align="center"><code>1.3.2+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>1.20.1</strong></td>
+      <td align="center"><code>0.14.21+</code></td>
+      <td align="center"><code>0.83.1+1.20.1+</code></td>
+      <td align="center"><code>1.3.2+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>1.21.1</strong></td>
+      <td align="center"><code>0.18.5+</code></td>
+      <td align="center"><code>0.116.15+1.21.1+</code></td>
+      <td align="center"><code>1.2.12+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>1.21.11</strong></td>
+      <td align="center"><code>0.18.0+</code></td>
+      <td align="center"><code>0.140.0+</code></td>
+      <td align="center"><code>1.3.2a+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>26.1 / 26.1.1 / 26.1.2</strong></td>
+      <td align="center"><code>0.19.0+</code></td>
+      <td align="center"><code>0.145.0+</code></td>
+      <td align="center"><code>1.3.5+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>26.2</strong></td>
+      <td align="center"><code>0.19.3+</code></td>
+      <td align="center"><code>0.152.2+</code></td>
+      <td align="center"><code>1.3.2+</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 align="center">Forge</h3>
+
+<table align="center">
+  <thead>
+    <tr>
+      <th align="center">Minecraft</th>
+      <th align="center">Forge</th>
+      <th align="center">Fusion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><strong>1.16.5</strong></td>
+      <td align="center"><code>36.2.34+</code></td>
+      <td align="center"><code>1.2.12+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>1.18.2</strong></td>
+      <td align="center"><code>40.3.0 – 40.x</code></td>
+      <td align="center"><code>1.3.15+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>1.19.2</strong></td>
+      <td align="center"><code>43.x</code></td>
+      <td align="center"><code>1.3.15+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>1.20.1</strong></td>
+      <td align="center"><code>47.1.5 – 47.x</code></td>
+      <td align="center"><code>1.3.15+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>1.21.1</strong></td>
+      <td align="center"><code>52.x</code></td>
+      <td align="center"><code>1.3.15+</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 align="center">NeoForge</h3>
+
+<table align="center">
+  <thead>
+    <tr>
+      <th align="center">Minecraft</th>
+      <th align="center">NeoForge</th>
+      <th align="center">Fusion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><strong>1.21.1</strong></td>
+      <td align="center"><code>21.1.226+</code></td>
+      <td align="center"><code>1.2.12+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>1.21.11</strong></td>
+      <td align="center"><code>21.11.42+</code></td>
+      <td align="center"><code>1.2.11a+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>26.1</strong></td>
+      <td align="center"><code>26.1.0.19-beta+</code></td>
+      <td align="center"><code>1.3.3+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>26.1.1</strong></td>
+      <td align="center"><code>26.1.1.15-beta+</code></td>
+      <td align="center"><code>1.3.3+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>26.1.2</strong></td>
+      <td align="center"><code>26.1.2.76+</code></td>
+      <td align="center"><code>1.3.3+</code></td>
+    </tr>
+    <tr>
+      <td align="center"><strong>26.2</strong></td>
+      <td align="center"><code>26.2.0.57+</code></td>
+      <td align="center"><code>1.3.4+</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
 <p align="center">
-  <strong>Fusion is required for connected texture support.</strong>
+  <strong>Fusion is required on every supported Minecraft version and mod loader.</strong>
 </p>
 
 <p align="center">
-  Install Fusion alongside Laboratory Blocks, otherwise the mod will not render and behave correctly.
+  Fusion provides the connected texture system used by Laboratory Blocks. Make sure to install a compatible Fusion version for your Minecraft version and mod loader.
+</p>
+
+<p align="center">
+  Fabric releases additionally require <strong>Fabric API</strong>.
 </p>
 
 <p align="center">
@@ -125,7 +277,7 @@
 </p>
 
 <p align="center">
-  &bull; The NeoForged team for NeoForge and its documentation<br>
+  &bull; The Fabric, Forge, and NeoForge teams for their modding platforms and documentation<br>
   &bull; The Minecraft modding community for examples, tools, and support<br>
   &bull; The Intelligence Modding community for feedback, testing, and ideas<br>
   &bull; Everyone who reports issues, suggests improvements, or includes the mod in their worlds or modpacks<br>
