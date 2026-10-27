@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:glowing_laboratory_vent"
+        "recipes": "laboratoryblocks:glowing_laboratory_vent"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

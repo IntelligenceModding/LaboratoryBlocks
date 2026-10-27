@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:laboratory_fan"
+        "recipes": "laboratoryblocks:laboratory_fan"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

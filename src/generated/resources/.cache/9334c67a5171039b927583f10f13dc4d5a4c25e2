@@ -1,4 +1,4 @@
-// 26.2	-999999999-01-01T00:00:00	Artemis' Laboratory Blocks/Fusion Texture Metadata Provider: laboratoryblocks
+// 26.3	-999999999-01-01T00:00:00	Artemis' Laboratory Blocks/Fusion Texture Metadata Provider: laboratoryblocks
 f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/acacia_laboratory_floor-fusion.png.mcmeta
 f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/acacia_laboratory_tiles-fusion.png.mcmeta
 f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/bamboo_laboratory_floor-fusion.png.mcmeta
@@ -29,6 +29,8 @@ f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/
 f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/oak_laboratory_tiles-fusion.png.mcmeta
 f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/pale_oak_laboratory_floor-fusion.png.mcmeta
 f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/pale_oak_laboratory_tiles-fusion.png.mcmeta
+f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/poplar_laboratory_floor-fusion.png.mcmeta
+f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/poplar_laboratory_tiles-fusion.png.mcmeta
 f569a038ef993171d2151d4b56435847e500f141 assets/laboratoryblocks/textures/block/reinforced_laboratory_block-fusion.png.mcmeta
 e2fa6903382fdd63374a7e47e8a8bf0350ac751f assets/laboratoryblocks/textures/block/right_indicating_blue_laboratory_block-fusion.png.mcmeta
 e2fa6903382fdd63374a7e47e8a8bf0350ac751f assets/laboratoryblocks/textures/block/right_indicating_green_laboratory_block-fusion.png.mcmeta

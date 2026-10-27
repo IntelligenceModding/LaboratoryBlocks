@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:poplar_laboratory_floor",
+    "laboratoryblocks:glowstone_particles"
+  ],
+  "result": {
+    "id": "laboratoryblocks:glowing_poplar_laboratory_floor"
+  }
+}

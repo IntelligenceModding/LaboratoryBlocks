@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:warped_laboratory_tiles_from_warped_laboratory_floor_stonecutting"
+        "recipes": "laboratoryblocks:warped_laboratory_tiles_from_warped_laboratory_floor_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

@@ -5,7 +5,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,8 +20,8 @@ public class DataGenerators implements DataGeneratorEntrypoint {
         pack.addProvider(ModBlockLootTableProvider::new);
         pack.addProvider((FabricPackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) -> new FabricRecipeProvider(output, lookupProvider) {
             @Override
-            protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider provider, @NotNull RecipeOutput recipeOutput) {
-                return new ModRecipeProvider(provider, recipeOutput);
+            protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider provider, @NotNull BootstrapContext<Recipe<?>> recipes, @NotNull BootstrapContext<Advancement> advancements) {
+                return new ModRecipeProvider(provider, recipes, advancements);
             }
 
             @Override

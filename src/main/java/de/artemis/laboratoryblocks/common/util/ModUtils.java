@@ -63,7 +63,7 @@ public final class ModUtils {
     }
 
     public static void playGlowstoneRemoveSound(@NotNull Level level, @NotNull BlockPos blockPos) {
-        playSoftBlockSound(level, blockPos, SoundEvents.AXE_WAX_OFF, 0.38F, 0.94F, 0.05F);
+        playSoftBlockSound(level, blockPos, SoundEvents.AXE_WAX_OFF.value(), 0.38F, 0.94F, 0.05F);
         playSoftBlockSound(level, blockPos, ModSoundEvents.CONFIGURATION_TOOL_USE.get(), 0.24F, 0.98F, 0.03F);
     }
 

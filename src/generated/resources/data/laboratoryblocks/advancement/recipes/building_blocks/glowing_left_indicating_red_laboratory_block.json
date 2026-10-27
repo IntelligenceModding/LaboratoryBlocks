@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:glowing_left_indicating_red_laboratory_block"
+        "recipes": "laboratoryblocks:glowing_left_indicating_red_laboratory_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

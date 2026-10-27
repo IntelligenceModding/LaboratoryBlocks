@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:glowing_birch_laboratory_tiles_from_glowing_birch_laboratory_floor_stonecutting"
+        "recipes": "laboratoryblocks:glowing_birch_laboratory_tiles_from_glowing_birch_laboratory_floor_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

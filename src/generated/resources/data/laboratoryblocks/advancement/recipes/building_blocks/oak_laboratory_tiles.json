@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:oak_laboratory_tiles"
+        "recipes": "laboratoryblocks:oak_laboratory_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:glowing_warped_laboratory_tiles_from_glowing_warped_laboratory_floor_stonecutting"
+        "recipes": "laboratoryblocks:glowing_warped_laboratory_tiles_from_glowing_warped_laboratory_floor_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -14,73 +14,55 @@
     "placed_glowing_laboratory_block": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_block",
-            "properties": {}
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "laboratoryblocks:glowing_laboratory_block"
+        }
       }
     },
     "placed_glowing_laboratory_glass": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_glass",
-            "properties": {}
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "laboratoryblocks:glowing_laboratory_glass"
+        }
       }
     },
     "placed_glowing_laboratory_tiles": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_tiles",
-            "properties": {}
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "laboratoryblocks:glowing_laboratory_tiles"
+        }
       }
     },
     "placed_glowing_laboratory_pillar": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_pillar",
-            "properties": {}
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "laboratoryblocks:glowing_laboratory_pillar"
+        }
       }
     },
     "placed_glowing_clear_laboratory_screen": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_clear_laboratory_screen",
-            "properties": {}
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "laboratoryblocks:glowing_clear_laboratory_screen"
+        }
       }
     },
     "placed_glowing_laboratory_vent": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_vent",
-            "properties": {}
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "laboratoryblocks:glowing_laboratory_vent"
+        }
       }
     }
   },

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:glowing_wave_laboratory_screen"
+        "recipes": "laboratoryblocks:glowing_wave_laboratory_screen"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

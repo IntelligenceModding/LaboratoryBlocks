@@ -7,7 +7,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.references.BlockItemIds;
@@ -28,8 +30,8 @@ import java.util.concurrent.CompletableFuture;
 public class ModRecipeProvider extends RecipeProvider {
     private final HolderGetter<Item> itemLookup;
 
-    public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
-        super(provider, recipeOutput);
+    public ModRecipeProvider(HolderLookup.Provider provider, BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
+        super(recipes, advancements);
         this.itemLookup = provider.lookupOrThrow(Registries.ITEM);
     }
 

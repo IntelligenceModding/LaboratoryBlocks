@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:laboratory_vent"
+        "recipes": "laboratoryblocks:laboratory_vent"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

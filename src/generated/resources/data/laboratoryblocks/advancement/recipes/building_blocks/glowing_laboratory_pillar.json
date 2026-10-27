@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:glowing_laboratory_pillar"
+        "recipes": "laboratoryblocks:glowing_laboratory_pillar"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

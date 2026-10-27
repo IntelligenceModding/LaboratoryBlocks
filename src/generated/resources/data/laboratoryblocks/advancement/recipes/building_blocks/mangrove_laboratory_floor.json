@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:mangrove_laboratory_floor"
+        "recipes": "laboratoryblocks:mangrove_laboratory_floor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:glowing_bamboo_laboratory_floor"
+        "recipes": "laboratoryblocks:glowing_bamboo_laboratory_floor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

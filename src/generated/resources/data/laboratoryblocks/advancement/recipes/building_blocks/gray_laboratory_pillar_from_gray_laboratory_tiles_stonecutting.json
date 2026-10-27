@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:gray_laboratory_pillar_from_gray_laboratory_tiles_stonecutting"
+        "recipes": "laboratoryblocks:gray_laboratory_pillar_from_gray_laboratory_tiles_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

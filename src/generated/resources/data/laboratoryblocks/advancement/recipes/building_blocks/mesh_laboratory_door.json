@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:mesh_laboratory_door"
+        "recipes": "laboratoryblocks:mesh_laboratory_door"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

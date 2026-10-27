@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:birch_laboratory_floor"
+        "recipes": "laboratoryblocks:birch_laboratory_floor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

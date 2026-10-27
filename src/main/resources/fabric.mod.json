@@ -11,7 +11,7 @@
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/artemis-laboratory-blocks",
     "sources": "https://github.com/IntelligenceModding/LaboratoryBlocks",
     "issues": "https://github.com/IntelligenceModding/LaboratoryBlocks/issues",
-    "discord": "https://discord.com/invite/JGWkTy6PG8",
+    "discord": "https://discord.intelligence-modding.de/",
     "github": "https://github.com/IntelligenceModding",
     "youtube": "https://www.youtube.com/@intelligencemodding4093"
   },
@@ -44,7 +44,7 @@
   "custom": {
     "modmenu": {
       "links": {
-        "laboratoryblocks.link.discord": "https://discord.com/invite/JGWkTy6PG8",
+        "laboratoryblocks.link.discord": "https://discord.intelligence-modding.de/",
         "laboratoryblocks.link.github": "https://github.com/IntelligenceModding",
         "laboratoryblocks.link.modrinth": "https://modrinth.com/mod/artemis-laboratory-blocks",
         "laboratoryblocks.link.youtube": "https://www.youtube.com/@intelligencemodding4093"
