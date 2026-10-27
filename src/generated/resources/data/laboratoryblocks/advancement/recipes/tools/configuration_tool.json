@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:configuration_tool"
+        "recipes": "laboratoryblocks:configuration_tool"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

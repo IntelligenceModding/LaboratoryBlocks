@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:dark_oak_laboratory_tiles_from_dark_oak_laboratory_floor_stonecutting"
+        "recipes": "laboratoryblocks:dark_oak_laboratory_tiles_from_dark_oak_laboratory_floor_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

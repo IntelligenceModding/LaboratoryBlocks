@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:iron_screw"
+        "recipes": "laboratoryblocks:iron_screw"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

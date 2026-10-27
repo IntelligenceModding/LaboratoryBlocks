@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:glowing_clear_laboratory_screen"
+        "recipes": "laboratoryblocks:glowing_clear_laboratory_screen"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

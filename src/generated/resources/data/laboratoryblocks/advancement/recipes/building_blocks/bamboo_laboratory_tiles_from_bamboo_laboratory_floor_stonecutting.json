@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:bamboo_laboratory_tiles_from_bamboo_laboratory_floor_stonecutting"
+        "recipes": "laboratoryblocks:bamboo_laboratory_tiles_from_bamboo_laboratory_floor_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:spruce_laboratory_tiles_from_spruce_laboratory_floor_stonecutting"
+        "recipes": "laboratoryblocks:spruce_laboratory_tiles_from_spruce_laboratory_floor_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

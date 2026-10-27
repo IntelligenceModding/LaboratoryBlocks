@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "laboratoryblocks:poplar_laboratory_tiles"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "laboratoryblocks:blocks/poplar_laboratory_tiles"
+}

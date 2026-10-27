@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:gray_laboratory_pillar"
+        "recipes": "laboratoryblocks:gray_laboratory_pillar"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

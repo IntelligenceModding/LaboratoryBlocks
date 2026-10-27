@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:quantum_laboratory_screen"
+        "recipes": "laboratoryblocks:quantum_laboratory_screen"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

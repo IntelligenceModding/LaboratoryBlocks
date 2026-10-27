@@ -1,6 +1,6 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
-import net.minecraft.core.HolderLookup;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
@@ -26,8 +26,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
             .map(trapdoor -> (Block)trapdoor.get())
             .collect(java.util.stream.Collectors.toUnmodifiableSet());
 
-    protected ModBlockLootTableProvider(HolderLookup.Provider registries) {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
+    protected ModBlockLootTableProvider(LootTableSubProvider.Context output) {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), output);
     }
 
     @Override

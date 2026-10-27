@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:birch_laboratory_tiles"
+        "recipes": "laboratoryblocks:birch_laboratory_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

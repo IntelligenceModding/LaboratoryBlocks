@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "laboratoryblocks:poplar_laboratory_floor",
+  "result": {
+    "count": 2,
+    "id": "laboratoryblocks:poplar_laboratory_tiles"
+  }
+}

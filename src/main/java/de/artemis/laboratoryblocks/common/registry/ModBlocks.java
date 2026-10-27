@@ -48,27 +48,27 @@ public class ModBlocks {
 
     public static final DeferredBlock<DoorBlock> LABORATORY_DOOR = register("laboratory_door",
             properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.POPPED));
 
     public static final DeferredBlock<DoorBlock> MESH_LABORATORY_DOOR = register("mesh_laboratory_door",
             properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.POPPED));
 
     public static final DeferredBlock<DoorBlock> GLASS_LABORATORY_DOOR = register("glass_laboratory_door",
             properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.POPPED));
 
     public static final DeferredBlock<TrapDoorBlock> LABORATORY_TRAPDOOR = register("laboratory_trapdoor",
             properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.POPPED));
 
     public static final DeferredBlock<TrapDoorBlock> MESH_LABORATORY_TRAPDOOR = register("mesh_laboratory_trapdoor",
             properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.POPPED));
 
     public static final DeferredBlock<TrapDoorBlock> GLASS_LABORATORY_TRAPDOOR = register("glass_laboratory_trapdoor",
             properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
-            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.POPPED));
 
     public static final DeferredBlock<LaboratoryBlock> LABORATORY_PILLAR = register("laboratory_pillar",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_LABORATORY_PILLAR, properties),
@@ -262,6 +262,22 @@ public class ModBlocks {
             properties -> new LaboratoryBlock(ModBlocks.SPRUCE_LABORATORY_TILES, properties),
             properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
+    public static final DeferredBlock<LaboratoryBlock> POPLAR_LABORATORY_FLOOR = register("poplar_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_POPLAR_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_POPLAR_LABORATORY_FLOOR = register("glowing_poplar_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.POPLAR_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> POPLAR_LABORATORY_TILES = register("poplar_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_POPLAR_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_POPLAR_LABORATORY_TILES = register("glowing_poplar_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.POPLAR_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
     public static final DeferredBlock<LaboratoryBlock> BIRCH_LABORATORY_FLOOR = register("birch_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_BIRCH_LABORATORY_FLOOR, properties),
             properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
@@ -426,11 +442,11 @@ public class ModBlocks {
             properties -> new LaboratoryGlassBlock(ModBlocks.GLOWING_LABORATORY_GLASS, properties),
             properties -> properties.strength(0.3F).sound(SoundType.GLASS).noOcclusion()
                     .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
-                    .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never));
+                    .isSuffocating(ModBlocks::never).isViewBlocking((state, level, pos, bounds) -> false));
 
     public static final DeferredBlock<LaboratoryGlassBlock> GLOWING_LABORATORY_GLASS = register("glowing_laboratory_glass",
             properties -> new LaboratoryGlassBlock(ModBlocks.LABORATORY_GLASS, properties),
             properties -> properties.strength(0.3F).sound(SoundType.GLASS).noOcclusion()
                     .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
-                    .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(state -> 14));
+                    .isSuffocating(ModBlocks::never).isViewBlocking((state, level, pos, bounds) -> false).lightLevel(state -> 14));
 }

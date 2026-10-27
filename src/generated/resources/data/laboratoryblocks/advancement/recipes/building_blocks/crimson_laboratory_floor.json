@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:crimson_laboratory_floor"
+        "recipes": "laboratoryblocks:crimson_laboratory_floor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

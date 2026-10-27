@@ -17,7 +17,7 @@ body:
     attributes:
       label: Minecraft Version
       description: Which Minecraft version are you using?
-      placeholder: "Example: 26.2"
+      placeholder: "Example: 26.3"
     validations:
       required: true
 
@@ -26,7 +26,7 @@ body:
     attributes:
       label: Laboratory Blocks Version
       description: Which version of Laboratory Blocks are you using?
-      placeholder: "Example: 0.8.4r"
+      placeholder: "Example: 0.8.5"
     validations:
       required: true
 
@@ -35,7 +35,7 @@ body:
     attributes:
       label: Mod Loader
       description: Which mod loader and version are you using?
-      placeholder: "Example: NeoForge 26.2.0.57"
+      placeholder: "Example: NeoForge 26.3.0.99"
     validations:
       required: true
 

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:glowstone_particles"
+        "recipes": "laboratoryblocks:glowstone_particles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

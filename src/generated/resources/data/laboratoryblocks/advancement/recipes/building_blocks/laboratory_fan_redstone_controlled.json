@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:laboratory_fan_redstone_controlled"
+        "recipes": "laboratoryblocks:laboratory_fan_redstone_controlled"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

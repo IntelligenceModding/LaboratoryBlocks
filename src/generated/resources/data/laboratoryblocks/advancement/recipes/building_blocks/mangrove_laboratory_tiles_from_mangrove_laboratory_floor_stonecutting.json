@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:mangrove_laboratory_tiles_from_mangrove_laboratory_floor_stonecutting"
+        "recipes": "laboratoryblocks:mangrove_laboratory_tiles_from_mangrove_laboratory_floor_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,6 +1,7 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
+licenseURL="https://github.com/IntelligenceModding/LaboratoryBlocks/blob/1.21.1-neoforge/LICENSE"
 
 [[mods]]
 modId="${mod_id}"
@@ -13,23 +14,23 @@ iconFile="icon.png"
 authors="${mod_authors}"
 description='''${mod_description}'''
 
-[[dependencies]]
+[[dependencies.${mod_id}]]
 modId="neoforge"
 type="required"
-versionRange="[${neo_version},)"
+versionRange="${neo_version_range}"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies]]
+[[dependencies.${mod_id}]]
 modId="minecraft"
 type="required"
 versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies]]
+[[dependencies.${mod_id}]]
 modId="fusion"
 type="required"
-versionRange="[1.0.0,)"
+versionRange="${fusion_version_range}"
 ordering="NONE"
 side="CLIENT"

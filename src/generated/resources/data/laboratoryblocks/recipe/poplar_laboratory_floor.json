@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": "laboratoryblocks:laboratory_block",
+    "B": "minecraft:poplar_planks"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:poplar_laboratory_floor"
+  }
+}

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:acacia_laboratory_floor"
+        "recipes": "laboratoryblocks:acacia_laboratory_floor"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

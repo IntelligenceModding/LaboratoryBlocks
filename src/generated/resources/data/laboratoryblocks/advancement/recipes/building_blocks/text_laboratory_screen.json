@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "laboratoryblocks:text_laboratory_screen"
+        "recipes": "laboratoryblocks:text_laboratory_screen"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

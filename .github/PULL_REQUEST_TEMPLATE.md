@@ -16,9 +16,9 @@ Explain the purpose of the change rather than only listing modified files.
 <!--
 Example:
 
-- Minecraft version: 26.2
+- Minecraft version: 26.3
 - Mod loader: NeoForge
-- Target branch: 26.2-neoforge
+- Target branch: 26.3-neoforge
 -->
 
 ## Changes
@@ -42,7 +42,7 @@ Please mention:
 Example:
 
 - `gradlew.bat build` completed successfully.
-- Tested the new blocks in the 26.2 NeoForge development client.
+- Tested the new blocks in the 26.3 NeoForge development client.
 - Tested placement, breaking, recipes, and connected textures.
 -->
 
