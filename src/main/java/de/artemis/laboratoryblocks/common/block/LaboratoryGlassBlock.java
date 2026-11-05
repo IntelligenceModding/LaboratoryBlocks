@@ -32,7 +32,7 @@ public class LaboratoryGlassBlock extends TransparentBlock {
         if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
 
             //Applying Glowstone
-            if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+            if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().orElseThrow().toString().contains("glowing")) {
                 if (!player.isCreative()) {
                     itemStackInHand.shrink(1);
                 }
@@ -44,7 +44,7 @@ public class LaboratoryGlassBlock extends TransparentBlock {
             }
 
             // Removing Glowstone
-            else if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+            else if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().orElseThrow().toString().contains("glowing")) {
                 if (!player.isCreative()) {
                     ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
                     itemStackInHand.hurtAndBreak(1, player, interactionHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);

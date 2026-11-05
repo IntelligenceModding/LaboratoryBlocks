@@ -33,7 +33,7 @@ public class LaboratoryBlock extends Block {
         if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
 
             // Applying Glowstone
-            if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+            if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().orElseThrow().toString().contains("glowing")) {
                 if (!player.isCreative()) {
                     itemStackInHand.shrink(1);
                 }
@@ -45,7 +45,7 @@ public class LaboratoryBlock extends Block {
             }
 
             // Removing Glowstone
-            else if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+            else if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().orElseThrow().toString().contains("glowing")) {
                 if (!player.isCreative()) {
                     ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
                     itemStackInHand.hurtAndBreak(1, player, interactionHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
@@ -66,7 +66,7 @@ public class LaboratoryBlock extends Block {
 
             if (!player.isCreative()) {
                 itemStackInHand.shrink(1);
-                ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, woodSwap.returnedPlanks());
+                ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(woodSwap.returnedPlanks()));
             }
 
             BlockState targetState = woodSwap.targetBlock().defaultBlockState();

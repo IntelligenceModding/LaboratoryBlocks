@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:dark_oak_laboratory_floor",
+    "laboratoryblocks:dark_oak_laboratory_floor",
+    "laboratoryblocks:dark_oak_laboratory_floor",
+    "laboratoryblocks:dark_oak_laboratory_floor",
+    "laboratoryblocks:dark_oak_laboratory_floor",
+    "laboratoryblocks:dark_oak_laboratory_floor",
+    "laboratoryblocks:dark_oak_laboratory_floor",
+    "laboratoryblocks:dark_oak_laboratory_floor",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:dark_dark_oak_laboratory_floor"
+  }
+}

@@ -3,6 +3,7 @@ package de.artemis.laboratoryblocks.common.datagen;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
 import net.minecraft.data.PackOutput;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -15,7 +16,10 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
 
     @Override
     protected void addTranslations() {
+        add("item.laboratoryblocks.music_disc_exploration.desc", "Cleyton Kauffman - Exploration");
+        add("item.laboratoryblocks.music_disc_pondering_the_cosmos.desc", "Ruskerdax - Pondering the Cosmos");
         add("itemGroup.laboratoryblocks", "Artemis' Laboratory Blocks");
+        add("itemGroup.laboratoryblocks.dark", "Artemis' Black Laboratory Blocks");
         add("tooltip.laboratoryblocks.configuration_tool.remove_glowstone", "Right-click glowing blocks to remove Glowstone Particles.");
 
         ModDatagenEntries.ALL_PAIRS.forEach(pair -> {
@@ -42,8 +46,8 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         generatedBlockIds.addAll(ModDatagenEntries.FAN_PAIRS.stream()
                 .flatMap(pair -> Stream.of(pair.base().getId(), pair.glowing().getId()))
                 .toList());
-        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(door -> door.getId()).toList());
-        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(trapdoor -> trapdoor.getId()).toList());
+        generatedBlockIds.addAll(ModDatagenEntries.DOORS.stream().map(DeferredBlock::getId).toList());
+        generatedBlockIds.addAll(ModDatagenEntries.TRAPDOORS.stream().map(DeferredBlock::getId).toList());
         generatedBlockIds = Set.copyOf(generatedBlockIds);
 
         for (var item : ModItems.ITEMS.getEntries()) {
@@ -54,6 +58,9 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
     }
 
     private static String humanize(String path) {
+        if (path.startsWith("music_disc_")) {
+            return "Music Disc";
+        }
         StringBuilder builder = new StringBuilder();
         String[] words = path.split("_");
 

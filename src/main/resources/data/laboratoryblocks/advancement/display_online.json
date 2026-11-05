@@ -16,7 +16,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:clear_laboratory_screen"
+          "blocks": [
+            "laboratoryblocks:clear_laboratory_screen",
+            "laboratoryblocks:dark_clear_laboratory_screen"
+          ]
         }
       }
     },
@@ -25,7 +28,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:wave_laboratory_screen"
+          "blocks": [
+            "laboratoryblocks:dark_wave_laboratory_screen",
+            "laboratoryblocks:wave_laboratory_screen"
+          ]
         }
       }
     },
@@ -34,7 +40,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:text_laboratory_screen"
+          "blocks": [
+            "laboratoryblocks:dark_text_laboratory_screen",
+            "laboratoryblocks:text_laboratory_screen"
+          ]
         }
       }
     },
@@ -43,7 +52,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:quantum_laboratory_screen"
+          "blocks": [
+            "laboratoryblocks:dark_quantum_laboratory_screen",
+            "laboratoryblocks:quantum_laboratory_screen"
+          ]
         }
       }
     },
@@ -52,7 +64,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_clear_laboratory_screen"
+          "blocks": [
+            "laboratoryblocks:glowing_clear_laboratory_screen",
+            "laboratoryblocks:glowing_dark_clear_laboratory_screen"
+          ]
         }
       }
     },
@@ -61,7 +76,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_wave_laboratory_screen"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_wave_laboratory_screen",
+            "laboratoryblocks:glowing_wave_laboratory_screen"
+          ]
         }
       }
     },
@@ -70,7 +88,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_text_laboratory_screen"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_text_laboratory_screen",
+            "laboratoryblocks:glowing_text_laboratory_screen"
+          ]
         }
       }
     },
@@ -79,7 +100,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_quantum_laboratory_screen"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_quantum_laboratory_screen",
+            "laboratoryblocks:glowing_quantum_laboratory_screen"
+          ]
         }
       }
     }

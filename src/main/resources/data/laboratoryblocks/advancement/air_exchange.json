@@ -16,7 +16,12 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:laboratory_vent"
+          "blocks": [
+            "laboratoryblocks:dark_laboratory_vent",
+            "laboratoryblocks:glowing_dark_laboratory_vent",
+            "laboratoryblocks:glowing_laboratory_vent",
+            "laboratoryblocks:laboratory_vent"
+          ]
         }
       }
     }

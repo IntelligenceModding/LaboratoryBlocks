@@ -19,6 +19,7 @@ public class DataGenerators {
     @SubscribeEvent
     public static void gatherRegistries(GatherDataRegistryEntriesEvent event) {
         event.lootTable(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK))
+                .lootTable(new LootTableProvider.SubProviderEntry(ModMusicDiscLootProvider::new, LootContextParamSets.CHEST))
                 .recipe(ModRecipeProvider::new);
     }
 
@@ -39,10 +40,12 @@ public class DataGenerators {
     ) {
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
         generator.addProvider(true, blockTagsProvider);
+        generator.addProvider(true, new ModLootModifierProvider(packOutput, lookupProvider));
 
         generator.addProvider(true, new ModModelProvider(packOutput));
         generator.addProvider(true, new ModFusionModelProvider(packOutput));
         generator.addProvider(true, new ModFusionTextureMetadataProvider(packOutput));
         generator.addProvider(true, new ModLanguageProvider(packOutput, "en_us"));
+        generator.addProvider(true, new ModValidationProvider(lookupProvider));
     }
 }

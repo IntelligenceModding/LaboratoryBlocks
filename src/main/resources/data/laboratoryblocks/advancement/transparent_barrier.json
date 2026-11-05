@@ -16,7 +16,12 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:laboratory_glass"
+          "blocks": [
+            "laboratoryblocks:dark_laboratory_glass",
+            "laboratoryblocks:glowing_dark_laboratory_glass",
+            "laboratoryblocks:glowing_laboratory_glass",
+            "laboratoryblocks:laboratory_glass"
+          ]
         }
       }
     }

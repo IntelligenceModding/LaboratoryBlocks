@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": { "id": "laboratoryblocks:music_disc_exploration" },
+    "title": "Laboratory Soundtrack",
+    "description": "Play Exploration or Pondering the Cosmos in a jukebox",
+    "frame": "goal",
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "laboratoryblocks:first_day_on_site",
+  "criteria": {
+    "play_exploration": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": {
+          "type": "minecraft:all_of",
+          "terms": [
+            { "type": "minecraft:match_block", "blocks": ["minecraft:jukebox"], "state": { "has_record": "true" } },
+            { "type": "minecraft:match_tool", "predicate": { "items": ["laboratoryblocks:music_disc_exploration"] } }
+          ]
+        }
+      }
+    },
+    "play_pondering_the_cosmos": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": {
+          "type": "minecraft:all_of",
+          "terms": [
+            { "type": "minecraft:match_block", "blocks": ["minecraft:jukebox"], "state": { "has_record": "true" } },
+            { "type": "minecraft:match_tool", "predicate": { "items": ["laboratoryblocks:music_disc_pondering_the_cosmos"] } }
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [["play_exploration", "play_pondering_the_cosmos"]]
+}

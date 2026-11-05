@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:mangrove_laboratory_floor",
+    "laboratoryblocks:mangrove_laboratory_floor",
+    "laboratoryblocks:mangrove_laboratory_floor",
+    "laboratoryblocks:mangrove_laboratory_floor",
+    "laboratoryblocks:mangrove_laboratory_floor",
+    "laboratoryblocks:mangrove_laboratory_floor",
+    "laboratoryblocks:mangrove_laboratory_floor",
+    "laboratoryblocks:mangrove_laboratory_floor",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:dark_mangrove_laboratory_floor"
+  }
+}

@@ -2,6 +2,9 @@
   "values": [
     "laboratoryblocks:laboratory_trapdoor",
     "laboratoryblocks:mesh_laboratory_trapdoor",
-    "laboratoryblocks:glass_laboratory_trapdoor"
+    "laboratoryblocks:glass_laboratory_trapdoor",
+    "laboratoryblocks:dark_laboratory_trapdoor",
+    "laboratoryblocks:dark_mesh_laboratory_trapdoor",
+    "laboratoryblocks:dark_glass_laboratory_trapdoor"
   ]
 }

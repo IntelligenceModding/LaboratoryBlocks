@@ -16,7 +16,9 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:mixed_laboratory_tiles"
+          "blocks": [
+            "laboratoryblocks:mixed_laboratory_tiles"
+          ]
         }
       }
     },
@@ -25,7 +27,9 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_mixed_laboratory_tiles"
+          "blocks": [
+            "laboratoryblocks:glowing_mixed_laboratory_tiles"
+          ]
         }
       }
     }
