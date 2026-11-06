@@ -19,7 +19,9 @@
             "items": [
               "laboratoryblocks:configuration_tool"
             ],
-            "count": 1
+            "count": {
+              "min": 1
+            }
           }
         ]
       }

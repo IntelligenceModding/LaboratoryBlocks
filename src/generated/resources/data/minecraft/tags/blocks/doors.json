@@ -2,6 +2,9 @@
   "values": [
     "laboratoryblocks:laboratory_door",
     "laboratoryblocks:mesh_laboratory_door",
-    "laboratoryblocks:glass_laboratory_door"
+    "laboratoryblocks:glass_laboratory_door",
+    "laboratoryblocks:dark_laboratory_door",
+    "laboratoryblocks:dark_mesh_laboratory_door",
+    "laboratoryblocks:dark_glass_laboratory_door"
   ]
 }

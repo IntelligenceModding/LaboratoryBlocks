@@ -16,9 +16,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:clear_laboratory_screen",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:clear_laboratory_screen",
+                  "laboratoryblocks:dark_clear_laboratory_screen"
+                ]
+              }
+            }
           }
         ]
       }
@@ -28,9 +34,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:wave_laboratory_screen",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_wave_laboratory_screen",
+                  "laboratoryblocks:wave_laboratory_screen"
+                ]
+              }
+            }
           }
         ]
       }
@@ -40,9 +52,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:text_laboratory_screen",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_text_laboratory_screen",
+                  "laboratoryblocks:text_laboratory_screen"
+                ]
+              }
+            }
           }
         ]
       }
@@ -52,9 +70,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:quantum_laboratory_screen",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_quantum_laboratory_screen",
+                  "laboratoryblocks:quantum_laboratory_screen"
+                ]
+              }
+            }
           }
         ]
       }
@@ -64,9 +88,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_clear_laboratory_screen",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_clear_laboratory_screen",
+                  "laboratoryblocks:glowing_dark_clear_laboratory_screen"
+                ]
+              }
+            }
           }
         ]
       }
@@ -76,9 +106,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_wave_laboratory_screen",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_wave_laboratory_screen",
+                  "laboratoryblocks:glowing_wave_laboratory_screen"
+                ]
+              }
+            }
           }
         ]
       }
@@ -88,9 +124,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_text_laboratory_screen",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_text_laboratory_screen",
+                  "laboratoryblocks:glowing_text_laboratory_screen"
+                ]
+              }
+            }
           }
         ]
       }
@@ -100,9 +142,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_quantum_laboratory_screen",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_quantum_laboratory_screen",
+                  "laboratoryblocks:glowing_quantum_laboratory_screen"
+                ]
+              }
+            }
           }
         ]
       }

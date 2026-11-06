@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_door"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:mesh_laboratory_door"
+  }
+}

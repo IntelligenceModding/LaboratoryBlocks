@@ -16,9 +16,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:reinforced_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_reinforced_laboratory_block",
+                  "laboratoryblocks:reinforced_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -28,9 +34,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_reinforced_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_reinforced_laboratory_block",
+                  "laboratoryblocks:glowing_reinforced_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }

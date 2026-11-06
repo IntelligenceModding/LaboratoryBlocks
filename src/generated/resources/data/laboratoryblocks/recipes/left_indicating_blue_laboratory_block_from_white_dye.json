@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_left_indicating_blue_laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:dark_left_indicating_blue_laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:dark_left_indicating_blue_laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:dark_left_indicating_blue_laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:dark_left_indicating_blue_laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:dark_left_indicating_blue_laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:dark_left_indicating_blue_laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:dark_left_indicating_blue_laboratory_block"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:left_indicating_blue_laboratory_block"
+  }
+}

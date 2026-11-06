@@ -12,6 +12,9 @@ public class ModSoundEvents {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, LaboratoryBlocks.MOD_ID);
 
+    public static final RegistryObject<SoundEvent> MUSIC_DISC_EXPLORATION = register("music_disc.exploration");
+    public static final RegistryObject<SoundEvent> MUSIC_DISC_PONDERING_THE_COSMOS = register("music_disc.pondering_the_cosmos");
+
     public static void register(IEventBus eventBus) {
         SOUND_EVENTS.register(eventBus);
     }

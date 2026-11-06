@@ -73,7 +73,7 @@ public class ModFusionModelProvider implements DataProvider {
     }
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
-        return "laboratory_glass".equals(pair.texturePath());
+        return pair.texturePath().endsWith("laboratory_glass");
     }
     private static ResourceLocation id(String path) {
         return new ResourceLocation(LaboratoryBlocks.MOD_ID, path);

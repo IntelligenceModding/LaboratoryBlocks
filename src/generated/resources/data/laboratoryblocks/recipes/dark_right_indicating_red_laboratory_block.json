@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:dark_laboratory_block"
+    },
+    "B": {
+      "item": "minecraft:red_wool"
+    },
+    "C": {
+      "item": "minecraft:black_wool"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BBC",
+    "AAA"
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:dark_right_indicating_red_laboratory_block"
+  },
+  "show_notification": true
+}

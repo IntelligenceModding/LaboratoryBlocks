@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mesh_laboratory_door": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:mesh_laboratory_door"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_mesh_laboratory_door_from_black_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_mesh_laboratory_door",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_mesh_laboratory_door_from_black_dye"
+    ]
+  },
+  "sends_telemetry_event": false
+}

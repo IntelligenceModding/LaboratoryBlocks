@@ -30,6 +30,8 @@ public class ModModelProvider implements DataProvider {
         List<CompletableFuture<?>> futures = new ArrayList<>();
 
         futures.addAll(saveFlatItem(output, "iron_screw"));
+        futures.addAll(saveFlatItem(output, "music_disc_exploration"));
+        futures.addAll(saveFlatItem(output, "music_disc_pondering_the_cosmos"));
         futures.addAll(saveFlatItem(output, "glowstone_particles"));
         futures.addAll(saveHandheldItem(output, "configuration_tool"));
 
@@ -98,6 +100,22 @@ public class ModModelProvider implements DataProvider {
         futures.add(saveBlockItemDefinition(output, "laboratory_fan_redstone_controlled", "laboratory_fan_redstone_controlled_inventory"));
         futures.add(saveBlockItemDefinition(output, "glowing_laboratory_fan_redstone_controlled", "glowing_laboratory_fan_redstone_controlled_inventory"));
 
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan", "dark_laboratory_fan"));
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan_powered", "dark_laboratory_fan"));
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan_unpowered", "dark_laboratory_fan_unpowered"));
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan_inventory", "dark_laboratory_fan"));
+        futures.add(saveGlowingInventoryModel(output, "glowing_dark_laboratory_fan_inventory", "dark_laboratory_fan"));
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan_redstone_controlled_inventory", "dark_laboratory_fan_redstone_controlled"));
+        futures.add(saveGlowingInventoryModel(output, "glowing_dark_laboratory_fan_redstone_controlled_inventory", "dark_laboratory_fan_redstone_controlled"));
+        futures.add(saveSimpleBlockstate(output, "dark_laboratory_fan", "dark_laboratory_fan"));
+        futures.add(saveSimpleBlockstate(output, "glowing_dark_laboratory_fan", "dark_laboratory_fan"));
+        futures.add(savePoweredBlockstate(output, "dark_laboratory_fan_redstone_controlled"));
+        futures.add(savePoweredBlockstate(output, "glowing_dark_laboratory_fan_redstone_controlled"));
+        futures.add(saveBlockItemDefinition(output, "dark_laboratory_fan", "dark_laboratory_fan_inventory"));
+        futures.add(saveBlockItemDefinition(output, "glowing_dark_laboratory_fan", "glowing_dark_laboratory_fan_inventory"));
+        futures.add(saveBlockItemDefinition(output, "dark_laboratory_fan_redstone_controlled", "dark_laboratory_fan_redstone_controlled_inventory"));
+        futures.add(saveBlockItemDefinition(output, "glowing_dark_laboratory_fan_redstone_controlled", "glowing_dark_laboratory_fan_redstone_controlled_inventory"));
+
         return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
     }
 
@@ -141,11 +159,11 @@ public class ModModelProvider implements DataProvider {
         JsonObject variants = new JsonObject();
 
         JsonObject unpowered = new JsonObject();
-        unpowered.addProperty("model", modPath("block/laboratory_fan_unpowered"));
+        unpowered.addProperty("model", modPath("block/" + (blockName.startsWith("glowing_dark_") || blockName.startsWith("dark_") ? "dark_" : "") + "laboratory_fan_unpowered"));
         variants.add("powered=false", unpowered);
 
         JsonObject powered = new JsonObject();
-        powered.addProperty("model", modPath("block/laboratory_fan_powered"));
+        powered.addProperty("model", modPath("block/" + (blockName.startsWith("glowing_dark_") || blockName.startsWith("dark_") ? "dark_" : "") + "laboratory_fan_powered"));
         variants.add("powered=true", powered);
 
         json.add("variants", variants);
@@ -342,7 +360,7 @@ public class ModModelProvider implements DataProvider {
     }
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
-        return "laboratory_glass".equals(pair.texturePath());
+        return pair.texturePath().endsWith("laboratory_glass");
     }
 
     private static ResourceLocation id(String path) {
