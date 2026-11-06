@@ -1,360 +1,385 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
-import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
+import de.artemis.laboratoryblocks.common.registry.ModBlockPalettes;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import java.util.concurrent.CompletableFuture;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.worldgen.BootstrapContext;
+
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.concurrent.CompletableFuture;
-
 public class ModRecipeProvider extends RecipeProvider {
-    public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider);
+    private RecipeOutput output;
+    public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries);
     }
 
     @Override
-    protected void buildRecipes(@NotNull RecipeOutput recipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CONFIGURATION_TOOL.get())
+    protected void buildRecipes(RecipeOutput recipeOutput) {
+        this.output = recipeOutput;
+        ModBlockPalettes.BLOCK_ORDER.stream().filter(pair -> pair.dark() != null).forEach(pair -> {
+            net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, pair.dark().get(), 8)
+                    .requires(pair.original().get(), 8)
+                    .requires(Items.BLACK_DYE)
+                    .unlockedBy(getHasName(pair.original().get()), has(pair.original().get()))
+                    .save(output, modLoc(pair.dark().get() == ModBlocks.DARK_LABORATORY_BLOCK.get()
+                            ? "dark_laboratory_block"
+                            : BuiltInRegistries.BLOCK.getKey(pair.dark().get()).getPath() + "_from_black_dye"));
+            net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, pair.original().get(), 8)
+                    .requires(pair.dark().get(), 8)
+                    .requires(Items.WHITE_DYE)
+                    .unlockedBy(getHasName(pair.dark().get()), has(pair.dark().get()))
+                    .save(output, modLoc(BuiltInRegistries.BLOCK.getKey(pair.original().get()).getPath() + "_from_white_dye"));
+        });
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CONFIGURATION_TOOL.get())
                 .pattern("  C")
                 .pattern("DB ")
                 .pattern("AD ")
                 .define('A', Items.IRON_INGOT)
-                .define('B', Items.ORANGE_WOOL)
+                .define('B', woolIngredient(DyeColor.ORANGE))
                 .define('C', ModItems.IRON_SCREW.get())
                 .define('D', Items.IRON_NUGGET)
                 .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_SCREW.get(), 16)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_SCREW.get(), 16)
                 .pattern("ABA")
                 .pattern(" A ")
                 .define('A', Items.IRON_NUGGET)
                 .define('B', Items.IRON_INGOT)
                 .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.GLOWSTONE_PARTICLES.get(), 8)
+        net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.GLOWSTONE_PARTICLES.get(), 8)
                 .requires(Items.GLOWSTONE_DUST)
                 .unlockedBy(getHasName(Items.GLOWSTONE_DUST), has(Items.GLOWSTONE_DUST))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.GLOWSTONE_DUST)
+        net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.GLOWSTONE_DUST)
                 .requires(ModItems.GLOWSTONE_PARTICLES.get(), 8)
                 .unlockedBy(getHasName(ModItems.GLOWSTONE_PARTICLES.get()), has(ModItems.GLOWSTONE_PARTICLES.get()))
-                .save(recipeOutput, modLoc("glowstone_dust_from_glowstone_particles"));
+                .save(output, modLoc("glowstone_dust_from_glowstone_particles"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_BLOCK.get(), 8)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_BLOCK.get(), 8)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
                 .define('A', Blocks.STONE)
                 .define('B', Items.QUARTZ)
                 .unlockedBy(getHasName(Blocks.STONE), has(Blocks.STONE))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_LABORATORY_BLOCK.get(), 2)
+        addPaletteRecipes(false);
+        addPaletteRecipes(true);
+
+        ModDatagenEntries.WOOD_FAMILIES.forEach(this::addWoodRecipes);
+        addStonecutterRecipes(false);
+        addStonecutterRecipes(true);
+
+        ModDatagenEntries.ALL_PAIRS.forEach(pair -> addGlowstoneUpgrade(pair.base().get(), pair.glowing().get()));
+        ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> addGlowstoneUpgrade(pair.base().get(), pair.glowing().get()));
+        ModDatagenEntries.FAN_PAIRS.forEach(pair -> addGlowstoneUpgrade(pair.base().get(), pair.glowing().get()));
+    }
+
+    private void addPaletteRecipes(boolean dark) {
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.REINFORCED_LABORATORY_BLOCK.get(), dark), 2)
                 .pattern("A A")
                 .pattern(" B ")
                 .pattern("A A")
                 .define('A', ModItems.IRON_SCREW.get())
-                .define('B', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(recipeOutput);
+                .define('B', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_TILES.get(), 8)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_TILES.get(), dark), 8)
                 .pattern("AA")
                 .pattern("AA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(recipeOutput);
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAY_LABORATORY_TILES.get(), 8)
-                .pattern("AAA")
-                .pattern("ABA")
-                .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_TILES.get())
-                .define('B', Items.GRAY_DYE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_TILES.get()), has(ModBlocks.LABORATORY_TILES.get()))
-                .save(recipeOutput);
+        if (!dark) {
+            net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAY_LABORATORY_TILES.get(), 8)
+                    .pattern("AAA")
+                    .pattern("ABA")
+                    .pattern("AAA")
+                    .define('A', ModBlocks.LABORATORY_TILES.get())
+                    .define('B', Items.GRAY_DYE)
+                    .unlockedBy(getHasName(ModBlocks.LABORATORY_TILES.get()), has(ModBlocks.LABORATORY_TILES.get()))
+                    .unlockedBy("has_gray_dye", has(Items.GRAY_DYE))
+                    .save(output);
+        }
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MIXED_LABORATORY_TILES.get(), 2)
-                .requires(ModBlocks.GRAY_LABORATORY_TILES.get())
-                .requires(ModBlocks.LABORATORY_TILES.get())
-                .unlockedBy(getHasName(ModBlocks.GRAY_LABORATORY_TILES.get()), has(ModBlocks.GRAY_LABORATORY_TILES.get()))
-                .save(recipeOutput);
+        if (!dark) {
+            net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MIXED_LABORATORY_TILES.get(), 2)
+                    .requires(ModBlocks.GRAY_LABORATORY_TILES.get())
+                    .requires(ModBlocks.LABORATORY_TILES.get())
+                    .unlockedBy(getHasName(ModBlocks.GRAY_LABORATORY_TILES.get()), has(ModBlocks.GRAY_LABORATORY_TILES.get()))
+                    .save(output);
+        }
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_VENT.get())
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_VENT.get(), dark))
                 .pattern(" B ")
                 .pattern("BAB")
                 .pattern(" B ")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.IRON_NUGGET)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_PILLAR.get(), 2)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_PILLAR.get(), dark), 2)
                 .pattern("A")
                 .pattern("A")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(recipeOutput);
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAY_LABORATORY_PILLAR.get(), 8)
-                .pattern("AAA")
-                .pattern("ABA")
-                .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_PILLAR.get())
-                .define('B', Items.GRAY_DYE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_PILLAR.get()), has(ModBlocks.LABORATORY_PILLAR.get()))
-                .unlockedBy(getHasName(Items.GRAY_DYE), has(Items.GRAY_DYE))
-                .save(recipeOutput);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_GLASS.get(), 8)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_GLASS.get(), dark), 8)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
                 .define('A', Items.GLASS)
-                .define('B', ModBlocks.LABORATORY_BLOCK.get())
+                .define('B', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .unlockedBy(getHasName(Items.GLASS), has(Items.GLASS))
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(recipeOutput);
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_FAN.get())
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_FAN.get(), dark))
                 .pattern("ABA")
                 .pattern("BCB")
                 .pattern("ABA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.IRON_NUGGET)
                 .define('C', ModItems.IRON_SCREW.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
                 .unlockedBy(getHasName(ModItems.IRON_SCREW.get()), has(ModItems.IRON_SCREW.get()))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get())
-                .requires(ModBlocks.LABORATORY_FAN.get())
+        net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get(), dark))
+                .requires(palette(ModBlocks.LABORATORY_FAN.get(), dark))
                 .requires(Items.REDSTONE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_FAN.get()), has(ModBlocks.LABORATORY_FAN.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_FAN.get(), dark)), has(palette(ModBlocks.LABORATORY_FAN.get(), dark)))
                 .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
-                .save(recipeOutput);
+                .save(output);
 
-        addScreenRecipes(recipeOutput);
-        addDoorAndTrapdoorRecipes(recipeOutput);
+        addScreenRecipes(dark);
+        addDoorAndTrapdoorRecipes(dark);
 
-        addIndicatingRecipes(recipeOutput,
-                ModBlocks.RIGHT_INDICATING_BLUE_LABORATORY_BLOCK.get(),
-                ModBlocks.LEFT_INDICATING_BLUE_LABORATORY_BLOCK.get(),
-                Items.BLUE_WOOL
+        addIndicatingRecipes(
+                palette(ModBlocks.RIGHT_INDICATING_BLUE_LABORATORY_BLOCK.get(), dark),
+                palette(ModBlocks.LEFT_INDICATING_BLUE_LABORATORY_BLOCK.get(), dark),
+                DyeColor.BLUE
         );
-        addIndicatingRecipes(recipeOutput,
-                ModBlocks.RIGHT_INDICATING_RED_LABORATORY_BLOCK.get(),
-                ModBlocks.LEFT_INDICATING_RED_LABORATORY_BLOCK.get(),
-                Items.RED_WOOL
+        addIndicatingRecipes(
+                palette(ModBlocks.RIGHT_INDICATING_RED_LABORATORY_BLOCK.get(), dark),
+                palette(ModBlocks.LEFT_INDICATING_RED_LABORATORY_BLOCK.get(), dark),
+                DyeColor.RED
         );
-        addIndicatingRecipes(recipeOutput,
-                ModBlocks.RIGHT_INDICATING_GREEN_LABORATORY_BLOCK.get(),
-                ModBlocks.LEFT_INDICATING_GREEN_LABORATORY_BLOCK.get(),
-                Items.GREEN_WOOL
+        addIndicatingRecipes(
+                palette(ModBlocks.RIGHT_INDICATING_GREEN_LABORATORY_BLOCK.get(), dark),
+                palette(ModBlocks.LEFT_INDICATING_GREEN_LABORATORY_BLOCK.get(), dark),
+                DyeColor.GREEN
         );
 
-        ModDatagenEntries.WOOD_FAMILIES.forEach(family -> addWoodRecipes(recipeOutput, family));
-        addStonecutterRecipes(recipeOutput);
-
-        ModDatagenEntries.ALL_PAIRS.forEach(pair -> addGlowstoneUpgrade(recipeOutput, pair.base().get(), pair.glowing().get()));
-        ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> addGlowstoneUpgrade(recipeOutput, pair.base().get(), pair.glowing().get()));
-        ModDatagenEntries.FAN_PAIRS.forEach(pair -> addGlowstoneUpgrade(recipeOutput, pair.base().get(), pair.glowing().get()));
     }
 
-    private void addWoodRecipes(RecipeOutput recipeOutput, ModDatagenEntries.WoodFamily family) {
-        if (family.planks() == null) {
-            return;
-        }
+    private Block palette(Block original, boolean dark) {
+        return dark ? ModBlockPalettes.darkVariant(original) : original;
+    }
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, family.floorPair().base().get(), 8)
+    private void addWoodRecipes(ModDatagenEntries.WoodFamily family) {
+        Block base = ModBlockPalettes.isDark(family.floorPair().base().get()) ? ModBlocks.DARK_LABORATORY_BLOCK.get() : ModBlocks.LABORATORY_BLOCK.get();
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, family.floorPair().base().get(), 8)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', base)
                 .define('B', family.planks())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(base), has(base))
                 .unlockedBy(getHasName(family.planks()), has(family.planks()))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, family.tilePair().base().get(), 8)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, family.tilePair().base().get(), 8)
                 .pattern("AA")
                 .pattern("AA")
                 .define('A', family.floorPair().base().get())
                 .unlockedBy(getHasName(family.floorPair().base().get()), has(family.floorPair().base().get()))
-                .save(recipeOutput);
+                .save(output);
 
-        addStonecuttingRecipe(recipeOutput, family.floorPair().base().get(), family.tilePair().base().get(), 2);
-        addStonecuttingRecipe(recipeOutput, family.floorPair().glowing().get(), family.tilePair().glowing().get(), 2);
+        addStonecuttingRecipe(family.floorPair().base().get(), family.tilePair().base().get(), 2);
+        // Each glowing block contains one recoverable Glowstone Particle; never multiply it.
+        addStonecuttingRecipe(family.floorPair().glowing().get(), family.tilePair().glowing().get(), 1);
     }
 
-    private void addGlowstoneUpgrade(RecipeOutput recipeOutput, Block base, Block glowing) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, glowing)
+    private void addGlowstoneUpgrade(Block base, Block glowing) {
+        net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, glowing)
                 .requires(base)
                 .requires(ModItems.GLOWSTONE_PARTICLES.get())
                 .unlockedBy(getHasName(base), has(base))
-                .save(recipeOutput);
+                .save(output);
     }
 
-    private void addScreenRecipes(RecipeOutput recipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+    private void addScreenRecipes(boolean dark) {
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
                 .pattern("BAB")
                 .pattern("ACA")
                 .pattern("BAB")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', ModItems.IRON_SCREW.get())
-                .define('C', ModBlocks.LABORATORY_GLASS.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .define('C', palette(ModBlocks.LABORATORY_GLASS.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(ModItems.IRON_SCREW.get()), has(ModItems.IRON_SCREW.get()))
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_GLASS.get()), has(ModBlocks.LABORATORY_GLASS.get()))
-                .save(recipeOutput);
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_GLASS.get(), dark)), has(palette(ModBlocks.LABORATORY_GLASS.get(), dark)))
+                .save(output);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAVE_LABORATORY_SCREEN.get(), 4)
-                .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+        net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.WAVE_LABORATORY_SCREEN.get(), dark), 4)
+                .requires(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
                 .requires(Items.CYAN_DYE)
-                .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
-                .unlockedBy(getHasName(Items.CYAN_DYE), has(Items.CYAN_DYE))
-                .save(recipeOutput);
+                .unlockedBy(getHasName(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)), has(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)))
+                .unlockedBy("has_cyan_dye", has(Items.CYAN_DYE))
+                .save(output);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEXT_LABORATORY_SCREEN.get(), 4)
-                .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+        net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.TEXT_LABORATORY_SCREEN.get(), dark), 4)
+                .requires(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
                 .requires(Items.LIME_DYE)
-                .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
-                .unlockedBy(getHasName(Items.LIME_DYE), has(Items.LIME_DYE))
-                .save(recipeOutput);
+                .unlockedBy(getHasName(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)), has(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)))
+                .unlockedBy("has_lime_dye", has(Items.LIME_DYE))
+                .save(output);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), 4)
-                .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+        net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), dark), 4)
+                .requires(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
                 .requires(Items.PURPLE_DYE)
-                .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
-                .unlockedBy(getHasName(Items.PURPLE_DYE), has(Items.PURPLE_DYE))
-                .save(recipeOutput);
+                .unlockedBy(getHasName(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)), has(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)))
+                .unlockedBy("has_purple_dye", has(Items.PURPLE_DYE))
+                .save(output);
     }
 
-    private void addStonecutterRecipes(RecipeOutput recipeOutput) {
-        addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_TILES.get(), 2);
-        addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_PILLAR.get(), 1);
-        addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_DOOR.get(), 1);
-        addStonecuttingRecipe(recipeOutput, ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_TRAPDOOR.get(), 1);
-        addStonecuttingRecipe(recipeOutput, ModBlocks.GLOWING_LABORATORY_BLOCK.get(), ModBlocks.GLOWING_LABORATORY_TILES.get(), 2);
-        addStonecuttingRecipe(recipeOutput, ModBlocks.GLOWING_LABORATORY_BLOCK.get(), ModBlocks.GLOWING_LABORATORY_PILLAR.get(), 1);
-        addStonecuttingRecipe(recipeOutput, ModBlocks.GRAY_LABORATORY_TILES.get(), ModBlocks.GRAY_LABORATORY_PILLAR.get(), 1);
-        addStonecuttingRecipe(recipeOutput, ModBlocks.GLOWING_GRAY_LABORATORY_TILES.get(), ModBlocks.GLOWING_GRAY_LABORATORY_PILLAR.get(), 1);
+    private void addStonecutterRecipes(boolean dark) {
+        addStonecuttingRecipe(palette(ModBlocks.LABORATORY_BLOCK.get(), dark), palette(ModBlocks.LABORATORY_TILES.get(), dark), 2);
+        addStonecuttingRecipe(palette(ModBlocks.LABORATORY_BLOCK.get(), dark), palette(ModBlocks.LABORATORY_PILLAR.get(), dark), 1);
+        addStonecuttingRecipe(palette(ModBlocks.LABORATORY_BLOCK.get(), dark), palette(ModBlocks.LABORATORY_DOOR.get(), dark), 1);
+        addStonecuttingRecipe(palette(ModBlocks.LABORATORY_BLOCK.get(), dark), palette(ModBlocks.LABORATORY_TRAPDOOR.get(), dark), 1);
+        addStonecuttingRecipe(palette(ModBlocks.GLOWING_LABORATORY_BLOCK.get(), dark), palette(ModBlocks.GLOWING_LABORATORY_TILES.get(), dark), 1);
+        addStonecuttingRecipe(palette(ModBlocks.GLOWING_LABORATORY_BLOCK.get(), dark), palette(ModBlocks.GLOWING_LABORATORY_PILLAR.get(), dark), 1);
     }
 
-    private void addIndicatingRecipes(RecipeOutput recipeOutput, Block rightBlock, Block leftBlock, Item colorWool) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, rightBlock, 8)
+    private void addIndicatingRecipes(Block rightBlock, Block leftBlock, DyeColor color) {
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, rightBlock, 8)
                 .pattern("AAA")
                 .pattern("BBC")
                 .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .define('B', colorWool)
-                .define('C', Blocks.BLACK_WOOL)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .define('A', ModBlockPalettes.isDark(rightBlock) ? ModBlocks.DARK_LABORATORY_BLOCK.get() : ModBlocks.LABORATORY_BLOCK.get())
+                .define('B', woolIngredient(color))
+                .define('C', woolIngredient(DyeColor.BLACK))
+                .unlockedBy("has_laboratory_block", has(ModBlockPalettes.isDark(rightBlock) ? ModBlocks.DARK_LABORATORY_BLOCK.get() : ModBlocks.LABORATORY_BLOCK.get()))
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, leftBlock, 8)
-                .pattern("AAA")
-                .pattern("CBB")
-                .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .define('B', colorWool)
-                .define('C', Blocks.BLACK_WOOL)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .unlockedBy("has_wool", has(ItemTags.WOOL))
-                .save(recipeOutput);
+        // Shaped crafting also accepts mirrored patterns, so opposite arrows need an explicit conversion.
+        net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, leftBlock)
+                .requires(rightBlock)
+                .unlockedBy(getHasName(rightBlock), has(rightBlock))
+                .save(output);
+        net.minecraft.data.recipes.ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, rightBlock)
+                .requires(leftBlock)
+                .unlockedBy(getHasName(leftBlock), has(leftBlock))
+                .save(output, modLoc(BuiltInRegistries.BLOCK.getKey(rightBlock).getPath() + "_from_left"));
     }
 
-    private void addDoorAndTrapdoorRecipes(RecipeOutput recipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_DOOR.get(), 3)
+    private void addDoorAndTrapdoorRecipes(boolean dark) {
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_DOOR.get(), dark), 3)
                 .pattern("AA ")
                 .pattern("AA ")
                 .pattern("AA ")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(recipeOutput);
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_TRAPDOOR.get(), 2)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_TRAPDOOR.get(), dark), 2)
                 .pattern("   ")
                 .pattern("AAA")
                 .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(recipeOutput);
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MESH_LABORATORY_DOOR.get(), 3)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.MESH_LABORATORY_DOOR.get(), dark), 3)
                 .pattern("AA ")
                 .pattern("BB ")
                 .pattern("AA ")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.IRON_BARS)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.IRON_BARS), has(Items.IRON_BARS))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MESH_LABORATORY_TRAPDOOR.get(), 2)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.MESH_LABORATORY_TRAPDOOR.get(), dark), 2)
                 .pattern("   ")
                 .pattern("ABA")
                 .pattern("ABA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.IRON_BARS)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.IRON_BARS), has(Items.IRON_BARS))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_LABORATORY_DOOR.get(), 3)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.GLASS_LABORATORY_DOOR.get(), dark), 3)
                 .pattern("AA ")
                 .pattern("BB ")
                 .pattern("AA ")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.GLASS_PANE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
-                .save(recipeOutput);
+                .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_LABORATORY_TRAPDOOR.get(), 2)
+        net.minecraft.data.recipes.ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.GLASS_LABORATORY_TRAPDOOR.get(), dark), 2)
                 .pattern("   ")
                 .pattern("ABA")
                 .pattern("ABA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.GLASS_PANE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
-                .save(recipeOutput);
+                .save(output);
     }
 
-    private void addStonecuttingRecipe(RecipeOutput recipeOutput, Block input, Block output, int count) {
+    private void addStonecuttingRecipe(Block input, Block outputBlock, int count) {
         ResourceLocation inputId = BuiltInRegistries.BLOCK.getKey(input);
-        ResourceLocation outputId = BuiltInRegistries.BLOCK.getKey(output);
+        ResourceLocation outputId = BuiltInRegistries.BLOCK.getKey(outputBlock);
 
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), RecipeCategory.BUILDING_BLOCKS, output, count)
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), RecipeCategory.BUILDING_BLOCKS, outputBlock, count)
                 .unlockedBy(getHasName(input), has(input))
-                .save(recipeOutput, modLoc(outputId.getPath() + "_from_" + inputId.getPath() + "_stonecutting"));
+                .save(output, modLoc(outputId.getPath() + "_from_" + inputId.getPath() + "_stonecutting"));
     }
 
-    @SuppressWarnings("all")
     private static ResourceLocation modLoc(String path) {
-        return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath("laboratoryblocks", path);
+    }
+
+    private Ingredient woolIngredient(DyeColor color) {
+        return Ingredient.of(BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(color.getName() + "_wool")));
     }
 }

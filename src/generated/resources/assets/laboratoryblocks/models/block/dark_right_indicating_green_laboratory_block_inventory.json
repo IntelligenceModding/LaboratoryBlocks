@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "laboratoryblocks:block/dark_right_indicating_green_laboratory_block"
+  }
+}

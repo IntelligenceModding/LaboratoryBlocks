@@ -26,7 +26,7 @@ body:
     attributes:
       label: Laboratory Blocks Version
       description: Which version of Laboratory Blocks are you using?
-      placeholder: "Example: 0.8.4r"
+      placeholder: "Example: 1.0"
     validations:
       required: true
 

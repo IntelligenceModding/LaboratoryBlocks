@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cherry_laboratory_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "laboratoryblocks:cherry_laboratory_tiles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_cherry_laboratory_tiles_from_black_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cherry_laboratory_tiles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_cherry_laboratory_tiles_from_black_dye"
+    ]
+  }
+}

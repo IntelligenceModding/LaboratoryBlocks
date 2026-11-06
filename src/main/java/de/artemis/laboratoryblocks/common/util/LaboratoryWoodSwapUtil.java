@@ -23,7 +23,18 @@ public final class LaboratoryWoodSwapUtil {
             family(Blocks.CHERRY_PLANKS, ModBlocks.CHERRY_LABORATORY_FLOOR, ModBlocks.GLOWING_CHERRY_LABORATORY_FLOOR, ModBlocks.CHERRY_LABORATORY_TILES, ModBlocks.GLOWING_CHERRY_LABORATORY_TILES),
             family(Blocks.BAMBOO_PLANKS, ModBlocks.BAMBOO_LABORATORY_FLOOR, ModBlocks.GLOWING_BAMBOO_LABORATORY_FLOOR, ModBlocks.BAMBOO_LABORATORY_TILES, ModBlocks.GLOWING_BAMBOO_LABORATORY_TILES),
             family(Blocks.CRIMSON_PLANKS, ModBlocks.CRIMSON_LABORATORY_FLOOR, ModBlocks.GLOWING_CRIMSON_LABORATORY_FLOOR, ModBlocks.CRIMSON_LABORATORY_TILES, ModBlocks.GLOWING_CRIMSON_LABORATORY_TILES),
-            family(Blocks.WARPED_PLANKS, ModBlocks.WARPED_LABORATORY_FLOOR, ModBlocks.GLOWING_WARPED_LABORATORY_FLOOR, ModBlocks.WARPED_LABORATORY_TILES, ModBlocks.GLOWING_WARPED_LABORATORY_TILES)
+            family(Blocks.WARPED_PLANKS, ModBlocks.WARPED_LABORATORY_FLOOR, ModBlocks.GLOWING_WARPED_LABORATORY_FLOOR, ModBlocks.WARPED_LABORATORY_TILES, ModBlocks.GLOWING_WARPED_LABORATORY_TILES),
+            family(Blocks.SPRUCE_PLANKS, ModBlocks.DARK_SPRUCE_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_SPRUCE_LABORATORY_FLOOR, ModBlocks.DARK_SPRUCE_LABORATORY_TILES, ModBlocks.GLOWING_DARK_SPRUCE_LABORATORY_TILES),
+            family(Blocks.BIRCH_PLANKS, ModBlocks.DARK_BIRCH_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_BIRCH_LABORATORY_FLOOR, ModBlocks.DARK_BIRCH_LABORATORY_TILES, ModBlocks.GLOWING_DARK_BIRCH_LABORATORY_TILES),
+            family(Blocks.DARK_OAK_PLANKS, ModBlocks.DARK_DARK_OAK_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_DARK_OAK_LABORATORY_FLOOR, ModBlocks.DARK_DARK_OAK_LABORATORY_TILES, ModBlocks.GLOWING_DARK_DARK_OAK_LABORATORY_TILES),
+            family(Blocks.JUNGLE_PLANKS, ModBlocks.DARK_JUNGLE_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_JUNGLE_LABORATORY_FLOOR, ModBlocks.DARK_JUNGLE_LABORATORY_TILES, ModBlocks.GLOWING_DARK_JUNGLE_LABORATORY_TILES),
+            family(Blocks.ACACIA_PLANKS, ModBlocks.DARK_ACACIA_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_ACACIA_LABORATORY_FLOOR, ModBlocks.DARK_ACACIA_LABORATORY_TILES, ModBlocks.GLOWING_DARK_ACACIA_LABORATORY_TILES),
+            family(Blocks.MANGROVE_PLANKS, ModBlocks.DARK_MANGROVE_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_MANGROVE_LABORATORY_FLOOR, ModBlocks.DARK_MANGROVE_LABORATORY_TILES, ModBlocks.GLOWING_DARK_MANGROVE_LABORATORY_TILES),
+            family(Blocks.CHERRY_PLANKS, ModBlocks.DARK_CHERRY_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_CHERRY_LABORATORY_FLOOR, ModBlocks.DARK_CHERRY_LABORATORY_TILES, ModBlocks.GLOWING_DARK_CHERRY_LABORATORY_TILES),
+            family(Blocks.BAMBOO_PLANKS, ModBlocks.DARK_BAMBOO_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_BAMBOO_LABORATORY_FLOOR, ModBlocks.DARK_BAMBOO_LABORATORY_TILES, ModBlocks.GLOWING_DARK_BAMBOO_LABORATORY_TILES),
+            family(Blocks.CRIMSON_PLANKS, ModBlocks.DARK_CRIMSON_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_CRIMSON_LABORATORY_FLOOR, ModBlocks.DARK_CRIMSON_LABORATORY_TILES, ModBlocks.GLOWING_DARK_CRIMSON_LABORATORY_TILES),
+            family(Blocks.WARPED_PLANKS, ModBlocks.DARK_WARPED_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_WARPED_LABORATORY_FLOOR, ModBlocks.DARK_WARPED_LABORATORY_TILES, ModBlocks.GLOWING_DARK_WARPED_LABORATORY_TILES),
+family(Blocks.OAK_PLANKS, ModBlocks.DARKENED_OAK_LABORATORY_FLOOR, ModBlocks.GLOWING_DARKENED_OAK_LABORATORY_FLOOR, ModBlocks.DARKENED_OAK_LABORATORY_TILES, ModBlocks.GLOWING_DARKENED_OAK_LABORATORY_TILES)
     );
 
     private LaboratoryWoodSwapUtil() {
@@ -31,7 +42,7 @@ public final class LaboratoryWoodSwapUtil {
 
     @Nullable
     public static SwapResult getSwap(Block currentBlock, Item heldItem) {
-        WoodFamily targetFamily = findFamilyByPlank(Block.byItem(heldItem));
+        WoodFamily targetFamily = findFamilyByPlank(Block.byItem(heldItem), de.artemis.laboratoryblocks.common.registry.ModBlockPalettes.isDark(currentBlock));
         if (targetFamily == null) {
             return null;
         }
@@ -50,9 +61,9 @@ public final class LaboratoryWoodSwapUtil {
     }
 
     @Nullable
-    private static WoodFamily findFamilyByPlank(Block plankBlock) {
+    private static WoodFamily findFamilyByPlank(Block plankBlock, boolean dark) {
         for (WoodFamily family : FAMILIES) {
-            if (family.planks == plankBlock) {
+            if (family.planks == plankBlock && de.artemis.laboratoryblocks.common.registry.ModBlockPalettes.isDark(family.floor.get()) == dark) {
                 return family;
             }
         }

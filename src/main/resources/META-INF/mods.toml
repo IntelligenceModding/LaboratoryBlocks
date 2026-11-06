@@ -1,6 +1,8 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
+licenseURL="https://github.com/IntelligenceModding/LaboratoryBlocks/blob/1.21.1-forge/LICENSE"
+issueTrackerURL="https://github.com/IntelligenceModding/LaboratoryBlocks/issues"
 
 [[mods]]
 modId="${mod_id}"
