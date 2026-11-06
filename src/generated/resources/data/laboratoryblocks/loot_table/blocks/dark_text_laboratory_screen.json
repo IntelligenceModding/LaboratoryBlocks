@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "laboratoryblocks:dark_text_laboratory_screen"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "laboratoryblocks:blocks/dark_text_laboratory_screen"
+}

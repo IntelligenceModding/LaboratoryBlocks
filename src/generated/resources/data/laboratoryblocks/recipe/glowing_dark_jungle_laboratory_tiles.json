@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:dark_jungle_laboratory_tiles",
+    "laboratoryblocks:glowstone_particles"
+  ],
+  "result": {
+    "id": "laboratoryblocks:glowing_dark_jungle_laboratory_tiles"
+  }
+}

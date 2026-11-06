@@ -233,6 +233,16 @@ Running the development client is strongly recommended for changes that affect g
 
 Changes should be tested before being submitted.
 
+After changing registered blocks, recipes, advancements, or models, run data generation before building:
+
+```powershell
+.\gradlew.bat runClientData
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-resources.ps1
+.\gradlew.bat build
+```
+
+Data generation validates gameplay advancement codecs, palette coverage, block-state parity, and wood swapping across species, shapes, glow states, and palettes. The resource audit checks survival crafting paths, recipe unlocks and balance, advancement parents and palette coverage, loot, tags, translations, models, and texture references. Run data generation twice when changing model providers and confirm the output is unchanged on the second run.
+
 There is currently no expectation that every contribution includes automated tests. For most Laboratory Blocks changes, practical in-game testing is more useful.
 
 At minimum:

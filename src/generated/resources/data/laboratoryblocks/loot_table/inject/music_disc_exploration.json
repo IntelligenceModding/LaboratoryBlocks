@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "chance": 0.1,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "laboratoryblocks:music_disc_exploration"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "laboratoryblocks:inject/music_disc_exploration"
+}

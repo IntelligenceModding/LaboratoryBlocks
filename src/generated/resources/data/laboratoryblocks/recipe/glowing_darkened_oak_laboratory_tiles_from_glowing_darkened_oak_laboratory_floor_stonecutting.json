@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "laboratoryblocks:glowing_darkened_oak_laboratory_floor",
+  "result": {
+    "id": "laboratoryblocks:glowing_darkened_oak_laboratory_tiles"
+  }
+}

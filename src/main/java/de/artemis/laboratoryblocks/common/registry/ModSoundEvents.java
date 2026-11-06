@@ -26,4 +26,6 @@ public class ModSoundEvents {
     public static final DeferredHolder<SoundEvent, SoundEvent> LABORATORY_BLOCK_PLACE = register("laboratory_block_place");
     public static final DeferredHolder<SoundEvent, SoundEvent> LABORATORY_BLOCK_STEP = register("laboratory_block_step");
     public static final DeferredHolder<SoundEvent, SoundEvent> CONFIGURATION_TOOL_USE = register("configuration_tool_use");
+    public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_EXPLORATION = register("music_disc.exploration");
+    public static final DeferredHolder<SoundEvent, SoundEvent> MUSIC_DISC_PONDERING_THE_COSMOS = register("music_disc.pondering_the_cosmos");
 }

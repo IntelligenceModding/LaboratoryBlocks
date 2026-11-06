@@ -1,7 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": "laboratoryblocks:gray_laboratory_tiles",
-  "result": {
-    "id": "laboratoryblocks:gray_laboratory_pillar"
-  }
-}
