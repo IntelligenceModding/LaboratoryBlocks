@@ -1,0 +1,58 @@
+{
+  "variants": {
+    "facing\u003deast,half\u003dbottom,open\u003dfalse": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_bottom"
+    },
+    "facing\u003deast,half\u003dbottom,open\u003dtrue": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_open",
+      "y": 90
+    },
+    "facing\u003deast,half\u003dtop,open\u003dfalse": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_top"
+    },
+    "facing\u003deast,half\u003dtop,open\u003dtrue": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_open",
+      "y": 90
+    },
+    "facing\u003dnorth,half\u003dbottom,open\u003dfalse": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_bottom"
+    },
+    "facing\u003dnorth,half\u003dbottom,open\u003dtrue": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_open"
+    },
+    "facing\u003dnorth,half\u003dtop,open\u003dfalse": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_top"
+    },
+    "facing\u003dnorth,half\u003dtop,open\u003dtrue": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_open"
+    },
+    "facing\u003dsouth,half\u003dbottom,open\u003dfalse": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_bottom"
+    },
+    "facing\u003dsouth,half\u003dbottom,open\u003dtrue": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_open",
+      "y": 180
+    },
+    "facing\u003dsouth,half\u003dtop,open\u003dfalse": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_top"
+    },
+    "facing\u003dsouth,half\u003dtop,open\u003dtrue": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_open",
+      "y": 180
+    },
+    "facing\u003dwest,half\u003dbottom,open\u003dfalse": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_bottom"
+    },
+    "facing\u003dwest,half\u003dbottom,open\u003dtrue": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_open",
+      "y": 270
+    },
+    "facing\u003dwest,half\u003dtop,open\u003dfalse": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_top"
+    },
+    "facing\u003dwest,half\u003dtop,open\u003dtrue": {
+      "model": "laboratoryblocks:block/dark_glass_laboratory_trapdoor_open",
+      "y": 270
+    }
+  }
+}

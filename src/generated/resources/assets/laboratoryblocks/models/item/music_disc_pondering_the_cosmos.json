@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "laboratoryblocks:item/music_disc_pondering_the_cosmos"
+  }
+}

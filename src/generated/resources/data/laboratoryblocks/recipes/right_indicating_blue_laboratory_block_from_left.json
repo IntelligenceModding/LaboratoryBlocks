@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:left_indicating_blue_laboratory_block"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:right_indicating_blue_laboratory_block"
+  }
+}

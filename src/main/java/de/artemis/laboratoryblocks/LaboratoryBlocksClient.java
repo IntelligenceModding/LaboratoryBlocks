@@ -33,6 +33,14 @@ public class LaboratoryBlocksClient {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLASS_LABORATORY_TRAPDOOR.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.LABORATORY_GLASS.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLOWING_LABORATORY_GLASS.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DARK_LABORATORY_DOOR.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DARK_MESH_LABORATORY_DOOR.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DARK_GLASS_LABORATORY_DOOR.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DARK_LABORATORY_TRAPDOOR.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DARK_MESH_LABORATORY_TRAPDOOR.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DARK_GLASS_LABORATORY_TRAPDOOR.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DARK_LABORATORY_GLASS.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLOWING_DARK_LABORATORY_GLASS.get(), RenderType.cutout());
         });
     }
 }

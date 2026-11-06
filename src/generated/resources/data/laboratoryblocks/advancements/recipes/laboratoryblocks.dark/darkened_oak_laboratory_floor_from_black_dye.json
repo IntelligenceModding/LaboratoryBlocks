@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:darkened_oak_laboratory_floor_from_black_dye"
+    ]
+  },
+  "criteria": {
+    "has_oak_laboratory_floor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:oak_laboratory_floor"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:darkened_oak_laboratory_floor_from_black_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_oak_laboratory_floor",
+      "has_the_recipe"
+    ]
+  ]
+}

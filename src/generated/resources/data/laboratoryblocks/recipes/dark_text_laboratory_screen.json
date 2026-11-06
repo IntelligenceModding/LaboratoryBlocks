@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "minecraft:lime_dye"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:dark_text_laboratory_screen",
+    "count": 4
+  }
+}

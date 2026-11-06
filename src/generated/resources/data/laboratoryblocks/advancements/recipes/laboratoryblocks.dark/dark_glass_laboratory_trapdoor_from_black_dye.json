@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_glass_laboratory_trapdoor_from_black_dye"
+    ]
+  },
+  "criteria": {
+    "has_glass_laboratory_trapdoor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:glass_laboratory_trapdoor"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_glass_laboratory_trapdoor_from_black_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_glass_laboratory_trapdoor",
+      "has_the_recipe"
+    ]
+  ]
+}

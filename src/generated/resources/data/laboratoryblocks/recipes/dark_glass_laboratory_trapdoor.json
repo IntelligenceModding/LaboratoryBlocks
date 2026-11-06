@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "ABA",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:dark_laboratory_block"
+    },
+    "B": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "item": "laboratoryblocks:dark_glass_laboratory_trapdoor",
+    "count": 2
+  }
+}
