@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_wave_laboratory_screen"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:wave_laboratory_screen",
+    "count": 8
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_clear_laboratory_screen"
+    ]
+  },
+  "criteria": {
+    "has_dark_laboratory_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:dark_laboratory_block"
+          }
+        ]
+      }
+    },
+    "has_iron_screw": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:iron_screw"
+          }
+        ]
+      }
+    },
+    "has_dark_laboratory_glass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:dark_laboratory_glass"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_clear_laboratory_screen"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_laboratory_block",
+      "has_iron_screw",
+      "has_dark_laboratory_glass",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,40 @@
+package de.artemis.laboratoryblocks.common.loot;
+import com.google.gson.JsonObject;
+import java.util.List;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.JSONUtils;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootContext;
+import net.minecraft.loot.conditions.ILootCondition;
+import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.common.loot.LootModifier;
+
+/** Appends a disc without replacing the chest's original loot. */
+public final class AddMusicDiscLootModifier extends LootModifier {
+    private final Item disc;
+    public AddMusicDiscLootModifier(ILootCondition[] conditions, Item disc) {
+        super(conditions);
+        this.disc = disc;
+    }
+    @Override
+    protected List<ItemStack> doApply(List<ItemStack> loot, LootContext context) {
+        loot.add(new ItemStack(disc));
+        return loot;
+    }
+    public static final class Serializer extends GlobalLootModifierSerializer<AddMusicDiscLootModifier> {
+        @Override
+        public AddMusicDiscLootModifier read(ResourceLocation id, JsonObject json, ILootCondition[] conditions) {
+            Item disc = Registry.ITEM.getOptional(new ResourceLocation(JSONUtils.getAsString(json, "disc")))
+                .orElseThrow(() -> new IllegalArgumentException("Unknown disc in " + id));
+            return new AddMusicDiscLootModifier(conditions, disc);
+        }
+        @Override
+        public JsonObject write(AddMusicDiscLootModifier modifier) {
+            JsonObject json = makeConditions(modifier.conditions);
+            json.addProperty("disc", Registry.ITEM.getKey(modifier.disc).toString());
+            return json;
+        }
+    }
+}

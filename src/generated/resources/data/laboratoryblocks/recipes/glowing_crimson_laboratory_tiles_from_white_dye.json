@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:glowing_dark_crimson_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_crimson_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_crimson_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_crimson_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_crimson_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_crimson_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_crimson_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_crimson_laboratory_tiles"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:glowing_crimson_laboratory_tiles",
+    "count": 8
+  }
+}

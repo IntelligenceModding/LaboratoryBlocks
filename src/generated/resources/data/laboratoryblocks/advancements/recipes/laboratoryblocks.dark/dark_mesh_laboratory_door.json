@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_mesh_laboratory_door"
+    ]
+  },
+  "criteria": {
+    "has_dark_laboratory_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:dark_laboratory_block"
+          }
+        ]
+      }
+    },
+    "has_iron_bars": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:iron_bars"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_mesh_laboratory_door"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_laboratory_block",
+      "has_iron_bars",
+      "has_the_recipe"
+    ]
+  ]
+}

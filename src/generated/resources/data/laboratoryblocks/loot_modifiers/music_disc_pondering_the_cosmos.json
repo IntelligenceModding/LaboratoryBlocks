@@ -1,0 +1,14 @@
+{
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/end_city_treasure"
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.1
+    }
+  ],
+  "disc": "laboratoryblocks:music_disc_pondering_the_cosmos",
+  "type": "laboratoryblocks:add_music_disc"
+}

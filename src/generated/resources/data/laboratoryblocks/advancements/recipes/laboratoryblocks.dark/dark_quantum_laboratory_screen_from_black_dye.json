@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_quantum_laboratory_screen_from_black_dye"
+    ]
+  },
+  "criteria": {
+    "has_quantum_laboratory_screen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:quantum_laboratory_screen"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_quantum_laboratory_screen_from_black_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_quantum_laboratory_screen",
+      "has_the_recipe"
+    ]
+  ]
+}

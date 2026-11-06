@@ -16,10 +16,10 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:configuration_tool"
-            ],
-            "count": 1
+            "item": "laboratoryblocks:configuration_tool",
+            "count": {
+              "min": 1
+            }
           }
         ]
       }

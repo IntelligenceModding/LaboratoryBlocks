@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_jungle_laboratory_floor"
+    ]
+  },
+  "criteria": {
+    "has_dark_laboratory_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:dark_laboratory_block"
+          }
+        ]
+      }
+    },
+    "has_jungle_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:jungle_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_jungle_laboratory_floor"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_laboratory_block",
+      "has_jungle_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

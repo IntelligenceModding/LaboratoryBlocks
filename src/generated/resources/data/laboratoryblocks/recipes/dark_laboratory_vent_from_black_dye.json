@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_vent"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:dark_laboratory_vent",
+    "count": 8
+  }
+}

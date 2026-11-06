@@ -16,10 +16,10 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:iron_screw"
-            ],
-            "count": 1
+            "item": "laboratoryblocks:iron_screw",
+            "count": {
+              "min": 1
+            }
           }
         ]
       }

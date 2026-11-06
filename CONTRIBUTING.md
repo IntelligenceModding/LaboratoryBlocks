@@ -112,14 +112,16 @@ Before working on Laboratory Blocks, make sure you have the following installed:
 
 Different Minecraft branches may require different Java versions.
 
-Check the following lines in the branch's `build.gradle` file if you are unsure:
+Check the following line in the branch's `build.gradle` file if you are unsure:
 
 ```gradle
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
 ```
 
-For example, the Minecraft 1.16.5 Forge branch targets Java 8 bytecode.
+The Minecraft 1.16.5 Forge branch targets Java 8. Use a modern JDK (17 or newer) to run ForgeGradle 6; the game itself is tested on Java 8.
 
 Java builds such as Eclipse Temurin can be downloaded from [Adoptium][adoptium].
 
@@ -233,6 +235,15 @@ Running the development client is strongly recommended for changes that affect g
 ### Testing
 
 Changes should be tested before being submitted.
+
+After changing registered blocks, recipes, advancements, or models, run data generation before building:
+
+```powershell
+.\gradlew.bat runClientData
+.\gradlew.bat build
+```
+
+Run data generation twice when changing model providers and confirm the output is unchanged on the second run.
 
 There is currently no expectation that every contribution includes automated tests. For most Laboratory Blocks changes, practical in-game testing is more useful.
 

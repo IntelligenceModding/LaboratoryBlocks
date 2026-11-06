@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:laboratory_glass_from_white_dye"
+    ]
+  },
+  "criteria": {
+    "has_dark_laboratory_glass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:dark_laboratory_glass"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:laboratory_glass_from_white_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_laboratory_glass",
+      "has_the_recipe"
+    ]
+  ]
+}

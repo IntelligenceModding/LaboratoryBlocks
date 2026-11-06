@@ -16,10 +16,49 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "laboratoryblocks:laboratory_block"
-            ],
-            "count": 1
+            "item": "laboratoryblocks:laboratory_block",
+            "count": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    "obtained_laboratory_block__1": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:dark_laboratory_block",
+            "count": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    "obtained_laboratory_block__2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:glowing_laboratory_block",
+            "count": {
+              "min": 1
+            }
+          }
+        ]
+      }
+    },
+    "obtained_laboratory_block__3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:glowing_dark_laboratory_block",
+            "count": {
+              "min": 1
+            }
           }
         ]
       }

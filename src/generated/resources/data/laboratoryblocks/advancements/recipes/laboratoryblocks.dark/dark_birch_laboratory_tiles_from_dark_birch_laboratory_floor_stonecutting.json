@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_birch_laboratory_tiles_from_dark_birch_laboratory_floor_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_dark_birch_laboratory_floor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:dark_birch_laboratory_floor"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_birch_laboratory_tiles_from_dark_birch_laboratory_floor_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_birch_laboratory_floor",
+      "has_the_recipe"
+    ]
+  ]
+}

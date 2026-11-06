@@ -3,6 +3,10 @@ package de.artemis.laboratoryblocks.common.registry;
 import de.artemis.laboratoryblocks.LaboratoryBlocks;
 import de.artemis.laboratoryblocks.common.item.ConfigurationToolItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.MusicDiscItem;
+
+
+
 import net.minecraft.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -28,6 +32,14 @@ public class ModItems {
 
     public static final RegistryObject<Item> GLOWSTONE_PARTICLES = register("glowstone_particles",
             Item::new, UnaryOperator.identity());
+
+    public static final RegistryObject<Item> MUSIC_DISC_EXPLORATION = register("music_disc_exploration",
+            properties -> new MusicDiscItem(13, ModSoundEvents.MUSIC_DISC_EXPLORATION, properties),
+            properties -> properties.stacksTo(1).rarity(Rarity.UNCOMMON).tab(net.minecraft.item.ItemGroup.TAB_MISC));
+
+    public static final RegistryObject<Item> MUSIC_DISC_PONDERING_THE_COSMOS = register("music_disc_pondering_the_cosmos",
+            properties -> new MusicDiscItem(14, ModSoundEvents.MUSIC_DISC_PONDERING_THE_COSMOS, properties),
+            properties -> properties.stacksTo(1).rarity(Rarity.UNCOMMON).tab(net.minecraft.item.ItemGroup.TAB_MISC));
 
     public static final RegistryObject<ConfigurationToolItem> CONFIGURATION_TOOL = register("configuration_tool",
             ConfigurationToolItem::new, properties -> properties.durability(640).rarity(Rarity.UNCOMMON));

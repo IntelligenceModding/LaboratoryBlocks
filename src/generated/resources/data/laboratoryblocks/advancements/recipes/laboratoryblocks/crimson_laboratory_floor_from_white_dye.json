@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:crimson_laboratory_floor_from_white_dye"
+    ]
+  },
+  "criteria": {
+    "has_dark_crimson_laboratory_floor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:dark_crimson_laboratory_floor"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:crimson_laboratory_floor_from_white_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_crimson_laboratory_floor",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -29,6 +29,14 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
+def minecraftJavaLauncher = javaToolchains.launcherFor {
+    languageVersion = JavaLanguageVersion.of(8)
+}
+
+tasks.withType(JavaExec).configureEach {
+    javaLauncher.set(minecraftJavaLauncher)
+}
+
 tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }

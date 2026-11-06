@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:warped_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:warped_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:warped_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:warped_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:warped_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:warped_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:warped_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:warped_laboratory_tiles"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:dark_warped_laboratory_tiles",
+    "count": 8
+  }
+}

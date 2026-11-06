@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_spruce_laboratory_tiles_from_black_dye"
+    ]
+  },
+  "criteria": {
+    "has_spruce_laboratory_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:spruce_laboratory_tiles"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_spruce_laboratory_tiles_from_black_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_spruce_laboratory_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

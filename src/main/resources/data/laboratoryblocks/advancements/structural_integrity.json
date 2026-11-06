@@ -14,10 +14,22 @@
     "placed_reinforced_laboratory_block": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:reinforced_laboratory_block"
+        "block": "laboratoryblocks:dark_reinforced_laboratory_block"
       }
     },
     "placed_glowing_reinforced_laboratory_block": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "laboratoryblocks:glowing_dark_reinforced_laboratory_block"
+      }
+    },
+    "placed_reinforced_laboratory_block_1": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "laboratoryblocks:reinforced_laboratory_block"
+      }
+    },
+    "placed_glowing_reinforced_laboratory_block_1": {
       "trigger": "minecraft:placed_block",
       "conditions": {
         "block": "laboratoryblocks:glowing_reinforced_laboratory_block"
@@ -27,7 +39,9 @@
   "requirements": [
     [
       "placed_reinforced_laboratory_block",
-      "placed_glowing_reinforced_laboratory_block"
+      "placed_reinforced_laboratory_block_1",
+      "placed_glowing_reinforced_laboratory_block",
+      "placed_glowing_reinforced_laboratory_block_1"
     ]
   ],
   "rewards": {

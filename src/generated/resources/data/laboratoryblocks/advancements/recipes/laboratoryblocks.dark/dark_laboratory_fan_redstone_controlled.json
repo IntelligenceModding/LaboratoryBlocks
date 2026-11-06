@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_laboratory_fan_redstone_controlled"
+    ]
+  },
+  "criteria": {
+    "has_dark_laboratory_fan": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "laboratoryblocks:dark_laboratory_fan"
+          }
+        ]
+      }
+    },
+    "has_redstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:redstone"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_laboratory_fan_redstone_controlled"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_laboratory_fan",
+      "has_redstone",
+      "has_the_recipe"
+    ]
+  ]
+}

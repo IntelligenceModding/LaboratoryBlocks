@@ -66,7 +66,7 @@ public class ModFusionTextureMetadataProvider implements IDataProvider {
     }
 
     private static boolean isAnimatedScreen(ModDatagenEntries.GeneratedBlockPair pair) {
-        return ANIMATED_SCREENS.contains(pair.texturePath());
+        return ANIMATED_SCREENS.contains(pair.texturePath().replaceFirst("^dark_", ""));
     }
 
     private static boolean isIndicating(ModDatagenEntries.GeneratedBlockPair pair) {
@@ -74,7 +74,7 @@ public class ModFusionTextureMetadataProvider implements IDataProvider {
     }
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
-        return "laboratory_glass".equals(pair.texturePath());
+        return pair.texturePath().endsWith("laboratory_glass");
     }
 
     private static ResourceLocation texture(String path) {

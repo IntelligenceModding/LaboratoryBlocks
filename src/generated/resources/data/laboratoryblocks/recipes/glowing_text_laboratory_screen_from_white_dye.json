@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:glowing_text_laboratory_screen",
+    "count": 8
+  }
+}

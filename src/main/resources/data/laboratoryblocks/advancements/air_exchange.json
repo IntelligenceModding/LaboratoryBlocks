@@ -14,6 +14,24 @@
     "placed_laboratory_vent": {
       "trigger": "minecraft:placed_block",
       "conditions": {
+        "block": "laboratoryblocks:dark_laboratory_vent"
+      }
+    },
+    "placed_laboratory_vent_1": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "laboratoryblocks:glowing_dark_laboratory_vent"
+      }
+    },
+    "placed_laboratory_vent_2": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "laboratoryblocks:glowing_laboratory_vent"
+      }
+    },
+    "placed_laboratory_vent_3": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
         "block": "laboratoryblocks:laboratory_vent"
       }
     }

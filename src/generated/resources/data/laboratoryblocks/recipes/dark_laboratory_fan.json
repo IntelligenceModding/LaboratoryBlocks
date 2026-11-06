@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:dark_laboratory_block"
+    },
+    "B": {
+      "item": "minecraft:iron_nugget"
+    },
+    "C": {
+      "item": "laboratoryblocks:iron_screw"
+    }
+  },
+  "result": {
+    "item": "laboratoryblocks:dark_laboratory_fan"
+  }
+}
