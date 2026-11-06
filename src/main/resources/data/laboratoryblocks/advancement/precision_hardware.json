@@ -19,7 +19,9 @@
             "items": [
               "laboratoryblocks:iron_screw"
             ],
-            "count": 1
+            "count": {
+              "min": 1
+            }
           }
         ]
       }

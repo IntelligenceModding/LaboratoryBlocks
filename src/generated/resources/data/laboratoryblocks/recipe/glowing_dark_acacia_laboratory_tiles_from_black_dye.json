@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:glowing_acacia_laboratory_tiles",
+    "laboratoryblocks:glowing_acacia_laboratory_tiles",
+    "laboratoryblocks:glowing_acacia_laboratory_tiles",
+    "laboratoryblocks:glowing_acacia_laboratory_tiles",
+    "laboratoryblocks:glowing_acacia_laboratory_tiles",
+    "laboratoryblocks:glowing_acacia_laboratory_tiles",
+    "laboratoryblocks:glowing_acacia_laboratory_tiles",
+    "laboratoryblocks:glowing_acacia_laboratory_tiles",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:glowing_dark_acacia_laboratory_tiles"
+  }
+}

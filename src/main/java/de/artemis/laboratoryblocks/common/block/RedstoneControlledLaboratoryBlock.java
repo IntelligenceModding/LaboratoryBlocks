@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -62,7 +63,7 @@ public class RedstoneControlledLaboratoryBlock extends Block {
 
         if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) || itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get())) {
             // Applying Glowstone
-            if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+            if (itemStackInHand.is(ModItems.GLOWSTONE_PARTICLES.get()) && !blockState.getBlock().builtInRegistryHolder().unwrapKey().orElseThrow().toString().contains("glowing")) {
                 if (!player.isCreative()) {
                     itemStackInHand.shrink(1);
                 }
@@ -74,10 +75,10 @@ public class RedstoneControlledLaboratoryBlock extends Block {
             }
 
             // Removing Glowstone
-            if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().get().toString().contains("glowing")) {
+            if (itemStackInHand.is(ModItems.CONFIGURATION_TOOL.get()) && blockState.getBlock().builtInRegistryHolder().unwrapKey().orElseThrow().toString().contains("glowing")) {
                 if (!player.isCreative()) {
                     ModUtils.giveItemToPlayerOrDropAtClickedSide(player, level, blockPos, blockHitResult, new ItemStack(ModItems.GLOWSTONE_PARTICLES.get()));
-                    itemStackInHand.hurtAndBreak(1, player, itemStackInHand.getEquipmentSlot());
+                    itemStackInHand.hurtAndBreak(1, player, interactionHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                 }
                 level.setBlock(blockPos, copyPoweredState(blockState, glowstoneVariant.get().defaultBlockState()), 3);
                 ModUtils.playGlowstoneRemoveSound(level, blockPos);

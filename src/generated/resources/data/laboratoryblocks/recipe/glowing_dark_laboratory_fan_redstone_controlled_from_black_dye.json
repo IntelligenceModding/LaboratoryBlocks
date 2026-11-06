@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+    "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+    "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+    "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+    "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+    "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+    "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+    "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:glowing_dark_laboratory_fan_redstone_controlled"
+  }
+}

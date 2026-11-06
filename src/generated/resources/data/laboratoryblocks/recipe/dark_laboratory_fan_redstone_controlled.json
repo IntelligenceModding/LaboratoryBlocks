@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:dark_laboratory_fan",
+    "minecraft:redstone"
+  ],
+  "result": {
+    "count": 1,
+    "id": "laboratoryblocks:dark_laboratory_fan_redstone_controlled"
+  }
+}

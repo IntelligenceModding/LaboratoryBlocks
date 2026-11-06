@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:dark_acacia_laboratory_floor",
+    "laboratoryblocks:dark_acacia_laboratory_floor",
+    "laboratoryblocks:dark_acacia_laboratory_floor",
+    "laboratoryblocks:dark_acacia_laboratory_floor",
+    "laboratoryblocks:dark_acacia_laboratory_floor",
+    "laboratoryblocks:dark_acacia_laboratory_floor",
+    "laboratoryblocks:dark_acacia_laboratory_floor",
+    "laboratoryblocks:dark_acacia_laboratory_floor",
+    "#c:dyes/white"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:acacia_laboratory_floor"
+  }
+}

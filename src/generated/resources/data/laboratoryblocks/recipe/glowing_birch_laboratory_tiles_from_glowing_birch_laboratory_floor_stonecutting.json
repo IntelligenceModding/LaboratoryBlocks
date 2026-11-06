@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "ingredient": "laboratoryblocks:glowing_birch_laboratory_floor",
   "result": {
-    "count": 2,
+    "count": 1,
     "id": "laboratoryblocks:glowing_birch_laboratory_tiles"
   }
 }

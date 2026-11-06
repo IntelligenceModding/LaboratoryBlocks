@@ -8,6 +8,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
+
 import net.minecraft.core.Holder;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
@@ -38,11 +39,24 @@ public class ModModelProvider extends ModelProvider {
 
     @Override
     protected void registerModels(@NonNull BlockModelGenerators blockModels, @NonNull ItemModelGenerators itemModels) {
+        // Custom cutout models must have one writer. Otherwise a cached custom write can
+        // be skipped after the vanilla generator has overwritten it without render_type.
+        BlockModelGenerators generated = new BlockModelGenerators(blockModels.blockStateOutput, blockModels.itemModelOutput, (id, model) -> {
+            boolean custom = ModDatagenEntries.DOORS.stream()
+                    .anyMatch(door -> id.getPath().startsWith("block/" + door.getId().getPath() + "_")) ||
+                    ModDatagenEntries.TRAPDOORS.stream()
+                    .anyMatch(door -> id.getPath().startsWith("block/" + door.getId().getPath() + "_")) ||
+                    ModDatagenEntries.ALL_PAIRS.stream().filter(ModModelProvider::isGlass)
+                    .anyMatch(pair -> id.equals(modModel(pair.baseModelName() + "_inventory")));
+            if (!custom) {
+                blockModels.modelOutput.accept(id, model);
+            }
+        });
         registerFlatItemModels(itemModels);
-        ModDatagenEntries.ALL_PAIRS.forEach(pair -> registerCubePair(blockModels, pair));
-        ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> registerPillarPair(blockModels, pair));
-        ModDatagenEntries.DOORS.forEach(door -> blockModels.createDoor(door.get()));
-        ModDatagenEntries.TRAPDOORS.forEach(trapdoor -> blockModels.createTrapdoor(trapdoor.get()));
+        ModDatagenEntries.ALL_PAIRS.forEach(pair -> registerCubePair(generated, pair));
+        ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> registerPillarPair(generated, pair));
+        ModDatagenEntries.DOORS.forEach(door -> generated.createDoor(door.get()));
+        ModDatagenEntries.TRAPDOORS.forEach(trapdoor -> generated.createTrapdoor(trapdoor.get()));
     }
 
     @Override
@@ -50,10 +64,17 @@ public class ModModelProvider extends ModelProvider {
         return super.run(output).thenCompose(ignored -> writeCustomModels(output));
     }
 
+    @Override
+    public @NonNull String getName() {
+        return "Laboratory block and item models";
+    }
+
     private void registerFlatItemModels(ItemModelGenerators itemModels) {
         itemModels.generateFlatItem(ModItems.IRON_SCREW.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.GLOWSTONE_PARTICLES.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.CONFIGURATION_TOOL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.MUSIC_DISC_EXPLORATION.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.MUSIC_DISC_PONDERING_THE_COSMOS.get(), ModelTemplates.FLAT_ITEM);
     }
 
     private void registerCubePair(BlockModelGenerators blockModels, ModDatagenEntries.GeneratedBlockPair pair) {
@@ -110,6 +131,8 @@ public class ModModelProvider extends ModelProvider {
         return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/" + path);
     }
 
+
+
     private static Identifier modModel(String path) {
         return Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "block/" + path);
     }
@@ -159,9 +182,27 @@ public class ModModelProvider extends ModelProvider {
         futures.add(saveItemModel(output, "laboratory_fan_redstone_controlled", "laboratory_fan_redstone_controlled_inventory"));
         futures.add(saveItemModel(output, "glowing_laboratory_fan_redstone_controlled", "glowing_laboratory_fan_redstone_controlled_inventory"));
 
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan", "dark_laboratory_fan"));
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan_powered", "dark_laboratory_fan"));
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan_unpowered", "dark_laboratory_fan_unpowered"));
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan_inventory", "dark_laboratory_fan"));
+        futures.add(saveGlowingInventoryModel(output, "glowing_dark_laboratory_fan_inventory", "dark_laboratory_fan"));
+        futures.add(saveCubeBlockModel(output, "dark_laboratory_fan_redstone_controlled_inventory", "dark_laboratory_fan_redstone_controlled"));
+        futures.add(saveGlowingInventoryModel(output, "glowing_dark_laboratory_fan_redstone_controlled_inventory", "dark_laboratory_fan_redstone_controlled"));
+        futures.add(saveSimpleBlockstate(output, "dark_laboratory_fan", "dark_laboratory_fan"));
+        futures.add(saveSimpleBlockstate(output, "glowing_dark_laboratory_fan", "dark_laboratory_fan"));
+        futures.add(savePoweredBlockstate(output, "dark_laboratory_fan_redstone_controlled"));
+        futures.add(savePoweredBlockstate(output, "glowing_dark_laboratory_fan_redstone_controlled"));
+        futures.add(saveItemModel(output, "dark_laboratory_fan", "dark_laboratory_fan_inventory"));
+        futures.add(saveItemModel(output, "glowing_dark_laboratory_fan", "glowing_dark_laboratory_fan_inventory"));
+        futures.add(saveItemModel(output, "dark_laboratory_fan_redstone_controlled", "dark_laboratory_fan_redstone_controlled_inventory"));
+        futures.add(saveItemModel(output, "glowing_dark_laboratory_fan_redstone_controlled", "glowing_dark_laboratory_fan_redstone_controlled_inventory"));
+
         futures.add(saveCutoutCubeInventoryModel(output, "laboratory_glass_inventory", "laboratory_glass"));
         futures.add(saveCutoutGlowingInventoryModel(output, "glowing_laboratory_glass_inventory", "laboratory_glass"));
 
+        futures.add(saveCutoutCubeInventoryModel(output, "dark_laboratory_glass_inventory", "dark_laboratory_glass"));
+        futures.add(saveCutoutGlowingInventoryModel(output, "glowing_dark_laboratory_glass_inventory", "dark_laboratory_glass"));
         return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
     }
 
@@ -230,11 +271,11 @@ public class ModModelProvider extends ModelProvider {
         JsonObject variants = new JsonObject();
 
         JsonObject unpowered = new JsonObject();
-        unpowered.addProperty("model", modPath("block/laboratory_fan_unpowered"));
+        unpowered.addProperty("model", modPath("block/" + (blockName.contains("dark_") ? "dark_" : "") + "laboratory_fan_unpowered"));
         variants.add("powered=false", unpowered);
 
         JsonObject powered = new JsonObject();
-        powered.addProperty("model", modPath("block/laboratory_fan_powered"));
+        powered.addProperty("model", modPath("block/" + (blockName.contains("dark_") ? "dark_" : "") + "laboratory_fan_powered"));
         variants.add("powered=true", powered);
 
         json.add("variants", variants);
@@ -287,7 +328,7 @@ public class ModModelProvider extends ModelProvider {
     }
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
-        return "laboratory_glass".equals(pair.texturePath());
+        return pair.texturePath().endsWith("laboratory_glass");
     }
 
     private static Identifier id(String path) {
