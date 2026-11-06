@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_laboratory_pillar"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_pillar"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_pillar"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_pillar"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_pillar"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_pillar"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_pillar"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_pillar"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:laboratory_pillar"
+  }
+}

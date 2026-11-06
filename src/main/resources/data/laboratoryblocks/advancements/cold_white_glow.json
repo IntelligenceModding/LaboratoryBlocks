@@ -14,73 +14,151 @@
     "placed_glowing_laboratory_block": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_block",
-            "properties": {}
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_acacia_laboratory_floor",
+              "laboratoryblocks:glowing_acacia_laboratory_tiles",
+              "laboratoryblocks:glowing_birch_laboratory_floor",
+              "laboratoryblocks:glowing_birch_laboratory_tiles",
+              "laboratoryblocks:glowing_clear_laboratory_screen",
+              "laboratoryblocks:glowing_crimson_laboratory_floor",
+              "laboratoryblocks:glowing_crimson_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_acacia_laboratory_floor",
+              "laboratoryblocks:glowing_dark_acacia_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_birch_laboratory_floor",
+              "laboratoryblocks:glowing_dark_birch_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_clear_laboratory_screen",
+              "laboratoryblocks:glowing_dark_crimson_laboratory_floor",
+              "laboratoryblocks:glowing_dark_crimson_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_dark_oak_laboratory_floor",
+              "laboratoryblocks:glowing_dark_dark_oak_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_jungle_laboratory_floor",
+              "laboratoryblocks:glowing_dark_jungle_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_laboratory_block",
+              "laboratoryblocks:glowing_dark_laboratory_fan",
+              "laboratoryblocks:glowing_dark_laboratory_fan_redstone_controlled",
+              "laboratoryblocks:glowing_dark_laboratory_glass",
+              "laboratoryblocks:glowing_dark_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_laboratory_vent",
+              "laboratoryblocks:glowing_dark_left_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_dark_left_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_dark_left_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_dark_mangrove_laboratory_floor",
+              "laboratoryblocks:glowing_dark_mangrove_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_oak_laboratory_floor",
+              "laboratoryblocks:glowing_dark_oak_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_quantum_laboratory_screen",
+              "laboratoryblocks:glowing_dark_reinforced_laboratory_block",
+              "laboratoryblocks:glowing_dark_right_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_dark_right_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_dark_spruce_laboratory_floor",
+              "laboratoryblocks:glowing_dark_spruce_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_text_laboratory_screen",
+              "laboratoryblocks:glowing_dark_warped_laboratory_floor",
+              "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_wave_laboratory_screen",
+              "laboratoryblocks:glowing_darkened_oak_laboratory_floor",
+              "laboratoryblocks:glowing_darkened_oak_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_laboratory_pillar",
+              "laboratoryblocks:glowing_gray_laboratory_tiles",
+              "laboratoryblocks:glowing_jungle_laboratory_floor",
+              "laboratoryblocks:glowing_jungle_laboratory_tiles",
+              "laboratoryblocks:glowing_laboratory_block",
+              "laboratoryblocks:glowing_laboratory_fan",
+              "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+              "laboratoryblocks:glowing_laboratory_glass",
+              "laboratoryblocks:glowing_laboratory_pillar",
+              "laboratoryblocks:glowing_laboratory_tiles",
+              "laboratoryblocks:glowing_laboratory_vent",
+              "laboratoryblocks:glowing_left_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_left_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_mangrove_laboratory_floor",
+              "laboratoryblocks:glowing_mangrove_laboratory_tiles",
+              "laboratoryblocks:glowing_mixed_laboratory_tiles",
+              "laboratoryblocks:glowing_oak_laboratory_floor",
+              "laboratoryblocks:glowing_oak_laboratory_tiles",
+              "laboratoryblocks:glowing_quantum_laboratory_screen",
+              "laboratoryblocks:glowing_reinforced_laboratory_block",
+              "laboratoryblocks:glowing_right_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_right_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_right_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_spruce_laboratory_floor",
+              "laboratoryblocks:glowing_spruce_laboratory_tiles",
+              "laboratoryblocks:glowing_text_laboratory_screen",
+              "laboratoryblocks:glowing_warped_laboratory_floor",
+              "laboratoryblocks:glowing_warped_laboratory_tiles",
+              "laboratoryblocks:glowing_wave_laboratory_screen"
+            ]
           }
-        ]
+        }
       }
     },
     "placed_glowing_laboratory_glass": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_glass",
-            "properties": {}
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_laboratory_glass",
+              "laboratoryblocks:glowing_laboratory_glass"
+            ]
           }
-        ]
+        }
       }
     },
     "placed_glowing_laboratory_tiles": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_tiles",
-            "properties": {}
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_laboratory_tiles",
+              "laboratoryblocks:glowing_laboratory_tiles"
+            ]
           }
-        ]
+        }
       }
     },
     "placed_glowing_laboratory_pillar": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_pillar",
-            "properties": {}
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_laboratory_pillar",
+              "laboratoryblocks:glowing_dark_laboratory_pillar"
+            ]
           }
-        ]
+        }
       }
     },
     "placed_glowing_clear_laboratory_screen": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_clear_laboratory_screen",
-            "properties": {}
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_clear_laboratory_screen",
+              "laboratoryblocks:glowing_dark_clear_laboratory_screen"
+            ]
           }
-        ]
+        }
       }
     },
     "placed_glowing_laboratory_vent": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_laboratory_vent",
-            "properties": {}
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_laboratory_vent",
+              "laboratoryblocks:glowing_laboratory_vent"
+            ]
           }
-        ]
+        }
       }
     }
   },

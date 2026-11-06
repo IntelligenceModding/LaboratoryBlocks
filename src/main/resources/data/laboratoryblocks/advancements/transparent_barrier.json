@@ -14,13 +14,16 @@
     "placed_laboratory_glass": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:laboratory_glass",
-            "properties": {}
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_laboratory_glass",
+              "laboratoryblocks:glowing_dark_laboratory_glass",
+              "laboratoryblocks:glowing_laboratory_glass",
+              "laboratoryblocks:laboratory_glass"
+            ]
           }
-        ]
+        }
       }
     }
   },

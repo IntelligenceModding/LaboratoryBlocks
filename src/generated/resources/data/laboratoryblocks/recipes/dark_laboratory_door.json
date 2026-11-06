@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:dark_laboratory_block"
+    }
+  },
+  "pattern": [
+    "AA ",
+    "AA ",
+    "AA "
+  ],
+  "result": {
+    "count": 3,
+    "item": "laboratoryblocks:dark_laboratory_door"
+  }
+}

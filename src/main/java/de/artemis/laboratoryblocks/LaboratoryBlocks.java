@@ -15,6 +15,7 @@ public class LaboratoryBlocks {
     public LaboratoryBlocks() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        de.artemis.laboratoryblocks.common.registry.ModLootModifiers.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModParticles.register(modEventBus);

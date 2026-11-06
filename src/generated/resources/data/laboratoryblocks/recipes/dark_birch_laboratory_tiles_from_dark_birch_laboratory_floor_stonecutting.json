@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "laboratoryblocks:dark_birch_laboratory_floor"
+  },
+  "result": "laboratoryblocks:dark_birch_laboratory_tiles"
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:glowing_mangrove_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_mangrove_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_mangrove_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_mangrove_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_mangrove_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_mangrove_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_mangrove_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_mangrove_laboratory_tiles"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:glowing_dark_mangrove_laboratory_tiles"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "minecraft:purple_dye"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "laboratoryblocks:dark_quantum_laboratory_screen"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:oak_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:oak_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:oak_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:oak_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:oak_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:oak_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:oak_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:oak_laboratory_tiles"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:darkened_oak_laboratory_tiles"
+  }
+}

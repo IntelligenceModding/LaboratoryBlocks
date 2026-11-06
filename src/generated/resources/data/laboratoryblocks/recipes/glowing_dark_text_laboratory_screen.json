@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_text_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+  }
+}

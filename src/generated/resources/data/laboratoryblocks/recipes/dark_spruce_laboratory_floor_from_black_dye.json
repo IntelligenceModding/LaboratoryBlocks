@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:spruce_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:spruce_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:spruce_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:spruce_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:spruce_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:spruce_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:spruce_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:spruce_laboratory_floor"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:dark_spruce_laboratory_floor"
+  }
+}

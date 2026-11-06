@@ -27,6 +27,8 @@ public class ModModelProvider implements DataProvider {
     @Override
     public void run(@NotNull CachedOutput output) throws IOException {
         saveFlatItem(output, "iron_screw");
+        saveFlatItem(output, "music_disc_exploration");
+        saveFlatItem(output, "music_disc_pondering_the_cosmos");
         saveFlatItem(output, "glowstone_particles");
         saveHandheldItem(output, "configuration_tool");
 
@@ -94,6 +96,22 @@ public class ModModelProvider implements DataProvider {
         saveBlockItemDefinition(output, "glowing_laboratory_fan", "glowing_laboratory_fan_inventory");
         saveBlockItemDefinition(output, "laboratory_fan_redstone_controlled", "laboratory_fan_redstone_controlled_inventory");
         saveBlockItemDefinition(output, "glowing_laboratory_fan_redstone_controlled", "glowing_laboratory_fan_redstone_controlled_inventory");
+
+        saveCubeBlockModel(output, "dark_laboratory_fan", "dark_laboratory_fan");
+        saveCubeBlockModel(output, "dark_laboratory_fan_powered", "dark_laboratory_fan");
+        saveCubeBlockModel(output, "dark_laboratory_fan_unpowered", "dark_laboratory_fan_unpowered");
+        saveCubeBlockModel(output, "dark_laboratory_fan_inventory", "dark_laboratory_fan");
+        saveGlowingInventoryModel(output, "glowing_dark_laboratory_fan_inventory", "dark_laboratory_fan");
+        saveCubeBlockModel(output, "dark_laboratory_fan_redstone_controlled_inventory", "dark_laboratory_fan_redstone_controlled");
+        saveGlowingInventoryModel(output, "glowing_dark_laboratory_fan_redstone_controlled_inventory", "dark_laboratory_fan_redstone_controlled");
+        saveSimpleBlockstate(output, "dark_laboratory_fan", "dark_laboratory_fan");
+        saveSimpleBlockstate(output, "glowing_dark_laboratory_fan", "dark_laboratory_fan");
+        savePoweredBlockstate(output, "dark_laboratory_fan_redstone_controlled");
+        savePoweredBlockstate(output, "glowing_dark_laboratory_fan_redstone_controlled");
+        saveBlockItemDefinition(output, "dark_laboratory_fan", "dark_laboratory_fan_inventory");
+        saveBlockItemDefinition(output, "glowing_dark_laboratory_fan", "glowing_dark_laboratory_fan_inventory");
+        saveBlockItemDefinition(output, "dark_laboratory_fan_redstone_controlled", "dark_laboratory_fan_redstone_controlled_inventory");
+        saveBlockItemDefinition(output, "glowing_dark_laboratory_fan_redstone_controlled", "glowing_dark_laboratory_fan_redstone_controlled_inventory");
     }
 
     @Override
@@ -136,11 +154,11 @@ public class ModModelProvider implements DataProvider {
         JsonObject variants = new JsonObject();
 
         JsonObject unpowered = new JsonObject();
-        unpowered.addProperty("model", modPath("block/laboratory_fan_unpowered"));
+        unpowered.addProperty("model", modPath("block/" + (blockName.startsWith("dark_") || blockName.startsWith("glowing_dark_") ? "dark_" : "") + "laboratory_fan_unpowered"));
         variants.add("powered=false", unpowered);
 
         JsonObject powered = new JsonObject();
-        powered.addProperty("model", modPath("block/laboratory_fan_powered"));
+        powered.addProperty("model", modPath("block/" + (blockName.startsWith("dark_") || blockName.startsWith("glowing_dark_") ? "dark_" : "") + "laboratory_fan_powered"));
         variants.add("powered=true", powered);
 
         json.add("variants", variants);
@@ -337,7 +355,7 @@ public class ModModelProvider implements DataProvider {
     }
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
-        return "laboratory_glass".equals(pair.texturePath());
+        return pair.texturePath().endsWith("laboratory_glass");
     }
 
     private static ResourceLocation id(String path) {

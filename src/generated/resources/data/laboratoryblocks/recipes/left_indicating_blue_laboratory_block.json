@@ -1,23 +1,11 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "A": {
-      "item": "laboratoryblocks:laboratory_block"
-    },
-    "B": {
-      "item": "minecraft:blue_wool"
-    },
-    "C": {
-      "item": "minecraft:black_wool"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:right_indicating_blue_laboratory_block"
     }
-  },
-  "pattern": [
-    "AAA",
-    "CBB",
-    "AAA"
   ],
   "result": {
-    "count": 8,
     "item": "laboratoryblocks:left_indicating_blue_laboratory_block"
   }
 }
