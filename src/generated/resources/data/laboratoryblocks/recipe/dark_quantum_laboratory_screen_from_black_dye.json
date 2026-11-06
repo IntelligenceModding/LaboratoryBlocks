@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:quantum_laboratory_screen",
+    "laboratoryblocks:quantum_laboratory_screen",
+    "laboratoryblocks:quantum_laboratory_screen",
+    "laboratoryblocks:quantum_laboratory_screen",
+    "laboratoryblocks:quantum_laboratory_screen",
+    "laboratoryblocks:quantum_laboratory_screen",
+    "laboratoryblocks:quantum_laboratory_screen",
+    "laboratoryblocks:quantum_laboratory_screen",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:dark_quantum_laboratory_screen"
+  }
+}

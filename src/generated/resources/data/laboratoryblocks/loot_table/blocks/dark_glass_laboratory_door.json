@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "laboratoryblocks:dark_glass_laboratory_door",
+            "state": {
+              "half": "lower"
+            }
+          },
+          "name": "laboratoryblocks:dark_glass_laboratory_door"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

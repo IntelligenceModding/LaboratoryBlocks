@@ -72,7 +72,7 @@ public class ModFusionModelProvider implements DataProvider {
     }
 
     private static boolean isGlass(ModDatagenEntries.GeneratedBlockPair pair) {
-        return "laboratory_glass".equals(pair.texturePath());
+        return pair.texturePath().endsWith("laboratory_glass");
     }
 
     private static boolean isAnimatedScreen(ModDatagenEntries.GeneratedBlockPair pair) {
@@ -80,7 +80,7 @@ public class ModFusionModelProvider implements DataProvider {
                 "wave_laboratory_screen",
                 "text_laboratory_screen",
                 "quantum_laboratory_screen"
-        ).anyMatch(pair.texturePath()::equals);
+        ).anyMatch(name -> name.equals(pair.texturePath().replaceFirst("^dark_", "")));
     }
 
     private static Identifier id(String path) {

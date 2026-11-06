@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_laboratory_pillar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "laboratoryblocks:dark_laboratory_pillar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "laboratoryblocks:laboratory_pillar_from_white_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dark_laboratory_pillar"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:laboratory_pillar_from_white_dye"
+    ]
+  }
+}

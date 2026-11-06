@@ -17,5 +17,6 @@ public class LaboratoryBlocks implements ModInitializer {
         ModBlocks.register();
         ModParticles.register();
         ModCreativeModeTabs.register();
+        de.artemis.laboratoryblocks.common.event.MusicDiscEvents.register();
     }
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "laboratoryblocks:glowing_dark_laboratory_vent"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

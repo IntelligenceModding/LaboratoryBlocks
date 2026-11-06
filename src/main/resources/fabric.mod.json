@@ -29,6 +29,7 @@
       "de.artemis.laboratoryblocks.common.datagen.DataGenerators"
     ]
   },
+  "mixins": ["laboratoryblocks.mixins.json"],
   "accessWidener": "laboratoryblocks.accesswidener",
   "depends": {
     "fabricloader": "${loader_version_range}",

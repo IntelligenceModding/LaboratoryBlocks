@@ -45,6 +45,16 @@ public class ModItems {
     public static final RegistrySupplier<Item> GLOWSTONE_PARTICLES = register("glowstone_particles",
             Item::new, UnaryOperator.identity());
 
+    public static final RegistrySupplier<Item> MUSIC_DISC_EXPLORATION = register("music_disc_exploration",
+            Item::new, properties -> properties.stacksTo(1).rarity(Rarity.UNCOMMON)
+                    .jukeboxPlayable(ResourceKey.create(Registries.JUKEBOX_SONG,
+                            Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "exploration"))));
+
+    public static final RegistrySupplier<Item> MUSIC_DISC_PONDERING_THE_COSMOS = register("music_disc_pondering_the_cosmos",
+            Item::new, properties -> properties.stacksTo(1).rarity(Rarity.UNCOMMON)
+                    .jukeboxPlayable(ResourceKey.create(Registries.JUKEBOX_SONG,
+                            Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, "pondering_the_cosmos"))));
+
     public static final RegistrySupplier<ConfigurationToolItem> CONFIGURATION_TOOL = register("configuration_tool",
             ConfigurationToolItem::new, properties -> properties.durability(640).rarity(Rarity.UNCOMMON).enchantable(10).repairable(Items.IRON_INGOT));
 

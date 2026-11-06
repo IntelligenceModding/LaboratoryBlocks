@@ -16,7 +16,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:laboratory_fan_redstone_controlled"
+          "blocks": [
+            "laboratoryblocks:dark_laboratory_fan_redstone_controlled",
+            "laboratoryblocks:laboratory_fan_redstone_controlled"
+          ]
         }
       }
     },
@@ -25,7 +28,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_laboratory_fan_redstone_controlled"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_laboratory_fan_redstone_controlled",
+            "laboratoryblocks:glowing_laboratory_fan_redstone_controlled"
+          ]
         }
       }
     }

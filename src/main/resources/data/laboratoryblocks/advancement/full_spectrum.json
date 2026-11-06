@@ -16,7 +16,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:left_indicating_blue_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:dark_left_indicating_blue_laboratory_block",
+            "laboratoryblocks:left_indicating_blue_laboratory_block"
+          ]
         }
       }
     },
@@ -25,7 +28,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:right_indicating_blue_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:dark_right_indicating_blue_laboratory_block",
+            "laboratoryblocks:right_indicating_blue_laboratory_block"
+          ]
         }
       }
     },
@@ -34,7 +40,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_left_indicating_blue_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_left_indicating_blue_laboratory_block",
+            "laboratoryblocks:glowing_left_indicating_blue_laboratory_block"
+          ]
         }
       }
     },
@@ -43,7 +52,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_right_indicating_blue_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_right_indicating_blue_laboratory_block",
+            "laboratoryblocks:glowing_right_indicating_blue_laboratory_block"
+          ]
         }
       }
     },
@@ -52,7 +64,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:left_indicating_red_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:dark_left_indicating_red_laboratory_block",
+            "laboratoryblocks:left_indicating_red_laboratory_block"
+          ]
         }
       }
     },
@@ -61,7 +76,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:right_indicating_red_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:dark_right_indicating_red_laboratory_block",
+            "laboratoryblocks:right_indicating_red_laboratory_block"
+          ]
         }
       }
     },
@@ -70,7 +88,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_left_indicating_red_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_left_indicating_red_laboratory_block",
+            "laboratoryblocks:glowing_left_indicating_red_laboratory_block"
+          ]
         }
       }
     },
@@ -79,7 +100,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_right_indicating_red_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+            "laboratoryblocks:glowing_right_indicating_red_laboratory_block"
+          ]
         }
       }
     },
@@ -88,7 +112,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:left_indicating_green_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:dark_left_indicating_green_laboratory_block",
+            "laboratoryblocks:left_indicating_green_laboratory_block"
+          ]
         }
       }
     },
@@ -97,7 +124,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:right_indicating_green_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:dark_right_indicating_green_laboratory_block",
+            "laboratoryblocks:right_indicating_green_laboratory_block"
+          ]
         }
       }
     },
@@ -106,7 +136,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_left_indicating_green_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_left_indicating_green_laboratory_block",
+            "laboratoryblocks:glowing_left_indicating_green_laboratory_block"
+          ]
         }
       }
     },
@@ -115,7 +148,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_right_indicating_green_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_right_indicating_green_laboratory_block",
+            "laboratoryblocks:glowing_right_indicating_green_laboratory_block"
+          ]
         }
       }
     }

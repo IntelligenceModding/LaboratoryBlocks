@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "de.artemis.laboratoryblocks.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "LegacyPillarRegistryMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

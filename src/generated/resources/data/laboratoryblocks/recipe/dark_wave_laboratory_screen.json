@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:dark_clear_laboratory_screen",
+    "laboratoryblocks:dark_clear_laboratory_screen",
+    "laboratoryblocks:dark_clear_laboratory_screen",
+    "laboratoryblocks:dark_clear_laboratory_screen",
+    "#c:dyes/cyan"
+  ],
+  "result": {
+    "count": 4,
+    "id": "laboratoryblocks:dark_wave_laboratory_screen"
+  }
+}

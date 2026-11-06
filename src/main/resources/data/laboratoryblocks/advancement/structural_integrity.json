@@ -16,7 +16,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:reinforced_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:dark_reinforced_laboratory_block",
+            "laboratoryblocks:reinforced_laboratory_block"
+          ]
         }
       }
     },
@@ -25,7 +28,10 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "laboratoryblocks:glowing_reinforced_laboratory_block"
+          "blocks": [
+            "laboratoryblocks:glowing_dark_reinforced_laboratory_block",
+            "laboratoryblocks:glowing_reinforced_laboratory_block"
+          ]
         }
       }
     }
