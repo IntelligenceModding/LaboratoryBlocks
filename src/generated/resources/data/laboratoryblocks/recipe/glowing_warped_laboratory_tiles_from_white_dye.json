@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+    "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+    "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+    "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+    "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+    "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+    "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+    "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+    "#c:dyes/white"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:glowing_warped_laboratory_tiles"
+  }
+}

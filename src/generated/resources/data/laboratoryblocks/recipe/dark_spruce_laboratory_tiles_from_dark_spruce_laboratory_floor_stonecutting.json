@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "laboratoryblocks:dark_spruce_laboratory_floor",
+  "result": {
+    "count": 2,
+    "id": "laboratoryblocks:dark_spruce_laboratory_tiles"
+  }
+}

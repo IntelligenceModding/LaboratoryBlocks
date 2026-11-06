@@ -35,13 +35,15 @@ public class DataGenerators {
         generator.addProvider(true, new LootTableProvider(
                 packOutput,
                 Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK)),
+                List.of(new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK), new LootTableProvider.SubProviderEntry(ModMusicDiscLootProvider::new, LootContextParamSets.CHEST)),
                 lookupProvider
         ));
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
 
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
         generator.addProvider(true, blockTagsProvider);
+        generator.addProvider(true, new ModLootModifierProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModValidationProvider(lookupProvider));
 
         generator.addProvider(true, new ModModelProvider(packOutput));
         generator.addProvider(true, new ModFusionModelProvider(packOutput));

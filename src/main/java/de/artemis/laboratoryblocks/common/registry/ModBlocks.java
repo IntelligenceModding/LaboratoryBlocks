@@ -5,6 +5,7 @@ import de.artemis.laboratoryblocks.common.block.LaboratoryBlock;
 import de.artemis.laboratoryblocks.common.block.LaboratoryGlassBlock;
 import de.artemis.laboratoryblocks.common.block.RedstoneControlledLaboratoryBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.BlockGetter;
@@ -43,6 +44,13 @@ public class ModBlocks {
     }
 
     public static void register(IEventBus eventBus) {
+        // Keep saved block states and item stacks using the former gray pillar IDs readable.
+        for (String prefix : new String[]{"", "glowing_"}) {
+            Identifier oldId = Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, prefix + "gray_laboratory_pillar");
+            Identifier newId = Identifier.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, prefix + "dark_laboratory_pillar");
+            BLOCKS.addAlias(oldId, newId);
+            ModItems.ITEMS.addAlias(oldId, newId);
+        }
         BLOCKS.register(eventBus);
     }
 
@@ -76,15 +84,15 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_LABORATORY_PILLAR = register("glowing_laboratory_pillar",
             properties -> new LaboratoryBlock(ModBlocks.LABORATORY_PILLAR, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
-    public static final DeferredBlock<LaboratoryBlock> GRAY_LABORATORY_PILLAR = register("gray_laboratory_pillar",
-            properties -> new LaboratoryBlock(ModBlocks.GLOWING_GRAY_LABORATORY_PILLAR, properties),
+    public static final DeferredBlock<LaboratoryBlock> DARK_LABORATORY_PILLAR = register("dark_laboratory_pillar",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_LABORATORY_PILLAR, properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
 
-    public static final DeferredBlock<LaboratoryBlock> GLOWING_GRAY_LABORATORY_PILLAR = register("glowing_gray_laboratory_pillar",
-            properties -> new LaboratoryBlock(ModBlocks.GRAY_LABORATORY_PILLAR, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_LABORATORY_PILLAR = register("glowing_dark_laboratory_pillar",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_LABORATORY_PILLAR, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> CLEAR_LABORATORY_SCREEN = register("clear_laboratory_screen",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_CLEAR_LABORATORY_SCREEN, properties),
@@ -92,7 +100,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_CLEAR_LABORATORY_SCREEN = register("glowing_clear_laboratory_screen",
             properties -> new LaboratoryBlock(ModBlocks.CLEAR_LABORATORY_SCREEN, properties),
-            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> WAVE_LABORATORY_SCREEN = register("wave_laboratory_screen",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_WAVE_LABORATORY_SCREEN, properties),
@@ -100,7 +108,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_WAVE_LABORATORY_SCREEN = register("glowing_wave_laboratory_screen",
             properties -> new LaboratoryBlock(ModBlocks.WAVE_LABORATORY_SCREEN, properties),
-            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> TEXT_LABORATORY_SCREEN = register("text_laboratory_screen",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_TEXT_LABORATORY_SCREEN, properties),
@@ -108,7 +116,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_TEXT_LABORATORY_SCREEN = register("glowing_text_laboratory_screen",
             properties -> new LaboratoryBlock(ModBlocks.TEXT_LABORATORY_SCREEN, properties),
-            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> QUANTUM_LABORATORY_SCREEN = register("quantum_laboratory_screen",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_QUANTUM_LABORATORY_SCREEN, properties),
@@ -116,7 +124,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_QUANTUM_LABORATORY_SCREEN = register("glowing_quantum_laboratory_screen",
             properties -> new LaboratoryBlock(ModBlocks.QUANTUM_LABORATORY_SCREEN, properties),
-            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<RedstoneControlledLaboratoryBlock> LABORATORY_FAN = register("laboratory_fan",
             properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.GLOWING_LABORATORY_FAN, properties),
@@ -124,7 +132,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<RedstoneControlledLaboratoryBlock> GLOWING_LABORATORY_FAN = register("glowing_laboratory_fan",
             properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.LABORATORY_FAN, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<RedstoneControlledLaboratoryBlock> LABORATORY_FAN_REDSTONE_CONTROLLED = register("laboratory_fan_redstone_controlled",
             properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.GLOWING_LABORATORY_FAN_REDSTONE_CONTROLLED, properties),
@@ -132,7 +140,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<RedstoneControlledLaboratoryBlock> GLOWING_LABORATORY_FAN_REDSTONE_CONTROLLED = register("glowing_laboratory_fan_redstone_controlled",
             properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> LEFT_INDICATING_BLUE_LABORATORY_BLOCK = register("left_indicating_blue_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_LEFT_INDICATING_BLUE_LABORATORY_BLOCK, properties),
@@ -140,7 +148,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_LEFT_INDICATING_BLUE_LABORATORY_BLOCK = register("glowing_left_indicating_blue_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.LEFT_INDICATING_BLUE_LABORATORY_BLOCK, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> RIGHT_INDICATING_BLUE_LABORATORY_BLOCK = register("right_indicating_blue_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK, properties),
@@ -148,7 +156,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK = register("glowing_right_indicating_blue_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.RIGHT_INDICATING_BLUE_LABORATORY_BLOCK, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> LEFT_INDICATING_RED_LABORATORY_BLOCK = register("left_indicating_red_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_LEFT_INDICATING_RED_LABORATORY_BLOCK, properties),
@@ -156,7 +164,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_LEFT_INDICATING_RED_LABORATORY_BLOCK = register("glowing_left_indicating_red_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.LEFT_INDICATING_RED_LABORATORY_BLOCK, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> RIGHT_INDICATING_RED_LABORATORY_BLOCK = register("right_indicating_red_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_RIGHT_INDICATING_RED_LABORATORY_BLOCK, properties),
@@ -164,7 +172,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_RIGHT_INDICATING_RED_LABORATORY_BLOCK = register("glowing_right_indicating_red_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.RIGHT_INDICATING_RED_LABORATORY_BLOCK, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> LEFT_INDICATING_GREEN_LABORATORY_BLOCK = register("left_indicating_green_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_LEFT_INDICATING_GREEN_LABORATORY_BLOCK, properties),
@@ -172,7 +180,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_LEFT_INDICATING_GREEN_LABORATORY_BLOCK = register("glowing_left_indicating_green_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.LEFT_INDICATING_GREEN_LABORATORY_BLOCK, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> RIGHT_INDICATING_GREEN_LABORATORY_BLOCK = register("right_indicating_green_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK, properties),
@@ -180,7 +188,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK = register("glowing_right_indicating_green_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.RIGHT_INDICATING_GREEN_LABORATORY_BLOCK, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> LABORATORY_VENT = register("laboratory_vent",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_LABORATORY_VENT, properties),
@@ -188,7 +196,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_LABORATORY_VENT = register("glowing_laboratory_vent",
             properties -> new LaboratoryBlock(ModBlocks.LABORATORY_VENT, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> LABORATORY_BLOCK = register("laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_LABORATORY_BLOCK, properties),
@@ -196,7 +204,15 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_LABORATORY_BLOCK = register("glowing_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.LABORATORY_BLOCK, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_LABORATORY_BLOCK = register("dark_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_LABORATORY_BLOCK = register("glowing_dark_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> REINFORCED_LABORATORY_BLOCK = register("reinforced_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_REINFORCED_LABORATORY_BLOCK, properties),
@@ -204,7 +220,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_REINFORCED_LABORATORY_BLOCK = register("glowing_reinforced_laboratory_block",
             properties -> new LaboratoryBlock(ModBlocks.REINFORCED_LABORATORY_BLOCK, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> LABORATORY_TILES = register("laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_LABORATORY_TILES, properties),
@@ -212,7 +228,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_LABORATORY_TILES = register("glowing_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.LABORATORY_TILES, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> GRAY_LABORATORY_TILES = register("gray_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_GRAY_LABORATORY_TILES, properties),
@@ -220,7 +236,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_GRAY_LABORATORY_TILES = register("glowing_gray_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GRAY_LABORATORY_TILES, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> MIXED_LABORATORY_TILES = register("mixed_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_MIXED_LABORATORY_TILES, properties),
@@ -228,7 +244,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_MIXED_LABORATORY_TILES = register("glowing_mixed_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.MIXED_LABORATORY_TILES, properties),
-            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> OAK_LABORATORY_FLOOR = register("oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_OAK_LABORATORY_FLOOR, properties),
@@ -236,7 +252,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_OAK_LABORATORY_FLOOR = register("glowing_oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.OAK_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> OAK_LABORATORY_TILES = register("oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_OAK_LABORATORY_TILES, properties),
@@ -244,7 +260,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_OAK_LABORATORY_TILES = register("glowing_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.OAK_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> SPRUCE_LABORATORY_FLOOR = register("spruce_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_SPRUCE_LABORATORY_FLOOR, properties),
@@ -252,7 +268,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_SPRUCE_LABORATORY_FLOOR = register("glowing_spruce_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.SPRUCE_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> SPRUCE_LABORATORY_TILES = register("spruce_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_SPRUCE_LABORATORY_TILES, properties),
@@ -260,7 +276,11 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_SPRUCE_LABORATORY_TILES = register("glowing_spruce_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.SPRUCE_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+
+
+
 
     public static final DeferredBlock<LaboratoryBlock> BIRCH_LABORATORY_FLOOR = register("birch_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_BIRCH_LABORATORY_FLOOR, properties),
@@ -268,7 +288,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_BIRCH_LABORATORY_FLOOR = register("glowing_birch_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.BIRCH_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> BIRCH_LABORATORY_TILES = register("birch_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_BIRCH_LABORATORY_TILES, properties),
@@ -276,7 +296,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_BIRCH_LABORATORY_TILES = register("glowing_birch_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.BIRCH_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> DARK_OAK_LABORATORY_FLOOR = register("dark_oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_OAK_LABORATORY_FLOOR, properties),
@@ -284,7 +304,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_OAK_LABORATORY_FLOOR = register("glowing_dark_oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.DARK_OAK_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> DARK_OAK_LABORATORY_TILES = register("dark_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_OAK_LABORATORY_TILES, properties),
@@ -292,7 +312,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_OAK_LABORATORY_TILES = register("glowing_dark_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.DARK_OAK_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> PALE_OAK_LABORATORY_FLOOR = register("pale_oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_PALE_OAK_LABORATORY_FLOOR, properties),
@@ -300,7 +320,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_PALE_OAK_LABORATORY_FLOOR = register("glowing_pale_oak_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.PALE_OAK_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> PALE_OAK_LABORATORY_TILES = register("pale_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_PALE_OAK_LABORATORY_TILES, properties),
@@ -308,7 +328,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_PALE_OAK_LABORATORY_TILES = register("glowing_pale_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.PALE_OAK_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> JUNGLE_LABORATORY_FLOOR = register("jungle_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_JUNGLE_LABORATORY_FLOOR, properties),
@@ -316,7 +336,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_JUNGLE_LABORATORY_FLOOR = register("glowing_jungle_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.JUNGLE_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> JUNGLE_LABORATORY_TILES = register("jungle_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_JUNGLE_LABORATORY_TILES, properties),
@@ -324,7 +344,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_JUNGLE_LABORATORY_TILES = register("glowing_jungle_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.JUNGLE_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> ACACIA_LABORATORY_FLOOR = register("acacia_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_ACACIA_LABORATORY_FLOOR, properties),
@@ -332,7 +352,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_ACACIA_LABORATORY_FLOOR = register("glowing_acacia_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.ACACIA_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> ACACIA_LABORATORY_TILES = register("acacia_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_ACACIA_LABORATORY_TILES, properties),
@@ -340,7 +360,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_ACACIA_LABORATORY_TILES = register("glowing_acacia_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.ACACIA_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> MANGROVE_LABORATORY_FLOOR = register("mangrove_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_MANGROVE_LABORATORY_FLOOR, properties),
@@ -348,7 +368,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_MANGROVE_LABORATORY_FLOOR = register("glowing_mangrove_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.MANGROVE_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> MANGROVE_LABORATORY_TILES = register("mangrove_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_MANGROVE_LABORATORY_TILES, properties),
@@ -356,7 +376,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_MANGROVE_LABORATORY_TILES = register("glowing_mangrove_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.MANGROVE_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> CHERRY_LABORATORY_FLOOR = register("cherry_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_CHERRY_LABORATORY_FLOOR, properties),
@@ -364,7 +384,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_CHERRY_LABORATORY_FLOOR = register("glowing_cherry_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.CHERRY_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> CHERRY_LABORATORY_TILES = register("cherry_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_CHERRY_LABORATORY_TILES, properties),
@@ -372,7 +392,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_CHERRY_LABORATORY_TILES = register("glowing_cherry_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.CHERRY_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> BAMBOO_LABORATORY_FLOOR = register("bamboo_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_BAMBOO_LABORATORY_FLOOR, properties),
@@ -380,7 +400,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_BAMBOO_LABORATORY_FLOOR = register("glowing_bamboo_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.BAMBOO_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> BAMBOO_LABORATORY_TILES = register("bamboo_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_BAMBOO_LABORATORY_TILES, properties),
@@ -388,7 +408,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_BAMBOO_LABORATORY_TILES = register("glowing_bamboo_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.BAMBOO_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> CRIMSON_LABORATORY_FLOOR = register("crimson_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_CRIMSON_LABORATORY_FLOOR, properties),
@@ -396,7 +416,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_CRIMSON_LABORATORY_FLOOR = register("glowing_crimson_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.CRIMSON_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> CRIMSON_LABORATORY_TILES = register("crimson_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_CRIMSON_LABORATORY_TILES, properties),
@@ -404,7 +424,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_CRIMSON_LABORATORY_TILES = register("glowing_crimson_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.CRIMSON_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> WARPED_LABORATORY_FLOOR = register("warped_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_WARPED_LABORATORY_FLOOR, properties),
@@ -412,7 +432,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_WARPED_LABORATORY_FLOOR = register("glowing_warped_laboratory_floor",
             properties -> new LaboratoryBlock(ModBlocks.WARPED_LABORATORY_FLOOR, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryBlock> WARPED_LABORATORY_TILES = register("warped_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.GLOWING_WARPED_LABORATORY_TILES, properties),
@@ -420,7 +440,7 @@ public class ModBlocks {
 
     public static final DeferredBlock<LaboratoryBlock> GLOWING_WARPED_LABORATORY_TILES = register("glowing_warped_laboratory_tiles",
             properties -> new LaboratoryBlock(ModBlocks.WARPED_LABORATORY_TILES, properties),
-            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
 
     public static final DeferredBlock<LaboratoryGlassBlock> LABORATORY_GLASS = register("laboratory_glass",
             properties -> new LaboratoryGlassBlock(ModBlocks.GLOWING_LABORATORY_GLASS, properties),
@@ -432,5 +452,357 @@ public class ModBlocks {
             properties -> new LaboratoryGlassBlock(ModBlocks.LABORATORY_GLASS, properties),
             properties -> properties.strength(0.3F).sound(SoundType.GLASS).noOcclusion()
                     .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
-                    .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(state -> 14));
+                    .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<DoorBlock> DARK_LABORATORY_DOOR = register("dark_laboratory_door",
+            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final DeferredBlock<DoorBlock> DARK_MESH_LABORATORY_DOOR = register("dark_mesh_laboratory_door",
+            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final DeferredBlock<DoorBlock> DARK_GLASS_LABORATORY_DOOR = register("dark_glass_laboratory_door",
+            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final DeferredBlock<TrapDoorBlock> DARK_LABORATORY_TRAPDOOR = register("dark_laboratory_trapdoor",
+            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final DeferredBlock<TrapDoorBlock> DARK_MESH_LABORATORY_TRAPDOOR = register("dark_mesh_laboratory_trapdoor",
+            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final DeferredBlock<TrapDoorBlock> DARK_GLASS_LABORATORY_TRAPDOOR = register("dark_glass_laboratory_trapdoor",
+            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_CLEAR_LABORATORY_SCREEN = register("dark_clear_laboratory_screen",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_CLEAR_LABORATORY_SCREEN, properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_CLEAR_LABORATORY_SCREEN = register("glowing_dark_clear_laboratory_screen",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN, properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_WAVE_LABORATORY_SCREEN = register("dark_wave_laboratory_screen",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_WAVE_LABORATORY_SCREEN, properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_WAVE_LABORATORY_SCREEN = register("glowing_dark_wave_laboratory_screen",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_WAVE_LABORATORY_SCREEN, properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_TEXT_LABORATORY_SCREEN = register("dark_text_laboratory_screen",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_TEXT_LABORATORY_SCREEN, properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_TEXT_LABORATORY_SCREEN = register("glowing_dark_text_laboratory_screen",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_TEXT_LABORATORY_SCREEN, properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_QUANTUM_LABORATORY_SCREEN = register("dark_quantum_laboratory_screen",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_QUANTUM_LABORATORY_SCREEN, properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_QUANTUM_LABORATORY_SCREEN = register("glowing_dark_quantum_laboratory_screen",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_QUANTUM_LABORATORY_SCREEN, properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<RedstoneControlledLaboratoryBlock> DARK_LABORATORY_FAN = register("dark_laboratory_fan",
+            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.GLOWING_DARK_LABORATORY_FAN, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<RedstoneControlledLaboratoryBlock> GLOWING_DARK_LABORATORY_FAN = register("glowing_dark_laboratory_fan",
+            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.DARK_LABORATORY_FAN, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<RedstoneControlledLaboratoryBlock> DARK_LABORATORY_FAN_REDSTONE_CONTROLLED = register("dark_laboratory_fan_redstone_controlled",
+            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.GLOWING_DARK_LABORATORY_FAN_REDSTONE_CONTROLLED, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<RedstoneControlledLaboratoryBlock> GLOWING_DARK_LABORATORY_FAN_REDSTONE_CONTROLLED = register("glowing_dark_laboratory_fan_redstone_controlled",
+            properties -> new RedstoneControlledLaboratoryBlock(ModBlocks.DARK_LABORATORY_FAN_REDSTONE_CONTROLLED, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_LEFT_INDICATING_BLUE_LABORATORY_BLOCK = register("dark_left_indicating_blue_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_LEFT_INDICATING_BLUE_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_LEFT_INDICATING_BLUE_LABORATORY_BLOCK = register("glowing_dark_left_indicating_blue_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_LEFT_INDICATING_BLUE_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK = register("dark_right_indicating_blue_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK = register("glowing_dark_right_indicating_blue_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_LEFT_INDICATING_RED_LABORATORY_BLOCK = register("dark_left_indicating_red_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_LEFT_INDICATING_RED_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_LEFT_INDICATING_RED_LABORATORY_BLOCK = register("glowing_dark_left_indicating_red_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_LEFT_INDICATING_RED_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_RIGHT_INDICATING_RED_LABORATORY_BLOCK = register("dark_right_indicating_red_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_RIGHT_INDICATING_RED_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_RIGHT_INDICATING_RED_LABORATORY_BLOCK = register("glowing_dark_right_indicating_red_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_RIGHT_INDICATING_RED_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_LEFT_INDICATING_GREEN_LABORATORY_BLOCK = register("dark_left_indicating_green_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_LEFT_INDICATING_GREEN_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_LEFT_INDICATING_GREEN_LABORATORY_BLOCK = register("glowing_dark_left_indicating_green_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_LEFT_INDICATING_GREEN_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK = register("dark_right_indicating_green_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK = register("glowing_dark_right_indicating_green_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_LABORATORY_VENT = register("dark_laboratory_vent",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_LABORATORY_VENT, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_LABORATORY_VENT = register("glowing_dark_laboratory_vent",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_LABORATORY_VENT, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_REINFORCED_LABORATORY_BLOCK = register("dark_reinforced_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_REINFORCED_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_REINFORCED_LABORATORY_BLOCK = register("glowing_dark_reinforced_laboratory_block",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_REINFORCED_LABORATORY_BLOCK, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_LABORATORY_TILES = register("dark_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_LABORATORY_TILES, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_LABORATORY_TILES = register("glowing_dark_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_LABORATORY_TILES, properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARKENED_OAK_LABORATORY_FLOOR = register("darkened_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARKENED_OAK_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARKENED_OAK_LABORATORY_FLOOR = register("glowing_darkened_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARKENED_OAK_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARKENED_OAK_LABORATORY_TILES = register("darkened_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARKENED_OAK_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARKENED_OAK_LABORATORY_TILES = register("glowing_darkened_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARKENED_OAK_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_SPRUCE_LABORATORY_FLOOR = register("dark_spruce_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_SPRUCE_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_SPRUCE_LABORATORY_FLOOR = register("glowing_dark_spruce_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_SPRUCE_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_SPRUCE_LABORATORY_TILES = register("dark_spruce_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_SPRUCE_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_SPRUCE_LABORATORY_TILES = register("glowing_dark_spruce_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_SPRUCE_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+
+
+
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_BIRCH_LABORATORY_FLOOR = register("dark_birch_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_BIRCH_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_BIRCH_LABORATORY_FLOOR = register("glowing_dark_birch_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_BIRCH_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_BIRCH_LABORATORY_TILES = register("dark_birch_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_BIRCH_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_BIRCH_LABORATORY_TILES = register("glowing_dark_birch_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_BIRCH_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_DARK_OAK_LABORATORY_FLOOR = register("dark_dark_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_DARK_OAK_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_DARK_OAK_LABORATORY_FLOOR = register("glowing_dark_dark_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_DARK_OAK_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_DARK_OAK_LABORATORY_TILES = register("dark_dark_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_DARK_OAK_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_DARK_OAK_LABORATORY_TILES = register("glowing_dark_dark_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_DARK_OAK_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_PALE_OAK_LABORATORY_FLOOR = register("dark_pale_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_PALE_OAK_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_PALE_OAK_LABORATORY_FLOOR = register("glowing_dark_pale_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_PALE_OAK_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_PALE_OAK_LABORATORY_TILES = register("dark_pale_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_PALE_OAK_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_PALE_OAK_LABORATORY_TILES = register("glowing_dark_pale_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_PALE_OAK_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_JUNGLE_LABORATORY_FLOOR = register("dark_jungle_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_JUNGLE_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_JUNGLE_LABORATORY_FLOOR = register("glowing_dark_jungle_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_JUNGLE_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_JUNGLE_LABORATORY_TILES = register("dark_jungle_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_JUNGLE_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_JUNGLE_LABORATORY_TILES = register("glowing_dark_jungle_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_JUNGLE_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_ACACIA_LABORATORY_FLOOR = register("dark_acacia_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_ACACIA_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_ACACIA_LABORATORY_FLOOR = register("glowing_dark_acacia_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_ACACIA_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_ACACIA_LABORATORY_TILES = register("dark_acacia_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_ACACIA_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_ACACIA_LABORATORY_TILES = register("glowing_dark_acacia_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_ACACIA_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_MANGROVE_LABORATORY_FLOOR = register("dark_mangrove_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_MANGROVE_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_MANGROVE_LABORATORY_FLOOR = register("glowing_dark_mangrove_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_MANGROVE_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_MANGROVE_LABORATORY_TILES = register("dark_mangrove_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_MANGROVE_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_MANGROVE_LABORATORY_TILES = register("glowing_dark_mangrove_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_MANGROVE_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_CHERRY_LABORATORY_FLOOR = register("dark_cherry_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_CHERRY_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_CHERRY_LABORATORY_FLOOR = register("glowing_dark_cherry_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_CHERRY_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_CHERRY_LABORATORY_TILES = register("dark_cherry_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_CHERRY_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_CHERRY_LABORATORY_TILES = register("glowing_dark_cherry_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_CHERRY_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_BAMBOO_LABORATORY_FLOOR = register("dark_bamboo_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_BAMBOO_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_BAMBOO_LABORATORY_FLOOR = register("glowing_dark_bamboo_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_BAMBOO_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_BAMBOO_LABORATORY_TILES = register("dark_bamboo_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_BAMBOO_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_BAMBOO_LABORATORY_TILES = register("glowing_dark_bamboo_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_BAMBOO_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_CRIMSON_LABORATORY_FLOOR = register("dark_crimson_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_CRIMSON_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_CRIMSON_LABORATORY_FLOOR = register("glowing_dark_crimson_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_CRIMSON_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_CRIMSON_LABORATORY_TILES = register("dark_crimson_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_CRIMSON_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_CRIMSON_LABORATORY_TILES = register("glowing_dark_crimson_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_CRIMSON_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_WARPED_LABORATORY_FLOOR = register("dark_warped_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_WARPED_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_WARPED_LABORATORY_FLOOR = register("glowing_dark_warped_laboratory_floor",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_WARPED_LABORATORY_FLOOR, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryBlock> DARK_WARPED_LABORATORY_TILES = register("dark_warped_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.GLOWING_DARK_WARPED_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final DeferredBlock<LaboratoryBlock> GLOWING_DARK_WARPED_LABORATORY_TILES = register("glowing_dark_warped_laboratory_tiles",
+            properties -> new LaboratoryBlock(ModBlocks.DARK_WARPED_LABORATORY_TILES, properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(_ -> 14));
+
+    public static final DeferredBlock<LaboratoryGlassBlock> DARK_LABORATORY_GLASS = register("dark_laboratory_glass",
+            properties -> new LaboratoryGlassBlock(ModBlocks.GLOWING_DARK_LABORATORY_GLASS, properties),
+            properties -> properties.strength(0.3F).sound(SoundType.GLASS).noOcclusion()
+                    .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
+                    .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never));
+
+    public static final DeferredBlock<LaboratoryGlassBlock> GLOWING_DARK_LABORATORY_GLASS = register("glowing_dark_laboratory_glass",
+            properties -> new LaboratoryGlassBlock(ModBlocks.DARK_LABORATORY_GLASS, properties),
+            properties -> properties.strength(0.3F).sound(SoundType.GLASS).noOcclusion()
+                    .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
+                    .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(_ -> 14));
 }

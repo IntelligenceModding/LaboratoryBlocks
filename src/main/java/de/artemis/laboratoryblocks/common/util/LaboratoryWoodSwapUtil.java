@@ -2,7 +2,6 @@ package de.artemis.laboratoryblocks.common.util;
 
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -24,7 +23,19 @@ public final class LaboratoryWoodSwapUtil {
             family(Blocks.CHERRY_PLANKS, ModBlocks.CHERRY_LABORATORY_FLOOR, ModBlocks.GLOWING_CHERRY_LABORATORY_FLOOR, ModBlocks.CHERRY_LABORATORY_TILES, ModBlocks.GLOWING_CHERRY_LABORATORY_TILES),
             family(Blocks.BAMBOO_PLANKS, ModBlocks.BAMBOO_LABORATORY_FLOOR, ModBlocks.GLOWING_BAMBOO_LABORATORY_FLOOR, ModBlocks.BAMBOO_LABORATORY_TILES, ModBlocks.GLOWING_BAMBOO_LABORATORY_TILES),
             family(Blocks.CRIMSON_PLANKS, ModBlocks.CRIMSON_LABORATORY_FLOOR, ModBlocks.GLOWING_CRIMSON_LABORATORY_FLOOR, ModBlocks.CRIMSON_LABORATORY_TILES, ModBlocks.GLOWING_CRIMSON_LABORATORY_TILES),
-            family(Blocks.WARPED_PLANKS, ModBlocks.WARPED_LABORATORY_FLOOR, ModBlocks.GLOWING_WARPED_LABORATORY_FLOOR, ModBlocks.WARPED_LABORATORY_TILES, ModBlocks.GLOWING_WARPED_LABORATORY_TILES)
+            family(Blocks.WARPED_PLANKS, ModBlocks.WARPED_LABORATORY_FLOOR, ModBlocks.GLOWING_WARPED_LABORATORY_FLOOR, ModBlocks.WARPED_LABORATORY_TILES, ModBlocks.GLOWING_WARPED_LABORATORY_TILES),
+family(Blocks.OAK_PLANKS, ModBlocks.DARKENED_OAK_LABORATORY_FLOOR, ModBlocks.GLOWING_DARKENED_OAK_LABORATORY_FLOOR, ModBlocks.DARKENED_OAK_LABORATORY_TILES, ModBlocks.GLOWING_DARKENED_OAK_LABORATORY_TILES),
+            family(Blocks.SPRUCE_PLANKS, ModBlocks.DARK_SPRUCE_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_SPRUCE_LABORATORY_FLOOR, ModBlocks.DARK_SPRUCE_LABORATORY_TILES, ModBlocks.GLOWING_DARK_SPRUCE_LABORATORY_TILES),
+            family(Blocks.BIRCH_PLANKS, ModBlocks.DARK_BIRCH_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_BIRCH_LABORATORY_FLOOR, ModBlocks.DARK_BIRCH_LABORATORY_TILES, ModBlocks.GLOWING_DARK_BIRCH_LABORATORY_TILES),
+            family(Blocks.DARK_OAK_PLANKS, ModBlocks.DARK_DARK_OAK_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_DARK_OAK_LABORATORY_FLOOR, ModBlocks.DARK_DARK_OAK_LABORATORY_TILES, ModBlocks.GLOWING_DARK_DARK_OAK_LABORATORY_TILES),
+            family(Blocks.PALE_OAK_PLANKS, ModBlocks.DARK_PALE_OAK_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_PALE_OAK_LABORATORY_FLOOR, ModBlocks.DARK_PALE_OAK_LABORATORY_TILES, ModBlocks.GLOWING_DARK_PALE_OAK_LABORATORY_TILES),
+            family(Blocks.JUNGLE_PLANKS, ModBlocks.DARK_JUNGLE_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_JUNGLE_LABORATORY_FLOOR, ModBlocks.DARK_JUNGLE_LABORATORY_TILES, ModBlocks.GLOWING_DARK_JUNGLE_LABORATORY_TILES),
+            family(Blocks.ACACIA_PLANKS, ModBlocks.DARK_ACACIA_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_ACACIA_LABORATORY_FLOOR, ModBlocks.DARK_ACACIA_LABORATORY_TILES, ModBlocks.GLOWING_DARK_ACACIA_LABORATORY_TILES),
+            family(Blocks.MANGROVE_PLANKS, ModBlocks.DARK_MANGROVE_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_MANGROVE_LABORATORY_FLOOR, ModBlocks.DARK_MANGROVE_LABORATORY_TILES, ModBlocks.GLOWING_DARK_MANGROVE_LABORATORY_TILES),
+            family(Blocks.CHERRY_PLANKS, ModBlocks.DARK_CHERRY_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_CHERRY_LABORATORY_FLOOR, ModBlocks.DARK_CHERRY_LABORATORY_TILES, ModBlocks.GLOWING_DARK_CHERRY_LABORATORY_TILES),
+            family(Blocks.BAMBOO_PLANKS, ModBlocks.DARK_BAMBOO_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_BAMBOO_LABORATORY_FLOOR, ModBlocks.DARK_BAMBOO_LABORATORY_TILES, ModBlocks.GLOWING_DARK_BAMBOO_LABORATORY_TILES),
+            family(Blocks.CRIMSON_PLANKS, ModBlocks.DARK_CRIMSON_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_CRIMSON_LABORATORY_FLOOR, ModBlocks.DARK_CRIMSON_LABORATORY_TILES, ModBlocks.GLOWING_DARK_CRIMSON_LABORATORY_TILES),
+            family(Blocks.WARPED_PLANKS, ModBlocks.DARK_WARPED_LABORATORY_FLOOR, ModBlocks.GLOWING_DARK_WARPED_LABORATORY_FLOOR, ModBlocks.DARK_WARPED_LABORATORY_TILES, ModBlocks.GLOWING_DARK_WARPED_LABORATORY_TILES)
     );
 
     private LaboratoryWoodSwapUtil() {
@@ -32,7 +43,7 @@ public final class LaboratoryWoodSwapUtil {
 
     @Nullable
     public static SwapResult getSwap(Block currentBlock, Item heldItem) {
-        WoodFamily targetFamily = findFamilyByPlank(Block.byItem(heldItem));
+        WoodFamily targetFamily = findFamilyByPlank(Block.byItem(heldItem), currentBlock);
         if (targetFamily == null) {
             return null;
         }
@@ -47,13 +58,13 @@ public final class LaboratoryWoodSwapUtil {
             case TILES -> currentMatch.glowing ? targetFamily.glowingTiles.get() : targetFamily.tiles.get();
         };
 
-        return new SwapResult(targetBlock, new ItemStack(currentMatch.family.planks));
+        return new SwapResult(targetBlock, currentMatch.family.planks.asItem());
     }
 
     @Nullable
-    private static WoodFamily findFamilyByPlank(Block plankBlock) {
+    private static WoodFamily findFamilyByPlank(Block plankBlock, Block currentBlock) {
         for (WoodFamily family : FAMILIES) {
-            if (family.planks == plankBlock) {
+            if (family.planks == plankBlock && isDark(family.floor.get()) == isDark(currentBlock)) {
                 return family;
             }
         }
@@ -79,6 +90,13 @@ public final class LaboratoryWoodSwapUtil {
         return null;
     }
 
+    private static boolean isDark(Block block) {
+        String path = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block)
+                .getPath().replaceFirst("^glowing_", "");
+        return path.startsWith("darkened_oak_") ||
+                (path.startsWith("dark_") && !path.startsWith("dark_oak_"));
+    }
+
     private static WoodFamily family(
             Block planks,
             DeferredBlock<? extends Block> floor,
@@ -89,7 +107,7 @@ public final class LaboratoryWoodSwapUtil {
         return new WoodFamily(planks, floor, glowingFloor, tiles, glowingTiles);
     }
 
-    public record SwapResult(Block targetBlock, ItemStack returnedPlanks) {
+    public record SwapResult(Block targetBlock, Item returnedPlanks) {
     }
 
     private record WoodFamily(

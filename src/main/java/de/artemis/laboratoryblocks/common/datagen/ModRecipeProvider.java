@@ -1,26 +1,32 @@
 package de.artemis.laboratoryblocks.common.datagen;
 
 import de.artemis.laboratoryblocks.common.registry.ModBlocks;
+import de.artemis.laboratoryblocks.common.registry.ModBlockPalettes;
 import de.artemis.laboratoryblocks.common.registry.ModItems;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
+import java.util.concurrent.CompletableFuture;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
+import net.minecraft.data.worldgen.BootstrapContext;
+
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider {
     public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
@@ -45,12 +51,26 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes() {
+        ModBlockPalettes.BLOCK_ORDER.stream().filter(pair -> pair.dark() != null).forEach(pair -> {
+            shapeless(RecipeCategory.BUILDING_BLOCKS, pair.dark().get(), 8)
+                    .requires(pair.original().get(), 8)
+                    .requires(tag(DyeColor.BLACK.getTag()))
+                    .unlockedBy(getHasName(pair.original().get()), has(pair.original().get()))
+                    .save(output, modLoc(pair.dark().get() == ModBlocks.DARK_LABORATORY_BLOCK.get()
+                            ? "dark_laboratory_block"
+                            : BuiltInRegistries.BLOCK.getKey(pair.dark().get()).getPath() + "_from_black_dye"));
+            shapeless(RecipeCategory.BUILDING_BLOCKS, pair.original().get(), 8)
+                    .requires(pair.dark().get(), 8)
+                    .requires(tag(DyeColor.WHITE.getTag()))
+                    .unlockedBy(getHasName(pair.dark().get()), has(pair.dark().get()))
+                    .save(output, modLoc(BuiltInRegistries.BLOCK.getKey(pair.original().get()).getPath() + "_from_white_dye"));
+        });
         shaped(RecipeCategory.TOOLS, ModItems.CONFIGURATION_TOOL.get())
                 .pattern("  C")
                 .pattern("DB ")
                 .pattern("AD ")
                 .define('A', Items.IRON_INGOT)
-                .define('B', Items.ORANGE_WOOL)
+                .define('B', woolIngredient(DyeColor.ORANGE))
                 .define('C', ModItems.IRON_SCREW.get())
                 .define('D', Items.IRON_NUGGET)
                 .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
@@ -83,128 +103,135 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(Blocks.STONE), has(Blocks.STONE))
                 .save(output);
 
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.REINFORCED_LABORATORY_BLOCK.get(), 2)
-                .pattern("A A")
-                .pattern(" B ")
-                .pattern("A A")
-                .define('A', ModItems.IRON_SCREW.get())
-                .define('B', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(output);
-
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_TILES.get(), 8)
-                .pattern("AA")
-                .pattern("AA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(output);
-
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAY_LABORATORY_TILES.get(), 8)
-                .pattern("AAA")
-                .pattern("ABA")
-                .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_TILES.get())
-                .define('B', Items.GRAY_DYE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_TILES.get()), has(ModBlocks.LABORATORY_TILES.get()))
-                .save(output);
-
-        shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MIXED_LABORATORY_TILES.get(), 2)
-                .requires(ModBlocks.GRAY_LABORATORY_TILES.get())
-                .requires(ModBlocks.LABORATORY_TILES.get())
-                .unlockedBy(getHasName(ModBlocks.GRAY_LABORATORY_TILES.get()), has(ModBlocks.GRAY_LABORATORY_TILES.get()))
-                .save(output);
-
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_VENT.get())
-                .pattern(" B ")
-                .pattern("BAB")
-                .pattern(" B ")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .define('B', Items.IRON_NUGGET)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
-                .save(output);
-
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_PILLAR.get(), 2)
-                .pattern("A")
-                .pattern("A")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(output);
-
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAY_LABORATORY_PILLAR.get(), 8)
-                .pattern("AAA")
-                .pattern("ABA")
-                .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_PILLAR.get())
-                .define('B', Items.GRAY_DYE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_PILLAR.get()), has(ModBlocks.LABORATORY_PILLAR.get()))
-                .unlockedBy(getHasName(Items.GRAY_DYE), has(Items.GRAY_DYE))
-                .save(output);
-
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_GLASS.get(), 8)
-                .pattern("AAA")
-                .pattern("ABA")
-                .pattern("AAA")
-                .define('A', Items.GLASS)
-                .define('B', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(Items.GLASS), has(Items.GLASS))
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .save(output);
-
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_FAN.get())
-                .pattern("ABA")
-                .pattern("BCB")
-                .pattern("ABA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .define('B', Items.IRON_NUGGET)
-                .define('C', ModItems.IRON_SCREW.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
-                .unlockedBy(getHasName(ModItems.IRON_SCREW.get()), has(ModItems.IRON_SCREW.get()))
-                .save(output);
-
-        shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get())
-                .requires(ModBlocks.LABORATORY_FAN.get())
-                .requires(Items.REDSTONE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_FAN.get()), has(ModBlocks.LABORATORY_FAN.get()))
-                .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
-                .save(output);
-
-        addScreenRecipes();
-        addDoorAndTrapdoorRecipes();
-
-        addIndicatingRecipes(
-                ModBlocks.RIGHT_INDICATING_BLUE_LABORATORY_BLOCK.get(),
-                ModBlocks.LEFT_INDICATING_BLUE_LABORATORY_BLOCK.get(),
-                Items.BLUE_WOOL
-        );
-        addIndicatingRecipes(
-                ModBlocks.RIGHT_INDICATING_RED_LABORATORY_BLOCK.get(),
-                ModBlocks.LEFT_INDICATING_RED_LABORATORY_BLOCK.get(),
-                Items.RED_WOOL
-        );
-        addIndicatingRecipes(
-                ModBlocks.RIGHT_INDICATING_GREEN_LABORATORY_BLOCK.get(),
-                ModBlocks.LEFT_INDICATING_GREEN_LABORATORY_BLOCK.get(),
-                Items.GREEN_WOOL
-        );
+        addPaletteRecipes(false);
+        addPaletteRecipes(true);
 
         ModDatagenEntries.WOOD_FAMILIES.forEach(this::addWoodRecipes);
-        addStonecutterRecipes();
+        addStonecutterRecipes(false);
+        addStonecutterRecipes(true);
 
         ModDatagenEntries.ALL_PAIRS.forEach(pair -> addGlowstoneUpgrade(pair.base().get(), pair.glowing().get()));
         ModDatagenEntries.PILLAR_PAIRS.forEach(pair -> addGlowstoneUpgrade(pair.base().get(), pair.glowing().get()));
         ModDatagenEntries.FAN_PAIRS.forEach(pair -> addGlowstoneUpgrade(pair.base().get(), pair.glowing().get()));
     }
 
+    private void addPaletteRecipes(boolean dark) {
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.REINFORCED_LABORATORY_BLOCK.get(), dark), 2)
+                .pattern("A A")
+                .pattern(" B ")
+                .pattern("A A")
+                .define('A', ModItems.IRON_SCREW.get())
+                .define('B', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_TILES.get(), dark), 8)
+                .pattern("AA")
+                .pattern("AA")
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
+
+        if (!dark) {
+            shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAY_LABORATORY_TILES.get(), 8)
+                    .pattern("AAA")
+                    .pattern("ABA")
+                    .pattern("AAA")
+                    .define('A', ModBlocks.LABORATORY_TILES.get())
+                    .define('B', DyeColor.GRAY.getTag())
+                    .unlockedBy(getHasName(ModBlocks.LABORATORY_TILES.get()), has(ModBlocks.LABORATORY_TILES.get()))
+                    .unlockedBy("has_gray_dye", has(DyeColor.GRAY.getTag()))
+                    .save(output);
+        }
+
+        if (!dark) {
+            shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MIXED_LABORATORY_TILES.get(), 2)
+                    .requires(ModBlocks.GRAY_LABORATORY_TILES.get())
+                    .requires(ModBlocks.LABORATORY_TILES.get())
+                    .unlockedBy(getHasName(ModBlocks.GRAY_LABORATORY_TILES.get()), has(ModBlocks.GRAY_LABORATORY_TILES.get()))
+                    .save(output);
+        }
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_VENT.get(), dark))
+                .pattern(" B ")
+                .pattern("BAB")
+                .pattern(" B ")
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .define('B', Items.IRON_NUGGET)
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
+                .save(output);
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_PILLAR.get(), dark), 2)
+                .pattern("A")
+                .pattern("A")
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_GLASS.get(), dark), 8)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .define('A', Items.GLASS)
+                .define('B', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(Items.GLASS), has(Items.GLASS))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .save(output);
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_FAN.get(), dark))
+                .pattern("ABA")
+                .pattern("BCB")
+                .pattern("ABA")
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .define('B', Items.IRON_NUGGET)
+                .define('C', ModItems.IRON_SCREW.get())
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
+                .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
+                .unlockedBy(getHasName(ModItems.IRON_SCREW.get()), has(ModItems.IRON_SCREW.get()))
+                .save(output);
+
+        shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_FAN_REDSTONE_CONTROLLED.get(), dark))
+                .requires(palette(ModBlocks.LABORATORY_FAN.get(), dark))
+                .requires(Items.REDSTONE)
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_FAN.get(), dark)), has(palette(ModBlocks.LABORATORY_FAN.get(), dark)))
+                .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
+                .save(output);
+
+        addScreenRecipes(dark);
+        addDoorAndTrapdoorRecipes(dark);
+
+        addIndicatingRecipes(
+                palette(ModBlocks.RIGHT_INDICATING_BLUE_LABORATORY_BLOCK.get(), dark),
+                palette(ModBlocks.LEFT_INDICATING_BLUE_LABORATORY_BLOCK.get(), dark),
+                DyeColor.BLUE
+        );
+        addIndicatingRecipes(
+                palette(ModBlocks.RIGHT_INDICATING_RED_LABORATORY_BLOCK.get(), dark),
+                palette(ModBlocks.LEFT_INDICATING_RED_LABORATORY_BLOCK.get(), dark),
+                DyeColor.RED
+        );
+        addIndicatingRecipes(
+                palette(ModBlocks.RIGHT_INDICATING_GREEN_LABORATORY_BLOCK.get(), dark),
+                palette(ModBlocks.LEFT_INDICATING_GREEN_LABORATORY_BLOCK.get(), dark),
+                DyeColor.GREEN
+        );
+
+    }
+
+    private Block palette(Block original, boolean dark) {
+        return dark ? ModBlockPalettes.darkVariant(original) : original;
+    }
+
     private void addWoodRecipes(ModDatagenEntries.WoodFamily family) {
+        Block base = ModBlockPalettes.isDark(family.floorPair().base().get()) ? ModBlocks.DARK_LABORATORY_BLOCK.get() : ModBlocks.LABORATORY_BLOCK.get();
         shaped(RecipeCategory.BUILDING_BLOCKS, family.floorPair().base().get(), 8)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', base)
                 .define('B', family.planks())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(base), has(base))
                 .unlockedBy(getHasName(family.planks()), has(family.planks()))
                 .save(output);
 
@@ -216,7 +243,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
 
         addStonecuttingRecipe(family.floorPair().base().get(), family.tilePair().base().get(), 2);
-        addStonecuttingRecipe(family.floorPair().glowing().get(), family.tilePair().glowing().get(), 2);
+        // Each glowing block contains one recoverable Glowstone Particle; never multiply it.
+        addStonecuttingRecipe(family.floorPair().glowing().get(), family.tilePair().glowing().get(), 1);
     }
 
     private void addGlowstoneUpgrade(Block base, Block glowing) {
@@ -227,130 +255,127 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
     }
 
-    private void addScreenRecipes() {
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
+    private void addScreenRecipes(boolean dark) {
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
                 .pattern("BAB")
                 .pattern("ACA")
                 .pattern("BAB")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', ModItems.IRON_SCREW.get())
-                .define('C', ModBlocks.LABORATORY_GLASS.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .define('C', palette(ModBlocks.LABORATORY_GLASS.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(ModItems.IRON_SCREW.get()), has(ModItems.IRON_SCREW.get()))
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_GLASS.get()), has(ModBlocks.LABORATORY_GLASS.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_GLASS.get(), dark)), has(palette(ModBlocks.LABORATORY_GLASS.get(), dark)))
                 .save(output);
 
-        shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WAVE_LABORATORY_SCREEN.get(), 4)
-                .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
-                .requires(Items.CYAN_DYE)
-                .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
-                .unlockedBy(getHasName(Items.CYAN_DYE), has(Items.CYAN_DYE))
+        shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.WAVE_LABORATORY_SCREEN.get(), dark), 4)
+                .requires(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
+                .requires(tag(DyeColor.CYAN.getTag()))
+                .unlockedBy(getHasName(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)), has(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)))
+                .unlockedBy("has_cyan_dye", has(DyeColor.CYAN.getTag()))
                 .save(output);
 
-        shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TEXT_LABORATORY_SCREEN.get(), 4)
-                .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
-                .requires(Items.LIME_DYE)
-                .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
-                .unlockedBy(getHasName(Items.LIME_DYE), has(Items.LIME_DYE))
+        shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.TEXT_LABORATORY_SCREEN.get(), dark), 4)
+                .requires(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
+                .requires(tag(DyeColor.LIME.getTag()))
+                .unlockedBy(getHasName(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)), has(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)))
+                .unlockedBy("has_lime_dye", has(DyeColor.LIME.getTag()))
                 .save(output);
 
-        shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), 4)
-                .requires(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), 4)
-                .requires(Items.PURPLE_DYE)
-                .unlockedBy(getHasName(ModBlocks.CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.CLEAR_LABORATORY_SCREEN.get()))
-                .unlockedBy(getHasName(Items.PURPLE_DYE), has(Items.PURPLE_DYE))
+        shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), dark), 4)
+                .requires(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
+                .requires(tag(DyeColor.PURPLE.getTag()))
+                .unlockedBy(getHasName(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)), has(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)))
+                .unlockedBy("has_purple_dye", has(DyeColor.PURPLE.getTag()))
                 .save(output);
     }
 
-    private void addStonecutterRecipes() {
-        addStonecuttingRecipe(ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_TILES.get(), 2);
-        addStonecuttingRecipe(ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_PILLAR.get(), 1);
-        addStonecuttingRecipe(ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_DOOR.get(), 1);
-        addStonecuttingRecipe(ModBlocks.LABORATORY_BLOCK.get(), ModBlocks.LABORATORY_TRAPDOOR.get(), 1);
-        addStonecuttingRecipe(ModBlocks.GLOWING_LABORATORY_BLOCK.get(), ModBlocks.GLOWING_LABORATORY_TILES.get(), 2);
-        addStonecuttingRecipe(ModBlocks.GLOWING_LABORATORY_BLOCK.get(), ModBlocks.GLOWING_LABORATORY_PILLAR.get(), 1);
-        addStonecuttingRecipe(ModBlocks.GRAY_LABORATORY_TILES.get(), ModBlocks.GRAY_LABORATORY_PILLAR.get(), 1);
-        addStonecuttingRecipe(ModBlocks.GLOWING_GRAY_LABORATORY_TILES.get(), ModBlocks.GLOWING_GRAY_LABORATORY_PILLAR.get(), 1);
+    private void addStonecutterRecipes(boolean dark) {
+        addStonecuttingRecipe(palette(ModBlocks.LABORATORY_BLOCK.get(), dark), palette(ModBlocks.LABORATORY_TILES.get(), dark), 2);
+        addStonecuttingRecipe(palette(ModBlocks.LABORATORY_BLOCK.get(), dark), palette(ModBlocks.LABORATORY_PILLAR.get(), dark), 1);
+        addStonecuttingRecipe(palette(ModBlocks.LABORATORY_BLOCK.get(), dark), palette(ModBlocks.LABORATORY_DOOR.get(), dark), 1);
+        addStonecuttingRecipe(palette(ModBlocks.LABORATORY_BLOCK.get(), dark), palette(ModBlocks.LABORATORY_TRAPDOOR.get(), dark), 1);
+        addStonecuttingRecipe(palette(ModBlocks.GLOWING_LABORATORY_BLOCK.get(), dark), palette(ModBlocks.GLOWING_LABORATORY_TILES.get(), dark), 1);
+        addStonecuttingRecipe(palette(ModBlocks.GLOWING_LABORATORY_BLOCK.get(), dark), palette(ModBlocks.GLOWING_LABORATORY_PILLAR.get(), dark), 1);
     }
 
-    private void addIndicatingRecipes(Block rightBlock, Block leftBlock, Item colorWool) {
+    private void addIndicatingRecipes(Block rightBlock, Block leftBlock, DyeColor color) {
         shaped(RecipeCategory.BUILDING_BLOCKS, rightBlock, 8)
                 .pattern("AAA")
                 .pattern("BBC")
                 .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .define('B', colorWool)
-                .define('C', Blocks.BLACK_WOOL)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .define('A', ModBlockPalettes.isDark(rightBlock) ? ModBlocks.DARK_LABORATORY_BLOCK.get() : ModBlocks.LABORATORY_BLOCK.get())
+                .define('B', woolIngredient(color))
+                .define('C', woolIngredient(DyeColor.BLACK))
+                .unlockedBy("has_laboratory_block", has(ModBlockPalettes.isDark(rightBlock) ? ModBlocks.DARK_LABORATORY_BLOCK.get() : ModBlocks.LABORATORY_BLOCK.get()))
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
                 .save(output);
 
-        shaped(RecipeCategory.BUILDING_BLOCKS, leftBlock, 8)
-                .pattern("AAA")
-                .pattern("CBB")
-                .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .define('B', colorWool)
-                .define('C', Blocks.BLACK_WOOL)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
-                .unlockedBy("has_wool", has(ItemTags.WOOL))
+        // Shaped crafting also accepts mirrored patterns, so opposite arrows need an explicit conversion.
+        shapeless(RecipeCategory.BUILDING_BLOCKS, leftBlock)
+                .requires(rightBlock)
+                .unlockedBy(getHasName(rightBlock), has(rightBlock))
                 .save(output);
+        shapeless(RecipeCategory.BUILDING_BLOCKS, rightBlock)
+                .requires(leftBlock)
+                .unlockedBy(getHasName(leftBlock), has(leftBlock))
+                .save(output, modLoc(BuiltInRegistries.BLOCK.getKey(rightBlock).getPath() + "_from_left"));
     }
 
-    private void addDoorAndTrapdoorRecipes() {
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_DOOR.get(), 3)
+    private void addDoorAndTrapdoorRecipes(boolean dark) {
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_DOOR.get(), dark), 3)
                 .pattern("AA ")
                 .pattern("AA ")
                 .pattern("AA ")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .save(output);
 
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.LABORATORY_TRAPDOOR.get(), 2)
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.LABORATORY_TRAPDOOR.get(), dark), 2)
                 .pattern("   ")
                 .pattern("AAA")
                 .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .save(output);
 
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MESH_LABORATORY_DOOR.get(), 3)
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.MESH_LABORATORY_DOOR.get(), dark), 3)
                 .pattern("AA ")
                 .pattern("BB ")
                 .pattern("AA ")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.IRON_BARS)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.IRON_BARS), has(Items.IRON_BARS))
                 .save(output);
 
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MESH_LABORATORY_TRAPDOOR.get(), 2)
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.MESH_LABORATORY_TRAPDOOR.get(), dark), 2)
                 .pattern("   ")
                 .pattern("ABA")
                 .pattern("ABA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.IRON_BARS)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.IRON_BARS), has(Items.IRON_BARS))
                 .save(output);
 
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_LABORATORY_DOOR.get(), 3)
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.GLASS_LABORATORY_DOOR.get(), dark), 3)
                 .pattern("AA ")
                 .pattern("BB ")
                 .pattern("AA ")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.GLASS_PANE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
                 .save(output);
 
-        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.GLASS_LABORATORY_TRAPDOOR.get(), 2)
+        shaped(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.GLASS_LABORATORY_TRAPDOOR.get(), dark), 2)
                 .pattern("   ")
                 .pattern("ABA")
                 .pattern("ABA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', palette(ModBlocks.LABORATORY_BLOCK.get(), dark))
                 .define('B', Items.GLASS_PANE)
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)), has(palette(ModBlocks.LABORATORY_BLOCK.get(), dark)))
                 .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
                 .save(output);
     }
@@ -366,5 +391,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static @NotNull ResourceKey<net.minecraft.world.item.crafting.Recipe<?>> modLoc(String path) {
         return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(ModBlocks.LABORATORY_BLOCK.getId().getNamespace(), path));
+    }
+
+    private Ingredient woolIngredient(DyeColor color) {
+        return Ingredient.of(BuiltInRegistries.ITEM.getValue(Identifier.withDefaultNamespace(color.getName() + "_wool")));
     }
 }
