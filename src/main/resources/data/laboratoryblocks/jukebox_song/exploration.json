@@ -1,0 +1,8 @@
+{
+    "sound_event":  "laboratoryblocks:music_disc.exploration",
+    "description":  {
+                        "translate":  "item.laboratoryblocks.music_disc_exploration.desc"
+                    },
+    "length_in_seconds":  134.4,
+    "comparator_output":  13
+}

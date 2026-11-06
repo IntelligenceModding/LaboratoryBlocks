@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "laboratoryblocks:glowing_dark_bamboo_laboratory_floor",
+  "result": {
+    "id": "laboratoryblocks:glowing_dark_bamboo_laboratory_tiles"
+  }
+}

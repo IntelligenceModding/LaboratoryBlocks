@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:laboratory_fan",
+    "laboratoryblocks:laboratory_fan",
+    "laboratoryblocks:laboratory_fan",
+    "laboratoryblocks:laboratory_fan",
+    "laboratoryblocks:laboratory_fan",
+    "laboratoryblocks:laboratory_fan",
+    "laboratoryblocks:laboratory_fan",
+    "laboratoryblocks:laboratory_fan",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:dark_laboratory_fan"
+  }
+}
