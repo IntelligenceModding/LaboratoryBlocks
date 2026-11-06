@@ -21,7 +21,13 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
     @Override
     protected void addTranslations() {
         add("itemGroup.laboratoryblocks", "Artemis' Laboratory Blocks");
+        add("itemGroup.laboratoryblocks.dark", "Artemis' Dark Laboratory Blocks");
+        add("jukebox_song.laboratoryblocks.exploration", "Cleyton Kauffman - Exploration");
+        add("jukebox_song.laboratoryblocks.pondering_the_cosmos", "Ruskerdax - Pondering the Cosmos");
         add("tooltip.laboratoryblocks.configuration_tool.remove_glowstone", "Right-click glowing blocks to remove Glowstone Particles.");
+
+        add("item.laboratoryblocks.music_disc_exploration.desc", "Cleyton Kauffman - Exploration");
+        add("item.laboratoryblocks.music_disc_pondering_the_cosmos.desc", "Ruskerdax - Pondering the Cosmos");
 
         ModDatagenEntries.ALL_PAIRS.forEach(pair -> {
             add(pair.base().get(), humanize(pair.base().getId().getPath()));

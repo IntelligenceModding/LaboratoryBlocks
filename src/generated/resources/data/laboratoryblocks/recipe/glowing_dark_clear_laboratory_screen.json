@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "laboratoryblocks:glowing_dark_clear_laboratory_screen"
+  }
+}

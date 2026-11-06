@@ -155,6 +155,79 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
                 .save(recipeOutput);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_REINFORCED_LABORATORY_BLOCK.get(), 2)
+                .pattern("A A")
+                .pattern(" B ")
+                .pattern("A A")
+                .define('A', ModItems.IRON_SCREW.get())
+                .define('B', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_LABORATORY_TILES.get(), 8)
+                .pattern("AA")
+                .pattern("AA")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_LABORATORY_VENT.get())
+                .pattern(" B ")
+                .pattern("BAB")
+                .pattern(" B ")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .define('B', Items.IRON_NUGGET)
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_LABORATORY_PILLAR.get(), 2)
+                .pattern("A")
+                .pattern("A")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_LABORATORY_GLASS.get(), 8)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .define('A', Items.GLASS)
+                .define('B', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .unlockedBy(getHasName(Items.GLASS), has(Items.GLASS))
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_LABORATORY_FAN.get())
+                .pattern("ABA")
+                .pattern("BCB")
+                .pattern("ABA")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .define('B', Items.IRON_NUGGET)
+                .define('C', ModItems.IRON_SCREW.get())
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
+                .unlockedBy(getHasName(ModItems.IRON_SCREW.get()), has(ModItems.IRON_SCREW.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_LABORATORY_FAN_REDSTONE_CONTROLLED.get())
+                .requires(ModBlocks.DARK_LABORATORY_FAN.get())
+                .requires(Items.REDSTONE)
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_FAN.get()), has(ModBlocks.DARK_LABORATORY_FAN.get()))
+                .unlockedBy(getHasName(Items.REDSTONE), has(Items.REDSTONE))
+                .save(recipeOutput);
+
+        addScreenRecipesDark(recipeOutput);
+        addDoorAndTrapdoorRecipesDark(recipeOutput);
+        addStonecutterRecipesDark(recipeOutput);
+        addIndicatingRecipesDark(recipeOutput, ModBlocks.DARK_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK.get(), ModBlocks.DARK_LEFT_INDICATING_BLUE_LABORATORY_BLOCK.get(), Items.BLUE_WOOL);
+        addIndicatingRecipesDark(recipeOutput, ModBlocks.DARK_RIGHT_INDICATING_RED_LABORATORY_BLOCK.get(), ModBlocks.DARK_LEFT_INDICATING_RED_LABORATORY_BLOCK.get(), Items.RED_WOOL);
+        addIndicatingRecipesDark(recipeOutput, ModBlocks.DARK_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK.get(), ModBlocks.DARK_LEFT_INDICATING_GREEN_LABORATORY_BLOCK.get(), Items.GREEN_WOOL);
+        de.artemis.laboratoryblocks.common.registry.ModBlockPalettes.BLOCK_ORDER.stream().filter(pair -> pair.dark() != null).forEach(pair -> {
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, pair.dark().get(), 8).requires(pair.original().get(), 8).requires(Items.BLACK_DYE).unlockedBy(getHasName(pair.original().get()), has(pair.original().get())).save(recipeOutput, modLoc(BuiltInRegistries.BLOCK.getKey(pair.dark().get()).getPath() + "_from_black_dye"));
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, pair.original().get(), 8).requires(pair.dark().get(), 8).requires(Items.WHITE_DYE).unlockedBy(getHasName(pair.dark().get()), has(pair.dark().get())).save(recipeOutput, modLoc(BuiltInRegistries.BLOCK.getKey(pair.original().get()).getPath() + "_from_white_dye"));
+        });
+
         addScreenRecipes(recipeOutput);
         addDoorAndTrapdoorRecipes(recipeOutput);
 
@@ -191,9 +264,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
-                .define('A', ModBlocks.LABORATORY_BLOCK.get())
+                .define('A', (de.artemis.laboratoryblocks.common.registry.ModBlockPalettes.isDark(family.floorPair().base().get()) ? ModBlocks.DARK_LABORATORY_BLOCK.get() : ModBlocks.LABORATORY_BLOCK.get()))
                 .define('B', family.planks())
-                .unlockedBy(getHasName(ModBlocks.LABORATORY_BLOCK.get()), has(ModBlocks.LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName((de.artemis.laboratoryblocks.common.registry.ModBlockPalettes.isDark(family.floorPair().base().get()) ? ModBlocks.DARK_LABORATORY_BLOCK.get() : ModBlocks.LABORATORY_BLOCK.get())), has((de.artemis.laboratoryblocks.common.registry.ModBlockPalettes.isDark(family.floorPair().base().get()) ? ModBlocks.DARK_LABORATORY_BLOCK.get() : ModBlocks.LABORATORY_BLOCK.get())))
                 .unlockedBy(getHasName(family.planks()), has(family.planks()))
                 .save(recipeOutput);
 
@@ -357,4 +430,131 @@ public class ModRecipeProvider extends RecipeProvider {
     private static ResourceLocation modLoc(String path) {
         return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }
+    private void addScreenRecipesDark(RecipeOutput recipeOutput) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get(), 4)
+                .pattern("BAB")
+                .pattern("ACA")
+                .pattern("BAB")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .define('B', ModItems.IRON_SCREW.get())
+                .define('C', ModBlocks.DARK_LABORATORY_GLASS.get())
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(ModItems.IRON_SCREW.get()), has(ModItems.IRON_SCREW.get()))
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_GLASS.get()), has(ModBlocks.DARK_LABORATORY_GLASS.get()))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_WAVE_LABORATORY_SCREEN.get(), 4)
+                .requires(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get(), 4)
+                .requires(Items.CYAN_DYE)
+                .unlockedBy(getHasName(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get()))
+                .unlockedBy(getHasName(Items.CYAN_DYE), has(Items.CYAN_DYE))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_TEXT_LABORATORY_SCREEN.get(), 4)
+                .requires(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get(), 4)
+                .requires(Items.LIME_DYE)
+                .unlockedBy(getHasName(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get()))
+                .unlockedBy(getHasName(Items.LIME_DYE), has(Items.LIME_DYE))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_QUANTUM_LABORATORY_SCREEN.get(), 4)
+                .requires(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get(), 4)
+                .requires(Items.PURPLE_DYE)
+                .unlockedBy(getHasName(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get()), has(ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get()))
+                .unlockedBy(getHasName(Items.PURPLE_DYE), has(Items.PURPLE_DYE))
+                .save(recipeOutput);
+    }
+
+    private void addDoorAndTrapdoorRecipesDark(RecipeOutput recipeOutput) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_LABORATORY_DOOR.get(), 3)
+                .pattern("AA ")
+                .pattern("AA ")
+                .pattern("AA ")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_LABORATORY_TRAPDOOR.get(), 2)
+                .pattern("   ")
+                .pattern("AAA")
+                .pattern("AAA")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_MESH_LABORATORY_DOOR.get(), 3)
+                .pattern("AA ")
+                .pattern("BB ")
+                .pattern("AA ")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .define('B', Items.IRON_BARS)
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(Items.IRON_BARS), has(Items.IRON_BARS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_MESH_LABORATORY_TRAPDOOR.get(), 2)
+                .pattern("   ")
+                .pattern("ABA")
+                .pattern("ABA")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .define('B', Items.IRON_BARS)
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(Items.IRON_BARS), has(Items.IRON_BARS))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_GLASS_LABORATORY_DOOR.get(), 3)
+                .pattern("AA ")
+                .pattern("BB ")
+                .pattern("AA ")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .define('B', Items.GLASS_PANE)
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_GLASS_LABORATORY_TRAPDOOR.get(), 2)
+                .pattern("   ")
+                .pattern("ABA")
+                .pattern("ABA")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .define('B', Items.GLASS_PANE)
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .unlockedBy(getHasName(Items.GLASS_PANE), has(Items.GLASS_PANE))
+                .save(recipeOutput);
+    }
+
+    private void addIndicatingRecipesDark(RecipeOutput recipeOutput, Block rightBlock, Block leftBlock, Item colorWool) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, rightBlock, 8)
+                .pattern("AAA")
+                .pattern("BBC")
+                .pattern("AAA")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .define('B', colorWool)
+                .define('C', Blocks.BLACK_WOOL)
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, leftBlock, 8)
+                .pattern("AAA")
+                .pattern("CBB")
+                .pattern("AAA")
+                .define('A', ModBlocks.DARK_LABORATORY_BLOCK.get())
+                .define('B', colorWool)
+                .define('C', Blocks.BLACK_WOOL)
+                .unlockedBy(getHasName(ModBlocks.DARK_LABORATORY_BLOCK.get()), has(ModBlocks.DARK_LABORATORY_BLOCK.get()))
+                .unlockedBy("has_wool", has(ItemTags.WOOL))
+                .save(recipeOutput);
+    }
+
+    private void addStonecutterRecipesDark(RecipeOutput recipeOutput) {
+        addStonecuttingRecipe(recipeOutput, ModBlocks.DARK_LABORATORY_BLOCK.get(), ModBlocks.DARK_LABORATORY_TILES.get(), 2);
+        addStonecuttingRecipe(recipeOutput, ModBlocks.DARK_LABORATORY_BLOCK.get(), ModBlocks.DARK_LABORATORY_PILLAR.get(), 1);
+        addStonecuttingRecipe(recipeOutput, ModBlocks.DARK_LABORATORY_BLOCK.get(), ModBlocks.DARK_LABORATORY_DOOR.get(), 1);
+        addStonecuttingRecipe(recipeOutput, ModBlocks.DARK_LABORATORY_BLOCK.get(), ModBlocks.DARK_LABORATORY_TRAPDOOR.get(), 1);
+        addStonecuttingRecipe(recipeOutput, ModBlocks.GLOWING_DARK_LABORATORY_BLOCK.get(), ModBlocks.GLOWING_DARK_LABORATORY_TILES.get(), 2);
+        addStonecuttingRecipe(recipeOutput, ModBlocks.GLOWING_DARK_LABORATORY_BLOCK.get(), ModBlocks.GLOWING_DARK_LABORATORY_PILLAR.get(), 1);
+    }
+
+
 }

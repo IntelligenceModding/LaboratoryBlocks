@@ -17,169 +17,17 @@
 </p>
 
 <p align="center">
-  Laboratory Blocks is available across <strong>Fabric</strong>, <strong>Forge</strong>, and <strong>NeoForge</strong> for a wide range of Minecraft versions.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Loader-Fabric-DBD0B4?style=for-the-badge" alt="Fabric">
-  &nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/Loader-Forge-E04E14?style=for-the-badge" alt="Forge">
-  &nbsp;&nbsp;
+  <img src="https://img.shields.io/badge/Minecraft-1.21.1-3C8527?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft 1.21.1">
+  &nbsp;&nbsp;&nbsp;
   <img src="https://img.shields.io/badge/Loader-NeoForge-6C47FF?style=for-the-badge" alt="NeoForge">
 </p>
 
-<h3 align="center">Fabric</h3>
-
-<table align="center">
-  <thead>
-    <tr>
-      <th align="center">Minecraft</th>
-      <th align="center">Fabric Loader</th>
-      <th align="center">Fabric API</th>
-      <th align="center">Fusion</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><strong>1.18.2</strong></td>
-      <td align="center"><code>0.14.9+</code></td>
-      <td align="center"><code>0.67.0+1.18.2+</code></td>
-      <td align="center"><code>1.3.2+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>1.19.2</strong></td>
-      <td align="center"><code>0.16.1+</code></td>
-      <td align="center"><code>0.60.0+1.19.2+</code></td>
-      <td align="center"><code>1.3.2+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>1.20.1</strong></td>
-      <td align="center"><code>0.14.21+</code></td>
-      <td align="center"><code>0.83.1+1.20.1+</code></td>
-      <td align="center"><code>1.3.2+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>1.21.1</strong></td>
-      <td align="center"><code>0.18.5+</code></td>
-      <td align="center"><code>0.116.15+1.21.1+</code></td>
-      <td align="center"><code>1.2.12+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>1.21.11</strong></td>
-      <td align="center"><code>0.18.0+</code></td>
-      <td align="center"><code>0.140.0+</code></td>
-      <td align="center"><code>1.3.2a+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>26.1 / 26.1.1 / 26.1.2</strong></td>
-      <td align="center"><code>0.19.0+</code></td>
-      <td align="center"><code>0.145.0+</code></td>
-      <td align="center"><code>1.3.5+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>26.2</strong></td>
-      <td align="center"><code>0.19.3+</code></td>
-      <td align="center"><code>0.152.2+</code></td>
-      <td align="center"><code>1.3.2+</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 align="center">Forge</h3>
-
-<table align="center">
-  <thead>
-    <tr>
-      <th align="center">Minecraft</th>
-      <th align="center">Forge</th>
-      <th align="center">Fusion</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><strong>1.16.5</strong></td>
-      <td align="center"><code>36.2.34+</code></td>
-      <td align="center"><code>1.2.12+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>1.18.2</strong></td>
-      <td align="center"><code>40.3.0 – 40.x</code></td>
-      <td align="center"><code>1.3.15+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>1.19.2</strong></td>
-      <td align="center"><code>43.x</code></td>
-      <td align="center"><code>1.3.15+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>1.20.1</strong></td>
-      <td align="center"><code>47.1.5 – 47.x</code></td>
-      <td align="center"><code>1.3.15+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>1.21.1</strong></td>
-      <td align="center"><code>52.x</code></td>
-      <td align="center"><code>1.3.15+</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 align="center">NeoForge</h3>
-
-<table align="center">
-  <thead>
-    <tr>
-      <th align="center">Minecraft</th>
-      <th align="center">NeoForge</th>
-      <th align="center">Fusion</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><strong>1.21.1</strong></td>
-      <td align="center"><code>21.1.226+</code></td>
-      <td align="center"><code>1.2.12+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>1.21.11</strong></td>
-      <td align="center"><code>21.11.42+</code></td>
-      <td align="center"><code>1.2.11a+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>26.1</strong></td>
-      <td align="center"><code>26.1.0.19-beta+</code></td>
-      <td align="center"><code>1.3.3+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>26.1.1</strong></td>
-      <td align="center"><code>26.1.1.15-beta+</code></td>
-      <td align="center"><code>1.3.3+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>26.1.2</strong></td>
-      <td align="center"><code>26.1.2.76+</code></td>
-      <td align="center"><code>1.3.3+</code></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>26.2</strong></td>
-      <td align="center"><code>26.2.0.57+</code></td>
-      <td align="center"><code>1.3.4+</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<br>
-
 <p align="center">
-  <strong>Fusion is required on every supported Minecraft version and mod loader.</strong>
+  <strong>Fusion is REQUIRED. Minecraft will not launch with Laboratory Blocks installed unless Fusion is also installed.</strong>
 </p>
 
 <p align="center">
-  Fusion provides the connected texture system used by Laboratory Blocks. Make sure to install a compatible Fusion version for your Minecraft version and mod loader.
-</p>
-
-<p align="center">
-  Fabric releases additionally require <strong>Fabric API</strong>.
+  Install the NeoForge version of Fusion for your Minecraft version alongside Laboratory Blocks. Fusion provides the mod's connected textures and is a mandatory client dependency.
 </p>
 
 <p align="center">
@@ -195,17 +43,31 @@
 </p>
 
 <p align="center">
-  Artemis' Laboratory Blocks currently includes the following building pieces:
+  Build complete laboratory interiors with regular and dark blocksets, each with its own creative tab:
 </p>
 
 <p align="center">
   &bull; Connected laboratory blocks and tiles<br>
   &bull; Reinforced structure blocks<br>
-  &bull; Laboratory vents and fans<br>
-  &bull; Indicator blocks<br>
-  &bull; Laboratory screens<br>
-  &bull; Themed floors and tiles<br>
-  &bull; Doors and trapdoors
+  &bull; Laboratory pillars and glass<br>
+  &bull; Laboratory vents, fans, and redstone-controlled fans<br>
+  &bull; Left and right indicator blocks in blue, red, and green<br>
+  &bull; Clear, wave, text, and quantum laboratory screens<br>
+  &bull; Wooden laboratory floors and tiles in multiple wood types<br>
+  &bull; Solid, mesh, and glass doors and trapdoors
+</p>
+
+<p align="center">
+  Add Glowstone Particles to supported blocks to make them glow, and use the Configuration Tool to remove and recover the particles.<br>
+  Convert between regular and dark variants using black or white dye, and change wooden floor and tile species using planks.<br>
+  Craft your building materials, shape them with the stonecutter, and progress through laboratory-themed advancements.
+</p>
+
+<p align="center">
+  Music discs: <strong>Exploration</strong> and <strong>Pondering the Cosmos</strong>.<br>
+  Discover <strong>Exploration</strong> in abandoned mineshaft chests and <strong>Pondering the Cosmos</strong> in End City treasure chests (10% chance per chest).<br>
+  Both also drop from creepers killed by skeletons and appear in the mod's creative tabs and Tools &amp; Utilities.<br>
+  Play either disc in a jukebox to earn the Laboratory Soundtrack advancement.
 </p>
 
 <br>
@@ -273,36 +135,16 @@
 </p>
 
 <p align="center">
-  Special thanks and credits:
-</p>
-
-<p align="center">
-  &bull; The Fabric, Forge, and NeoForge teams for their modding platforms and documentation<br>
-  &bull; The Minecraft modding community for examples, tools, and support<br>
-  &bull; The Intelligence Modding community for feedback, testing, and ideas<br>
-  &bull; Everyone who reports issues, suggests improvements, or includes the mod in their worlds or modpacks<br>
-  &bull; The Chisel project and its contributors for sound assets used in Laboratory Blocks<br>
-  &bull; FALCONS_SHADOW on freesound.org for the Configuration Tool sound used by the mod
-</p>
-
-<p align="center">
   Some textures and sounds are inspired by or adapted from vanilla Minecraft assets.
+  <br>Connected textures powered by Fusion.<br>
+  Block sounds: <a href="https://github.com/Chisel-Team/Chisel">Chisel and its contributors</a>.<br>
+  Configuration Tool sound: <a href="https://freesound.org/people/FALCONS_SHADOW/sounds/408482/">FALCONS_SHADOW on freesound.org</a>.
 </p>
 
 <p align="center">
-  Connected texture support is powered by Fusion.
-</p>
-
-<p align="center">
-  Some Laboratory Blocks sound files are sourced from the <a href="https://github.com/Chisel-Team/Chisel">Chisel GitHub repository</a>, with full credit to that project's creators and contributors.
-</p>
-
-<p align="center">
-  Configuration Tool sounds were downloaded from <a href="https://freesound.org/people/FALCONS_SHADOW/sounds/408482/">freesound.org</a>.
-</p>
-
-<p align="center">
-  Laboratory Blocks is released under the MIT License.
+  Music credits: <strong>Exploration</strong> by Cleyton Kauffman and <strong>Pondering the Cosmos</strong> by Ruskerdax.<br>
+  Both tracks are released under CC0 1.0 Universal.<br>
+  <a href="src/main/resources/THIRD_PARTY_NOTICES.md">Music credits, sources, and licenses</a>
 </p>
 
 <p align="center">

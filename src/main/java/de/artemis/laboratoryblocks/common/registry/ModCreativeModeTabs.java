@@ -21,6 +21,8 @@ public class ModCreativeModeTabs {
                     .icon(() -> ModBlocks.QUANTUM_LABORATORY_SCREEN.get().asItem().getDefaultInstance())
                     .title(Component.translatable("itemGroup.laboratoryblocks"))
                     .displayItems((itemDisplayParameters, output) -> Arrays.stream(new Item[]{
+                            ModItems.MUSIC_DISC_EXPLORATION.get(),
+                            ModItems.MUSIC_DISC_PONDERING_THE_COSMOS.get(),
                             ModItems.CONFIGURATION_TOOL.get(),
                             ModItems.IRON_SCREW.get(),
                             ModItems.GLOWSTONE_PARTICLES.get(),
@@ -118,6 +120,18 @@ public class ModCreativeModeTabs {
                             ModBlocks.GLASS_LABORATORY_TRAPDOOR.get().asItem()
                     }).forEach(output::accept))
                     .build());
+
+    public static final Supplier<CreativeModeTab> DARK_LABORATORY_BLOCKS_CREATIVE_TAB = CREATIVE_MODE_TAB.register("dark_laboratory_blocks_creative_tab",
+        () -> CreativeModeTab.builder().icon(() -> ModBlocks.DARK_QUANTUM_LABORATORY_SCREEN.get().asItem().getDefaultInstance())
+            .title(Component.translatable("itemGroup.laboratoryblocks.dark"))
+            .displayItems((parameters, output) -> {
+                output.accept(ModItems.CONFIGURATION_TOOL.get());
+                output.accept(ModItems.IRON_SCREW.get());
+                output.accept(ModItems.GLOWSTONE_PARTICLES.get());
+                ModBlockPalettes.BLOCK_ORDER.stream().filter(pair -> pair.dark() != null).forEach(pair -> output.accept(pair.dark().get()));
+                output.accept(ModItems.MUSIC_DISC_EXPLORATION.get());
+                output.accept(ModItems.MUSIC_DISC_PONDERING_THE_COSMOS.get());
+            }).build());
 
     private ModCreativeModeTabs() {
     }
