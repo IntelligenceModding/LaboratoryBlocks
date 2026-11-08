@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Minecraft-26.1.2-3C8527?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft 26.1.2">
+  <img src="https://img.shields.io/badge/Minecraft-26.1.x-3C8527?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft 26.1.x">
   &nbsp;&nbsp;&nbsp;
   <img src="https://img.shields.io/badge/Loader-Fabric-DBB69C?style=for-the-badge" alt="Fabric">
 </p>
@@ -27,6 +27,7 @@
 </p>
 
 <p align="center">
+  The same jar supports Minecraft 26.1, 26.1.1, and 26.1.2.<br>
   Fabric API is also required.<br>
   Install the Fabric version of Fusion for your Minecraft version alongside Laboratory Blocks. Fusion provides the mod's connected textures and is a mandatory client dependency.
 </p>

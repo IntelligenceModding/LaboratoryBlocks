@@ -90,7 +90,7 @@ You can view the available branches [here][branches].
 
 When contributing, always work against the branch matching the Minecraft version and loader your change targets.
 
-For example, a change developed for Minecraft 26.1.2 with Fabric should target the corresponding 26.1.2 Fabric branch.
+For example, changes for Minecraft 26.1, 26.1.1, or 26.1.2 with Fabric should target the shared `26.1.x-fabric` branch.
 
 Do **not** target the `assets` branch for code changes. The `assets` branch is used for project images and other repository assets.
 
