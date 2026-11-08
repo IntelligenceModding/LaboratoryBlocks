@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:dark_spruce_laboratory_floor",
+    "laboratoryblocks:dark_spruce_laboratory_floor",
+    "laboratoryblocks:dark_spruce_laboratory_floor",
+    "laboratoryblocks:dark_spruce_laboratory_floor",
+    "laboratoryblocks:dark_spruce_laboratory_floor",
+    "laboratoryblocks:dark_spruce_laboratory_floor",
+    "laboratoryblocks:dark_spruce_laboratory_floor",
+    "laboratoryblocks:dark_spruce_laboratory_floor",
+    "#c:dyes/white"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:spruce_laboratory_floor"
+  }
+}

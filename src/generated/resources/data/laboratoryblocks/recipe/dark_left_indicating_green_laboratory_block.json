@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:dark_right_indicating_green_laboratory_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "laboratoryblocks:dark_left_indicating_green_laboratory_block"
+  }
+}

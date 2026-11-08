@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "laboratoryblocks:dark_laboratory_block",
+  "result": {
+    "count": 1,
+    "id": "laboratoryblocks:dark_laboratory_door"
+  }
+}

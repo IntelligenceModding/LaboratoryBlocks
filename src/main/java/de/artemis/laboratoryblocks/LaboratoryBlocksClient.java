@@ -17,6 +17,14 @@ public class LaboratoryBlocksClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.REMOVING_MODIFIER_PARTICLE.get(), RemovingModifierParticle.Provider::new);
 
         BlockRenderLayerMap.putBlocks(ChunkSectionLayer.CUTOUT,
+                ModBlocks.DARK_LABORATORY_GLASS.get(),
+                ModBlocks.GLOWING_DARK_LABORATORY_GLASS.get(),
+                ModBlocks.DARK_LABORATORY_DOOR.get(),
+                ModBlocks.DARK_MESH_LABORATORY_DOOR.get(),
+                ModBlocks.DARK_GLASS_LABORATORY_DOOR.get(),
+                ModBlocks.DARK_LABORATORY_TRAPDOOR.get(),
+                ModBlocks.DARK_MESH_LABORATORY_TRAPDOOR.get(),
+                ModBlocks.DARK_GLASS_LABORATORY_TRAPDOOR.get(),
                 ModBlocks.LABORATORY_GLASS.get(),
                 ModBlocks.GLOWING_LABORATORY_GLASS.get(),
                 ModBlocks.LABORATORY_DOOR.get(),

@@ -16,9 +16,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:left_indicating_blue_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_left_indicating_blue_laboratory_block",
+                  "laboratoryblocks:left_indicating_blue_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -28,9 +34,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:right_indicating_blue_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_right_indicating_blue_laboratory_block",
+                  "laboratoryblocks:right_indicating_blue_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -40,9 +52,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:left_indicating_red_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_left_indicating_red_laboratory_block",
+                  "laboratoryblocks:left_indicating_red_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -52,9 +70,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:right_indicating_red_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_right_indicating_red_laboratory_block",
+                  "laboratoryblocks:right_indicating_red_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -64,9 +88,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:left_indicating_green_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_left_indicating_green_laboratory_block",
+                  "laboratoryblocks:left_indicating_green_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -76,9 +106,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:right_indicating_green_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:dark_right_indicating_green_laboratory_block",
+                  "laboratoryblocks:right_indicating_green_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -88,9 +124,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_left_indicating_blue_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_left_indicating_blue_laboratory_block",
+                  "laboratoryblocks:glowing_left_indicating_blue_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -100,9 +142,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_right_indicating_blue_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_right_indicating_blue_laboratory_block",
+                  "laboratoryblocks:glowing_right_indicating_blue_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -112,9 +160,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_left_indicating_red_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_left_indicating_red_laboratory_block",
+                  "laboratoryblocks:glowing_left_indicating_red_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -124,9 +178,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_right_indicating_red_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+                  "laboratoryblocks:glowing_right_indicating_red_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -136,9 +196,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_left_indicating_green_laboratory_block",
+                  "laboratoryblocks:glowing_left_indicating_green_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }
@@ -148,9 +214,15 @@
       "conditions": {
         "location": [
           {
-            "condition": "minecraft:block_state_property",
-            "block": "laboratoryblocks:glowing_right_indicating_green_laboratory_block",
-            "properties": {}
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "laboratoryblocks:glowing_dark_right_indicating_green_laboratory_block",
+                  "laboratoryblocks:glowing_right_indicating_green_laboratory_block"
+                ]
+              }
+            }
           }
         ]
       }

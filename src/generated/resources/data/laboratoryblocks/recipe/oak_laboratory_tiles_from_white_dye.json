@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:darkened_oak_laboratory_tiles",
+    "laboratoryblocks:darkened_oak_laboratory_tiles",
+    "laboratoryblocks:darkened_oak_laboratory_tiles",
+    "laboratoryblocks:darkened_oak_laboratory_tiles",
+    "laboratoryblocks:darkened_oak_laboratory_tiles",
+    "laboratoryblocks:darkened_oak_laboratory_tiles",
+    "laboratoryblocks:darkened_oak_laboratory_tiles",
+    "laboratoryblocks:darkened_oak_laboratory_tiles",
+    "#c:dyes/white"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:oak_laboratory_tiles"
+  }
+}
