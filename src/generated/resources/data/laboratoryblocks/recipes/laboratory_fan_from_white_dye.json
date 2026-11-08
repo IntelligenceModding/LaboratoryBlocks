@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_laboratory_fan"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_fan"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_fan"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_fan"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_fan"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_fan"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_fan"
+    },
+    {
+      "item": "laboratoryblocks:dark_laboratory_fan"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:laboratory_fan",
+    "count": 8
+  }
+}

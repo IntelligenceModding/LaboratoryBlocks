@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_warped_laboratory_floor"
+    ]
+  },
+  "criteria": {
+    "has_dark_laboratory_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:dark_laboratory_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_warped_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warped_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_warped_laboratory_floor"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_laboratory_block",
+      "has_warped_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

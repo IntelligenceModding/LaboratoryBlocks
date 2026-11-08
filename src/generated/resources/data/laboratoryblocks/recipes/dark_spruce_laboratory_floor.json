@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:dark_laboratory_block"
+    },
+    "B": {
+      "item": "minecraft:spruce_planks"
+    }
+  },
+  "result": {
+    "item": "laboratoryblocks:dark_spruce_laboratory_floor",
+    "count": 8
+  }
+}

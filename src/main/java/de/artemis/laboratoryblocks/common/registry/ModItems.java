@@ -21,7 +21,7 @@ public class ModItems {
 
     private static <T extends Item> RegistrySupplier<T> register(String name, Function<Item.Properties, T> itemFactory, UnaryOperator<Item.Properties> properties) {
         ResourceLocation id = id(name);
-        T item = Registry.register(Registry.ITEM, id, itemFactory.apply(properties.apply(new Item.Properties().tab(ModCreativeModeTabs.LABORATORY_BLOCKS_CREATIVE_TAB))));
+        T item = Registry.register(Registry.ITEM, id, itemFactory.apply(properties.apply(new Item.Properties().tab(tabFor(name)))));
         RegistrySupplier<T> entry = new RegistrySupplier<>(id, item);
         ENTRIES.add(entry);
         return entry;
@@ -29,6 +29,12 @@ public class ModItems {
 
     static RegistrySupplier<BlockItem> registerBlockItem(String name, Block block) {
         return register(name, properties -> new BlockItem(block, properties), UnaryOperator.identity());
+    }
+
+    private static net.minecraft.world.item.CreativeModeTab tabFor(String name) {
+        String base = name.replaceFirst("^glowing_", "");
+        boolean dark = base.startsWith("darkened_") || (base.startsWith("dark_") && !base.startsWith("dark_oak_"));
+        return dark ? ModCreativeModeTabs.DARK_LABORATORY_BLOCKS_CREATIVE_TAB : ModCreativeModeTabs.LABORATORY_BLOCKS_CREATIVE_TAB;
     }
 
     public static void register() {
@@ -39,6 +45,14 @@ public class ModItems {
 
     public static final RegistrySupplier<Item> GLOWSTONE_PARTICLES = register("glowstone_particles",
             Item::new, UnaryOperator.identity());
+
+    public static final RegistrySupplier<Item> MUSIC_DISC_EXPLORATION = register("music_disc_exploration",
+            properties -> new de.artemis.laboratoryblocks.common.item.LaboratoryMusicDiscItem(13, ModSoundEvents.MUSIC_DISC_EXPLORATION.get(), properties),
+            properties -> properties.stacksTo(1).rarity(Rarity.UNCOMMON));
+
+    public static final RegistrySupplier<Item> MUSIC_DISC_PONDERING_THE_COSMOS = register("music_disc_pondering_the_cosmos",
+            properties -> new de.artemis.laboratoryblocks.common.item.LaboratoryMusicDiscItem(14, ModSoundEvents.MUSIC_DISC_PONDERING_THE_COSMOS.get(), properties),
+            properties -> properties.stacksTo(1).rarity(Rarity.UNCOMMON));
 
     public static final RegistrySupplier<ConfigurationToolItem> CONFIGURATION_TOOL = register("configuration_tool",
             ConfigurationToolItem::new, properties -> properties.durability(640).rarity(Rarity.UNCOMMON));

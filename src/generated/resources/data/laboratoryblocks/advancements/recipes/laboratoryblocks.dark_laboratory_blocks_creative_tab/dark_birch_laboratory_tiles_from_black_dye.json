@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_birch_laboratory_tiles_from_black_dye"
+    ]
+  },
+  "criteria": {
+    "has_birch_laboratory_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:birch_laboratory_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_birch_laboratory_tiles_from_black_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_birch_laboratory_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

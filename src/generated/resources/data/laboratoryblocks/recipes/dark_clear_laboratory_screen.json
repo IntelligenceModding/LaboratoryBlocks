@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BAB",
+    "ACA",
+    "BAB"
+  ],
+  "key": {
+    "A": {
+      "item": "laboratoryblocks:dark_laboratory_block"
+    },
+    "B": {
+      "item": "laboratoryblocks:iron_screw"
+    },
+    "C": {
+      "item": "laboratoryblocks:dark_laboratory_glass"
+    }
+  },
+  "result": {
+    "item": "laboratoryblocks:dark_clear_laboratory_screen",
+    "count": 4
+  }
+}

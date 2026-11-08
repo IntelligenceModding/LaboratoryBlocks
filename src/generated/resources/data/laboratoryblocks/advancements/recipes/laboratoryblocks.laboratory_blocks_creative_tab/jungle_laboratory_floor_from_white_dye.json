@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:jungle_laboratory_floor_from_white_dye"
+    ]
+  },
+  "criteria": {
+    "has_dark_jungle_laboratory_floor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:dark_jungle_laboratory_floor"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:jungle_laboratory_floor_from_white_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_jungle_laboratory_floor",
+      "has_the_recipe"
+    ]
+  ]
+}

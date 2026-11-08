@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_clear_laboratory_screen_from_black_dye"
+    ]
+  },
+  "criteria": {
+    "has_clear_laboratory_screen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:clear_laboratory_screen"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_clear_laboratory_screen_from_black_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_clear_laboratory_screen",
+      "has_the_recipe"
+    ]
+  ]
+}

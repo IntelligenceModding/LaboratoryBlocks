@@ -1,0 +1,20 @@
+{
+  "type": "fusion:connecting",
+  "parent": "minecraft:block/cube_all",
+  "loader": "fusion:model",
+  "connections": {
+    "type": "fusion:or",
+    "predicates": [
+      {
+        "type": "fusion:is_same_block"
+      },
+      {
+        "type": "fusion:match_block",
+        "block": "laboratoryblocks:glowing_dark_warped_laboratory_tiles"
+      }
+    ]
+  },
+  "textures": {
+    "all": "laboratoryblocks:block/dark_warped_laboratory_tiles-fusion"
+  }
+}

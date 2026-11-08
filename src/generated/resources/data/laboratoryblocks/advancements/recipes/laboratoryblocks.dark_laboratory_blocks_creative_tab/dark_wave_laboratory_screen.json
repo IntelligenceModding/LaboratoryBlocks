@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "laboratoryblocks:dark_wave_laboratory_screen"
+    ]
+  },
+  "criteria": {
+    "has_dark_clear_laboratory_screen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:dark_clear_laboratory_screen"
+            ]
+          }
+        ]
+      }
+    },
+    "has_cyan_dye": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cyan_dye"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "laboratoryblocks:dark_wave_laboratory_screen"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_clear_laboratory_screen",
+      "has_cyan_dye",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -18,6 +18,18 @@
         ]
       }
     },
+    "has_gray_dye": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:gray_dye"
+            ]
+          }
+        ]
+      }
+    },
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
@@ -28,6 +40,7 @@
   "requirements": [
     [
       "has_laboratory_tiles",
+      "has_gray_dye",
       "has_the_recipe"
     ]
   ]

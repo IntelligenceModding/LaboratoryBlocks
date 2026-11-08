@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_jungle_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:dark_jungle_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:dark_jungle_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:dark_jungle_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:dark_jungle_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:dark_jungle_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:dark_jungle_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:dark_jungle_laboratory_floor"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:jungle_laboratory_floor",
+    "count": 8
+  }
+}
