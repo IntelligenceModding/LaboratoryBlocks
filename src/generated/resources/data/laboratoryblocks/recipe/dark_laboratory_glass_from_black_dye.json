@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:laboratory_glass",
+    "laboratoryblocks:laboratory_glass",
+    "laboratoryblocks:laboratory_glass",
+    "laboratoryblocks:laboratory_glass",
+    "laboratoryblocks:laboratory_glass",
+    "laboratoryblocks:laboratory_glass",
+    "laboratoryblocks:laboratory_glass",
+    "laboratoryblocks:laboratory_glass",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:dark_laboratory_glass"
+  }
+}

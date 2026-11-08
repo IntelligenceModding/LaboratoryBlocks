@@ -150,7 +150,7 @@ Before beginning work, switch to the branch matching the Minecraft version you w
 For example:
 
 ```bash
-git switch 26.1.2-fabric
+git switch 26.1.x-fabric
 ```
 
 It is recommended to create your own development branch from there.
@@ -232,6 +232,15 @@ Running the development client is strongly recommended for changes that affect g
 ### Testing
 
 Changes should be tested before being submitted.
+
+After changing registered blocks, recipes, advancements, or models, run data generation before building:
+
+```powershell
+.\gradlew.bat runDatagen
+.\gradlew.bat build
+```
+
+Check crafting, advancements, loot, tags, translations, models, and texture references when changing their resources. Run data generation twice when changing model providers and confirm the output is unchanged on the second run.
 
 There is currently no expectation that every contribution includes automated tests. For most Laboratory Blocks changes, practical in-game testing is more useful.
 

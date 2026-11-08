@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+    "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+    "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+    "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+    "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+    "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+    "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+    "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:glowing_dark_left_indicating_green_laboratory_block"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": "laboratoryblocks:dark_laboratory_block",
+    "B": "minecraft:blue_wool",
+    "C": "minecraft:black_wool"
+  },
+  "pattern": [
+    "AAA",
+    "BBC",
+    "AAA"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:dark_right_indicating_blue_laboratory_block"
+  }
+}

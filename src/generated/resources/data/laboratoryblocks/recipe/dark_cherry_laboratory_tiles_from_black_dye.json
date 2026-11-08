@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:cherry_laboratory_tiles",
+    "laboratoryblocks:cherry_laboratory_tiles",
+    "laboratoryblocks:cherry_laboratory_tiles",
+    "laboratoryblocks:cherry_laboratory_tiles",
+    "laboratoryblocks:cherry_laboratory_tiles",
+    "laboratoryblocks:cherry_laboratory_tiles",
+    "laboratoryblocks:cherry_laboratory_tiles",
+    "laboratoryblocks:cherry_laboratory_tiles",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:dark_cherry_laboratory_tiles"
+  }
+}
