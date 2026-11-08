@@ -17,9 +17,14 @@
         "items": [
           {
             "items": [
-              "laboratoryblocks:laboratory_block"
+              "laboratoryblocks:laboratory_block",
+              "laboratoryblocks:dark_laboratory_block",
+              "laboratoryblocks:glowing_laboratory_block",
+              "laboratoryblocks:glowing_dark_laboratory_block"
             ],
-            "count": 1
+            "count": {
+              "min": 1
+            }
           }
         ]
       }

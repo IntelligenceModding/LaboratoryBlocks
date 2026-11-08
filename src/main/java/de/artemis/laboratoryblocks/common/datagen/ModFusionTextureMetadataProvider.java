@@ -51,7 +51,7 @@ public class ModFusionTextureMetadataProvider implements DataProvider {
                 "wave_laboratory_screen",
                 "text_laboratory_screen",
                 "quantum_laboratory_screen"
-        ).anyMatch(pair.texturePath()::equals);
+        ).anyMatch(name -> name.equals(pair.texturePath().replaceFirst("^dark_", "")));
     }
 
     private static boolean isIndicating(ModDatagenEntries.GeneratedBlockPair pair) {

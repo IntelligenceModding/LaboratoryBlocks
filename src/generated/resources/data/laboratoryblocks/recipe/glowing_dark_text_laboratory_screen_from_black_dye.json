@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:glowing_text_laboratory_screen",
+    "laboratoryblocks:glowing_text_laboratory_screen",
+    "laboratoryblocks:glowing_text_laboratory_screen",
+    "laboratoryblocks:glowing_text_laboratory_screen",
+    "laboratoryblocks:glowing_text_laboratory_screen",
+    "laboratoryblocks:glowing_text_laboratory_screen",
+    "laboratoryblocks:glowing_text_laboratory_screen",
+    "laboratoryblocks:glowing_text_laboratory_screen",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:glowing_dark_text_laboratory_screen"
+  }
+}

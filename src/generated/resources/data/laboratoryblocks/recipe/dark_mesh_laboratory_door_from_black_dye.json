@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:mesh_laboratory_door",
+    "laboratoryblocks:mesh_laboratory_door",
+    "laboratoryblocks:mesh_laboratory_door",
+    "laboratoryblocks:mesh_laboratory_door",
+    "laboratoryblocks:mesh_laboratory_door",
+    "laboratoryblocks:mesh_laboratory_door",
+    "laboratoryblocks:mesh_laboratory_door",
+    "laboratoryblocks:mesh_laboratory_door",
+    "#c:dyes/black"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:dark_mesh_laboratory_door"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+    "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+    "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+    "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+    "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+    "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+    "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+    "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+    "#c:dyes/white"
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:glowing_right_indicating_red_laboratory_block"
+  }
+}

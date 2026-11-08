@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "laboratoryblocks:dark_left_indicating_green_laboratory_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

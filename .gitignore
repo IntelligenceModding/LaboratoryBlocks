@@ -120,3 +120,6 @@ server/
 
 # Decompiled/reference source files outside the project source tree
 /net/
+
+# Data generator cache
+src/generated/resources/.cache/
