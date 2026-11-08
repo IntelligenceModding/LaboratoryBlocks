@@ -19,15 +19,16 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Minecraft-1.19.2-3C8527?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft 1.19.2">
   &nbsp;&nbsp;&nbsp;
-  <img src="https://img.shields.io/badge/Loader-Fabric-DBD0B4?style=for-the-badge" alt="Fabric">
+  <img src="https://img.shields.io/badge/Loader-Fabric-DBB69C?style=for-the-badge" alt="Fabric">
 </p>
 
 <p align="center">
-  <strong>Fusion is required for connected texture support.</strong>
+  <strong>Fusion is REQUIRED. Minecraft will not launch with Laboratory Blocks installed unless Fusion is also installed.</strong>
 </p>
 
 <p align="center">
-  Install Fusion alongside Laboratory Blocks, otherwise the mod will not render and behave correctly.
+  Fabric API is also required.<br>
+  Install the Fabric version of Fusion for your Minecraft version alongside Laboratory Blocks. Fusion provides the mod's connected textures and is a mandatory client dependency.
 </p>
 
 <p align="center">
@@ -43,17 +44,31 @@
 </p>
 
 <p align="center">
-  Artemis' Laboratory Blocks currently includes the following building pieces:
+  Build complete laboratory interiors with regular and dark blocksets, each with its own creative tab:
 </p>
 
 <p align="center">
   &bull; Connected laboratory blocks and tiles<br>
   &bull; Reinforced structure blocks<br>
-  &bull; Laboratory vents and fans<br>
-  &bull; Indicator blocks<br>
-  &bull; Laboratory screens<br>
-  &bull; Themed floors and tiles<br>
-  &bull; Doors and trapdoors
+  &bull; Laboratory pillars and glass<br>
+  &bull; Laboratory vents, fans, and redstone-controlled fans<br>
+  &bull; Left and right indicator blocks in blue, red, and green<br>
+  &bull; Clear, wave, text, and quantum laboratory screens<br>
+  &bull; Wooden laboratory floors and tiles in multiple wood types<br>
+  &bull; Solid, mesh, and glass doors and trapdoors
+</p>
+
+<p align="center">
+  Add Glowstone Particles to supported blocks to make them glow, and use the Configuration Tool to remove and recover the particles.<br>
+  Convert between regular and dark variants using black or white dye, and change wooden floor and tile species using planks.<br>
+  Craft your building materials, shape them with the stonecutter, and progress through laboratory-themed advancements.
+</p>
+
+<p align="center">
+  Music discs: <strong>Exploration</strong> and <strong>Pondering the Cosmos</strong>.<br>
+  Discover <strong>Exploration</strong> in abandoned mineshaft chests and <strong>Pondering the Cosmos</strong> in End City treasure chests (10% chance per chest).<br>
+  Both also drop from creepers killed by skeletons and appear in the mod's creative tabs and Miscellaneous.<br>
+  Play either disc in a jukebox to earn the Laboratory Soundtrack advancement.
 </p>
 
 <br>
@@ -121,36 +136,16 @@
 </p>
 
 <p align="center">
-  Special thanks and credits:
-</p>
-
-<p align="center">
-  &bull; The Fabric team for Fabric Loader, Fabric API, and documentation<br>
-  &bull; The Minecraft modding community for examples, tools, and support<br>
-  &bull; The Intelligence Modding community for feedback, testing, and ideas<br>
-  &bull; Everyone who reports issues, suggests improvements, or includes the mod in their worlds or modpacks<br>
-  &bull; The Chisel project and its contributors for sound assets used in Laboratory Blocks<br>
-  &bull; FALCONS_SHADOW on freesound.org for the Configuration Tool sound used by the mod
-</p>
-
-<p align="center">
   Some textures and sounds are inspired by or adapted from vanilla Minecraft assets.
+  <br>Connected textures powered by Fusion.<br>
+  Block sounds: <a href="https://github.com/Chisel-Team/Chisel">Chisel and its contributors</a>.<br>
+  Configuration Tool sound: <a href="https://freesound.org/people/FALCONS_SHADOW/sounds/408482/">FALCONS_SHADOW on freesound.org</a>.
 </p>
 
 <p align="center">
-  Connected texture support is powered by Fusion.
-</p>
-
-<p align="center">
-  Some Laboratory Blocks sound files are sourced from the <a href="https://github.com/Chisel-Team/Chisel">Chisel GitHub repository</a>, with full credit to that project's creators and contributors.
-</p>
-
-<p align="center">
-  Configuration Tool sounds were downloaded from <a href="https://freesound.org/people/FALCONS_SHADOW/sounds/408482/">freesound.org</a>.
-</p>
-
-<p align="center">
-  Laboratory Blocks is released under the MIT License.
+  Music credits: <strong>Exploration</strong> by Cleyton Kauffman and <strong>Pondering the Cosmos</strong> by Ruskerdax.<br>
+  Both tracks are released under CC0 1.0 Universal.<br>
+  <a href="src/main/resources/THIRD_PARTY_NOTICES.md">Music credits, sources, and licenses</a>
 </p>
 
 <p align="center">

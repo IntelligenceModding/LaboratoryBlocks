@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:dark_mesh_laboratory_trapdoor"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:mesh_laboratory_trapdoor"
+  }
+}

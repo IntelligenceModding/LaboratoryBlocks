@@ -14,13 +14,27 @@
     "placed_laboratory_fan_redstone_controlled": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:laboratory_fan_redstone_controlled"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_laboratory_fan_redstone_controlled",
+              "laboratoryblocks:laboratory_fan_redstone_controlled"
+            ]
+          }
+        }
       }
     },
     "placed_glowing_laboratory_fan_redstone_controlled": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_laboratory_fan_redstone_controlled"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_laboratory_fan_redstone_controlled",
+              "laboratoryblocks:glowing_laboratory_fan_redstone_controlled"
+            ]
+          }
+        }
       }
     }
   },

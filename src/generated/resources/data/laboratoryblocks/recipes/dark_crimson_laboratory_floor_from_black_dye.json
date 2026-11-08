@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:crimson_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:crimson_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:crimson_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:crimson_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:crimson_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:crimson_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:crimson_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:crimson_laboratory_floor"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:dark_crimson_laboratory_floor"
+  }
+}

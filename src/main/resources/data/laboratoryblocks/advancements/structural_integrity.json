@@ -14,13 +14,27 @@
     "placed_reinforced_laboratory_block": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:reinforced_laboratory_block"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_reinforced_laboratory_block",
+              "laboratoryblocks:reinforced_laboratory_block"
+            ]
+          }
+        }
       }
     },
     "placed_glowing_reinforced_laboratory_block": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_reinforced_laboratory_block"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_reinforced_laboratory_block",
+              "laboratoryblocks:glowing_reinforced_laboratory_block"
+            ]
+          }
+        }
       }
     }
   },

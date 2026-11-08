@@ -14,22 +14,19 @@
     "placed_laboratory_glass": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:laboratory_glass"
-      }
-    },
-    "placed_glowing_laboratory_glass": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_laboratory_glass"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_laboratory_glass",
+              "laboratoryblocks:glowing_dark_laboratory_glass",
+              "laboratoryblocks:glowing_laboratory_glass",
+              "laboratoryblocks:laboratory_glass"
+            ]
+          }
+        }
       }
     }
   },
-  "requirements": [
-    [
-      "placed_laboratory_glass",
-      "placed_glowing_laboratory_glass"
-    ]
-  ],
   "rewards": {
     "experience": 75
   }

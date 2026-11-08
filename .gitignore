@@ -120,3 +120,4 @@ server/
 
 # Decompiled/reference source files outside the project source tree
 /net/
+src/generated/resources/.cache/

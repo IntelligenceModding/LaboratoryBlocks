@@ -14,181 +14,364 @@
     "placed_reinforced_laboratory_block": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:reinforced_laboratory_block"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_reinforced_laboratory_block",
+              "laboratoryblocks:reinforced_laboratory_block"
+            ]
+          }
+        }
       }
     },
     "placed_glowing_reinforced_laboratory_block": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_reinforced_laboratory_block"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_reinforced_laboratory_block",
+              "laboratoryblocks:glowing_reinforced_laboratory_block"
+            ]
+          }
+        }
       }
     },
     "placed_laboratory_vent": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:laboratory_vent"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_laboratory_vent",
+              "laboratoryblocks:laboratory_vent"
+            ]
+          }
+        }
       }
     },
     "placed_glowing_laboratory_vent": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_laboratory_vent"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_laboratory_vent",
+              "laboratoryblocks:glowing_laboratory_vent"
+            ]
+          }
+        }
       }
     },
     "placed_any_screen_clear": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:clear_laboratory_screen"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:clear_laboratory_screen",
+              "laboratoryblocks:dark_clear_laboratory_screen"
+            ]
+          }
+        }
       }
     },
     "placed_any_screen_wave": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:wave_laboratory_screen"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_wave_laboratory_screen",
+              "laboratoryblocks:wave_laboratory_screen"
+            ]
+          }
+        }
       }
     },
     "placed_any_screen_text": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:text_laboratory_screen"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_text_laboratory_screen",
+              "laboratoryblocks:text_laboratory_screen"
+            ]
+          }
+        }
       }
     },
     "placed_any_screen_quantum": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:quantum_laboratory_screen"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_quantum_laboratory_screen",
+              "laboratoryblocks:quantum_laboratory_screen"
+            ]
+          }
+        }
       }
     },
     "placed_any_screen_glowing_clear": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_clear_laboratory_screen"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_clear_laboratory_screen",
+              "laboratoryblocks:glowing_dark_clear_laboratory_screen"
+            ]
+          }
+        }
       }
     },
     "placed_any_screen_glowing_wave": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_wave_laboratory_screen"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_wave_laboratory_screen",
+              "laboratoryblocks:glowing_wave_laboratory_screen"
+            ]
+          }
+        }
       }
     },
     "placed_any_screen_glowing_text": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_text_laboratory_screen"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_text_laboratory_screen",
+              "laboratoryblocks:glowing_text_laboratory_screen"
+            ]
+          }
+        }
       }
     },
     "placed_any_screen_glowing_quantum": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_quantum_laboratory_screen"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_quantum_laboratory_screen",
+              "laboratoryblocks:glowing_quantum_laboratory_screen"
+            ]
+          }
+        }
       }
     },
     "placed_any_fan": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:laboratory_fan"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_laboratory_fan",
+              "laboratoryblocks:laboratory_fan"
+            ]
+          }
+        }
       }
     },
     "placed_any_glowing_fan": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_laboratory_fan"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_laboratory_fan",
+              "laboratoryblocks:glowing_laboratory_fan"
+            ]
+          }
+        }
       }
     },
     "placed_any_controlled_fan": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:laboratory_fan_redstone_controlled"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_laboratory_fan_redstone_controlled",
+              "laboratoryblocks:laboratory_fan_redstone_controlled"
+            ]
+          }
+        }
       }
     },
     "placed_any_glowing_controlled_fan": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_laboratory_fan_redstone_controlled"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_laboratory_fan_redstone_controlled",
+              "laboratoryblocks:glowing_laboratory_fan_redstone_controlled"
+            ]
+          }
+        }
       }
     },
     "placed_any_indicator_blue": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:right_indicating_blue_laboratory_block"
-      }
-    },
-    "placed_any_indicator_left_blue": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:left_indicating_blue_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_right_blue": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_right_indicating_blue_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_left_blue": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_left_indicating_blue_laboratory_block"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_left_indicating_blue_laboratory_block",
+              "laboratoryblocks:dark_right_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_dark_left_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_dark_right_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_left_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_right_indicating_blue_laboratory_block",
+              "laboratoryblocks:left_indicating_blue_laboratory_block",
+              "laboratoryblocks:right_indicating_blue_laboratory_block"
+            ]
+          }
+        }
       }
     },
     "placed_any_indicator_red": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:right_indicating_red_laboratory_block"
-      }
-    },
-    "placed_any_indicator_left_red": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:left_indicating_red_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_right_red": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_right_indicating_red_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_left_red": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_left_indicating_red_laboratory_block"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_left_indicating_red_laboratory_block",
+              "laboratoryblocks:dark_right_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_dark_left_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_left_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_right_indicating_red_laboratory_block",
+              "laboratoryblocks:left_indicating_red_laboratory_block",
+              "laboratoryblocks:right_indicating_red_laboratory_block"
+            ]
+          }
+        }
       }
     },
     "placed_any_indicator_green": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:right_indicating_green_laboratory_block"
-      }
-    },
-    "placed_any_indicator_left_green": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:left_indicating_green_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_right_green": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_right_indicating_green_laboratory_block"
-      }
-    },
-    "placed_any_indicator_glowing_left_green": {
-      "trigger": "minecraft:placed_block",
-      "conditions": {
-        "block": "laboratoryblocks:glowing_left_indicating_green_laboratory_block"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:dark_left_indicating_green_laboratory_block",
+              "laboratoryblocks:dark_right_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_dark_left_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_dark_right_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_right_indicating_green_laboratory_block",
+              "laboratoryblocks:left_indicating_green_laboratory_block",
+              "laboratoryblocks:right_indicating_green_laboratory_block"
+            ]
+          }
+        }
       }
     },
     "placed_glowing_laboratory_glass": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_laboratory_glass"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_dark_laboratory_glass",
+              "laboratoryblocks:glowing_laboratory_glass"
+            ]
+          }
+        }
       }
     },
     "placed_glowing_laboratory_block": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "laboratoryblocks:glowing_laboratory_block"
+        "location": {
+          "block": {
+            "blocks": [
+              "laboratoryblocks:glowing_acacia_laboratory_floor",
+              "laboratoryblocks:glowing_acacia_laboratory_tiles",
+              "laboratoryblocks:glowing_birch_laboratory_floor",
+              "laboratoryblocks:glowing_birch_laboratory_tiles",
+              "laboratoryblocks:glowing_clear_laboratory_screen",
+              "laboratoryblocks:glowing_crimson_laboratory_floor",
+              "laboratoryblocks:glowing_crimson_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_acacia_laboratory_floor",
+              "laboratoryblocks:glowing_dark_acacia_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_birch_laboratory_floor",
+              "laboratoryblocks:glowing_dark_birch_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_clear_laboratory_screen",
+              "laboratoryblocks:glowing_dark_crimson_laboratory_floor",
+              "laboratoryblocks:glowing_dark_crimson_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_dark_oak_laboratory_floor",
+              "laboratoryblocks:glowing_dark_dark_oak_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_jungle_laboratory_floor",
+              "laboratoryblocks:glowing_dark_jungle_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_laboratory_block",
+              "laboratoryblocks:glowing_dark_laboratory_fan",
+              "laboratoryblocks:glowing_dark_laboratory_fan_redstone_controlled",
+              "laboratoryblocks:glowing_dark_laboratory_glass",
+              "laboratoryblocks:glowing_dark_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_laboratory_vent",
+              "laboratoryblocks:glowing_dark_left_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_dark_left_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_dark_left_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_dark_mangrove_laboratory_floor",
+              "laboratoryblocks:glowing_dark_mangrove_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_oak_laboratory_floor",
+              "laboratoryblocks:glowing_dark_oak_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_quantum_laboratory_screen",
+              "laboratoryblocks:glowing_dark_reinforced_laboratory_block",
+              "laboratoryblocks:glowing_dark_right_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_dark_right_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_dark_right_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_dark_spruce_laboratory_floor",
+              "laboratoryblocks:glowing_dark_spruce_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_text_laboratory_screen",
+              "laboratoryblocks:glowing_dark_warped_laboratory_floor",
+              "laboratoryblocks:glowing_dark_warped_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_wave_laboratory_screen",
+              "laboratoryblocks:glowing_darkened_oak_laboratory_floor",
+              "laboratoryblocks:glowing_darkened_oak_laboratory_tiles",
+              "laboratoryblocks:glowing_dark_laboratory_pillar",
+              "laboratoryblocks:glowing_gray_laboratory_tiles",
+              "laboratoryblocks:glowing_jungle_laboratory_floor",
+              "laboratoryblocks:glowing_jungle_laboratory_tiles",
+              "laboratoryblocks:glowing_laboratory_block",
+              "laboratoryblocks:glowing_laboratory_fan",
+              "laboratoryblocks:glowing_laboratory_fan_redstone_controlled",
+              "laboratoryblocks:glowing_laboratory_glass",
+              "laboratoryblocks:glowing_laboratory_pillar",
+              "laboratoryblocks:glowing_laboratory_tiles",
+              "laboratoryblocks:glowing_laboratory_vent",
+              "laboratoryblocks:glowing_left_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_left_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_left_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_mangrove_laboratory_floor",
+              "laboratoryblocks:glowing_mangrove_laboratory_tiles",
+              "laboratoryblocks:glowing_mixed_laboratory_tiles",
+              "laboratoryblocks:glowing_oak_laboratory_floor",
+              "laboratoryblocks:glowing_oak_laboratory_tiles",
+              "laboratoryblocks:glowing_quantum_laboratory_screen",
+              "laboratoryblocks:glowing_reinforced_laboratory_block",
+              "laboratoryblocks:glowing_right_indicating_blue_laboratory_block",
+              "laboratoryblocks:glowing_right_indicating_green_laboratory_block",
+              "laboratoryblocks:glowing_right_indicating_red_laboratory_block",
+              "laboratoryblocks:glowing_spruce_laboratory_floor",
+              "laboratoryblocks:glowing_spruce_laboratory_tiles",
+              "laboratoryblocks:glowing_text_laboratory_screen",
+              "laboratoryblocks:glowing_warped_laboratory_floor",
+              "laboratoryblocks:glowing_warped_laboratory_tiles",
+              "laboratoryblocks:glowing_wave_laboratory_screen"
+            ]
+          }
+        }
       }
     }
   },
@@ -219,17 +402,8 @@
     ],
     [
       "placed_any_indicator_blue",
-      "placed_any_indicator_left_blue",
-      "placed_any_indicator_glowing_right_blue",
-      "placed_any_indicator_glowing_left_blue",
       "placed_any_indicator_red",
-      "placed_any_indicator_left_red",
-      "placed_any_indicator_glowing_right_red",
-      "placed_any_indicator_glowing_left_red",
-      "placed_any_indicator_green",
-      "placed_any_indicator_left_green",
-      "placed_any_indicator_glowing_right_green",
-      "placed_any_indicator_glowing_left_green"
+      "placed_any_indicator_green"
     ],
     [
       "placed_glowing_laboratory_glass",
