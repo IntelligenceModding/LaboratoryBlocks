@@ -106,6 +106,102 @@
           }
         ]
       }
+    },
+    "placed_clear_laboratory_screen_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:dark_clear_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_wave_laboratory_screen_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:dark_wave_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_text_laboratory_screen_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:dark_text_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_quantum_laboratory_screen_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:dark_quantum_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_clear_laboratory_screen_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_clear_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_wave_laboratory_screen_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_wave_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_text_laboratory_screen_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_text_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_quantum_laboratory_screen_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_quantum_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
     }
   },
   "requirements": [
@@ -117,7 +213,15 @@
       "placed_glowing_clear_laboratory_screen",
       "placed_glowing_wave_laboratory_screen",
       "placed_glowing_text_laboratory_screen",
-      "placed_glowing_quantum_laboratory_screen"
+      "placed_glowing_quantum_laboratory_screen",
+      "placed_clear_laboratory_screen_dark",
+      "placed_wave_laboratory_screen_dark",
+      "placed_text_laboratory_screen_dark",
+      "placed_quantum_laboratory_screen_dark",
+      "placed_glowing_clear_laboratory_screen_dark",
+      "placed_glowing_wave_laboratory_screen_dark",
+      "placed_glowing_text_laboratory_screen_dark",
+      "placed_glowing_quantum_laboratory_screen_dark"
     ]
   ],
   "rewards": {

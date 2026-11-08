@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:dark_clear_laboratory_screen"
+    },
+    {
+      "tag": "c:dyes/purple"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "laboratoryblocks:dark_quantum_laboratory_screen"
+  }
+}

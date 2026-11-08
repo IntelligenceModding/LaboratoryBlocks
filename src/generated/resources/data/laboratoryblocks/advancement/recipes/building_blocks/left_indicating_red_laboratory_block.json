@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_laboratory_block": {
+    "has_right_indicating_red_laboratory_block": {
       "conditions": {
         "items": [
           {
-            "items": "laboratoryblocks:laboratory_block"
+            "items": "laboratoryblocks:right_indicating_red_laboratory_block"
           }
         ]
       },
@@ -16,23 +16,12 @@
         "recipe": "laboratoryblocks:left_indicating_red_laboratory_block"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "#minecraft:wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_laboratory_block",
-      "has_wool"
+      "has_right_indicating_red_laboratory_block"
     ]
   ],
   "rewards": {

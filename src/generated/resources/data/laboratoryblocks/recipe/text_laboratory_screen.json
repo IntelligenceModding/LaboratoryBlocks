@@ -15,7 +15,7 @@
       "item": "laboratoryblocks:clear_laboratory_screen"
     },
     {
-      "item": "minecraft:lime_dye"
+      "tag": "c:dyes/lime"
     }
   ],
   "result": {

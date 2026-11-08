@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_block"
+    },
+    {
+      "tag": "c:dyes/black"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:dark_laboratory_block"
+  }
+}

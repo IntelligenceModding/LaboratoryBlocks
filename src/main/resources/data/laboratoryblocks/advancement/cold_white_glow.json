@@ -82,6 +82,78 @@
           }
         ]
       }
+    },
+    "placed_glowing_laboratory_block_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_laboratory_block",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_laboratory_glass_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_laboratory_glass",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_laboratory_tiles_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_laboratory_tiles",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_laboratory_pillar_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_laboratory_pillar",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_clear_laboratory_screen_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_clear_laboratory_screen",
+            "properties": {}
+          }
+        ]
+      }
+    },
+    "placed_glowing_laboratory_vent_dark": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "laboratoryblocks:glowing_dark_laboratory_vent",
+            "properties": {}
+          }
+        ]
+      }
     }
   },
   "requirements": [
@@ -91,7 +163,13 @@
       "placed_glowing_laboratory_tiles",
       "placed_glowing_laboratory_pillar",
       "placed_glowing_clear_laboratory_screen",
-      "placed_glowing_laboratory_vent"
+      "placed_glowing_laboratory_vent",
+      "placed_glowing_laboratory_block_dark",
+      "placed_glowing_laboratory_glass_dark",
+      "placed_glowing_laboratory_tiles_dark",
+      "placed_glowing_laboratory_pillar_dark",
+      "placed_glowing_clear_laboratory_screen_dark",
+      "placed_glowing_laboratory_vent_dark"
     ]
   ],
   "rewards": {

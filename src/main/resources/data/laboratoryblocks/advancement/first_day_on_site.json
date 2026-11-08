@@ -23,6 +23,19 @@
           }
         ]
       }
+    },
+    "obtained_laboratory_block_dark": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "laboratoryblocks:dark_laboratory_block"
+            ],
+            "count": 1
+          }
+        ]
+      }
     }
   },
   "rewards": {

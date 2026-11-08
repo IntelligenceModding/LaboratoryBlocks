@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "laboratoryblocks:dark_cherry_laboratory_floor"
+  },
+  "result": {
+    "count": 2,
+    "id": "laboratoryblocks:dark_cherry_laboratory_tiles"
+  }
+}

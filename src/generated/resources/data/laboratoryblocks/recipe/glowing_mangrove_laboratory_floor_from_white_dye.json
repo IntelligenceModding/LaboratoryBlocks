@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:glowing_dark_mangrove_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_mangrove_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_mangrove_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_mangrove_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_mangrove_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_mangrove_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_mangrove_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_mangrove_laboratory_floor"
+    },
+    {
+      "tag": "c:dyes/white"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:glowing_mangrove_laboratory_floor"
+  }
+}

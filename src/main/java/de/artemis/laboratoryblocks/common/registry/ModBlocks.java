@@ -76,12 +76,12 @@ public class ModBlocks {
             properties -> new LaboratoryBlock(() -> ModBlocks.LABORATORY_PILLAR.get(), properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
 
-    public static final RegistrySupplier<LaboratoryBlock> GRAY_LABORATORY_PILLAR = register("gray_laboratory_pillar",
-            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_GRAY_LABORATORY_PILLAR.get(), properties),
+    public static final RegistrySupplier<LaboratoryBlock> DARK_LABORATORY_PILLAR = register("dark_laboratory_pillar",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_LABORATORY_PILLAR.get(), properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
 
-    public static final RegistrySupplier<LaboratoryBlock> GLOWING_GRAY_LABORATORY_PILLAR = register("glowing_gray_laboratory_pillar",
-            properties -> new LaboratoryBlock(() -> ModBlocks.GRAY_LABORATORY_PILLAR.get(), properties),
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_LABORATORY_PILLAR = register("glowing_dark_laboratory_pillar",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_LABORATORY_PILLAR.get(), properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
 
     public static final RegistrySupplier<LaboratoryBlock> CLEAR_LABORATORY_SCREEN = register("clear_laboratory_screen",
@@ -196,6 +196,14 @@ public class ModBlocks {
             properties -> new LaboratoryBlock(() -> ModBlocks.LABORATORY_BLOCK.get(), properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
 
+    public static final RegistrySupplier<LaboratoryBlock> DARK_LABORATORY_BLOCK = register("dark_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_LABORATORY_BLOCK = register("glowing_dark_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
     public static final RegistrySupplier<LaboratoryBlock> REINFORCED_LABORATORY_BLOCK = register("reinforced_laboratory_block",
             properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_REINFORCED_LABORATORY_BLOCK.get(), properties),
             properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
@@ -260,6 +268,10 @@ public class ModBlocks {
             properties -> new LaboratoryBlock(() -> ModBlocks.SPRUCE_LABORATORY_TILES.get(), properties),
             properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
 
+
+
+
+
     public static final RegistrySupplier<LaboratoryBlock> BIRCH_LABORATORY_FLOOR = register("birch_laboratory_floor",
             properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_BIRCH_LABORATORY_FLOOR.get(), properties),
             properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
@@ -291,6 +303,10 @@ public class ModBlocks {
     public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_OAK_LABORATORY_TILES = register("glowing_dark_oak_laboratory_tiles",
             properties -> new LaboratoryBlock(() -> ModBlocks.DARK_OAK_LABORATORY_TILES.get(), properties),
             properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+
+
+
 
     public static final RegistrySupplier<LaboratoryBlock> JUNGLE_LABORATORY_FLOOR = register("jungle_laboratory_floor",
             properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_JUNGLE_LABORATORY_FLOOR.get(), properties),
@@ -416,6 +432,345 @@ public class ModBlocks {
                     .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
                     .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(state -> 14));
 
+    public static final RegistrySupplier<DoorBlock> DARK_LABORATORY_DOOR = register("dark_laboratory_door",
+            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final RegistrySupplier<DoorBlock> DARK_MESH_LABORATORY_DOOR = register("dark_mesh_laboratory_door",
+            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final RegistrySupplier<DoorBlock> DARK_GLASS_LABORATORY_DOOR = register("dark_glass_laboratory_door",
+            properties -> new DoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final RegistrySupplier<TrapDoorBlock> DARK_LABORATORY_TRAPDOOR = register("dark_laboratory_trapdoor",
+            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final RegistrySupplier<TrapDoorBlock> DARK_MESH_LABORATORY_TRAPDOOR = register("dark_mesh_laboratory_trapdoor",
+            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final RegistrySupplier<TrapDoorBlock> DARK_GLASS_LABORATORY_TRAPDOOR = register("dark_glass_laboratory_trapdoor",
+            properties -> new TrapDoorBlock(ModBlockSetTypes.LABORATORY, properties),
+            properties -> properties.strength(3.0F).noOcclusion().pushReaction(PushReaction.DESTROY));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_CLEAR_LABORATORY_SCREEN = register("dark_clear_laboratory_screen",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_CLEAR_LABORATORY_SCREEN.get(), properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_CLEAR_LABORATORY_SCREEN = register("glowing_dark_clear_laboratory_screen",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_CLEAR_LABORATORY_SCREEN.get(), properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_WAVE_LABORATORY_SCREEN = register("dark_wave_laboratory_screen",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_WAVE_LABORATORY_SCREEN.get(), properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_WAVE_LABORATORY_SCREEN = register("glowing_dark_wave_laboratory_screen",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_WAVE_LABORATORY_SCREEN.get(), properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_TEXT_LABORATORY_SCREEN = register("dark_text_laboratory_screen",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_TEXT_LABORATORY_SCREEN.get(), properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_TEXT_LABORATORY_SCREEN = register("glowing_dark_text_laboratory_screen",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_TEXT_LABORATORY_SCREEN.get(), properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_QUANTUM_LABORATORY_SCREEN = register("dark_quantum_laboratory_screen",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_QUANTUM_LABORATORY_SCREEN.get(), properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_QUANTUM_LABORATORY_SCREEN = register("glowing_dark_quantum_laboratory_screen",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_QUANTUM_LABORATORY_SCREEN.get(), properties),
+            properties -> properties.strength(1.25F, 1.5F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<RedstoneControlledLaboratoryBlock> DARK_LABORATORY_FAN = register("dark_laboratory_fan",
+            properties -> new RedstoneControlledLaboratoryBlock(() -> ModBlocks.GLOWING_DARK_LABORATORY_FAN.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<RedstoneControlledLaboratoryBlock> GLOWING_DARK_LABORATORY_FAN = register("glowing_dark_laboratory_fan",
+            properties -> new RedstoneControlledLaboratoryBlock(() -> ModBlocks.DARK_LABORATORY_FAN.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<RedstoneControlledLaboratoryBlock> DARK_LABORATORY_FAN_REDSTONE_CONTROLLED = register("dark_laboratory_fan_redstone_controlled",
+            properties -> new RedstoneControlledLaboratoryBlock(() -> ModBlocks.GLOWING_DARK_LABORATORY_FAN_REDSTONE_CONTROLLED.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<RedstoneControlledLaboratoryBlock> GLOWING_DARK_LABORATORY_FAN_REDSTONE_CONTROLLED = register("glowing_dark_laboratory_fan_redstone_controlled",
+            properties -> new RedstoneControlledLaboratoryBlock(() -> ModBlocks.DARK_LABORATORY_FAN_REDSTONE_CONTROLLED.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_LEFT_INDICATING_BLUE_LABORATORY_BLOCK = register("dark_left_indicating_blue_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_LEFT_INDICATING_BLUE_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_LEFT_INDICATING_BLUE_LABORATORY_BLOCK = register("glowing_dark_left_indicating_blue_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_LEFT_INDICATING_BLUE_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK = register("dark_right_indicating_blue_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK = register("glowing_dark_right_indicating_blue_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_RIGHT_INDICATING_BLUE_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_LEFT_INDICATING_RED_LABORATORY_BLOCK = register("dark_left_indicating_red_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_LEFT_INDICATING_RED_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_LEFT_INDICATING_RED_LABORATORY_BLOCK = register("glowing_dark_left_indicating_red_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_LEFT_INDICATING_RED_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_RIGHT_INDICATING_RED_LABORATORY_BLOCK = register("dark_right_indicating_red_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_RIGHT_INDICATING_RED_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_RIGHT_INDICATING_RED_LABORATORY_BLOCK = register("glowing_dark_right_indicating_red_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_RIGHT_INDICATING_RED_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_LEFT_INDICATING_GREEN_LABORATORY_BLOCK = register("dark_left_indicating_green_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_LEFT_INDICATING_GREEN_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_LEFT_INDICATING_GREEN_LABORATORY_BLOCK = register("glowing_dark_left_indicating_green_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_LEFT_INDICATING_GREEN_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK = register("dark_right_indicating_green_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK = register("glowing_dark_right_indicating_green_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_RIGHT_INDICATING_GREEN_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_LABORATORY_VENT = register("dark_laboratory_vent",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_LABORATORY_VENT.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_LABORATORY_VENT = register("glowing_dark_laboratory_vent",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_LABORATORY_VENT.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_REINFORCED_LABORATORY_BLOCK = register("dark_reinforced_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_REINFORCED_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_REINFORCED_LABORATORY_BLOCK = register("glowing_dark_reinforced_laboratory_block",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_REINFORCED_LABORATORY_BLOCK.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_LABORATORY_TILES = register("dark_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_LABORATORY_TILES.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_LABORATORY_TILES = register("glowing_dark_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_LABORATORY_TILES.get(), properties),
+            properties -> properties.strength(2.5F, 3.0F).sound(ModSoundTypes.LABORATORY_BLOCK).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARKENED_OAK_LABORATORY_FLOOR = register("darkened_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARKENED_OAK_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARKENED_OAK_LABORATORY_FLOOR = register("glowing_darkened_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARKENED_OAK_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARKENED_OAK_LABORATORY_TILES = register("darkened_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARKENED_OAK_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARKENED_OAK_LABORATORY_TILES = register("glowing_darkened_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARKENED_OAK_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_SPRUCE_LABORATORY_FLOOR = register("dark_spruce_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_SPRUCE_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_SPRUCE_LABORATORY_FLOOR = register("glowing_dark_spruce_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_SPRUCE_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_SPRUCE_LABORATORY_TILES = register("dark_spruce_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_SPRUCE_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_SPRUCE_LABORATORY_TILES = register("glowing_dark_spruce_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_SPRUCE_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+
+
+
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_BIRCH_LABORATORY_FLOOR = register("dark_birch_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_BIRCH_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_BIRCH_LABORATORY_FLOOR = register("glowing_dark_birch_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_BIRCH_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_BIRCH_LABORATORY_TILES = register("dark_birch_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_BIRCH_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_BIRCH_LABORATORY_TILES = register("glowing_dark_birch_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_BIRCH_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_DARK_OAK_LABORATORY_FLOOR = register("dark_dark_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_DARK_OAK_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_DARK_OAK_LABORATORY_FLOOR = register("glowing_dark_dark_oak_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_DARK_OAK_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_DARK_OAK_LABORATORY_TILES = register("dark_dark_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_DARK_OAK_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_DARK_OAK_LABORATORY_TILES = register("glowing_dark_dark_oak_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_DARK_OAK_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+
+
+
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_JUNGLE_LABORATORY_FLOOR = register("dark_jungle_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_JUNGLE_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_JUNGLE_LABORATORY_FLOOR = register("glowing_dark_jungle_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_JUNGLE_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_JUNGLE_LABORATORY_TILES = register("dark_jungle_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_JUNGLE_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_JUNGLE_LABORATORY_TILES = register("glowing_dark_jungle_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_JUNGLE_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_ACACIA_LABORATORY_FLOOR = register("dark_acacia_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_ACACIA_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_ACACIA_LABORATORY_FLOOR = register("glowing_dark_acacia_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_ACACIA_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_ACACIA_LABORATORY_TILES = register("dark_acacia_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_ACACIA_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_ACACIA_LABORATORY_TILES = register("glowing_dark_acacia_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_ACACIA_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_MANGROVE_LABORATORY_FLOOR = register("dark_mangrove_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_MANGROVE_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_MANGROVE_LABORATORY_FLOOR = register("glowing_dark_mangrove_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_MANGROVE_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_MANGROVE_LABORATORY_TILES = register("dark_mangrove_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_MANGROVE_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_MANGROVE_LABORATORY_TILES = register("glowing_dark_mangrove_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_MANGROVE_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_CHERRY_LABORATORY_FLOOR = register("dark_cherry_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_CHERRY_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_CHERRY_LABORATORY_FLOOR = register("glowing_dark_cherry_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_CHERRY_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_CHERRY_LABORATORY_TILES = register("dark_cherry_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_CHERRY_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_CHERRY_LABORATORY_TILES = register("glowing_dark_cherry_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_CHERRY_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.CHERRY_WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_BAMBOO_LABORATORY_FLOOR = register("dark_bamboo_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_BAMBOO_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_BAMBOO_LABORATORY_FLOOR = register("glowing_dark_bamboo_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_BAMBOO_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_BAMBOO_LABORATORY_TILES = register("dark_bamboo_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_BAMBOO_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_BAMBOO_LABORATORY_TILES = register("glowing_dark_bamboo_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_BAMBOO_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.BAMBOO_WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_CRIMSON_LABORATORY_FLOOR = register("dark_crimson_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_CRIMSON_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_CRIMSON_LABORATORY_FLOOR = register("glowing_dark_crimson_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_CRIMSON_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_CRIMSON_LABORATORY_TILES = register("dark_crimson_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_CRIMSON_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_CRIMSON_LABORATORY_TILES = register("glowing_dark_crimson_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_CRIMSON_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_WARPED_LABORATORY_FLOOR = register("dark_warped_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_WARPED_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_WARPED_LABORATORY_FLOOR = register("glowing_dark_warped_laboratory_floor",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_WARPED_LABORATORY_FLOOR.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryBlock> DARK_WARPED_LABORATORY_TILES = register("dark_warped_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.GLOWING_DARK_WARPED_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD));
+
+    public static final RegistrySupplier<LaboratoryBlock> GLOWING_DARK_WARPED_LABORATORY_TILES = register("glowing_dark_warped_laboratory_tiles",
+            properties -> new LaboratoryBlock(() -> ModBlocks.DARK_WARPED_LABORATORY_TILES.get(), properties),
+            properties -> properties.ignitedByLava().strength(2.5F, 3.0F).sound(SoundType.WOOD).lightLevel(state -> 14));
+
+    public static final RegistrySupplier<LaboratoryGlassBlock> DARK_LABORATORY_GLASS = register("dark_laboratory_glass",
+            properties -> new LaboratoryGlassBlock(() -> ModBlocks.GLOWING_DARK_LABORATORY_GLASS.get(), properties),
+            properties -> properties.strength(0.3F).sound(SoundType.GLASS).noOcclusion()
+                    .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
+                    .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never));
+
+    public static final RegistrySupplier<LaboratoryGlassBlock> GLOWING_DARK_LABORATORY_GLASS = register("glowing_dark_laboratory_glass",
+            properties -> new LaboratoryGlassBlock(() -> ModBlocks.DARK_LABORATORY_GLASS.get(), properties),
+            properties -> properties.strength(0.3F).sound(SoundType.GLASS).noOcclusion()
+                    .isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never)
+                    .isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never).lightLevel(state -> 14));
     private static ResourceLocation id(String path) {
         return ResourceLocation.fromNamespaceAndPath(LaboratoryBlocks.MOD_ID, path);
     }

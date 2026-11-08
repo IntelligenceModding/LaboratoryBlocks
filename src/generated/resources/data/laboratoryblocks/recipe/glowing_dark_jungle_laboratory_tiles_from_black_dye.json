@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:glowing_jungle_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_jungle_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_jungle_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_jungle_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_jungle_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_jungle_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_jungle_laboratory_tiles"
+    },
+    {
+      "item": "laboratoryblocks:glowing_jungle_laboratory_tiles"
+    },
+    {
+      "tag": "c:dyes/black"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:glowing_dark_jungle_laboratory_tiles"
+  }
+}

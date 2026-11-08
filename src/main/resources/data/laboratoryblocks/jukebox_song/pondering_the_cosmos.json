@@ -1,0 +1,8 @@
+{
+  "sound_event": "laboratoryblocks:music_disc.pondering_the_cosmos",
+  "description": {
+    "translate": "item.laboratoryblocks.music_disc_pondering_the_cosmos.desc"
+  },
+  "length_in_seconds": 307.74857,
+  "comparator_output": 14
+}

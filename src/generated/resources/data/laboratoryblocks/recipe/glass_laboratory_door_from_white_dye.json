@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_glass_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_glass_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_glass_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_glass_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_glass_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_glass_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_glass_laboratory_door"
+    },
+    {
+      "item": "laboratoryblocks:dark_glass_laboratory_door"
+    },
+    {
+      "tag": "c:dyes/white"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "id": "laboratoryblocks:glass_laboratory_door"
+  }
+}
