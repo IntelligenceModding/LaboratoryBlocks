@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:glowing_warped_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_warped_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_warped_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_warped_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_warped_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_warped_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_warped_laboratory_floor"
+    },
+    {
+      "item": "laboratoryblocks:glowing_warped_laboratory_floor"
+    },
+    {
+      "tag": "c:dyes/black"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:glowing_dark_warped_laboratory_floor"
+  }
+}

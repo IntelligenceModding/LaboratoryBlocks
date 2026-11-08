@@ -6,7 +6,7 @@
       "item": "laboratoryblocks:laboratory_tiles"
     },
     "B": {
-      "item": "minecraft:gray_dye"
+      "tag": "c:dyes/gray"
     }
   },
   "pattern": [

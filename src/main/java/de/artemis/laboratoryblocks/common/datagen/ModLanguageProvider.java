@@ -19,6 +19,9 @@ public class ModLanguageProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(TranslationBuilder builder) {
+        builder.add("itemGroup.laboratoryblocks.dark", "Artemis' Black Laboratory Blocks");
+        builder.add("item.laboratoryblocks.music_disc_exploration.desc", "Cleyton Kauffman - Exploration");
+        builder.add("item.laboratoryblocks.music_disc_pondering_the_cosmos.desc", "Ruskerdax - Pondering the Cosmos");
         builder.add("itemGroup.laboratoryblocks", "Artemis' Laboratory Blocks");
         builder.add("tooltip.laboratoryblocks.configuration_tool.remove_glowstone", "Right-click glowing blocks to remove Glowstone Particles.");
         builder.add("modmenu.nameTranslation.laboratoryblocks", "Artemis' Laboratory Blocks");
@@ -64,6 +67,7 @@ public class ModLanguageProvider extends FabricLanguageProvider {
     }
 
     private static String humanize(String path) {
+        if (path.startsWith("music_disc_")) return "Music Disc";
         StringBuilder builder = new StringBuilder();
         String[] words = path.split("_");
 

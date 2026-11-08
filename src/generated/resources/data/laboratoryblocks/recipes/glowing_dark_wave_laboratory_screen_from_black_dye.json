@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:glowing_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_wave_laboratory_screen"
+    },
+    {
+      "item": "laboratoryblocks:glowing_wave_laboratory_screen"
+    },
+    {
+      "tag": "c:dyes/black"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:glowing_dark_wave_laboratory_screen"
+  }
+}

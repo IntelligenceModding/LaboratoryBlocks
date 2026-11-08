@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:glowing_dark_laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_laboratory_vent"
+    },
+    {
+      "item": "laboratoryblocks:glowing_dark_laboratory_vent"
+    },
+    {
+      "tag": "c:dyes/white"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:glowing_laboratory_vent"
+  }
+}

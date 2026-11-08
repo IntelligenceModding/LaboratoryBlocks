@@ -15,7 +15,7 @@
       "item": "laboratoryblocks:clear_laboratory_screen"
     },
     {
-      "item": "minecraft:purple_dye"
+      "tag": "c:dyes/purple"
     }
   ],
   "result": {

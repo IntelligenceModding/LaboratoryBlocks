@@ -41,6 +41,14 @@ public class ModItems {
     public static final RegistrySupplier<Item> GLOWSTONE_PARTICLES = register("glowstone_particles",
             Item::new, UnaryOperator.identity());
 
+    public static final RegistrySupplier<Item> MUSIC_DISC_EXPLORATION = register("music_disc_exploration",
+            properties -> new de.artemis.laboratoryblocks.common.item.LaboratoryMusicDiscItem(13, ModSoundEvents.MUSIC_DISC_EXPLORATION.get(), properties, 2688),
+            properties -> properties.stacksTo(1).rarity(Rarity.UNCOMMON));
+
+    public static final RegistrySupplier<Item> MUSIC_DISC_PONDERING_THE_COSMOS = register("music_disc_pondering_the_cosmos",
+            properties -> new de.artemis.laboratoryblocks.common.item.LaboratoryMusicDiscItem(14, ModSoundEvents.MUSIC_DISC_PONDERING_THE_COSMOS.get(), properties, 6155),
+            properties -> properties.stacksTo(1).rarity(Rarity.UNCOMMON));
+
     public static final RegistrySupplier<ConfigurationToolItem> CONFIGURATION_TOOL = register("configuration_tool",
             ConfigurationToolItem::new, properties -> properties.durability(640).rarity(Rarity.UNCOMMON));
 

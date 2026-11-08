@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:dark_laboratory_fan_redstone_controlled"
+    },
+    {
+      "item": "laboratoryblocks:glowstone_particles"
+    }
+  ],
+  "result": {
+    "item": "laboratoryblocks:glowing_dark_laboratory_fan_redstone_controlled"
+  }
+}

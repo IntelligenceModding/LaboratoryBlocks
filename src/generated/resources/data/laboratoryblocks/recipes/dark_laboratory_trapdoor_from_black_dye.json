@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "laboratoryblocks:laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_trapdoor"
+    },
+    {
+      "item": "laboratoryblocks:laboratory_trapdoor"
+    },
+    {
+      "tag": "c:dyes/black"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "laboratoryblocks:dark_laboratory_trapdoor"
+  }
+}
