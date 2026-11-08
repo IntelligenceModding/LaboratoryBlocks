@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:glowing_laboratory_glass"
     },
     {
-      "tag": "c:dyes/black"
+      "item": "minecraft:black_dye"
     }
   ],
   "result": {

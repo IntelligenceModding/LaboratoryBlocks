@@ -39,14 +39,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ModBlockPalettes.BLOCK_ORDER.stream().filter(pair -> pair.dark() != null).forEach(pair -> {
             ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, pair.dark().get(), 8)
                     .requires(pair.original().get(), 8)
-                    .requires(Ingredient.of(dyeTag(DyeColor.BLACK)))
+                    .requires(Ingredient.of(dyeItem(DyeColor.BLACK)))
                     .unlockedBy(getHasName(pair.original().get()), has(pair.original().get()))
                     .save(recipeOutput, modLoc(pair.dark().get() == ModBlocks.DARK_LABORATORY_BLOCK.get()
                             ? "dark_laboratory_block"
                             : BuiltInRegistries.BLOCK.getKey(pair.dark().get()).getPath() + "_from_black_dye"));
             ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, pair.original().get(), 8)
                     .requires(pair.dark().get(), 8)
-                    .requires(Ingredient.of(dyeTag(DyeColor.WHITE)))
+                    .requires(Ingredient.of(dyeItem(DyeColor.WHITE)))
                     .unlockedBy(getHasName(pair.dark().get()), has(pair.dark().get()))
                     .save(recipeOutput, modLoc(BuiltInRegistries.BLOCK.getKey(pair.original().get()).getPath() + "_from_white_dye"));
         });
@@ -123,9 +123,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .pattern("ABA")
                     .pattern("AAA")
                     .define('A', ModBlocks.LABORATORY_TILES.get())
-                    .define('B', dyeTag(DyeColor.GRAY))
+                    .define('B', dyeItem(DyeColor.GRAY))
                     .unlockedBy(getHasName(ModBlocks.LABORATORY_TILES.get()), has(ModBlocks.LABORATORY_TILES.get()))
-                    .unlockedBy("has_gray_dye", has(dyeTag(DyeColor.GRAY)))
+                    .unlockedBy("has_gray_dye", has(dyeItem(DyeColor.GRAY)))
                     .save(recipeOutput);
         }
 
@@ -255,23 +255,23 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.WAVE_LABORATORY_SCREEN.get(), dark), 4)
                 .requires(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
-                .requires(Ingredient.of(dyeTag(DyeColor.CYAN)))
+                .requires(Ingredient.of(dyeItem(DyeColor.CYAN)))
                 .unlockedBy(getHasName(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)), has(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)))
-                .unlockedBy("has_cyan_dye", has(dyeTag(DyeColor.CYAN)))
+                .unlockedBy("has_cyan_dye", has(dyeItem(DyeColor.CYAN)))
                 .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.TEXT_LABORATORY_SCREEN.get(), dark), 4)
                 .requires(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
-                .requires(Ingredient.of(dyeTag(DyeColor.LIME)))
+                .requires(Ingredient.of(dyeItem(DyeColor.LIME)))
                 .unlockedBy(getHasName(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)), has(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)))
-                .unlockedBy("has_lime_dye", has(dyeTag(DyeColor.LIME)))
+                .unlockedBy("has_lime_dye", has(dyeItem(DyeColor.LIME)))
                 .save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, palette(ModBlocks.QUANTUM_LABORATORY_SCREEN.get(), dark), 4)
                 .requires(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark), 4)
-                .requires(Ingredient.of(dyeTag(DyeColor.PURPLE)))
+                .requires(Ingredient.of(dyeItem(DyeColor.PURPLE)))
                 .unlockedBy(getHasName(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)), has(palette(ModBlocks.CLEAR_LABORATORY_SCREEN.get(), dark)))
-                .unlockedBy("has_purple_dye", has(dyeTag(DyeColor.PURPLE)))
+                .unlockedBy("has_purple_dye", has(dyeItem(DyeColor.PURPLE)))
                 .save(recipeOutput);
     }
 
@@ -381,7 +381,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private Ingredient woolIngredient(DyeColor color) {
         return Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation("minecraft", color.getName() + "_wool")));
     }
-    private static TagKey<Item> dyeTag(DyeColor color) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation("c", "dyes/" + color.getName()));
+    private static Item dyeItem(DyeColor color) {
+        return BuiltInRegistries.ITEM.get(new ResourceLocation("minecraft", color.getName() + "_dye"));
     }
 }

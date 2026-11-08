@@ -17,7 +17,9 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:dyes/purple"
+            "items": [
+              "minecraft:purple_dye"
+            ]
           }
         ]
       },

@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:glowing_warped_laboratory_floor"
     },
     {
-      "tag": "c:dyes/black"
+      "item": "minecraft:black_dye"
     }
   ],
   "result": {

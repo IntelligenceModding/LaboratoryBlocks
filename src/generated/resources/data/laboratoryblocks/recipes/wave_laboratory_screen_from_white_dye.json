@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:dark_wave_laboratory_screen"
     },
     {
-      "tag": "c:dyes/white"
+      "item": "minecraft:white_dye"
     }
   ],
   "result": {

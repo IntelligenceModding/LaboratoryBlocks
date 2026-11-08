@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:glowing_right_indicating_blue_laboratory_block"
     },
     {
-      "tag": "c:dyes/black"
+      "item": "minecraft:black_dye"
     }
   ],
   "result": {

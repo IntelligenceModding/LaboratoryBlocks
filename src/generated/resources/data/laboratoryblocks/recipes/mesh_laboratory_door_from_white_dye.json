@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:dark_mesh_laboratory_door"
     },
     {
-      "tag": "c:dyes/white"
+      "item": "minecraft:white_dye"
     }
   ],
   "result": {

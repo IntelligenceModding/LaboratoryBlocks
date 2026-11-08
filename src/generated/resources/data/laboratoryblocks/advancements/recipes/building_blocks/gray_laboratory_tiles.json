@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "tag": "c:dyes/gray"
+            "items": [
+              "minecraft:gray_dye"
+            ]
           }
         ]
       },

@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:laboratory_fan_redstone_controlled"
     },
     {
-      "tag": "c:dyes/black"
+      "item": "minecraft:black_dye"
     }
   ],
   "result": {

@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:dark_laboratory_vent"
     },
     {
-      "tag": "c:dyes/white"
+      "item": "minecraft:white_dye"
     }
   ],
   "result": {

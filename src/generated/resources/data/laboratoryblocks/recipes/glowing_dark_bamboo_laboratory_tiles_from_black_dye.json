@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:glowing_bamboo_laboratory_tiles"
     },
     {
-      "tag": "c:dyes/black"
+      "item": "minecraft:black_dye"
     }
   ],
   "result": {

@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:dark_cherry_laboratory_floor"
     },
     {
-      "tag": "c:dyes/white"
+      "item": "minecraft:white_dye"
     }
   ],
   "result": {

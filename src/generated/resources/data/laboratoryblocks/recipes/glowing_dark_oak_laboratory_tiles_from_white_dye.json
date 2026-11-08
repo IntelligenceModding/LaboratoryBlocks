@@ -27,7 +27,7 @@
       "item": "laboratoryblocks:glowing_dark_dark_oak_laboratory_tiles"
     },
     {
-      "tag": "c:dyes/white"
+      "item": "minecraft:white_dye"
     }
   ],
   "result": {
